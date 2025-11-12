@@ -1,8 +1,6 @@
 # Education
 
-Collected three computer-ish degrees because apparently one wasn't enough to convince people I could babysit a cron job. SBMP taught me how not to panic when Linux does, the University of Mumbai let me break distributed systems on purpose, and Strathclyde Business School sharpened the storytelling around the smoke.
-
-Those years were fueled by merit-based Jain Trust scholarships in Mumbai and plenty of part-time work in Glasgow. They taught me to turn messy problems into reliable systems long before the job titles caught up.
+Collected three computer-ish degrees because apparently one wasn't enough to convince people I could babysit a cron job.
 
 <hr class="section-break" />
 
@@ -53,9 +51,3 @@ Those years were fueled by merit-based Jain Trust scholarships in Mumbai and ple
 </div>
 
 <hr class="section-break" />
-
-## Ongoing Learning
-
-I'm firmly on team "learn because it's fun," not "collect another lanyard." Current rabbit holes: ISO-aligned AI governance, FinOps that doesn't ruin morale, and RAG systems that admit when they're bluffing.
-
-**Active areas:** MLOps, LLMOps, data observability, ISO 42001-inspired guardrails, vector databases, MCP playbooks, and convincing senior leadership that curiosity budgets beat shiny certificates every single time.

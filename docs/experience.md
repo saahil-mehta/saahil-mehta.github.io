@@ -1,6 +1,6 @@
 # Experience
 
-I look after data platforms the way slightly eccentric grandmothers guard cookie recipes: strict rules, secret tweaks, backups hidden everywhere. The loop is simple: something hiccups, we steady the room, rebuild so the 3 a.m. pager forgets our number.
+I look after data platforms the way slightly eccentric grandmothers guard cookie recipes: strict rules, secret tweaks, backups hidden everywhere. 
 
 <hr class="section-break" />
 
