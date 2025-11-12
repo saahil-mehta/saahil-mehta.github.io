@@ -1,50 +1,49 @@
 # Portfolio
 
-Personal portfolio website for Saahil Mehta - Data & AI Engineer.
+Personal site for Saahil Mehta – Data & AI Engineer.
 
-**Live site:** https://saahil-mehta.github.io (or your custom domain)
+**Live:** https://saahil-mehta.github.io
 
-## Tech Stack
+## Stack
 
-- Vanilla HTML, CSS, JavaScript
-- Markdown content
-- GitHub Pages hosting
-- Zero dependencies, zero build process
+Vanilla HTML, CSS, JavaScript. Markdown for content. No build process, no dependencies.
 
 ## Development
 
 ```bash
-# Serve locally
 python -m http.server 8000 -d docs/
-# Then open http://localhost:8000
 ```
+
+Open `http://localhost:8000`
 
 ## Structure
 
-- `docs/index.html` - Main page with navigation and layout
-- `docs/about.md` - About section content
-- `docs/contributions.md` - GitHub contributions section
-- `docs/projects.md` - Projects showcase
-- `docs/experience.md` - Experience timeline content
-- `docs/resume.md` - PDF preview and download links
-- `docs/styles.css` - Styling and theme (dark/light mode)
-- `docs/script.js` - Markdown loading and interactivity
-- `docs/assets/` - Images, logos, project screenshots
+```
+docs/
+├── index.html          # Shell and navigation
+├── about.md            # Bio
+├── contributions.md    # GitHub graph
+├── projects.md         # Project cards
+├── experience.md       # Timeline
+├── resume.md           # PDF embed
+├── styles.css          # Theme and layout
+├── script.js           # Markdown loader + graph
+└── assets/             # Images, resume PDF
+```
 
-## Customisation
+## Editing
 
-1. **Profile Image:** Replace `docs/assets/profile.jpg` with your photo
-2. **Projects:** Add project screenshots to `docs/assets/` and update `projects.md`
-3. **Experience / Résumé:** Edit `docs/experience.md` for the narrative and `docs/resume.md` for the PDF embed
-4. **Custom Domain:** Create `docs/CNAME` file with your domain name
+- **Profile**: Replace `docs/assets/profile.jpg`
+- **Projects**: Update `projects.md` and add screenshots to `assets/`
+- **Experience**: Edit `experience.md` and `docs/assets/Saahil-Mehta-Resume.pdf`
+- **Domain**: Add `docs/CNAME` with your domain
 
 ## Deployment
 
-Push to GitHub and enable GitHub Pages in repository settings:
-- Settings → Pages → Source: main branch → docs folder → Save
+GitHub Actions workflow deploys automatically on push to `main`.
 
-Site will be live at `https://saahil-mehta.github.io` in ~60 seconds.
+Manual setup: Settings → Pages → Source: GitHub Actions
 
 ---
 
-Template inspired by [jrosseruk.github.io](https://github.com/jrosseruk/jrosseruk.github.io) and [astro-theme-cactus](https://astro-cactus.chriswilliams.dev/).
+Inspired by [jrosseruk.github.io](https://github.com/jrosseruk/jrosseruk.github.io) and [astro-theme-cactus](https://astro-cactus.chriswilliams.dev/)
