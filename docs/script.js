@@ -260,7 +260,7 @@ class LazyImageLoader {
 // Markdown content loader
 class MarkdownLoader {
     constructor() {
-        this.sections = ['about', 'education', 'projects', 'resume'];
+        this.sections = ['about', 'contributions', 'projects', 'experience', 'education', 'resume'];
         this.init();
     }
 
@@ -283,7 +283,7 @@ class MarkdownLoader {
         ];
 
         let lastError = null;
-        
+
         for (const fullPath of pathsToTry) {
             try {
                 console.log(`Trying to fetch: ${fullPath}`);
@@ -296,6 +296,12 @@ class MarkdownLoader {
                     if (typeof window.applyBHoverEffect === 'function') {
                         window.applyBHoverEffect(contentElement);
                     }
+
+                    // If this is the contributions section, initialise the graph
+                    if (section === 'contributions') {
+                        new ContributionGraph('saahil-mehta');
+                    }
+
                     console.log(`Successfully loaded ${section} from: ${fullPath}`);
                     return; // Success, exit early
                 } else {
@@ -489,7 +495,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     new LazyImageLoader();
     new MarkdownLoader();
-    
+    // ContributionGraph is now initialised after contributions.md loads
+
     // Apply hover effect to all 'b' letters on initial content
     if (typeof window.applyBHoverEffect === 'function') {
         window.applyBHoverEffect(document.body);
@@ -727,3 +734,296 @@ prefersReducedMotion.addEventListener('change', () => {
         document.documentElement.style.setProperty('scroll-behavior', 'smooth');
     }
 });
+
+class ContributionGraph {
+    constructor(username) {
+        this.username = username;
+        this.container = document.getElementById('github-contributions');
+        this.cacheKey = `github-contrib-${username}`;
+        this.cacheExpiry = 60 * 60 * 1000; // 1 hour
+        this.allData = null;
+
+        if (this.container) {
+            this.fetchData();
+        }
+    }
+
+    async fetchData() {
+        // Check cache first
+        const cached = this.getFromCache();
+        if (cached) {
+            console.log('Using cached contribution data');
+            this.allData = cached;
+            this.renderWithYearSelector(cached);
+            return;
+        }
+
+        const endpoint = `https://github-contributions-api.jogruber.de/v4/${this.username}`;
+        try {
+            const response = await fetch(endpoint);
+            if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+            const data = await response.json();
+
+            // The API returns a flat array of contributions, we need to transform it into weeks
+            let contributions = [];
+            if (Array.isArray(data.contributions)) {
+                contributions = data.contributions;
+            } else if (data.total && typeof data.total === 'object') {
+                // Handle format with years
+                const years = Object.keys(data.total).sort().reverse();
+                if (years.length > 0 && data.contributions) {
+                    contributions = data.contributions;
+                }
+            } else {
+                throw new Error('Unexpected data format');
+            }
+
+            // Store full data
+            this.allData = { contributions, total: data.total, fetchTime: Date.now() };
+            this.saveToCache(this.allData);
+
+            this.renderWithYearSelector(this.allData);
+        } catch (error) {
+            this.renderError(error);
+        }
+    }
+
+    getFromCache() {
+        try {
+            const cached = localStorage.getItem(this.cacheKey);
+            if (!cached) return null;
+
+            const data = JSON.parse(cached);
+            const age = Date.now() - data.fetchTime;
+
+            if (age < this.cacheExpiry) {
+                return data;
+            }
+
+            // Cache expired
+            localStorage.removeItem(this.cacheKey);
+            return null;
+        } catch (error) {
+            console.error('Cache error:', error);
+            return null;
+        }
+    }
+
+    saveToCache(data) {
+        try {
+            localStorage.setItem(this.cacheKey, JSON.stringify(data));
+        } catch (error) {
+            console.error('Failed to cache data:', error);
+        }
+    }
+
+    renderWithYearSelector(data) {
+        // Filter for 2025 only
+        const year2025Contributions = data.contributions.filter(c => c.date.startsWith('2025'));
+
+        // Transform into weeks structure
+        const weeks = this.transformToWeeks(year2025Contributions);
+        this.renderGrid(weeks);
+    }
+
+    transformToWeeks(contributions) {
+        // Create a map of date -> count for quick lookup
+        const contributionMap = {};
+        contributions.forEach(c => {
+            contributionMap[c.date] = c.count || 0;
+        });
+
+        // Use 2025 calendar year
+        const startDate = new Date('2025-01-01');
+        const endDate = new Date(); // Today
+
+        // Start from the first Sunday before or on Jan 1, 2025
+        const dayOfWeek = startDate.getDay();
+        startDate.setDate(startDate.getDate() - dayOfWeek); // Go back to Sunday
+
+        // Build weeks array
+        const weeks = [];
+        const currentDate = new Date(startDate);
+
+        while (currentDate <= endDate) {
+            const week = { days: [] };
+
+            // Add 7 days for this week
+            for (let i = 0; i < 7; i++) {
+                const dateString = currentDate.toISOString().split('T')[0];
+                const count = contributionMap[dateString] || 0;
+
+                week.days.push({
+                    date: dateString,
+                    count: count
+                });
+
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+
+            weeks.push(week);
+        }
+
+        return weeks;
+    }
+
+    renderGrid(weeks) {
+        this.container.innerHTML = '';
+
+        // Calculate total contributions for 2025
+        let totalContributions = 0;
+        weeks.forEach(week => {
+            week.days.forEach(day => {
+                totalContributions += day.count;
+            });
+        });
+
+        // Show total for 2025
+        const totalText = document.createElement('div');
+        totalText.className = 'contrib-total';
+        totalText.textContent = `${totalContributions} contributions in 2025`;
+        totalText.style.marginBottom = '1rem';
+        this.container.appendChild(totalText);
+
+        // Add month labels
+        const monthLabels = this.buildMonthLabels(weeks);
+        this.container.appendChild(monthLabels);
+
+        // Create container for weekday labels and grid
+        const graphContainer = document.createElement('div');
+        graphContainer.className = 'contrib-graph-container';
+
+        // Add weekday labels
+        const weekdayLabels = this.buildWeekdayLabels();
+        graphContainer.appendChild(weekdayLabels);
+
+        // Add grid
+        const grid = document.createElement('div');
+        grid.className = 'contrib-grid';
+
+        let cellIndex = 0;
+        weeks.forEach((week) => {
+            const column = document.createElement('div');
+            column.className = 'contrib-week';
+            week.days.forEach((day) => {
+                const cell = document.createElement('span');
+                cell.className = `contrib-day ${this.getLevelClass(day.count)}`;
+                cell.title = `${day.count} contribution${day.count === 1 ? '' : 's'} on ${day.date}`;
+
+                // Stagger the animation
+                cell.style.animationDelay = `${cellIndex * 0.001}s`;
+                cellIndex++;
+
+                column.appendChild(cell);
+            });
+            grid.appendChild(column);
+        });
+
+        graphContainer.appendChild(grid);
+        this.container.appendChild(graphContainer);
+        this.container.appendChild(this.buildLegend());
+    }
+
+    buildWeekdayLabels() {
+        const weekdaysContainer = document.createElement('div');
+        weekdaysContainer.className = 'contrib-weekdays';
+
+        const days = ['Mon', '', 'Wed', '', 'Fri', '', '']; // Show Mon, Wed, Fri only
+        days.forEach(day => {
+            const label = document.createElement('span');
+            label.className = 'contrib-weekday-label';
+            label.textContent = day;
+            weekdaysContainer.appendChild(label);
+        });
+
+        return weekdaysContainer;
+    }
+
+    buildMonthLabels(weeks) {
+        const monthsContainer = document.createElement('div');
+        monthsContainer.className = 'contrib-months';
+
+        let currentMonth = '';
+        let monthStartIndex = 0;
+        const cellWidth = 11;
+        const cellGap = 3;
+
+        weeks.forEach((week, weekIndex) => {
+            const firstDay = week.days[0];
+            if (!firstDay) return;
+
+            const date = new Date(firstDay.date);
+            const monthName = date.toLocaleDateString('en-GB', { month: 'short' });
+
+            if (monthName !== currentMonth && weekIndex > 0) {
+                // Calculate pixel position for previous month label
+                const leftPosition = monthStartIndex * (cellWidth + cellGap);
+
+                // Only add if there's enough space (at least 2 weeks)
+                if (weekIndex - monthStartIndex >= 2) {
+                    const monthLabel = document.createElement('span');
+                    monthLabel.className = 'contrib-month-label';
+                    monthLabel.textContent = currentMonth;
+                    monthLabel.style.left = `${leftPosition}px`;
+                    monthsContainer.appendChild(monthLabel);
+                }
+
+                monthStartIndex = weekIndex;
+                currentMonth = monthName;
+            } else if (weekIndex === 0) {
+                currentMonth = monthName;
+            }
+        });
+
+        // Add the last month
+        const leftPosition = monthStartIndex * (cellWidth + cellGap);
+        if (weeks.length - monthStartIndex >= 2) {
+            const monthLabel = document.createElement('span');
+            monthLabel.className = 'contrib-month-label';
+            monthLabel.textContent = currentMonth;
+            monthLabel.style.left = `${leftPosition}px`;
+            monthsContainer.appendChild(monthLabel);
+        }
+
+        return monthsContainer;
+    }
+
+    buildLegend() {
+        const legend = document.createElement('div');
+        legend.className = 'contrib-legend';
+
+        const lessLabel = document.createElement('span');
+        lessLabel.className = 'contrib-legend-label';
+        lessLabel.textContent = 'Less';
+        legend.appendChild(lessLabel);
+
+        const swatches = document.createElement('div');
+        swatches.className = 'contrib-legend-swatches';
+        for (let level = 0; level <= 4; level++) {
+            const swatch = document.createElement('span');
+            swatch.className = `contrib-day level-${level}`;
+            swatches.appendChild(swatch);
+        }
+        legend.appendChild(swatches);
+
+        const moreLabel = document.createElement('span');
+        moreLabel.className = 'contrib-legend-label';
+        moreLabel.textContent = 'More';
+        legend.appendChild(moreLabel);
+
+        return legend;
+    }
+
+    getLevelClass(count) {
+        if (count === 0) return 'level-0';
+        if (count < 3) return 'level-1';
+        if (count < 6) return 'level-2';
+        if (count < 10) return 'level-3';
+        return 'level-4';
+    }
+
+    renderError(error) {
+        console.error('Contribution graph error:', error);
+        this.container.innerHTML = '<p style="font-size:0.85rem;opacity:0.8;">Unable to load contributions right now.</p>';
+    }
+}

@@ -21,18 +21,16 @@
 
 
 
-I build data platforms that don't fall over at 3am. Seven years of making computers do useful things with data.
+The thing about building data platforms is that nobody notices when they work. Like plumbing, really—only interesting when something's flooding the basement at 3am. I build the boring kind. The kind that lets people sleep.
 
-Currently at **South Pole Group**, where I own the data platform that runs carbon trading and climate finance operations. Recently migrated 18,000 cloud resources to Terraform without breaking anything important. People seemed impressed by this, which tells you something about the state of data infrastructure.
+Seven years in, most of my work involves making computers politely agree with each other. At **South Pole Group** I wrangle data for climate finance and carbon markets, which sounds noble until you realise I spend Tuesday mornings explaining to Terraform why it's upset about IAM policies. Before that, **Publicis (Digitas)** taught me that marketing data is just chaos wearing a spreadsheet, and that sometimes the best code is the kind that stops people sending you Slack messages at midnight.
 
-I'm also shipping LLMs to production using FastAPI and Cloud Run, which means I get to worry about both data pipelines *and* whether the AI is hallucinating. My therapist says I should find less stressful hobbies.
+I studied engineering thrice (diploma, bachelors, and masters) in different cities—Mumbai, then Glasgow, then briefly wondered if I'd made terrible life choices—but mostly I learn by breaking things in production and pretending it was a learning opportunity. These days I tinker with agentic (also RAG) systems at [knowsee.framer.ai](https://knowsee.framer.ai), which is a polite way of saying I teach computers to read company data, docs, web search and whatnot so humans don't have to. All of that while you just casually talk to it. And it's all private (thanks open weight models!).  
 
-Before this, I was at **Publicis** (Digitas) building marketing data pipelines for Samsung, Formula 1, and Marriott. Managed to cut one client's cloud costs from £500 to £7 a month. They bought me a coffee with the savings. It was a nice coffee.
+Based in Reading. Volunteer at the Museum of English Rural Life (MERL), where I've convinced them that handwritten visitor cards deserve OCR and a two-stage LLM validation layer. They're humouring me. Weekends usually involve cars—shows, driving to places satnavs warn you about (Hardknott Pass, NC500), once met Mat Watson and managed not to embarrass myself—or falling down rabbit holes about the latest phones, PC builds, and why Stoicism makes more sense than most productivity frameworks. Pockets permanently full of cables nobody else needs.
 
-I hold a Master's in Data Analytics from Strathclyde (First-Class Honours, which my mum is very proud of) and spend my free time building an AI knowledge platform at [knowsee.framer.ai](https://knowsee.framer.ai). It's RAG-powered, MCP-integrated, and uses words like "agentic" unironically.
+If you want to talk about making AI systems that won't embarrass you in front of the board, or why governance is actually just being kind to your future self, I'm around. Same goes for BigQuery bills that make accountants cry, or which dashcam has the best night vision.
 
-Based in Reading, England. Open to conversations about data platforms, AI infrastructure, or why your BigQuery bill is so high.
+<hr class="section-break" />
 
----
-
-_P.S. There's an easter egg hidden on this website. Hint: Check the source code where data meets structure. Find it and email me with the emoji in the subject line. I promise to reply._
+_P.S. There's an easter egg tucked somewhere between the scripts and the markdown. If you find it, email me the emoji in the subject line and I'll write back._

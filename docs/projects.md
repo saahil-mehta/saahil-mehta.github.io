@@ -5,10 +5,11 @@
 <div class="publication-card">
     <div class="publication-image">
         <lottie-player
+            class="lottie-fill"
             src="assets/system-regular-1-share-hover-pinch.json"
             background="transparent"
             speed="1"
-            style="width: 100%; height: 200px;"
+            preserveAspectRatio="xMidYMid meet"
             loop
             autoplay>
         </lottie-player>
@@ -30,7 +31,7 @@
             <a href="https://knowsee.framer.ai" class="tag tag-arxiv">LIVE SITE</a>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Building an internal knowledge platform using agent frameworks, embeddings and vector stores to unify docs, standards and tribal knowledge into a secure, searchable system. Implemented RAG pipelines with careful chunking, metadata design and evaluation. Integrated with open-source agent starter kits and contributed improvements upstream to strengthen reliability and observability.
+            RAG platform that ingests company knowledge—docs, screenshots, emails—with chunking and metadata that actually work. Eval suites catch hallucinations before they reach production.
         </p>
     </div>
 </div>
@@ -38,10 +39,11 @@
 <div class="publication-card">
     <div class="publication-image">
         <lottie-player
+            class="lottie-fill"
             src="assets/system-regular-63-settings-cog-hover-cog-1.json"
             background="transparent"
             speed="0.8"
-            style="width: 100%; height: 200px;"
+            preserveAspectRatio="xMidYMid meet"
             loop
             autoplay>
         </lottie-player>
@@ -60,7 +62,7 @@
             <span class="tag tag-safety">CI/CD</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Migrated 18,000+ cloud resources from Pulumi to modular Terraform with GitHub Actions CI/CD. Standardised IAM, networking, GKE/Cloud Run deployments, logging, drift detection and policy-as-code across the organisation. Serves Finance, Carbon Trading, Projects, Sales and Advisory teams.
+            Migrated 18,000+ cloud resources from Pulumi to Terraform with standardised IAM, networking, and policy-as-code. Five business units now share infrastructure without the drama.
         </p>
     </div>
 </div>
@@ -68,10 +70,11 @@
 <div class="publication-card">
     <div class="publication-image">
         <lottie-player
+            class="lottie-fill"
             src="assets/system-regular-22-build-hover-build.json"
             background="transparent"
             speed="1"
-            style="width: 100%; height: 200px;"
+            preserveAspectRatio="xMidYMid meet"
             loop
             autoplay>
         </lottie-player>
@@ -90,20 +93,23 @@
             <span class="tag tag-safety">LLMs</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Delivered production LLM/RAG microservices on GCP (FastAPI, FastMCP, Cloud Run) integrated into existing data pipelines with full observability. Enabled safe, low-latency AI services on production data whilst maintaining GDPR and ISO compliance standards.
+            FastAPI/FastMCP services on Cloud Run with guardrails, observability, and contract tests. Answers questions about climate projects without hallucinating.
         </p>
     </div>
 </div>
 
-## ML & Data Science
+## Volunteering
+
+Making data useful for people who don't live inside BigQuery.
 
 <div class="publication-card">
     <div class="publication-image">
         <lottie-player
-            src="assets/system-regular-22-build-hover-build.json"
+            class="lottie-fill"
+            src="assets/system-regular-14-article-hover-article.json"
             background="transparent"
             speed="0.8"
-            style="width: 100%; height: 200px;"
+            preserveAspectRatio="xMidYMid meet"
             loop
             autoplay>
         </lottie-player>
@@ -121,7 +127,7 @@
             <span class="tag tag-safety">Multimodal LLMs</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Designed on-device + cloud workflow using Apple Vision ML OCR and two-stage multimodal LLM validation to convert handwritten visitor comment cards into structured datasets. Mapped outputs to the Generic Learning Outcomes framework to quantify engagement, sentiment and learning impact across galleries. Created accessible workflows for neurodivergent volunteers.
+            Apple Vision ML + multimodal LLMs turn handwritten visitor cards into structured insights mapped to the Generic Learning Outcomes framework. Workflow designed for neurodivergent volunteers—clear steps, no jargon.
         </p>
     </div>
 </div>
