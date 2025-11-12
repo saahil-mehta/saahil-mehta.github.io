@@ -23,8 +23,10 @@ python -m http.server 8000 -d docs/
 
 - `docs/index.html` - Main page with navigation and layout
 - `docs/about.md` - About section content
-- `docs/publications.md` - Projects showcase (renamed from publications)
-- `docs/resume.md` - CV/résumé content
+- `docs/contributions.md` - GitHub contributions section
+- `docs/projects.md` - Projects showcase
+- `docs/experience.md` - Experience timeline content
+- `docs/resume.md` - PDF preview and download links
 - `docs/styles.css` - Styling and theme (dark/light mode)
 - `docs/script.js` - Markdown loading and interactivity
 - `docs/assets/` - Images, logos, project screenshots
@@ -32,8 +34,8 @@ python -m http.server 8000 -d docs/
 ## Customisation
 
 1. **Profile Image:** Replace `docs/assets/profile.jpg` with your photo
-2. **Projects:** Add project screenshots to `docs/assets/` and update `publications.md`
-3. **Résumé:** Edit `docs/resume.md` with your experience
+2. **Projects:** Add project screenshots to `docs/assets/` and update `projects.md`
+3. **Experience / Résumé:** Edit `docs/experience.md` for the narrative and `docs/resume.md` for the PDF embed
 4. **Custom Domain:** Create `docs/CNAME` file with your domain name
 
 ## Deployment
