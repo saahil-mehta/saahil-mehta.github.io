@@ -1,61 +1,61 @@
 # Education
 
-Collected three computer-related degrees over nine years. The first one taught me how to install Linux without breaking everything. The second taught me that breaking everything is sometimes the point. The third taught me how to explain why everything broke, in graphs.
+Collected three computer-ish degrees because apparently one wasn't enough to convince people I could babysit a cron job. SBMP taught me how not to panic when Linux does, the University of Mumbai let me break distributed systems on purpose, and Strathclyde Business School sharpened the storytelling around the smoke.
 
-Started at polytechnic learning the difference between RAM and hard drives. Ended at Strathclyde with a Master's in Data Analytics, which is what you call statistics when you want to get paid more. My mum has the certificate framed.
+Those years were fueled by merit-based Jain Trust scholarships in Mumbai and plenty of part-time work in Glasgow. They taught me to turn messy problems into reliable systems long before the job titles caught up.
 
----
+<hr class="section-break" />
 
 <div class="timeline">
 
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">University of Strathclyde</span>
+      <span class="timeline-org">University of Strathclyde (Business School)</span>
       <span class="timeline-role">Master of Science in Data Analytics</span>
       <span class="timeline-dates">2023</span>
     </div>
     <div class="timeline-meta">Glasgow, UK</div>
     <div class="timeline-desc">
       <strong>First-Class Honours / Distinction</strong><br/>
-      Focused on advanced machine learning, statistical modelling, data visualisation, and big data technologies. Dissertation on predictive analytics for time-series forecasting.
+      Jointly delivered by Management Science, Mathematics & Statistics, and Computer & Information Sciences, with "Data Analytics in Practice" client projects spanning both semesters plus a summer dissertation embedded with host organisations. Coursework ranged from optimisation and decision modelling to machine learning on big-data platforms.
     </div>
   </div>
 
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">University of Mumbai</span>
+      <span class="timeline-org">University of Mumbai (Shah & Anchor Kutchhi Engineering College)</span>
       <span class="timeline-role">Bachelor of Computer Engineering</span>
       <span class="timeline-dates">2019</span>
     </div>
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
       <strong>3.25 GPA</strong><br/>
-      Core coursework in algorithms, database systems, cloud computing, and software engineering. Final year project on distributed systems and microservices architecture.
+      Built distributed systems, microservices, and the sort of database engines that teach humility. Funded by the merit-based Jain Trust scholarship.
     </div>
   </div>
 
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">SBM Polytechnic</span>
+      <span class="timeline-org">Shri Bhagubhai Mafatlal Polytechnic (SBMP)</span>
       <span class="timeline-role">Three-year Diploma in Computer Engineering</span>
       <span class="timeline-dates">2016</span>
     </div>
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
       <strong>7.77 / 10</strong><br/>
-      Foundation in programming, data structures, networking, and system administration.
+      Foundation in programming, networks, and the practical electronics that keep labs alive; also where I learnt the habit of labelling every cable because future-you forgets.
     </div>
   </div>
 
 </div>
 
----
+<hr class="section-break" />
 
-## Continuous Learning
+## Ongoing Learning
 
-Still collecting certifications like Pokémon cards. Currently working on Google Cloud Professional Data Engineer because someone thought I needed more acronyms after my name. Also studying advanced RAG systems and LLM fine-tuning, which is what we called "making things up convincingly" before AI became fashionable.
+I'm firmly on team "learn because it's fun," not "collect another lanyard." Current rabbit holes: ISO-aligned AI governance, FinOps that doesn't ruin morale, and RAG systems that admit when they're bluffing.
 
-**Active areas:** MLOps, LLMOps, data observability, AI governance frameworks (ISO 42001), vector databases, and explaining to senior management why we can't just "add blockchain" to fix the data warehouse.
+**Active areas:** MLOps, LLMOps, data observability, ISO 42001-inspired guardrails, vector databases, MCP playbooks, and convincing senior leadership that curiosity budgets beat shiny certificates every single time.
