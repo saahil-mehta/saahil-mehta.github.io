@@ -100,7 +100,7 @@
 
 ## Volunteering
 
-Making data useful for people who don't live inside BigQuery.
+Engineering data systems for accessibility, reliability, and business impact.
 
 <div class="publication-card">
     <div class="publication-image">

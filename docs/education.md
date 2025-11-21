@@ -1,6 +1,6 @@
 # Education
 
-Collected three computer-ish degrees because apparently one wasn't enough to convince people I could babysit a cron job.
+A rigorous academic foundation combining computer science, mathematics, and business analytics.
 
 <hr class="section-break" />
 
@@ -30,7 +30,7 @@ Collected three computer-ish degrees because apparently one wasn't enough to con
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
       <strong>3.25 GPA</strong><br/>
-      Built distributed systems, microservices, and the sort of database engines that teach humility. Funded by the merit-based Jain Trust scholarship.
+      Focused on distributed systems, microservices, and database engine architecture. Funded by the merit-based Jain Trust scholarship.
     </div>
   </div>
 
@@ -44,7 +44,7 @@ Collected three computer-ish degrees because apparently one wasn't enough to con
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
       <strong>7.77 / 10</strong><br/>
-      Foundation in programming, networks, and the practical electronics that keep labs alive; also where I learnt the habit of labelling every cable because future-you forgets.
+      Established a strong foundation in programming, network infrastructure, and hardware systems.
     </div>
   </div>
 
