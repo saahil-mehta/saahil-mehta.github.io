@@ -21,14 +21,14 @@
 
 
 
-The thing about building data platforms is that nobody notices when they work. Like plumbing, really—only interesting when something's flooding the basement at 3am. I build the boring kind. The kind that lets people sleep.
+I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice—it works silently, scales predictably, and ensures stability.
 
-These days I tinker with agentic (also RAG) systems : [knowsee.framer.ai](https://knowsee.framer.ai), which is a polite way of saying I teach computers to read company data, docs, web search and whatnot so humans don't have to. All of that while you just casually talk to it. And it's all private (thanks open weight models!).  
+Currently, I'm building agentic RAG systems at [knowsee.framer.ai](https://knowsee.framer.ai). It is a private, secure system that enables computers to process company data—docs, web search, internal wikis—so teams can focus on high-value work. It runs on open weights and prioritizes data privacy.
 
-Based in Reading. Volunteer at the Museum of English Rural Life (MERL), where I've convinced them that handwritten visitor cards deserve OCR and a two-stage LLM validation layer. They're humouring me. 
+Based in Reading. I volunteer at the Museum of English Rural Life (MERL), where I've introduced OCR and a two-stage LLM validation layer to digitize handwritten visitor cards, making historical data accessible. 
 
-Weekends usually involve cars—shows, driving to places satnavs warn you about (Hardknott Pass, NC500), once met Mat Watson and managed not to embarrass myself—or falling down rabbit holes about the latest phones, PC builds, and why Stoicism makes more sense than most productivity frameworks. Pockets permanently full of cables nobody else needs.
+Weekends involve cars (especially driving challenging routes like Hardknott Pass), PC building, and reading about Stoicism. I also have a tendency to hoard cables "just in case."
 
-If you want to talk about making AI systems that won't embarrass you in front of the board, or why governance is actually just being kind to your future self, I'm around. Same goes for BigQuery bills that make accountants cry, or which dashcam has the best night vision.
+If you want to talk about building robust AI systems, governance frameworks, or optimizing cloud costs, I'm around.
 
 <hr class="section-break" />

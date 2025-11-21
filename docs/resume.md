@@ -1,6 +1,6 @@
 # Resume / CV
 
-I keep the canonical, PDF-friendly version of my experience here. If you prefer summaries, the Experience section above should do; if you want the fine print, feel free to dive in.
+The full, printer-friendly history. If you want the highlights, the Experience tab is faster. The PDF below contains the complete details.
 
 <div class="resume-preview">
   <div class="resume-frame">

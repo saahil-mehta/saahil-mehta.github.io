@@ -31,7 +31,7 @@
             <a href="https://knowsee.framer.ai" class="tag tag-arxiv">LIVE SITE</a>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            RAG platform that ingests company knowledge—docs, screenshots, emails—with chunking and metadata that actually work. Eval suites catch hallucinations before they reach production.
+            A RAG platform that ingests company knowledge—docs, screenshots, emails—with effective chunking and metadata handling. Includes eval suites to catch hallucinations before they reach production, ensuring reliability.
         </p>
     </div>
 </div>
@@ -62,7 +62,7 @@
             <span class="tag tag-safety">CI/CD</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Migrated 18,000+ cloud resources from Pulumi to Terraform with standardised IAM, networking, and policy-as-code. Five business units now share infrastructure without the drama.
+            Migrated 18,000+ cloud resources from Pulumi to Terraform. Implemented standardised IAM, networking, and policy-as-code, allowing five business units to share infrastructure seamlessly.
         </p>
     </div>
 </div>
@@ -93,7 +93,7 @@
             <span class="tag tag-safety">LLMs</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            FastAPI/FastMCP services on Cloud Run with guardrails, observability, and contract tests. Answers questions about climate projects without hallucinating.
+            FastAPI/FastMCP services on Cloud Run with guardrails, observability, and contract tests. Answers questions about climate projects with strict adherence to data privacy and accuracy.
         </p>
     </div>
 </div>
@@ -127,7 +127,7 @@ Making data useful for people who don't live inside BigQuery.
             <span class="tag tag-safety">Multimodal LLMs</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Apple Vision ML + multimodal LLMs turn handwritten visitor cards into structured insights mapped to the Generic Learning Outcomes framework. Workflow designed for neurodivergent volunteers—clear steps, no jargon.
+            Apple Vision ML + multimodal LLMs to turn handwritten visitor cards into structured insights. Mapped to the Generic Learning Outcomes framework. A workflow designed for neurodivergent volunteers—clear steps, accessible design.
         </p>
     </div>
 </div>

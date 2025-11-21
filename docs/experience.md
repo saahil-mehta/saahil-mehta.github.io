@@ -1,6 +1,6 @@
 # Experience
 
-I look after data platforms the way slightly eccentric grandmothers guard cookie recipes: strict rules, secret tweaks, backups hidden everywhere. 
+I manage data platforms with an uncompromising focus on stability, security, and governance. My approach relies on strict standards and robust backup strategies. 
 
 <hr class="section-break" />
 
@@ -15,7 +15,7 @@ I look after data platforms the way slightly eccentric grandmothers guard cookie
     </div>
     <div class="timeline-meta">London / Remote</div>
     <div class="timeline-desc">
-      Own the climate-finance data estate: migrated 18k+ cloud resources from Pulumi to modular Terraform, layered policy-as-code and FinOps, and shipped governed FastAPI/FastMCP services so LLM/RAG workloads can touch sensitive trading data without drama.
+      Own the climate-finance data estate. Migrated 18k+ cloud resources from Pulumi to modular Terraform. Layered policy-as-code and FinOps, and shipped governed FastAPI/FastMCP services so LLM/RAG workloads can access sensitive trading data securely and compliantly.
     </div>
   </div>
 
@@ -28,7 +28,7 @@ I look after data platforms the way slightly eccentric grandmothers guard cookie
     </div>
     <div class="timeline-meta">London</div>
     <div class="timeline-desc">
-      Cut flagship GCP + Airflow workloads from four hours to two, built GitHub Actions CI/CD for data teams, normalised cross-channel marketing data for clients like Samsung and Formula 1, and automated access/credential flows so on-call rotations could breathe.
+      Cut flagship GCP + Airflow workloads from four hours to two. Built GitHub Actions CI/CD to eliminate manual deployment toil. Normalised cross-channel marketing data for clients like Samsung and Formula 1, ensuring data accuracy for critical campaigns.
     </div>
   </div>
 
@@ -41,7 +41,7 @@ I look after data platforms the way slightly eccentric grandmothers guard cookie
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Built a GCP data lake for Disney+ Hotstar that dropped reporting cycles from two days to two hours and unified app, ad, and CRM data so content and campaign decisions arrived on time.
+      Built a GCP data lake for Disney+ Hotstar that dropped reporting cycles from days to hours. Unified app, ad, and CRM data so content decisions could be made in near real-time.
     </div>
   </div>
 
@@ -54,7 +54,7 @@ I look after data platforms the way slightly eccentric grandmothers guard cookie
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Automated multilingual sentiment pipelines, scaled Facebook Ads ingestion from 3 to 100+ loads per week, trimmed a client’s cloud spend by 98%, and mentored analysts who now ship their own dbt projects.
+      Scaled Facebook Ads ingestion from 3 to 100+ weekly loads. Reduced a client’s cloud spend by 98% through optimization. Mentored analysts who now ship their own dbt projects.
     </div>
   </div>
 
