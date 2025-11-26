@@ -44,7 +44,7 @@ A rigorous academic foundation combining computer science, mathematics, and busi
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
       <strong>7.77 / 10</strong><br/>
-      Established a strong foundation in programming, network infrastructure, and hardware systems.
+      Core training in programming, networking, and hardware.
     </div>
   </div>
 

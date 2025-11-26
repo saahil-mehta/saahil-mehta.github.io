@@ -21,9 +21,11 @@
 
 
 
-I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice—it works silently, scales predictably, and ensures stability.
+I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice—it works silently, scales predictably, and stays stable.
 
-Currently, I'm building agentic RAG systems at [knowsee.framer.ai](https://knowsee.framer.ai). It is a private, secure system that enables computers to process company data—docs, web search, internal wikis—so teams can focus on high-value work. It runs on open weights and prioritizes data privacy.
+I work at [South Pole Group](https://www.southpole.com), where I manage data platforms with a focus on stability, security, and governance.
+
+On the side, I'm building [knowsee](https://knowsee.framer.ai)—an agentic RAG system that lets teams process company data (docs, web search, internal wikis) privately. It runs on open weights and prioritizes data privacy.
 
 Based in Reading. I volunteer at the Museum of English Rural Life (MERL), where I've introduced OCR and a two-stage LLM validation layer to digitize handwritten visitor cards, making historical data accessible. 
 

@@ -1,6 +1,6 @@
 # Experience
 
-I manage data platforms with an uncompromising focus on stability, security, and governance. My approach relies on strict standards and robust backup strategies. 
+I manage data platforms with an uncompromising focus on stability, security, and governance. My approach relies on strict standards and solid backup strategies. 
 
 <hr class="section-break" />
 
