@@ -16,7 +16,7 @@
     </div>
     <div class="publication-content">
         <h3 class="publication-title">
-            <a href="https://knowsee.framer.ai" target="_blank" class="publication-link">
+            <a href="https://knowsee.co.uk" target="_blank" class="publication-link">
                 AI-Native Knowledge & RAG System
             </a>
         </h3>
@@ -28,7 +28,7 @@
             <span class="tag tag-safety">Agent Frameworks</span>
             <span class="tag tag-safety">Vector Stores</span>
             <span class="tag tag-safety">MCP</span>
-            <a href="https://knowsee.framer.ai" class="tag tag-arxiv">LIVE SITE</a>
+            <a href="https://knowsee.co.uk" class="tag tag-arxiv">LIVE SITE</a>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
             A RAG platform that ingests company knowledge—docs, screenshots, emails—with effective chunking and metadata handling. Includes eval suites to catch hallucinations before they reach production, ensuring reliability.
