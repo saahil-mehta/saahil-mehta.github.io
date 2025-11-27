@@ -19,3 +19,12 @@ The full, printer-friendly history. If you want the highlights, the Experience t
     </a>
   </div>
 </div>
+
+<hr class="section-break" />
+
+<div style="text-align: center; margin-top: 2rem;">
+  <p style="margin-bottom: 1rem; opacity: 0.8;">Interested in working together?</p>
+  <a href="https://calendly.com/saahil_mehta/30min" target="_blank" rel="noopener noreferrer" class="resume-btn primary" style="display: inline-flex;">
+    <span>Book a call</span>
+  </a>
+</div>
