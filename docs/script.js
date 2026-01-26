@@ -739,7 +739,7 @@ class ContributionGraph {
     constructor(username) {
         this.username = username;
         this.container = document.getElementById('github-contributions');
-        this.cacheKey = `github-contrib-${username}`;
+        this.cacheKey = `github-contrib-${username}-v2`; // v2: rolling 12 months
         this.cacheExpiry = 60 * 60 * 1000; // 1 hour
         this.allData = null;
 
@@ -818,11 +818,17 @@ class ContributionGraph {
     }
 
     renderWithYearSelector(data) {
-        // Filter for 2025 only
-        const year2025Contributions = data.contributions.filter(c => c.date.startsWith('2025'));
+        // Calculate date range for last 12 months
+        const today = new Date();
+        const oneYearAgo = new Date(today);
+        oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+        const oneYearAgoStr = oneYearAgo.toISOString().split('T')[0];
+
+        // Filter contributions from the last 12 months
+        const recentContributions = data.contributions.filter(c => c.date >= oneYearAgoStr);
 
         // Transform into weeks structure
-        const weeks = this.transformToWeeks(year2025Contributions);
+        const weeks = this.transformToWeeks(recentContributions);
         this.renderGrid(weeks);
     }
 
@@ -833,13 +839,18 @@ class ContributionGraph {
             contributionMap[c.date] = c.count || 0;
         });
 
-        // Use 2025 calendar year
-        const startDate = new Date('2025-01-01');
-        const endDate = new Date(); // Today
+        // Use rolling 12 months
+        const today = new Date();
+        const startDate = new Date(today);
+        startDate.setFullYear(startDate.getFullYear() - 1);
 
-        // Start from the first Sunday before or on Jan 1, 2025
+        // Start from the first Sunday on or after one year ago
         const dayOfWeek = startDate.getDay();
-        startDate.setDate(startDate.getDate() - dayOfWeek); // Go back to Sunday
+        if (dayOfWeek !== 0) {
+            startDate.setDate(startDate.getDate() + (7 - dayOfWeek));
+        }
+
+        const endDate = new Date(); // Today
 
         // Build weeks array
         const weeks = [];
@@ -878,10 +889,10 @@ class ContributionGraph {
             });
         });
 
-        // Show total for 2025
+        // Show total for last 12 months
         const totalText = document.createElement('div');
         totalText.className = 'contrib-total';
-        totalText.textContent = `${totalContributions} contributions in 2025`;
+        totalText.textContent = `${totalContributions.toLocaleString()} contributions in the last year`;
         totalText.style.marginBottom = '1rem';
         this.container.appendChild(totalText);
 
