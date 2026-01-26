@@ -54,7 +54,7 @@ I manage data platforms with an uncompromising focus on stability, security, and
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Scaled Facebook Ads ingestion from 3 to 100+ weekly loads. Reduced a client’s cloud spend by 98% through optimization. Mentored analysts who now ship their own dbt projects.
+      Scaled Facebook Ads ingestion from 3 to 100+ weekly loads. Reduced a client's cloud spend by 98% through optimisation. Mentored analysts who now ship their own dbt projects.
     </div>
   </div>
 

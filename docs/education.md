@@ -11,7 +11,6 @@ A rigorous academic foundation combining computer science, mathematics, and busi
     <div class="timeline-header">
       <span class="timeline-org">University of Strathclyde (Business School)</span>
       <span class="timeline-role">Master of Science in Data Analytics</span>
-      <span class="timeline-dates">2023</span>
     </div>
     <div class="timeline-meta">Glasgow, UK</div>
     <div class="timeline-desc">
@@ -25,7 +24,6 @@ A rigorous academic foundation combining computer science, mathematics, and busi
     <div class="timeline-header">
       <span class="timeline-org">University of Mumbai (Shah & Anchor Kutchhi Engineering College)</span>
       <span class="timeline-role">Bachelor of Computer Engineering</span>
-      <span class="timeline-dates">2019</span>
     </div>
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
@@ -39,7 +37,6 @@ A rigorous academic foundation combining computer science, mathematics, and busi
     <div class="timeline-header">
       <span class="timeline-org">Shri Bhagubhai Mafatlal Polytechnic (SBMP)</span>
       <span class="timeline-role">Three-year Diploma in Computer Engineering</span>
-      <span class="timeline-dates">2016</span>
     </div>
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
