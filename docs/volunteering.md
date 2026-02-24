@@ -1,4 +1,4 @@
-# Volunteering
+# Volunteering & Recognition
 
 <div class="publication-card">
     <div class="publication-image">
@@ -45,6 +45,68 @@
         </details>
         <p style="margin-top:0.75rem;font-size:0.9rem;line-height:1.5;">
             <strong>Outcome:</strong> Delivered a strategic analysis to museum leadership covering sentiment trends, demographic insights, and visitor journey mapping against the Generic Learning Outcomes framework. Work that would have taken months of manual effort, completed in days. The museum now has evidence-based insight into nearly a decade of visitor experience, unlocked from a previously unreadable archive.
+        </p>
+    </div>
+</div>
+
+<div class="publication-card">
+    <div class="publication-image">
+        <lottie-player
+            class="lottie-fill"
+            src="assets/system-regular-consultation.json"
+            background="transparent"
+            speed="0.8"
+            preserveAspectRatio="xMidYMid meet"
+            loop
+            autoplay>
+        </lottie-player>
+    </div>
+    <div class="publication-content">
+        <h3 class="publication-title">
+            <a href="https://datasciencefestival.com" target="_blank" class="publication-link">
+                Data Science Festival Mentorship
+            </a>
+        </h3>
+        <div class="publication-venue">Data Science Festival · Mentor</div>
+        <div class="publication-authors">Saahil Mehta</div>
+        <div class="publication-year">2026 - Present</div>
+        <div class="publication-tags">
+            <span class="tag tag-safety">Mentoring</span>
+            <span class="tag tag-safety">Data Science</span>
+            <span class="tag tag-safety">Community</span>
+        </div>
+        <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
+            Mentoring aspiring data professionals through the Data Science Festival, the UK's largest free data science community. Providing guidance on career progression, technical skills, and navigating the transition into data engineering and AI roles.
+        </p>
+    </div>
+</div>
+
+<div class="publication-card">
+    <div class="publication-image">
+        <lottie-player
+            class="lottie-fill"
+            src="assets/system-regular-63-settings-cog-hover-cog-1.json"
+            background="transparent"
+            speed="0.8"
+            preserveAspectRatio="xMidYMid meet"
+            loop
+            autoplay>
+        </lottie-player>
+    </div>
+    <div class="publication-content">
+        <h3 class="publication-title">
+            Google Developer Specialist
+        </h3>
+        <div class="publication-venue">Google · Invite-only Programme</div>
+        <div class="publication-authors">Saahil Mehta</div>
+        <div class="publication-year">2026</div>
+        <div class="publication-tags">
+            <span class="tag tag-safety">Google Developer</span>
+            <span class="tag tag-safety">Technical Writing</span>
+            <span class="tag tag-safety">Community</span>
+        </div>
+        <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
+            Selected for Google's invite-only Developer Programme and recognised as a Google Developer Specialist, contributing to the Google Developer community through technical content on Medium.
         </p>
     </div>
 </div>
