@@ -35,6 +35,19 @@ I manage data platforms with an uncompromising focus on stability, security, and
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
+      <span class="timeline-org">Publicis Groupe · Digitas Mumbai</span>
+      <span class="timeline-role">Senior Associate, Data Analytics Engineering</span>
+      <span class="timeline-dates">Oct 2021 – Sep 2022</span>
+    </div>
+    <div class="timeline-meta">Mumbai</div>
+    <div class="timeline-desc">
+      Cut cloud costs by 98% for a key client through optimisation of storage, queries and scheduling. Scaled Facebook Ads ingestion from 3 to 100+ weekly loads, reducing deployment from hours to minutes. Led a team of 3 building automated pipelines and dashboards for near real-time campaign analytics.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <span class="timeline-dot"></span>
+    <div class="timeline-header">
       <span class="timeline-org">WPP · GroupM · Mindshare</span>
       <span class="timeline-role">Manager, Data & Technology</span>
       <span class="timeline-dates">Jul 2021 – Oct 2021</span>
@@ -49,12 +62,12 @@ I manage data platforms with an uncompromising focus on stability, security, and
     <span class="timeline-dot"></span>
     <div class="timeline-header">
       <span class="timeline-org">Publicis Groupe · Digitas Mumbai</span>
-      <span class="timeline-role">Senior Associate, Data & Analytics</span>
-      <span class="timeline-dates">Aug 2019 – Sep 2022</span>
+      <span class="timeline-role">Senior Associate, Data Science</span>
+      <span class="timeline-dates">Aug 2019 – Jul 2021</span>
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Scaled Facebook Ads ingestion from 3 to 100+ weekly loads. Reduced a client's cloud spend by 98% through optimisation. Mentored analysts who now ship their own dbt projects.
+      Automated data collection and transformation workflows, turning months of manual effort into minutes. Built and deployed multilingual sentiment analysis pipelines, doubling usable signal quality for planners. Created scalable Power BI dashboards adopted across teams, cutting manual update time by ~50%.
     </div>
   </div>
 
