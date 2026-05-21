@@ -17,10 +17,10 @@
     <div class="publication-content">
         <h3 class="publication-title">
             <a href="https://knowsee.co.uk" target="_blank" class="publication-link">
-                AI-Native Knowledge & RAG System
+                Knowsee
             </a>
         </h3>
-        <div class="publication-venue">Personal / OSS-aligned · In Progress</div>
+        <div class="publication-venue">Private AI System for Teams · Personal Project · In Progress</div>
         <div class="publication-authors">Saahil Mehta</div>
         <div class="publication-year">2024 - Present</div>
         <div class="publication-tags">
@@ -31,7 +31,7 @@
             <a href="https://knowsee.co.uk" class="tag tag-arxiv">LIVE SITE</a>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            A RAG platform that ingests company knowledge—docs, screenshots, emails—with effective chunking and metadata handling. Includes eval suites to catch hallucinations before they reach production, ensuring reliability.
+            A RAG-based AI platform that queries your data warehouse, ingests company knowledge (docs, screenshots, emails) with chunking and metadata that survives real-world inputs, and turns chat prompts into dashboards. SSO and RBAC out of the box; hallucination guardrails and sandboxed tools on by default; eval suites gate every release.
         </p>
     </div>
 </div>
@@ -62,7 +62,7 @@
             <span class="tag tag-safety">CI/CD</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Migrated 18,000+ cloud resources from Pulumi to Terraform. Implemented standardised IAM, networking, and policy-as-code, allowing five business units to share infrastructure seamlessly.
+            Migrated 18,000+ cloud resources from Pulumi to modular Terraform. Standardised IAM, networking, and policy-as-code so five business units now share one platform without stepping on each other. Adopted BI-as-code, DataOps, and FinOps practices alongside the migration, so the platform shipped governed, observable, and within budget from day one.
         </p>
     </div>
 </div>
@@ -93,7 +93,7 @@
             <span class="tag tag-safety">LLMs</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            FastAPI/FastMCP services on Cloud Run with guardrails, observability, and contract tests. Answers questions about climate projects with strict adherence to data privacy and accuracy.
+            FastAPI/FastMCP services on Cloud Run with guardrails, observability, and contract tests. Answers questions about climate projects under enforced access controls, with eval suites guarding factual accuracy.
         </p>
     </div>
 </div>

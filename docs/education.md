@@ -41,7 +41,7 @@ A rigorous academic foundation combining computer science, mathematics, and busi
     <div class="timeline-meta">Mumbai, India</div>
     <div class="timeline-desc">
       <strong>7.77 / 10</strong><br/>
-      Core training in programming, networking, and hardware.
+      Core training in programming, networking fundamentals, and digital electronics. First exposure to building things from the silicon up.
     </div>
   </div>
 

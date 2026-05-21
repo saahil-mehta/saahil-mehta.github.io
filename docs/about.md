@@ -21,16 +21,16 @@
 
 
 
-I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice—it works silently, scales predictably, and stays stable.
+I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice. It works quietly and scales without surprises.
 
 I work at [South Pole Group](https://www.southpole.com), where I manage data platforms with a focus on stability, security, and governance.
 
-On the side, I'm building [knowsee](https://knowsee.co.uk)—an agentic RAG system that lets teams process company data (docs, web search, internal wikis) privately. It runs on open weights and prioritises data privacy.
+On the side, I'm building [Knowsee](https://knowsee.co.uk), a private RAG-based AI system teams can point at their own docs, wikis, and web search. It runs on fine-tuned frontier models so nothing leaves your environment, and absorbs your business logic over time, so answers come from something that knows your company, not just your documents.
 
-Based in Reading. I volunteer at the Museum of English Rural Life (MERL), where I've introduced OCR and a two-stage LLM validation layer to digitise handwritten visitor cards, making historical data accessible. 
+Based in Reading. I volunteer at the Museum of English Rural Life (MERL), where I built an OCR + two-stage LLM pipeline that turned nine years of handwritten visitor cards into searchable data and a report for the leadership team.
 
-Weekends involve cars (especially driving challenging routes like Hardknott Pass), PC building, and reading about Stoicism. I also have a tendency to hoard cables "just in case."
+Weekends involve cars (especially routes like Hardknott Pass), PC building, and reading the Gita and the Stoics. I also have a tendency to hoard cables 'just in case' (recovering, slowly).
 
-If you want to talk about building robust AI systems, governance frameworks, or optimizing cloud costs, I'm around.
+If you want to talk about building robust AI systems, cars, motorcycles, or optimising your data/infra/cloud, or anything adjacent, I'm around.
 
 <hr class="section-break" />

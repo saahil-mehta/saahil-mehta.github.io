@@ -1,6 +1,6 @@
 # Experience
 
-I manage data platforms with an uncompromising focus on stability, security, and governance. My approach relies on strict standards and solid backup strategies. 
+I manage data platforms where the bar is reliability, governed access, and recoverable state. Strict standards, real backups, regular drills, full observability.
 
 <hr class="section-break" />
 
@@ -15,7 +15,7 @@ I manage data platforms with an uncompromising focus on stability, security, and
     </div>
     <div class="timeline-meta">London / Remote</div>
     <div class="timeline-desc">
-      Own the climate-finance data estate. Migrated 18k+ cloud resources from Pulumi to modular Terraform. Layered policy-as-code and FinOps, and shipped governed FastAPI/FastMCP services so LLM/RAG workloads can access sensitive trading data securely and compliantly.
+      Own the climate-finance data estate. Migrated 18k+ cloud resources from Pulumi to modular Terraform. Shipped governed FastAPI/FastMCP services that let LLM/RAG workloads reach sensitive carbon-credit transaction data without breaking access controls.
     </div>
   </div>
 
@@ -28,7 +28,7 @@ I manage data platforms with an uncompromising focus on stability, security, and
     </div>
     <div class="timeline-meta">London</div>
     <div class="timeline-desc">
-      Cut flagship GCP + Airflow workloads from four hours to two. Built GitHub Actions CI/CD to eliminate manual deployment toil. Normalised cross-channel marketing data for clients like Samsung and Formula 1, ensuring data accuracy for critical campaigns.
+      Cut flagship GCP + Airflow workloads from four hours to two. Built GitHub Actions CI/CD that replaced manual deployments. Normalised cross-channel marketing data for clients including Samsung and Formula 1, on tight campaign deadlines.
     </div>
   </div>
 
@@ -41,7 +41,7 @@ I manage data platforms with an uncompromising focus on stability, security, and
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Cut cloud costs by 98% for a key client through optimisation of storage, queries and scheduling. Scaled Facebook Ads ingestion from 3 to 100+ weekly loads, reducing deployment from hours to minutes. Led a team of 3 building automated pipelines and dashboards for near real-time campaign analytics.
+      Cut a client's monthly cloud spend by 98% by rationalising the compute layer of the pipelines. Scaled Facebook Ads ingestion from 3 to 100+ weekly loads, taking deployment from hours to minutes. Led a team of 3 on automated pipelines and dashboards for near real-time campaign analytics.
     </div>
   </div>
 
@@ -67,7 +67,7 @@ I manage data platforms with an uncompromising focus on stability, security, and
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Automated data collection and transformation workflows, turning months of manual effort into minutes. Built and deployed multilingual sentiment analysis pipelines, doubling usable signal quality for planners. Created scalable Power BI dashboards adopted across teams, cutting manual update time by ~50%.
+      Automated data collection and transformation workflows, turning months of manual effort into minutes. Built and deployed multilingual sentiment analysis pipelines, doubling labelled-data coverage for planners. Created Power BI dashboards that spread across teams and cut manual update time by half.
     </div>
   </div>
 

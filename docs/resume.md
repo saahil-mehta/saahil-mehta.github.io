@@ -1,6 +1,6 @@
 # Resume / CV
 
-The full, printer-friendly history. If you want the highlights, the Experience tab is faster. The PDF below contains the complete details.
+The full, printer-friendly history. If you want the highlights, the Experience tab is faster.
 
 <div class="resume-preview">
   <div class="resume-frame">
@@ -23,8 +23,8 @@ The full, printer-friendly history. If you want the highlights, the Experience t
 <hr class="section-break" />
 
 <div style="text-align: center; margin-top: 2rem;">
-  <p style="margin-bottom: 1rem; opacity: 0.8;">Interested in working together?</p>
+  <p style="margin-bottom: 1rem; opacity: 0.8;">Want to talk?</p>
   <a href="https://calendly.com/saahil_mehta/30min" target="_blank" rel="noopener noreferrer" class="resume-btn primary" style="display: inline-flex;">
-    <span>Book a call</span>
+    <span>Book a 30-Minute Call</span>
   </a>
 </div>
