@@ -551,7 +551,7 @@ footer.site{margin-top:90px;background:var(--nw-purple-dark);color:rgba(255,255,
 <div class="statband rv">
   <div class="statband-in">
     <div class="stat"><span class="num"><span class="count" data-to="100" data-prefix="" data-suffix="k">0</span>/min</span><span class="lbl">peak customer and trade events the platform must absorb</span></div>
-    <div class="stat"><span class="num"><span class="count" data-to="5" data-suffix="">0</span>&ndash;15 min</span><span class="lbl">"near real-time" defined honestly: minutes-fresh, not sub-second</span></div>
+    <div class="stat"><span class="num"><span class="count" data-to="5" data-suffix="">0</span>&ndash;15 min</span><span class="lbl">what "near real-time" actually means here: minutes-fresh marts</span></div>
     <div class="stat"><span class="num"><span class="count" data-to="7">0</span> facts</span><span class="lbl">star schemas, each with its grain declared before its measures</span></div>
     <div class="stat"><span class="num"><span class="count" data-to="12">0</span> decisions</span><span class="lbl">grilled, logged and defended in the decision ledger below</span></div>
   </div>
@@ -738,7 +738,7 @@ footer.site{margin-top:90px;background:var(--nw-purple-dark);color:rgba(255,255,
 
 <!-- ======================= 09 Metrics ======================= -->
 <section class="chap" id="metrics">
-  <div class="chap-head rv"><span class="chap-no">09</span><h2>Metrics as code, not as seven dashboards</h2></div>
+  <div class="chap-head rv"><span class="chap-no">09</span><h2>Metrics, defined once</h2></div>
   <p class="lede rv d1">One audited definition per metric, versioned in git, compiled to SQL at query time. Flip a card.</p>
   <div class="metgrid rv d2" id="metgrid"></div>
   <p class="certline rv d3"><b>A metric is not certified until it carries:</b> owner &middot; formula &middot; grain &middot; aggregation behaviour &middot; filters and exclusions &middot; currency basis &middot; time basis &middot; lineage &middot; test coverage &middot; version &middot; effective date &middot; approved consumers. Each is served with a "data as-of" watermark so the SLA is visible at the point of use.</p>
@@ -747,7 +747,7 @@ footer.site{margin-top:90px;background:var(--nw-purple-dark);color:rgba(255,255,
 <!-- ======================= 10 Security personas ======================= -->
 <section class="chap" id="security">
   <div class="chap-head rv"><span class="chap-no">10</span><h2>Who sees what</h2></div>
-  <p class="lede rv d1">One entitlements model decides every row and column each persona may see, enforced physically, not just in the dashboard. Switch personas.</p>
+  <p class="lede rv d1">One entitlements model decides every row and column each persona may see, and the warehouse itself enforces it. Switch personas.</p>
   <div class="personas rv d2" id="personas"></div>
   <div class="sec-policy rv d2" id="secpolicy"></div>
   <div class="sectablewrap rv d3">
@@ -784,7 +784,7 @@ footer.site{margin-top:90px;background:var(--nw-purple-dark);color:rgba(255,255,
       <div class="pstat"><span class="v" id="ps-gb">&ndash;</span><span class="k">data scanned</span></div>
       <div class="pstat"><span class="v" id="ps-save">&ndash;</span><span class="k">avoided vs full scan</span></div>
     </div>
-    <p class="partnote" id="partnote">Within each partition, files are clustered by <span class="mono">account_sk, party_sk, product_sk, channel, transaction_status</span>, so the most common predicates prune again inside the partition. Executive dashboards never touch this table at all: they read aggregate marts built once per cycle.</p>
+    <p class="partnote" id="partnote">Within each partition, files are clustered by <span class="mono">account_sk, party_sk, product_sk, channel, transaction_status</span>, so the most common predicates prune again inside the partition. Executive dashboards skip this table entirely; they read aggregate marts built once per cycle.</p>
   </div>
   <ul class="costlist rv d3">
     <li>Tag compute jobs, models, schemas and dashboards by domain, owner, environment and cost centre, so cost per data product is reportable.</li>
@@ -904,11 +904,11 @@ $("#evalrow").innerHTML=["Quality and clarity of models and metrics","Maintainab
 const LAYERS=[
  {n:"Raw · Iceberg",s:"Kafka streams and extracts land once, as Iceberg tables on S3",m:"iceberg",d:"Sources are registered in YAML with ownership, freshness expectations, a loaded_at_field, schema contract and sensitivity classification. Iceberg snapshots and time-travel give audit-grade 'what did the source say' history at the storage layer, which is most of what a Data Vault raw vault exists to provide.",r:"freshness: warn 10 min · error 30 min"},
  {n:"Staging",s:"One model per source object: rename, cast, standardise",m:"view",d:"Strictly one-to-one with source objects. Timestamps, currencies and status codes are standardised here and nowhere else. No business joins are allowed; staging exists so every downstream model starts from predictable columns.",r:"stg_payments__transaction_events.sql"},
- {n:"Intermediate",s:"Reusable business logic, written once",m:"ephemeral / table",d:"Account-party roles resolved, trade lifecycles reconstructed, predictions paired with realised outcomes, FX applied. Heavy joins materialise as tables so they are computed once, not per consumer.",r:"int_account_party_roles.sql"},
+ {n:"Intermediate",s:"Reusable business logic, written once",m:"ephemeral / table",d:"Account-party roles resolved, trade lifecycles reconstructed, predictions paired with realised outcomes, FX applied. Heavy joins materialise as tables, computed once and reused everywhere.",r:"int_account_party_roles.sql"},
  {n:"Canonical",s:"The bank-wide vocabulary: conformed keys and validity windows",m:"table + snapshot",d:"Stable surrogate keys for Party, Account, Product, Organisation and Date, with SCD2 validity windows. Published as governed dbt models with enforced contracts and public access, which is what makes cross-domain joins between PBWM, Markets and Risk safe.",r:"contract: {enforced: true} · access: public"},
  {n:"Marts",s:"Certified facts and dimensions with declared grain",m:"incremental merge",d:"Kimball star schemas. High-volume facts are incremental Iceberg merges by event key and version; dimensions carry SCD2 history. Every model states its grain, its tests and its owner before it is certified.",r:"partitioned_by=['event_date']"},
- {n:"Aggregates",s:"Stable dashboard grains, built once per cycle",m:"matview / table",d:"Daily product and channel summaries, RM and desk performance, monthly model calibration. Executive dashboards read these, never the event-scale facts, so the same expensive joins are not recomputed per dashboard.",r:"agg_transaction_daily_product_channel"},
- {n:"Semantic",s:"Metrics compiled to SQL at query time, MetricFlow",m:"compiled SQL",d:"Entities, dimensions, measures and metrics defined as code. Freshness is inherited, not manufactured: metrics compile to SQL run live against the marts, so semantic freshness equals mart freshness, with a data as-of watermark on every answer.",r:"metrics: aum · net_new_money · loss_rate"}
+ {n:"Aggregates",s:"Stable dashboard grains, built once per cycle",m:"matview / table",d:"Daily product and channel summaries, RM and desk performance, monthly model calibration. Executive dashboards read these instead of the event-scale facts, so the expensive joins run once per cycle.",r:"agg_transaction_daily_product_channel"},
+ {n:"Semantic",s:"Metrics compiled to SQL at query time, MetricFlow",m:"compiled SQL",d:"Entities, dimensions, measures and metrics defined as code. Metrics compile to SQL and run live against the marts, so a metric is exactly as fresh as its mart, and every answer carries a data as-of watermark.",r:"metrics: aum · net_new_money · loss_rate"}
 ];
 $("#archcore").innerHTML=LAYERS.map((l,i)=>`<button class="layer" data-i="${i}">
   <span class="lname">${l.n}</span><span class="lsub">${l.s}</span><span class="lmat">${l.m}</span></button>`).join("");
@@ -1031,7 +1031,7 @@ const STARS=[
  {f:"fact_rm_performance_daily",t:"Periodic snapshot",grain:"RM, per team, product, region, business date",
   dims:["dim_date","dim_rm","dim_household","dim_product","dim_organisation","dim_channel","dim_currency"],
   ms:["aum_gbp","net_new_money","revenue","interactions","suitability_reviews_due","vulnerable_cases"],
-  note:"The PBWM headline story: free RM time, grow and retain AUM. Suitability reviews due and vulnerable-case counts sit beside revenue deliberately; Consumer Duty is a first-class reporting concern, not an afterthought."},
+  note:"The PBWM headline story: free RM time, grow and retain AUM. Suitability reviews due and vulnerable-case counts sit beside revenue on purpose: Consumer Duty lives in the same fact as the commercial story."},
  {f:"fact_trader_performance_daily",t:"Periodic snapshot",grain:"trader, desk, book, product, risk date, currency, valuation basis",
   dims:["dim_date","dim_trader","dim_desk","dim_book","dim_product","dim_instrument","dim_organisation","dim_currency"],
   ms:["gross_pnl","net_pnl","var","limit_utilisation","risk_adjusted_return","pricing_response_seconds"],
@@ -1317,16 +1317,16 @@ codeSel(3);
 
 /* =================== 09 metrics =================== */
 const METRICS=[
- {n:"revenue",t:"derived",d:"Fee, spread and commission income, minus reversals",def:"Approved FX, by business date. Reversals excluded by definition, not by dashboard filter. One audited formula instead of seven dashboard calculations."},
- {n:"net_new_money",t:"derived",d:"Inflows minus outflows, honestly counted",def:"Excludes market movement and internal transfers, so growth from performance is never claimed as growth from new client money."},
+ {n:"revenue",t:"derived",d:"Fee, spread and commission income, minus reversals",def:"Approved FX, by business date. Reversals come out in the definition itself, so every dashboard inherits the same audited formula."},
+ {n:"net_new_money",t:"derived",d:"Inflows minus outflows, strictly counted",def:"Excludes market movement and internal transfers, so growth from performance is never claimed as growth from new client money."},
  {n:"aum",t:"snapshot · semi-additive",d:"Market value of client holdings at close",def:"By household, portfolio, product and currency. Declared agg: average over time and sum across accounts; a BI tool cannot silently inflate it."},
- {n:"risk_adjusted_return",t:"ratio · non-additive",d:"Net revenue over allocated capital, VaR or ES",def:"The denominator basis is explicit and never mixed. Recomputed from additive parts at every grain rather than averaged from averages."},
+ {n:"risk_adjusted_return",t:"ratio · non-additive",d:"Net revenue over allocated capital, VaR or ES",def:"One denominator basis, declared up front, and the ratio recomputes from its additive parts at every grain."},
  {n:"loss_rate",t:"ratio · non-additive",d:"Realised loss over exposure",def:"Denominator documented per product: exposure at default or outstanding balance. A ratio metric recomputes from its parts at query time."},
  {n:"model_calibration_error",t:"derived",d:"Realised minus predicted outcome rate",def:"By model version, score bucket, product and window. Fed by the accumulating prediction fact, guarded by the no-leakage test."},
  {n:"fraud_alert_precision",t:"ratio · non-additive",d:"Confirmed cases over investigated alerts",def:"Investigation lag and exclusions documented in the definition itself, so precision is comparable across months and model versions."}
 ];
 $("#metgrid").innerHTML=METRICS.map(m=>`<button class="met" aria-pressed="false"><div class="met-in">
-  <div class="met-f"><span class="mname">${m.n}</span><span class="tag purple" style="align-self:flex-start;margin-top:8px">${m.t}</span><p class="mdesc">${m.d}</p><span class="flipme">Flip for the definition discipline →</span></div>
+  <div class="met-f"><span class="mname">${m.n}</span><span class="tag purple" style="align-self:flex-start;margin-top:8px">${m.t}</span><p class="mdesc">${m.d}</p><span class="flipme">Flip for the full definition →</span></div>
   <div class="met-b"><span class="mname">${m.n}</span><p class="mdef">${m.def}</p><span class="tag">metrics as code · versioned in git</span></div>
 </div></button>`).join("");
 $$("#metgrid .met").forEach(c=>c.addEventListener("click",()=>{
@@ -1356,7 +1356,7 @@ const PERSONAS=[
   pol:["Row filter: assigned clients and households only","PII visible for servicing purpose","Vulnerability visible: regulated duty of care"],
   head:["Client","Household","Region","AUM (GBP)","Risk band","Vulnerability"],
   rows:()=>CLIENTS.filter(c=>c[6]==="James Holt").map(c=>[c[0],c[1],c[2],fmtGBP(c[3]),c[4],c[5]?`<span class="vuln">⚑ ${c[5]}</span>`:"–"]),
-  foot:"<b>Same query, different 3 rows.</b> Switch between the two RMs and notice neither ever sees the other's clients; the policy is data, not dashboard configuration."},
+  foot:"<b>Same query, different 3 rows.</b> Switch between the two RMs and notice neither ever sees the other's clients. The policy lives in the entitlements model, so every tool obeys it."},
  {n:"Risk modeller",r:"Model risk and analytics",ava:"RM",
   pol:["All rows: portfolio-wide modelling","Direct identifiers masked","Pseudonymised keys preserve joins"],
   head:["party_key","Region","AUM band","Risk band","Vulnerability","PD (model v4.2)"],
@@ -1454,13 +1454,13 @@ partSel(1);
 const DECISIONS=[
  ["Storage substrate","Iceberg-on-S3 open core, engine-pluggable","Honours the brief's lakehouse on AWS; interoperates with Snowflake, EMR and SageMaker without copies; avoids lock-in to any single engine.","Multi-engine governance surface; mitigated by one entitlements model generating every engine's policies as code."],
  ["Modelling approach","Canonical layer + Kimball star marts + dbt semantic; no formal Data Vault","Consistency, usability and metric trust are different optimisation goals; each layer optimises one. Iceberg time-travel covers most raw-vault value.","More layers to maintain; mitigated by lineage, naming conventions and contracts. Documented trigger to add a selective raw vault if source conflict ever demands it."],
- ["Conformance","Thin physical key core + semantic metric conformance","Joins need physically identical surrogate keys; metrics need identical definitions. Each is conformed where it is cheapest and safest.","Two mechanisms to operate, with a deliberately clear ownership boundary between them."],
+ ["Conformance","Thin physical key core + semantic metric conformance","Joins need physically identical surrogate keys; metrics need identical definitions. Each is conformed where it is cheapest and safest.","Two mechanisms to operate, with a clear ownership boundary between them."],
  ["Balance grain","Daily atomic snapshot + monthly aggregate","Serves near-real-time and daily reporting, while five-year trends read the cheap aggregate.","More storage; Iceberg date partitioning keeps it tractable."],
- ["Near real-time","Micro-batch dbt incremental on streamed-in Iceberg","One codebase serves the 5 to 15 minute marts and the certified daily close; only the schedule differs.","Not sub-second; genuine sub-second blocking is an upstream online system, honestly out of scope."],
+ ["Near real-time","Micro-batch dbt incremental on streamed-in Iceberg","One codebase serves the 5 to 15 minute marts and the certified daily close; only the schedule differs.","Sub-second blocking belongs to an upstream online system, which sits outside this scope."],
  ["Joint accounts","Account-party bridge with weighting factors","Weights summing to 1.00 give correct allocated totals and a deliberate impact view; household AUM allocates correctly for trusts and joint holders.","Bridge maintenance; weighting changes restricted to month-ends."],
  ["Heterogeneous products","Supertype + subtype schemas, shared surrogate keys","Cross-product household view plus deposit and mortgage depth, without a Swiss-cheese wide table.","More tables; only the DBA ever sees them all at once."],
  ["Volatile party attributes","Type 4 mini-dimensions + Type 6 current columns + score as fact","Stops a multi-million-row party dimension exploding under monthly score refreshes; gives Consumer Duty its as-at history.","Banding loses precision; the discrete score is kept as a fact for data science."],
- ["Model performance","Atomic prediction fact + derived aggregate","Backtesting needs every prediction; monitoring needs cheap KPIs. Two facts, one source of truth.","Two models to keep consistent; the aggregate is derived, never built independently."],
+ ["Model performance","Atomic prediction fact + derived aggregate","Backtesting needs every prediction; monitoring needs cheap KPIs. Two facts, one source of truth.","Two models to keep consistent; the aggregate is always derived from the atomic fact."],
  ["Semantic layer","dbt Semantic Layer, MetricFlow","dbt-native, BI-agnostic, and pass-through: metric freshness equals mart freshness with no cache to govern.","Newer tooling; Cube documented as the concurrency fallback if pass-through outgrows itself."],
  ["Security","Defence in depth from one entitlements model","The brief asks for semantic RLS and CLS; physical Lake Formation and Snowflake policies prevent bypass by direct access.","Parallel policy sets; generated from a single source as Terraform, with automated access tests."],
  ["Orchestration and DQ","MWAA + dbt via Cosmos; dbt tests + Elementary + reconciliation","Airflow orchestrates the non-dbt steps too: Iceberg maintenance, reconciliation, ingestion triggers.","More operational surface; a standard, well-trodden enterprise pattern."]
