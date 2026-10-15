@@ -6,3 +6,7 @@
 .idea/
 node_modules/
 *.scratchpad.txt
+
+# Local design docs; this repo is public
+specs/
+plans/
