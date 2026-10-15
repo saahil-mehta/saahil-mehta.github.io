@@ -70,3 +70,91 @@ def validate(data: dict) -> None:
     for project in data["projects"]:
         if project["status"] not in STATUSES:
             raise ProfileError(f"status {project['status']!r} in project {project['name']!r}, want one of {sorted(STATUSES)}")
+
+
+def fmt_month(value: str) -> str:
+    value = str(value)
+    if value == "present":
+        return "Present"
+    year, month = value.split("-")
+    return f"{MONTH_NAMES[int(month) - 1]} {year}"
+
+
+def make_env(templates: Path = TEMPLATES) -> Environment:
+    env = Environment(
+        loader=FileSystemLoader(str(templates)),
+        undefined=StrictUndefined,
+        trim_blocks=True,
+        lstrip_blocks=True,
+        keep_trailing_newline=True,
+        autoescape=False,
+    )
+    env.filters["month"] = fmt_month
+    return env
+
+
+def splice_bio(existing: str, bio: str) -> str:
+    start = existing.find(BIO_START)
+    end = existing.find(BIO_END)
+    if start == -1 or end == -1 or end < start:
+        raise ProfileError(f"{ABOUT.name} needs both markers {BIO_START} and {BIO_END}")
+    head = existing[: start + len(BIO_START)]
+    tail = existing[end:]
+    return f"{head}\n{bio.strip(chr(10))}\n{tail}"
+
+
+def render_all(data: dict, env: Environment | None = None) -> dict[Path, str]:
+    env = env or make_env()
+    outputs: dict[Path, str] = {}
+    for template_name, path in OUTPUTS.items():
+        text = env.get_template(template_name).render(**data)
+        outputs[path] = text if text.endswith("\n") else text + "\n"
+    bio = env.get_template("about_bio.md.j2").render(**data)
+    outputs[ABOUT] = splice_bio(ABOUT.read_text(encoding="utf-8"), bio)
+    return outputs
+
+
+def write_outputs(outputs: dict[Path, str]) -> None:
+    for path, text in outputs.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+
+
+def check_outputs(outputs: dict[Path, str]) -> int:
+    stale = 0
+    for path, text in outputs.items():
+        current = path.read_text(encoding="utf-8") if path.exists() else ""
+        if current == text:
+            continue
+        stale += 1
+        rel = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
+        print(f"stale: {rel}")
+        sys.stdout.writelines(difflib.unified_diff(
+            current.splitlines(keepends=True), text.splitlines(keepends=True),
+            fromfile=f"{rel} (on disk)", tofile=f"{rel} (rendered)"))
+    if stale:
+        print(f"{stale} stale file(s); run: python scripts/render_profile.py")
+        return 1
+    print("profile outputs up to date")
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="diff instead of write")
+    args = parser.parse_args(argv)
+    try:
+        outputs = render_all(load_profile())
+    except ProfileError as err:
+        print(f"profile error: {err}", file=sys.stderr)
+        return 1
+    if args.check:
+        return check_outputs(outputs)
+    write_outputs(outputs)
+    for path in outputs:
+        print(f"wrote {path.relative_to(ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

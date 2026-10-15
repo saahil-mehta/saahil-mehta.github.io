@@ -70,3 +70,37 @@ def test_bad_role_date(tmp_path):
     data["roles"][0]["start"] = "July 2026"
     with pytest.raises(rp.ProfileError, match="start 'July 2026'"):
         rp.load_profile(write_profile(tmp_path, data))
+
+
+def test_fmt_month():
+    assert rp.fmt_month("2026-07") == "Jul 2026"
+    assert rp.fmt_month("present") == "Present"
+
+
+def test_splice_bio_replaces_between_markers():
+    existing = "head\n<!-- profile:bio:start -->\nold\n<!-- profile:bio:end -->\ntail\n"
+    out = rp.splice_bio(existing, "new bio\n")
+    assert out == "head\n<!-- profile:bio:start -->\nnew bio\n<!-- profile:bio:end -->\ntail\n"
+
+
+def test_splice_bio_missing_marker():
+    with pytest.raises(rp.ProfileError, match="markers"):
+        rp.splice_bio("no markers here", "bio")
+
+
+def test_check_reports_stale_file(tmp_path, capsys):
+    target = tmp_path / "out.md"
+    target.write_text("old\n", encoding="utf-8")
+    assert rp.check_outputs({target: "new\n"}) == 1
+    assert "-old" in capsys.readouterr().out
+    assert rp.check_outputs({target: "old\n"}) == 0
+
+
+def test_check_reports_missing_file(tmp_path):
+    assert rp.check_outputs({tmp_path / "absent.md": "x\n"}) == 1
+
+
+def test_write_outputs_creates_parents(tmp_path):
+    target = tmp_path / "deep" / "out.md"
+    rp.write_outputs({target: "x\n"})
+    assert target.read_text(encoding="utf-8") == "x\n"
