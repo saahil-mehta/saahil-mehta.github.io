@@ -1,6 +1,6 @@
 # Experience
 
-I manage data platforms where the bar is reliability, governed access, and recoverable state. Strict standards, real backups, regular drills, full observability.
+I lead a data and insights team and run the platform underneath it, where the bar is reliability, governed access and recoverable state. Strict standards, real backups, regular drills, full observability.
 
 <hr class="section-break" />
 
@@ -9,13 +9,26 @@ I manage data platforms where the bar is reliability, governed access, and recov
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">South Pole Group</span>
-      <span class="timeline-role">Lead Specialist, Data Engineering</span>
-      <span class="timeline-dates">Mar 2024 – Present</span>
+      <span class="timeline-org">South Pole</span>
+      <span class="timeline-role">Associate Director, Data & Insights</span>
+      <span class="timeline-dates">Jul 2026 – Present</span>
     </div>
     <div class="timeline-meta">London / Remote</div>
     <div class="timeline-desc">
-      Own the climate-finance data estate. Migrated 18k+ cloud resources from Pulumi to modular Terraform. Shipped governed FastAPI/FastMCP services that let LLM/RAG workloads reach sensitive carbon-credit transaction data without breaking access controls.
+      Lead a team of six and own the data platform, marts and reporting stack for 501 people. Built Orca, the company's enterprise AI assistant, and the governed platform under it: a semantic layer on OpenMetadata, self-hosted Dagster, automated access governance and FinOps across 195 GCP projects. Wrote the Data Foundation Plan adopted by ExCo, ~295k EUR a year of direct savings.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <span class="timeline-dot"></span>
+    <div class="timeline-header">
+      <span class="timeline-org">South Pole</span>
+      <span class="timeline-role">Lead Specialist, Data Engineering</span>
+      <span class="timeline-dates">Mar 2024 – Jul 2026</span>
+    </div>
+    <div class="timeline-meta">London / Remote</div>
+    <div class="timeline-desc">
+      Owned the climate-finance data estate. Migrated 18k+ cloud resources from Pulumi to modular Terraform, shipped governed FastAPI/FastMCP services that let LLM/RAG workloads reach sensitive carbon-credit data without breaking access controls, and launched Orca 1.0 to the company in June 2026.
     </div>
   </div>
 
@@ -24,11 +37,24 @@ I manage data platforms where the bar is reliability, governed access, and recov
     <div class="timeline-header">
       <span class="timeline-org">Publicis Groupe · Digitas UK</span>
       <span class="timeline-role">Senior Data Engineer II</span>
-      <span class="timeline-dates">Oct 2022 – Mar 2024</span>
+      <span class="timeline-dates">Jul 2023 – Mar 2024</span>
     </div>
     <div class="timeline-meta">London</div>
     <div class="timeline-desc">
-      Cut flagship GCP + Airflow workloads from four hours to two. Built GitHub Actions CI/CD that replaced manual deployments. Normalised cross-channel marketing data for clients including Samsung and Formula 1, on tight campaign deadlines.
+      Cut flagship GCP + Airflow workloads from four hours to two. Built GitHub Actions CI/CD that replaced manual deployments.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <span class="timeline-dot"></span>
+    <div class="timeline-header">
+      <span class="timeline-org">Publicis Groupe · Digitas UK</span>
+      <span class="timeline-role">Senior Data Engineer I</span>
+      <span class="timeline-dates">Oct 2022 – Jul 2023</span>
+    </div>
+    <div class="timeline-meta">London</div>
+    <div class="timeline-desc">
+      Normalised cross-channel marketing data for clients including Samsung and Formula 1, on tight campaign deadlines.
     </div>
   </div>
 
@@ -37,7 +63,7 @@ I manage data platforms where the bar is reliability, governed access, and recov
     <div class="timeline-header">
       <span class="timeline-org">Publicis Groupe · Digitas Mumbai</span>
       <span class="timeline-role">Senior Associate, Data Analytics Engineering</span>
-      <span class="timeline-dates">Oct 2021 – Sep 2022</span>
+      <span class="timeline-dates">Aug 2021 – Sep 2022</span>
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
@@ -49,8 +75,8 @@ I manage data platforms where the bar is reliability, governed access, and recov
     <span class="timeline-dot"></span>
     <div class="timeline-header">
       <span class="timeline-org">WPP · GroupM · Mindshare</span>
-      <span class="timeline-role">Manager, Data & Technology</span>
-      <span class="timeline-dates">Jul 2021 – Oct 2021</span>
+      <span class="timeline-role">Manager, Data and Technology</span>
+      <span class="timeline-dates">Jun 2021 – Oct 2021</span>
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
@@ -63,11 +89,24 @@ I manage data platforms where the bar is reliability, governed access, and recov
     <div class="timeline-header">
       <span class="timeline-org">Publicis Groupe · Digitas Mumbai</span>
       <span class="timeline-role">Senior Associate, Data Science</span>
-      <span class="timeline-dates">Aug 2019 – Jul 2021</span>
+      <span class="timeline-dates">Dec 2020 – Jun 2021</span>
     </div>
     <div class="timeline-meta">Mumbai</div>
     <div class="timeline-desc">
-      Automated data collection and transformation workflows, turning months of manual effort into minutes. Built and deployed multilingual sentiment analysis pipelines, doubling labelled-data coverage for planners. Created Power BI dashboards that spread across teams and cut manual update time by half.
+      Built and deployed multilingual sentiment analysis pipelines, doubling labelled-data coverage for planners. Created Power BI dashboards that spread across teams and cut manual update time by half.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <span class="timeline-dot"></span>
+    <div class="timeline-header">
+      <span class="timeline-org">Publicis Groupe · Digitas Mumbai</span>
+      <span class="timeline-role">Associate, Data Science</span>
+      <span class="timeline-dates">Jul 2019 – Dec 2020</span>
+    </div>
+    <div class="timeline-meta">Mumbai</div>
+    <div class="timeline-desc">
+      Automated data collection and transformation workflows, turning months of manual effort into minutes.
     </div>
   </div>
 

@@ -1,0 +1,417 @@
+person:
+  name: Saahil Mehta
+  title: Associate Director, Data & Insights
+  title_official: Associate Director, Data Leader
+  headline: "Associate Director, Data & Insights at South Pole | Enterprise AI, data platforms, governance"
+  location: London, UK
+  email: self@saahil.co.uk
+  links:
+    github: https://github.com/saahil-mehta
+    linkedin: https://www.linkedin.com/in/saahil-mehta
+    calendly: https://calendly.com/saahil_mehta/30min
+    site: https://saahil-mehta.github.io
+
+summaries:
+  cv: >-
+    Associate Director leading a six-person data and insights team at South Pole, a
+    501-person climate solutions company. Built Orca, the company's enterprise AI
+    assistant, and the governed platform underneath it: a semantic layer on
+    OpenMetadata, self-hosted Dagster orchestration, automated access governance and
+    FinOps across 195 GCP projects. Author of the data strategy adopted by ExCo, with
+    ~295k EUR a year of direct savings in its plan. Hands-on across GCP, BigQuery,
+    Terraform, dbt, Dagster, FastAPI and LLM systems.
+  site_bio: |-
+    I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice. It works quietly and scales without surprises.
+
+    I'm Associate Director, Data & Insights at [South Pole](https://www.southpole.com), where I lead a team of six and own the data platform, the data marts and the reporting stack for a company of 500. Most of my time goes into Orca, the enterprise AI assistant I built for the business, and the governed platform underneath it: a semantic layer that tells Orca what our data means, self-hosted orchestration, access governance that runs itself, and cost monitoring across every GCP project we have.
+
+    Based in Reading. I mentor early-career data people through the Data Science Festival and volunteer at the Museum of English Rural Life (MERL), where I built an OCR + two-stage LLM pipeline that turned nine years of handwritten visitor cards into searchable data and a report for the leadership team.
+
+    Weekends involve cars (especially routes like Hardknott Pass), PC building, and reading the Gita and the Stoics. I also have a tendency to hoard cables 'just in case' (recovering, slowly).
+
+    If you want to talk about building AI systems people actually use, leading data teams, cars, motorcycles, or optimising your data/infra/cloud, I'm around.
+  linkedin: |-
+    I lead Data & Insights at South Pole: a team of six running the data platform, data marts and reporting for 501 people, and the data strategy behind them.
+
+    In 2026 I built Orca, South Pole's enterprise AI assistant. It researches, writes South Pole-format documents, decks and proposals, and answers questions from governed company data, with each person seeing only what their role allows. Within three weeks of the 2.0 release, over a quarter of the company was querying data through it.
+
+    Underneath Orca sits the platform my team and I run: a semantic layer on OpenMetadata that records what our data means and who owns it, self-hosted Dagster orchestration (migrated from dbt Cloud in three weeks), automated access governance, and cost monitoring with anomaly alerting across 195 GCP projects. The Data Foundation Plan I wrote, seven workstreams to 2028, was adopted by ExCo with ~295k EUR a year of direct savings.
+
+    Before South Pole: data engineering at Publicis Groupe (Digitas UK and Mumbai) and WPP for brands including Samsung, Formula 1 and Disney+ Hotstar.
+
+    I mentor through the Data Science Festival and volunteer at the Museum of English Rural Life. Happy to talk about enterprise AI, data platforms, or leading data teams.
+
+roles:
+  - org: South Pole
+    unit: null
+    title: Associate Director, Data & Insights
+    start: "2026-07"
+    end: present
+    location: London / Remote
+    tags: [Leadership, Enterprise AI, Data Strategy, Governance, FinOps]
+    cv_bullets:
+      - "Own the company data strategy: defined, costed and secured ExCo endorsement for the Data Foundation Plan, a roadmap to 2028 across seven workstreams (semantic layer, orchestration, visualisation, AI platform, data quality at scale, access governance, SLAs). Lead a team of six serving 501 employees."
+      - "Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and sales proposals, position-aware access. Within three weeks of the 2.0 release, 131 employees, over a quarter of the company, were querying governed data through it; 560,000+ requests served at 99.99% success."
+      - "Designed Orca Semantics, a governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context and underpinning the visualisation layer."
+      - "Replaced dbt Cloud with self-hosted Dagster on GKE in three weeks, validated by shadow runs across 1,800+ models matching production output, avoiding a three-year renewal at ~27k EUR a year (81k EUR over the term). Deploys run without a human step."
+      - "Retiring Power BI (98 reports, 410 users) for Orca Visuals, removing ~200k EUR a year in licences; ~295k EUR a year of direct savings across the ecosystem plan."
+      - "Took platform incidents from one every two days to roughly one a month with proactive alerting and self-healing pipelines."
+      - "Automated data access governance: a self-service portal opens IAM grant pull requests through a GitHub App, returning 40+ hours a month to the team."
+      - "FinOps across 195 GCP projects: anomaly dashboard with P99 alerting caught a 6x BigQuery spend spike in March 2026 and returned it to baseline; marts query spend down 46% year on year."
+      - "Codified five rotating admin roles (support, sprint, access, reliability, tech debt) as runbooks and AI-assisted skills; set the team's AI harness standards and moved delivery to product-based thinking."
+    site_desc: >-
+      Lead a team of six and own the data platform, marts and reporting stack for 501
+      people. Built Orca, the company's enterprise AI assistant, and the governed
+      platform under it: a semantic layer on OpenMetadata, self-hosted Dagster, automated
+      access governance and FinOps across 195 GCP projects. Wrote the Data Foundation
+      Plan adopted by ExCo, ~295k EUR a year of direct savings.
+    linkedin_desc: |-
+      Lead a team of six (analytics engineers, analysts, data engineers) and own the data platform, data marts and reporting stack for 501 people. Author of the Data Foundation Plan, seven workstreams to 2028, adopted by ExCo with ~295k EUR a year of direct savings.
+
+      Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and proposals, position-aware access. Within three weeks of the 2.0 release, over a quarter of the company was querying governed data through it; 560,000+ requests at 99.99% success.
+
+      Designed Orca Semantics (governed semantic layer on OpenMetadata), replaced dbt Cloud with self-hosted Dagster in three weeks, automated access governance through pull requests, and run FinOps with P99 anomaly alerting across 195 GCP projects.
+
+  - org: South Pole
+    unit: null
+    title: Lead Specialist, Data Engineering
+    start: "2024-03"
+    end: "2026-07"
+    location: London / Remote
+    tags: [Terraform, GCP, FastAPI, FastMCP, LLM/RAG]
+    cv_bullets:
+      - "Migrated 18,000+ cloud resources from Pulumi to modular Terraform; standardised IAM, networking and policy-as-code so five business units share one platform."
+      - "Shipped governed FastAPI/FastMCP services on Cloud Run that let LLM and RAG workloads reach sensitive carbon-credit transaction data under enforced access controls, with eval suites guarding accuracy."
+      - "Built and launched Orca 1.0 to the company in June 2026, the foundation of the enterprise AI assistant now used across South Pole."
+      - "Cut data marts BigQuery query spend 46% year on year through FinOps and DataOps practice; the platform ran governed, observable and within budget."
+      - "Ran the data estate (95 datasets, 8,000+ tables, 21 TB) with strict standards, real backups, regular drills and full observability."
+    site_desc: >-
+      Owned the climate-finance data estate. Migrated 18k+ cloud resources from Pulumi to
+      modular Terraform, shipped governed FastAPI/FastMCP services that let LLM/RAG
+      workloads reach sensitive carbon-credit data without breaking access controls, and
+      launched Orca 1.0 to the company in June 2026.
+    linkedin_desc: |-
+      Owned the climate-finance data estate: 95 datasets, 8,000+ tables, 21 TB. Migrated 18,000+ cloud resources from Pulumi to modular Terraform so five business units share one governed platform. Shipped FastAPI/FastMCP services that let LLM and RAG workloads reach sensitive carbon-credit data under enforced access controls. Built and launched Orca 1.0 in June 2026.
+
+  - org: Publicis Groupe
+    unit: Digitas UK
+    title: Senior Data Engineer II
+    start: "2023-07"
+    end: "2024-03"
+    location: London
+    tags: [GCP, Airflow, CI/CD]
+    cv_bullets:
+      - "Cut flagship GCP + Airflow workloads from four hours to two."
+      - "Built GitHub Actions CI/CD that replaced manual deployments across client pipelines."
+    site_desc: >-
+      Cut flagship GCP + Airflow workloads from four hours to two. Built GitHub Actions
+      CI/CD that replaced manual deployments.
+    linkedin_desc: Cut flagship GCP + Airflow workloads from four hours to two and replaced manual deployments with GitHub Actions CI/CD.
+
+  - org: Publicis Groupe
+    unit: Digitas UK
+    title: Senior Data Engineer I
+    start: "2022-10"
+    end: "2023-07"
+    location: London
+    tags: [GCP, Marketing Data]
+    cv_bullets:
+      - "Normalised cross-channel marketing data for clients including Samsung and Formula 1, on tight campaign deadlines."
+    site_desc: >-
+      Normalised cross-channel marketing data for clients including Samsung and Formula 1,
+      on tight campaign deadlines.
+    linkedin_desc: Normalised cross-channel marketing data for clients including Samsung and Formula 1, on tight campaign deadlines.
+
+  - org: Publicis Groupe
+    unit: Digitas Mumbai
+    title: Senior Associate, Data Analytics Engineering
+    start: "2021-08"
+    end: "2022-09"
+    location: Mumbai
+    tags: [GCP, Cost, Team Lead]
+    cv_bullets:
+      - "Cut a client's monthly cloud spend by 98% by rationalising the compute layer of the pipelines."
+      - "Scaled Facebook Ads ingestion from 3 to 100+ weekly loads, taking deployment from hours to minutes."
+      - "Led a team of 3 on automated pipelines and dashboards for near real-time campaign analytics."
+    site_desc: >-
+      Cut a client's monthly cloud spend by 98% by rationalising the compute layer of the
+      pipelines. Scaled Facebook Ads ingestion from 3 to 100+ weekly loads, taking
+      deployment from hours to minutes. Led a team of 3 on automated pipelines and
+      dashboards for near real-time campaign analytics.
+    linkedin_desc: Cut a client's monthly cloud spend by 98%, scaled Facebook Ads ingestion from 3 to 100+ weekly loads, and led a team of 3 on near real-time campaign analytics.
+
+  - org: WPP
+    unit: GroupM · Mindshare
+    title: Manager, Data and Technology
+    start: "2021-06"
+    end: "2021-10"
+    location: Mumbai
+    tags: [GCP, Data Lake]
+    cv_bullets:
+      - "Built a GCP data lake for Disney+ Hotstar that dropped reporting cycles from days to hours, unifying app, ad and CRM data for near real-time content decisions."
+    site_desc: >-
+      Built a GCP data lake for Disney+ Hotstar that dropped reporting cycles from days to
+      hours. Unified app, ad, and CRM data so content decisions could be made in near
+      real-time.
+    linkedin_desc: Built a GCP data lake for Disney+ Hotstar that dropped reporting cycles from days to hours.
+
+  - org: Publicis Groupe
+    unit: Digitas Mumbai
+    title: Senior Associate, Data Science
+    start: "2020-12"
+    end: "2021-06"
+    location: Mumbai
+    tags: [NLP, Power BI]
+    cv_bullets:
+      - "Built and deployed multilingual sentiment analysis pipelines, doubling labelled-data coverage for planners."
+      - "Created Power BI dashboards that spread across teams and cut manual update time by half."
+    site_desc: >-
+      Built and deployed multilingual sentiment analysis pipelines, doubling labelled-data
+      coverage for planners. Created Power BI dashboards that spread across teams and cut
+      manual update time by half.
+    linkedin_desc: Built multilingual sentiment analysis pipelines that doubled labelled-data coverage, and Power BI dashboards that cut manual update time by half.
+
+  - org: Publicis Groupe
+    unit: Digitas Mumbai
+    title: Associate, Data Science
+    start: "2019-07"
+    end: "2020-12"
+    location: Mumbai
+    tags: [Automation, Python]
+    cv_bullets:
+      - "Automated data collection and transformation workflows, turning months of manual effort into minutes."
+    site_desc: >-
+      Automated data collection and transformation workflows, turning months of manual
+      effort into minutes.
+    linkedin_desc: Automated data collection and transformation workflows, turning months of manual effort into minutes.
+
+projects:
+  - name: Orca
+    org: South Pole
+    venue: South Pole · Production
+    period: 2026 - Present
+    status: live
+    tags: [Enterprise AI, Deep Research, RAG, Cloud Run, IAM]
+    icon: assets/system-regular-1-share-hover-pinch.json
+    link: null
+    cv_line: "Enterprise AI assistant for 501 employees: deep research over company data, South Pole-format documents, decks and proposals, position-aware access; 560,000+ requests at 99.99% success."
+    site_summary: >-
+      South Pole's enterprise AI assistant, open to all 501 employees. Deep research over
+      the web and company data, South Pole-format documents, decks and sales proposals,
+      scheduled runs, memory, and sharing with version history. Eight releases in four
+      months. Within three weeks of 2.0, 131 employees were querying governed data through
+      it; 560,000+ requests served at 99.99% success.
+    site_detail: >-
+      Next.js on Cloud Run behind Identity-Aware Proxy, Cloud SQL for state. Every BigQuery
+      query runs as the signed-in user, so IAM and policy-tag masking decide what each
+      person sees; no shared service account touches data, and every job is labelled so
+      audit can tell Orca traffic apart. Context comes from the semantic layer over MCP, so
+      answers rest on definitions the business certified. Guardrails decline bulk extracts
+      of whole tables and personal records; eval suites gate each release.
+
+  - name: Orca Semantics
+    org: South Pole
+    venue: South Pole · In Build
+    period: 2026 - Present
+    status: in_progress
+    tags: [OpenMetadata, Semantic Layer, Governance, Terraform]
+    icon: assets/system-regular-14-article-hover-article.json
+    link: null
+    cv_line: "Governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context."
+    site_summary: >-
+      A governed semantic layer on self-hosted OpenMetadata: plain-English definitions,
+      certified metric SQL, a glossary and named owners per domain, all version controlled.
+      Orca reads it before answering, the visualisation layer builds on it, and access
+      approvals and quality routing reuse the same ownership model.
+    site_detail: >-
+      Chosen over Cube and the dbt Semantic Layer because it is metadata-only: it never
+      proxies queries, so per-user identity, IAM and PII masking stay intact. One Terraform
+      module deploys dev and prod, Google SSO at the door, read-only ingestion from dbt and
+      BigQuery. AI-drafted definitions are seeded in bulk and certified by domain owners in a
+      task queue; uncertified drafts are hints, never truth.
+
+  - name: Orca Core
+    org: South Pole
+    venue: South Pole · Production
+    period: "2026"
+    status: live
+    tags: [Dagster, dbt, GKE, Cloud Build]
+    icon: assets/system-regular-22-build-hover-build.json
+    link: null
+    cv_line: "Orchestration for 1,800+ dbt models migrated from dbt Cloud to self-hosted Dagster on GKE in three weeks, avoiding a three-year renewal at ~27k EUR a year."
+    site_summary: >-
+      Orchestration for 1,800+ dbt models, migrated from dbt Cloud to self-hosted Dagster
+      on GKE in three weeks. Shadow runs proved the output identical to production before
+      cutover; deploys rebuild the image and roll out without a human step. Avoided a
+      three-year renewal at ~27k EUR a year.
+    site_detail: >-
+      Dagster mirrors each dbt Cloud job verbatim (selectors, threads, schedules), so any
+      difference is the runner's fault. Evidence compares every relation between shadow
+      and production. Cloud Build rebuilds the image on merge, changed models build on every
+      marts merge, and alerting is episodic (state changes plus a daily summary) with data
+      and infrastructure alerts split. The UI sits behind Identity-Aware Proxy.
+
+  - name: Data Access Governance
+    org: South Pole
+    venue: South Pole · Production
+    period: "2026"
+    status: live
+    tags: [IAM, Terraform, GitHub App, Governance]
+    icon: assets/system-regular-63-settings-cog-hover-cog-1.json
+    link: null
+    cv_line: "Self-service access portal that opens Terraform IAM grant pull requests through a GitHub App; 40+ hours a month returned to the team."
+    site_summary: >-
+      Self-service data access. A request names the access group and the reason, mails the
+      data owner, and opens a Terraform pull request that grants the group read access,
+      through an org-owned GitHub App. A human still merges. Replaced hand-edited IAM at
+      around ten changes a month and returned 40+ hours a month to the team.
+    site_detail: >-
+      Access is granted to groups, never to people. The server re-resolves memberships, so a
+      mail can only claim what the server established. Terraform preconditions fail the plan
+      on an unknown dataset or an overlapping binding, so machine-written grants cannot
+      silently revoke hand-written ones. My design, built by an engineer on my team.
+
+  - name: Cost Deep Dive
+    org: South Pole
+    venue: South Pole · Production
+    period: 2025 - Present
+    status: live
+    tags: [FinOps, BigQuery, Looker Studio, Anomaly Detection]
+    icon: assets/system-regular-consultation.json
+    link: null
+    cv_line: "FinOps dashboard across 195 GCP projects with P99 anomaly alerting; caught a 6x BigQuery spend spike and cut marts query spend 46% year on year."
+    site_summary: >-
+      FinOps across 195 GCP projects and 60 services: spend by app, by service, by day,
+      with P99 anomaly detection that emails me when an app breaks its own baseline.
+      Caught a 6x BigQuery analysis spike in March 2026 and returned it to baseline; marts
+      query spend fell 46% year on year.
+    site_detail: >-
+      Built on the billing export in BigQuery with a view per app, a weekly BigQuery cost
+      job on Orca Core, and a Looker Studio front end.
+
+  - name: Enterprise Data Platform Migration
+    org: South Pole
+    venue: South Pole · Production
+    period: "2024"
+    status: live
+    tags: [Terraform, GCP, Infrastructure-as-Code, CI/CD]
+    icon: assets/system-regular-63-settings-cog-hover-cog-1.json
+    link: null
+    cv_line: "18,000+ cloud resources migrated from Pulumi to modular Terraform; IAM, networking and policy-as-code standardised for five business units."
+    site_summary: >-
+      Migrated 18,000+ cloud resources from Pulumi to modular Terraform. Standardised IAM,
+      networking, and policy-as-code so five business units now share one platform without
+      stepping on each other. Adopted BI-as-code, DataOps, and FinOps practices alongside
+      the migration, so the platform shipped governed, observable, and within budget from
+      day one.
+    site_detail: null
+
+  - name: Knowsee
+    org: Personal Project
+    venue: Private AI System for Teams · Personal Project · Paused
+    period: 2024 - 2026
+    status: paused
+    tags: [RAG, Agent Frameworks, Vector Stores, MCP]
+    icon: assets/system-regular-1-share-hover-pinch.json
+    link: https://knowsee.co.uk
+    cv_line: "Private RAG platform for teams: SSO, RBAC, hallucination guardrails, sandboxed tools, eval-gated releases."
+    site_summary: >-
+      A RAG-based AI platform that queries your data warehouse, ingests company knowledge
+      (docs, screenshots, emails) with chunking and metadata that survives real-world
+      inputs, and turns chat prompts into dashboards. SSO and RBAC out of the box;
+      hallucination guardrails and sandboxed tools on by default; eval suites gate every
+      release. Paused in 2026; the ideas went into Orca.
+    site_detail: null
+
+volunteering:
+  - name: MERL Visitor Insight Engine
+    venue: Museum of English Rural Life · Volunteer
+    year: 2025 - Present
+    link: null
+    icon: assets/system-regular-14-article-hover-article.json
+    tags: [Visual Reasoning, Multimodal LLMs, Contextual Intelligence, Deep Research Agents]
+    cv_line: "Volunteer, Museum of English Rural Life (Jun 2025 to present): built an OCR + two-stage LLM pipeline that turned nine years of handwritten visitor cards into searchable data and a leadership report."
+    challenge: >-
+      Nine years of handwritten visitor feedback sitting in physical comment books. Cursive,
+      children's scrawls, notes in Arabic, Mandarin, Turkish, German. References to
+      philosophy, politics, internet memes. Material traditional OCR can't read.
+    details:
+      - title: The Pipeline
+        paragraphs:
+          - "A two-tiered agentic system. The <strong>Visual Reasoning Engine</strong> processes each scanned page with language-agnostic handwriting recognition and contextual understanding. In one entry, it recognised a string of Chinese characters as Zhang Zai's 11th-century Four Sentences (a Neo-Confucian philosophical text) and reasoned about why a visitor might inscribe this in a museum about English rural life."
+          - "The <strong>Deep Research Agent</strong> synthesises thousands of entries and surfaces patterns that manual review would miss: a single viral tweet transforming visitor demographics, political events in Turkey appearing in a Reading guest book around the election, visitors from over 75 countries connecting their own agricultural heritage to English farming history."
+      - title: What This Proves
+        paragraphs:
+          - "The system reads handwritten text and understands the context behind it."
+          - "When it encountered Turkish handwriting mentioning \"Kılıçdaroğlu\", it recognised this as a reference to the 2023 presidential election and understood why a visitor expressed political sentiment at that moment. It parsed internet slang like \"L + ratio\" as meme-culture discourse and analysed the social dynamics at play. When a visitor from St Helena (population 4,500, remote South Atlantic) wrote about unexpected connections to home, it grasped the geographic and cultural weight of that moment."
+          - "Contextual intelligence, working across languages, cultures, and time periods."
+    outcome: >-
+      Delivered a strategic analysis to museum leadership covering sentiment trends,
+      demographic insights, and visitor journey mapping against the Generic Learning
+      Outcomes framework. Work that would have taken months of manual effort, completed in
+      days. The museum now has evidence-based insight into nearly a decade of visitor
+      experience, unlocked from a previously unreadable archive.
+
+  - name: Data Science Festival Mentorship
+    venue: Data Science Festival · Mentor
+    year: 2026 - Present
+    link: https://datasciencefestival.com
+    icon: assets/system-regular-consultation.json
+    tags: [Mentoring, Data Science, Community]
+    cv_line: "Mentor, Data Science Festival (Mar 2026 to present): Spring 2026 cohort of early-career professionals moving into data and AI roles."
+    challenge: >-
+      Spring 2026 Cohort: I mentor people moving into data science, engineering, and AI
+      roles via the Data Science Festival, the UK's largest free data science community.
+      Topics I cover most: profile review, career progression, the technical bar at each
+      level, and the actual interview pipeline.
+    details: []
+    outcome: null
+
+  - name: Google Developer Specialist
+    venue: Google · Invite-only Programme
+    year: "2026"
+    link: null
+    icon: assets/system-regular-63-settings-cog-hover-cog-1.json
+    tags: [Google Developer, Technical Writing, Community]
+    cv_line: "Google Developer Specialist (2026): selected for Google's invite-only Developer Programme; technical content on Medium."
+    challenge: >-
+      Selected for Google's invite-only Developer Programme and recognised as a Google
+      Developer Specialist, contributing to the Google Developer community through technical
+      content on Medium.
+    details: []
+    outcome: null
+
+education:
+  - org: University of Strathclyde (Business School)
+    degree: Master of Science in Data Analytics
+    location: Glasgow, UK
+    years: 2022 - 2023
+    grade: First-Class Honours / Distinction
+    desc: >-
+      Jointly delivered by Management Science, Mathematics & Statistics, and Computer &
+      Information Sciences, with "Data Analytics in Practice" client projects spanning both
+      semesters plus a summer dissertation embedded with host organisations. Coursework
+      ranged from optimisation and decision modelling to machine learning on big-data
+      platforms.
+  - org: University of Mumbai (Shah & Anchor Kutchhi Engineering College)
+    degree: Bachelor of Computer Engineering
+    location: Mumbai, India
+    years: null
+    grade: 3.25 GPA
+    desc: >-
+      Focused on distributed systems, microservices, and database engine architecture.
+      Funded by the merit-based Jain Trust scholarship.
+  - org: Shri Bhagubhai Mafatlal Polytechnic (SBMP)
+    degree: Three-year Diploma in Computer Engineering
+    location: Mumbai, India
+    years: null
+    grade: 7.77 / 10
+    desc: >-
+      Core training in programming, networking fundamentals, and digital electronics. First
+      exposure to building things from the silicon up.
+
+skills:
+  platform: [GCP, BigQuery, Terraform, Dagster, dbt, Airflow, Cloud Run, GKE, Cloud SQL, GitHub Actions, Python, SQL, TypeScript]
+  ai: [LLM applications, RAG, MCP, Agents, Evals, Vertex AI, Gemini, Claude, FastAPI, FastMCP]
+  governance: [OpenMetadata, IAM, Policy tags and PII masking, Data quality, FinOps, Access governance]
+  leadership: [Team leadership, Data strategy, ExCo communication, Product thinking, Mentoring, Hiring and development]

@@ -1,0 +1,24 @@
+# Experience
+
+I lead a data and insights team and run the platform underneath it, where the bar is reliability, governed access and recoverable state. Strict standards, real backups, regular drills, full observability.
+
+<hr class="section-break" />
+
+<div class="timeline">
+
+{% for role in roles %}
+  <div class="timeline-item">
+    <span class="timeline-dot"></span>
+    <div class="timeline-header">
+      <span class="timeline-org">{{ role.org }}{% if role.unit %} · {{ role.unit }}{% endif %}</span>
+      <span class="timeline-role">{{ role.title }}</span>
+      <span class="timeline-dates">{{ role.start | month }} – {{ role.end | month }}</span>
+    </div>
+    <div class="timeline-meta">{{ role.location }}</div>
+    <div class="timeline-desc">
+      {{ role.site_desc }}
+    </div>
+  </div>
+
+{% endfor %}
+</div>

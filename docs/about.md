@@ -21,16 +21,16 @@
 
 
 
+<!-- profile:bio:start -->
 I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice. It works quietly and scales without surprises.
 
-I work at [South Pole Group](https://www.southpole.com), where I manage data platforms with a focus on stability, security, and governance.
+I'm Associate Director, Data & Insights at [South Pole](https://www.southpole.com), where I lead a team of six and own the data platform, the data marts and the reporting stack for a company of 500. Most of my time goes into Orca, the enterprise AI assistant I built for the business, and the governed platform underneath it: a semantic layer that tells Orca what our data means, self-hosted orchestration, access governance that runs itself, and cost monitoring across every GCP project we have.
 
-On the side, I'm building [Knowsee](https://knowsee.co.uk), a private RAG-based AI system teams can point at their own docs, wikis, and web search. It runs on fine-tuned frontier models so nothing leaves your environment, and absorbs your business logic over time, so answers come from something that knows your company, not just your documents.
-
-Based in Reading. I volunteer at the Museum of English Rural Life (MERL), where I built an OCR + two-stage LLM pipeline that turned nine years of handwritten visitor cards into searchable data and a report for the leadership team.
+Based in Reading. I mentor early-career data people through the Data Science Festival and volunteer at the Museum of English Rural Life (MERL), where I built an OCR + two-stage LLM pipeline that turned nine years of handwritten visitor cards into searchable data and a report for the leadership team.
 
 Weekends involve cars (especially routes like Hardknott Pass), PC building, and reading the Gita and the Stoics. I also have a tendency to hoard cables 'just in case' (recovering, slowly).
 
-If you want to talk about building robust AI systems, cars, motorcycles, or optimising your data/infra/cloud, or anything adjacent, I'm around.
+If you want to talk about building AI systems people actually use, leading data teams, cars, motorcycles, or optimising your data/infra/cloud, I'm around.
+<!-- profile:bio:end -->
 
 <hr class="section-break" />

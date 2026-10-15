@@ -1,0 +1,59 @@
+# Volunteering & Recognition
+
+{% for v in volunteering %}
+<div class="publication-card">
+    <div class="publication-image">
+        <lottie-player
+            class="lottie-fill"
+            src="{{ v.icon }}"
+            background="transparent"
+            speed="0.8"
+            preserveAspectRatio="xMidYMid meet"
+            loop
+            autoplay>
+        </lottie-player>
+    </div>
+    <div class="publication-content">
+        <h3 class="publication-title">
+{% if v.link %}
+            <a href="{{ v.link }}" target="_blank" class="publication-link">
+                {{ v.name }}
+            </a>
+{% else %}
+            {{ v.name }}
+{% endif %}
+        </h3>
+        <div class="publication-venue">{{ v.venue }}</div>
+        <div class="publication-authors">{{ person.name }}</div>
+        <div class="publication-year">{{ v.year }}</div>
+        <div class="publication-tags">
+{% for tag in v.tags %}
+            <span class="tag tag-safety">{{ tag }}</span>
+{% endfor %}
+        </div>
+        <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
+{% if v.details %}
+            <strong>The Challenge:</strong> {{ v.challenge }}
+{% else %}
+            {{ v.challenge }}
+{% endif %}
+        </p>
+{% for d in v.details %}
+        <details style="margin-top:0.75rem;">
+            <summary style="font-size:0.9rem;font-weight:600;cursor:pointer;color:var(--color-accent);">{{ d.title }} ▸</summary>
+            <div style="margin-top:0.5rem;font-size:0.9rem;line-height:1.6;padding-left:0.5rem;border-left:2px solid var(--color-accent);margin-left:0.25rem;">
+{% for para in d.paragraphs %}
+                <p{% if not loop.last %} style="margin-bottom:0.75rem;"{% endif %}>{{ para }}</p>
+{% endfor %}
+            </div>
+        </details>
+{% endfor %}
+{% if v.outcome %}
+        <p style="margin-top:0.75rem;font-size:0.9rem;line-height:1.5;">
+            <strong>Outcome:</strong> {{ v.outcome }}
+        </p>
+{% endif %}
+    </div>
+</div>
+
+{% endfor %}

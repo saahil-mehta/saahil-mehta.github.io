@@ -18,7 +18,7 @@
         </h3>
         <div class="publication-venue">Museum of English Rural Life · Volunteer</div>
         <div class="publication-authors">Saahil Mehta</div>
-        <div class="publication-year">2025</div>
+        <div class="publication-year">2025 - Present</div>
         <div class="publication-tags">
             <span class="tag tag-safety">Visual Reasoning</span>
             <span class="tag tag-safety">Multimodal LLMs</span>
@@ -76,7 +76,7 @@
             <span class="tag tag-safety">Community</span>
         </div>
         <p style="margin-top:0.5rem;font-size:0.9rem;line-height:1.5;">
-            Spring 2026 Cohort: I mentor people moving into data science, engineering, and AI roles via the Data Science Festival, the UK's largest free data science community. Topics I Cover Most: profile review, career progression, the technical bar at each level, and the actual interview pipeline.
+            Spring 2026 Cohort: I mentor people moving into data science, engineering, and AI roles via the Data Science Festival, the UK's largest free data science community. Topics I cover most: profile review, career progression, the technical bar at each level, and the actual interview pipeline.
         </p>
     </div>
 </div>
@@ -110,3 +110,4 @@
         </p>
     </div>
 </div>
+
