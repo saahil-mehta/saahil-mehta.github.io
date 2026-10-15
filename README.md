@@ -19,12 +19,20 @@ Open `http://localhost:8000`
 ## Structure
 
 ```
+profile/
+├── profile.yaml        # Single source of truth: roles, projects, bio, skills
+├── templates/          # Jinja2 templates for the site pages and the pastes
+└── out/                # Generated: cv.md (Rezi), linkedin.md
+scripts/
+└── render_profile.py   # render | --check
 docs/
 ├── index.html          # Shell and navigation
-├── about.md            # Bio
+├── about.md            # Bio paragraphs generated between markers
 ├── contributions.md    # GitHub graph
-├── projects.md         # Project cards
-├── experience.md       # Timeline
+├── projects.md         # Generated
+├── experience.md       # Generated
+├── volunteering.md     # Generated
+├── education.md        # Hand-written
 ├── resume.md           # PDF embed
 ├── styles.css          # Theme and layout
 ├── script.js           # Markdown loader + graph
@@ -33,10 +41,14 @@ docs/
 
 ## Editing
 
-- **Profile**: Replace `docs/assets/profile.jpg`
-- **Projects**: Update `projects.md` and add screenshots to `assets/`
-- **Experience**: Edit `experience.md` and `docs/assets/Saahil-Mehta-Resume.pdf`
-- **Domain**: Add `docs/CNAME` with your domain
+1. Edit `profile/profile.yaml`.
+2. `pip install -r scripts/requirements.txt` once, then `python scripts/render_profile.py`.
+3. Commit the YAML and the generated files together. CI runs `--check` and fails the deploy if they disagree.
+4. Paste `profile/out/cv.md` into Rezi, export the PDF, replace `docs/assets/Saahil-Mehta-Resume.pdf`.
+5. Paste `profile/out/linkedin.md` into LinkedIn.
+
+- **Profile photo**: replace `docs/assets/profile.jpg`
+- **Domain**: `docs/CNAME`
 
 ## Deployment
 
