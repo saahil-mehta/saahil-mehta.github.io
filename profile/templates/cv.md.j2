@@ -1,0 +1,43 @@
+# {{ person.name }}
+
+{{ person.title }} · {{ person.location }} · {{ person.email }} · {{ person.links.linkedin }} · {{ person.links.github }}
+
+## Summary
+
+{{ summaries.cv }}
+
+## Experience
+
+{% for role in roles %}
+### {{ role.title }}
+{{ role.org }}{% if role.unit %}, {{ role.unit }}{% endif %} · {{ role.location }} · {{ role.start | month }} to {{ role.end | month }}
+
+{% for b in role.cv_bullets %}
+- {{ b }}
+{% endfor %}
+
+{% endfor %}
+## Projects
+
+{% for p in projects if p.status in ["live", "in_progress"] %}
+- **{{ p.name }}** ({{ p.period }}): {{ p.cv_line }}
+{% endfor %}
+
+## Volunteering and recognition
+
+{% for v in volunteering %}
+- {{ v.cv_line }}
+{% endfor %}
+
+## Education
+
+{% for e in education %}
+- **{{ e.degree }}**, {{ e.org }}{% if e.years %}, {{ e.years }}{% endif %}. {{ e.grade }}.
+{% endfor %}
+
+## Skills
+
+- Platform: {{ skills.platform | join(", ") }}
+- AI: {{ skills.ai | join(", ") }}
+- Governance: {{ skills.governance | join(", ") }}
+- Leadership: {{ skills.leadership | join(", ") }}
