@@ -29,8 +29,8 @@ scripts/
 ├── render_profile.py   # YAML -> profile/out/*.md   (render | --check)
 ├── sync-public.mjs     # Copies cv.md into public/ (prebuild)
 ├── assert-html.mjs     # Post-build checks on dist/
-├── make_og.py          # Renders scripts/og-template.html to public/og.png (run when the headline changes)
-└── make_logo.py        # Rasterises the Lottie orb's first frame to public/logo.png
+└── make_og.py          # Renders scripts/og-template.html to public/og.png (run when the headline changes)
+
 ```
 
 ## Development
