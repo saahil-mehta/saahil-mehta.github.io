@@ -37,7 +37,9 @@
   --night: #1e3a6b;
   --night-2: #2b4a80;
   --red: #c23a2b;
+  --red-ink: #8e2518;
   --green: #6a7a43;
+  --green-ink: #46542c;
   --ink-2: #44527a;
   --ink-3: #5d6a8a;
   --rule: 1.5px;
@@ -613,7 +615,7 @@ p {
   color: var(--board);
 }
 .btn[data-copied="true"] {
-  border-color: var(--green);
+  border-color: var(--green-ink);
   color: var(--green);
 }
 .btn .when-copied {
@@ -719,7 +721,7 @@ p {
   font-size: 1.125rem;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
-  color: var(--red);
+  color: var(--red-ink);
   text-align: right;
 }
 .good-foot .figure small {
@@ -740,7 +742,7 @@ p {
   font-size: 0.625rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--green-ink);
   white-space: nowrap;
 }
 .good-foot .serial {
@@ -750,11 +752,11 @@ p {
   align-items: baseline;
 }
 .good[data-status="in_progress"] .good-state {
-  color: var(--red);
+  color: var(--red-ink);
 }
 .good[data-status="paused"] .good-state,
 .good[data-status="archived"] .good-state {
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 .good-detail {
   margin: -0.25rem 0 0.875rem;
@@ -1057,7 +1059,7 @@ p {
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 0.8125rem;
-  color: var(--red);
+  color: var(--red-ink);
 }
 .ticket-stub .label {
   display: block;
