@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import { profile } from "../lib/profile";
+import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
+
+const meta = profile.site.pages.github;
+const path = "/github";
+---
+
+<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
+  <div class="prose">
+    <h1>{meta.title}</h1>
+    <p class="lede">
+      Live calendar pulled from GitHub activity for <a class="cactus-link" href={profile.person.links.github} target="_blank" rel="noopener">saahil-mehta</a>. Hover a cell for the day's count.
+    </p>
+  </div>
+  <div id="github-contributions" class="contrib-grid-wrapper">
+    <div class="loading-spinner">Loading contributions</div>
+    <noscript><p class="contrib-note">The calendar needs JavaScript. The activity itself is on <a class="cactus-link" href={profile.person.links.github}>GitHub</a>.</p></noscript>
+  </div>
+</Base>

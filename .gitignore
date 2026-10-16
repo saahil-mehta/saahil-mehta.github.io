@@ -12,3 +12,7 @@ specs/
 plans/
 __pycache__/
 .pytest_cache/
+public/vendor/
+public/cv.md
+dist/
+.astro/

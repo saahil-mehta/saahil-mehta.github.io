@@ -415,3 +415,34 @@ skills:
   ai: [LLM applications, RAG, MCP, Agents, Evals, Vertex AI, Gemini, Claude, FastAPI, FastMCP]
   governance: [OpenMetadata, IAM, Policy tags and PII masking, Data quality, FinOps, Access governance]
   leadership: [Team leadership, Data strategy, ExCo communication, Product thinking, Mentoring, Hiring and development]
+
+site:
+  url: https://saahil.co.uk
+  title_suffix: Saahil Mehta
+  description: "Saahil Mehta, Associate Director, Data & Insights at South Pole. Built Orca, an enterprise AI assistant for 501 people, and the governed data platform under it: semantic layer, Dagster, access governance, FinOps."
+  og_image: /og.png
+  stats:
+    - {value: 501, prefix: "", suffix: "", label: "employees served by the data platform"}
+    - {value: 560000, prefix: "", suffix: "+", label: "Orca requests at 99.99% success"}
+    - {value: 295, prefix: "~", suffix: "k EUR/yr", label: "direct savings in the data plan"}
+    - {value: 6, prefix: "", suffix: "", label: "direct reports"}
+  featured_projects: [Orca, Orca Semantics, Orca Core]
+  pages:
+    experience:
+      title: Experience
+      description: "Roles from Associate Director, Data & Insights at South Pole back to Digitas and WPP in Mumbai: enterprise AI, data platforms, cloud cost and team leadership."
+    projects:
+      title: Projects
+      description: "Orca, Orca Semantics, Orca Core, data access governance, FinOps dashboards and the Terraform platform migration: production systems built at South Pole."
+    volunteering:
+      title: Volunteering & Recognition
+      description: "Museum of English Rural Life visitor insight engine, Data Science Festival mentoring and the Google Developer Specialist programme."
+    education:
+      title: Education
+      description: "MSc Data Analytics (Distinction) at Strathclyde Business School, BE Computer Engineering at the University of Mumbai, Diploma at SBMP."
+    github:
+      title: GitHub Activity
+      description: "Live GitHub contribution calendar for saahil-mehta over the last twelve months."
+    resume:
+      title: Resume
+      description: "Saahil Mehta's resume as a PDF, with download and a link to book a 30-minute call."

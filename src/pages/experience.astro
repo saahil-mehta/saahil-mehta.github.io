@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+import { profile } from "../lib/profile";
+import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
+
+const meta = profile.site.pages.experience;
+const path = "/experience";
+---
+
+<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
+  <div class="prose">
+    <h1>{meta.title}</h1>
+    <p class="lede">
+      I lead a data and insights team and run the platform underneath it, where the bar is reliability, governed access and
+      recoverable state. Strict standards, real backups, regular drills, full observability.
+    </p>
+  </div>
+  <ol class="timeline">
+    {profile.roles.map((role, i) => <TimelineItem role={role} index={i} />)}
+  </ol>
+</Base>

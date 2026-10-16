@@ -1,0 +1,20 @@
+---
+import type { Education } from "../lib/profile";
+
+interface Props {
+  entry: Education;
+  index: number;
+}
+const { entry: e, index } = Astro.props;
+---
+
+<li class="timeline-item" data-reveal style={`--stagger:${index}`}>
+  <span class="timeline-dot" aria-hidden="true"></span>
+  <div class="timeline-header">
+    <span class="timeline-org">{e.org}</span>
+    <span class="timeline-role">{e.degree}</span>
+    {e.years && <span class="timeline-dates">{e.years}</span>}
+  </div>
+  <div class="timeline-meta">{e.location}</div>
+  <p class="timeline-desc"><strong>{e.grade}</strong><br />{e.desc}</p>
+</li>

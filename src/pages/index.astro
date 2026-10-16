@@ -1,0 +1,59 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import StatTile from "../components/StatTile.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { profile, featuredProjects } from "../lib/profile";
+import { paragraphs } from "../lib/text";
+import { pageTitle, profilePageJsonLd } from "../lib/seo";
+
+const { site, summaries } = profile;
+const bio = paragraphs(summaries.site_bio).slice(1);
+const sections = [
+  { href: "/experience", ...site.pages.experience },
+  { href: "/projects", ...site.pages.projects },
+  { href: "/volunteering", ...site.pages.volunteering },
+  { href: "/education", ...site.pages.education },
+  { href: "/github", ...site.pages.github },
+  { href: "/resume", ...site.pages.resume },
+];
+---
+
+<Base title={pageTitle()} description={site.description} path="/" ogType="profile" jsonLd={[profilePageJsonLd()]}>
+  <Hero />
+
+  <ul class="stats" aria-label="Headline numbers">
+    {site.stats.map((s, i) => <StatTile {...s} index={i} />)}
+  </ul>
+
+  <section class="prose" aria-labelledby="about-heading" data-reveal>
+    <h2 id="about-heading" class="title">About</h2>
+    {bio.map((p) => <p set:html={p} />)}
+  </section>
+
+  <hr class="section-break" />
+
+  <section aria-labelledby="featured-heading">
+    <p class="eyebrow">Selected work</p>
+    <h2 id="featured-heading" class="title">Production systems</h2>
+    {featuredProjects.map((p, i) => <ProjectCard project={p} index={i} />)}
+    <p><a class="cactus-link" href="/projects">All projects</a></p>
+  </section>
+
+  <hr class="section-break" />
+
+  <nav aria-label="Sections">
+    <ul class="section-links">
+      {
+        sections.map((s, i) => (
+          <li data-reveal style={`--stagger:${i}`}>
+            <a href={s.href}>
+              <strong>{s.title}</strong>
+              <span>{s.description.split(". ")[0].replace(/[.:]$/, "")}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</Base>

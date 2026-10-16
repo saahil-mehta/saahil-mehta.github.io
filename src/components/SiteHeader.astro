@@ -1,0 +1,60 @@
+---
+import { profile } from "../lib/profile";
+
+interface Props {
+  path: string;
+}
+const { path } = Astro.props;
+const { person } = profile;
+
+const items = [
+  { href: "/", label: "About" },
+  { href: "/experience", label: "Experience" },
+  { href: "/projects", label: "Projects" },
+  { href: "/volunteering", label: "Volunteering" },
+  { href: "/education", label: "Education" },
+  { href: "/github", label: "GitHub" },
+  { href: "/resume", label: "Resume" },
+];
+---
+
+<header id="main-header">
+  <div class="header-grid">
+    <a href="/" class="header-logo" aria-label="Home" transition:persist="logo">
+      <lottie-player src="/assets/logo-animation.json" background="transparent" speed="1" loop autoplay></lottie-player>
+    </a>
+    <a href="/" class="header-title">{person.name}</a>
+    <nav class="site-nav" id="navigation-menu" aria-label="Primary">
+      {
+        items.map((item) => (
+          <a href={item.href} aria-current={item.href === path ? "page" : undefined}>
+            {item.label}
+            {item.href === path && <span class="nav-indicator" aria-hidden="true" />}
+          </a>
+        ))
+      }
+      <a href={person.links.calendly} target="_blank" rel="noopener noreferrer">Contact</a>
+    </nav>
+    <div class="header-controls">
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme">
+        <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path
+            fill-rule="evenodd"
+            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+      </button>
+      <button id="toggle-navigation-menu" class="icon-button" type="button" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
+        <svg class="icon-menu" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

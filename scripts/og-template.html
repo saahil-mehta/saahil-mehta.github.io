@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: "Satoshi"; src: url("../public/fonts/Satoshi-Variable.woff2") format("woff2"); font-weight: 300 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Medium.woff2") format("woff2"); font-weight: 500; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative; font-family: "Satoshi", sans-serif; color: #f5f5f5; background: #000;
+    display: flex; align-items: center; padding: 0 96px; box-sizing: border-box;
+  }
+  .glow { position: absolute; inset: -200px; background:
+    radial-gradient(620px circle at 78% 30%, rgba(95,242,107,.32), transparent 62%),
+    radial-gradient(520px circle at 20% 90%, rgba(175,103,255,.30), transparent 60%); filter: blur(40px); }
+  .grid { position: absolute; inset: 0; background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 48px 48px; mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%); }
+  .card { position: relative; display: grid; grid-template-columns: 1fr 240px; gap: 48px; align-items: center; width: 100%; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #5ff26b; margin: 0 0 18px; }
+  h1 { font-size: 84px; line-height: 1; letter-spacing: -.02em; margin: 0 0 20px; font-weight: 700; }
+  .title { font-size: 34px; margin: 0 0 28px; color: rgba(245,245,245,.85); font-weight: 500; }
+  .line { font-size: 26px; line-height: 1.35; margin: 0; color: rgba(245,245,245,.7); max-width: 720px; }
+  .avatar { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.18); box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  .url { position: absolute; left: 96px; bottom: 44px; font-family: "JetBrains Mono", monospace; font-size: 22px; color: rgba(245,245,245,.6); }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="grid"></div>
+  <div class="card">
+    <div>
+      <p class="eyebrow">Data &amp; AI leadership · London</p>
+      <h1>Saahil Mehta</h1>
+      <p class="title">Associate Director, Data &amp; Insights at South Pole</p>
+      <p class="line">Built Orca, an enterprise AI assistant for 501 people, and the governed data platform underneath it.</p>
+    </div>
+    <img class="avatar" src="../public/profile.jpg" alt="" />
+  </div>
+  <div class="url">saahil.co.uk</div>
+</body>
+</html>

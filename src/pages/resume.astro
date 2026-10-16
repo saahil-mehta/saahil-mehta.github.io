@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import { profile } from "../lib/profile";
+import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
+
+const meta = profile.site.pages.resume;
+const path = "/resume";
+const pdf = "/Saahil-Mehta-Resume.pdf";
+---
+
+<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
+  <div class="prose">
+    <h1>{meta.title}</h1>
+    <p class="lede">
+      The full, printer-friendly history. The same facts are available as <a class="cactus-link" href="/cv.md">Markdown</a> and
+      <a class="cactus-link" href="/resume.json">JSON Resume</a>.
+    </p>
+  </div>
+  <div class="resume-frame" data-reveal>
+    <iframe src={`${pdf}#view=FitH`} title="Saahil Mehta resume PDF" loading="lazy"></iframe>
+  </div>
+  <div class="resume-actions">
+    <a href={pdf} target="_blank" rel="noopener" class="button primary">Open PDF</a>
+    <a href={pdf} download class="button secondary">Download PDF</a>
+  </div>
+  <hr class="section-break" />
+  <div class="cta">
+    <p>Want to talk?</p>
+    <a href={profile.person.links.calendly} target="_blank" rel="noopener noreferrer" class="button primary">Book a 30-minute call</a>
+  </div>
+</Base>

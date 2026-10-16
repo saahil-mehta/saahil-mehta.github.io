@@ -1,0 +1,46 @@
+---
+import type { Volunteering } from "../lib/profile";
+
+interface Props {
+  entry: Volunteering;
+  index: number;
+}
+const { entry: v, index } = Astro.props;
+---
+
+<article class="publication-card" data-reveal style={`--stagger:${Math.min(index, 7)}`}>
+  <div class="publication-image" aria-hidden="true">
+    <lottie-player src={v.icon} background="transparent" speed="0.8" loop autoplay></lottie-player>
+  </div>
+  <div class="publication-content">
+    <h2 class="publication-title">
+      {v.link ? <a href={v.link} target="_blank" rel="noopener" class="publication-link">{v.name}</a> : v.name}
+    </h2>
+    <span class="publication-venue">{v.venue}</span>
+    <span class="publication-year">{v.year}</span>
+    <div class="publication-tags">{v.tags.map((t) => <span class="tag tag-safety">{t}</span>)}</div>
+    <p class="publication-body">
+      {v.details.length > 0 && <strong>The challenge: </strong>}{v.challenge}
+    </p>
+    {
+      v.details.map((d) => (
+        <details class="card-details">
+          <summary>{d.title}</summary>
+          <div class="card-details-body">
+            {d.paragraphs.map((para) => (
+              <p set:html={para} />
+            ))}
+          </div>
+        </details>
+      ))
+    }
+    {
+      v.outcome && (
+        <p class="publication-body">
+          <strong>Outcome: </strong>
+          {v.outcome}
+        </p>
+      )
+    }
+  </div>
+</article>

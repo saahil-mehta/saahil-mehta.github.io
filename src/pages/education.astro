@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import EducationItem from "../components/EducationItem.astro";
+import { profile } from "../lib/profile";
+import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
+
+const meta = profile.site.pages.education;
+const path = "/education";
+---
+
+<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
+  <div class="prose">
+    <h1>{meta.title}</h1>
+    <p class="lede">Computer science, mathematics and business analytics, in that order.</p>
+  </div>
+  <ol class="timeline">
+    {profile.education.map((e, i) => <EducationItem entry={e} index={i} />)}
+  </ol>
+</Base>

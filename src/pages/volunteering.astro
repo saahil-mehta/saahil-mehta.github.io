@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import VolunteerCard from "../components/VolunteerCard.astro";
+import { profile } from "../lib/profile";
+import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
+
+const meta = profile.site.pages.volunteering;
+const path = "/volunteering";
+---
+
+<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
+  <div class="prose">
+    <h1>{meta.title}</h1>
+    <p class="lede">Work I do outside the day job, and the programmes that noticed.</p>
+  </div>
+  {profile.volunteering.map((v, i) => <VolunteerCard entry={v} index={i} />)}
+</Base>

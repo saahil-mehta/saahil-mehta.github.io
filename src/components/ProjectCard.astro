@@ -1,0 +1,38 @@
+---
+import type { Project } from "../lib/profile";
+import { profile } from "../lib/profile";
+
+interface Props {
+  project: Project;
+  index: number;
+}
+const { project: p, index } = Astro.props;
+---
+
+<article class="publication-card" data-reveal style={`--stagger:${Math.min(index, 7)}`}>
+  <div class="publication-image" aria-hidden="true">
+    <lottie-player src={p.icon} background="transparent" speed="1" loop autoplay></lottie-player>
+  </div>
+  <div class="publication-content">
+    <h2 class="publication-title">
+      {p.link ? <a href={p.link} target="_blank" rel="noopener" class="publication-link">{p.name}</a> : p.name}
+    </h2>
+    <span class="publication-venue">{p.venue}</span>
+    <span class="publication-year">{p.period} · {profile.person.name}</span>
+    <div class="publication-tags">
+      {p.tags.map((t) => <span class="tag tag-safety">{t}</span>)}
+      {p.link && <a href={p.link} class="tag tag-arxiv" target="_blank" rel="noopener">Live site</a>}
+    </div>
+    <p class="publication-body">{p.site_summary}</p>
+    {
+      p.site_detail && (
+        <details class="card-details">
+          <summary>How it's built</summary>
+          <div class="card-details-body">
+            <p>{p.site_detail}</p>
+          </div>
+        </details>
+      )
+    }
+  </div>
+</article>

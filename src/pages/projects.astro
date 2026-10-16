@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { profile } from "../lib/profile";
+import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
+
+const meta = profile.site.pages.projects;
+const path = "/projects";
+---
+
+<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
+  <div class="prose">
+    <h1>{meta.title}</h1>
+    <p class="lede">Production systems and infrastructure, newest first. Open "How it's built" on a card for the design decisions.</p>
+  </div>
+  {profile.projects.map((p, i) => <ProjectCard project={p} index={i} />)}
+</Base>

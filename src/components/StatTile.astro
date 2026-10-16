@@ -1,0 +1,16 @@
+---
+interface Props {
+  value: number;
+  prefix: string;
+  suffix: string;
+  label: string;
+  index: number;
+}
+const { value, prefix, suffix, label, index } = Astro.props;
+const formatted = `${prefix}${new Intl.NumberFormat("en-GB").format(value)}${suffix}`;
+---
+
+<li class="stat" data-reveal style={`--stagger:${index}`}>
+  <span class="stat-value" data-count={value} data-prefix={prefix} data-suffix={suffix}>{formatted}</span>
+  <span class="stat-label">{label}</span>
+</li>
