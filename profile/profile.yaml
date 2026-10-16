@@ -191,6 +191,9 @@ projects:
     venue: South Pole · Production
     period: 2026 - Present
     status: live
+    since: "2026-06"
+    until: null
+    metric: {value: "560,000+", label: "requests at 99.99% success"}
     tags: [Enterprise AI, Deep Research, RAG, Cloud Run, IAM]
     icon: assets/system-regular-1-share-hover-pinch.json
     link: null
@@ -214,6 +217,9 @@ projects:
     venue: South Pole · In Build
     period: 2026 - Present
     status: in_progress
+    since: "2026-07"
+    until: null
+    metric: {value: "6", label: "domains, owners named"}
     tags: [OpenMetadata, Semantic Layer, Governance, Terraform]
     icon: assets/system-regular-14-article-hover-article.json
     link: null
@@ -235,6 +241,9 @@ projects:
     venue: South Pole · Production
     period: "2026"
     status: live
+    since: "2026-09"
+    until: null
+    metric: {value: "1,800+", label: "dbt models orchestrated"}
     tags: [Dagster, dbt, GKE, Cloud Build]
     icon: assets/system-regular-22-build-hover-build.json
     link: null
@@ -251,11 +260,38 @@ projects:
       marts merge, and alerting is episodic (state changes plus a daily summary) with data
       and infrastructure alerts split. The UI sits behind Identity-Aware Proxy.
 
+  - name: Data Foundation Plan
+    org: South Pole
+    venue: South Pole · Adopted by ExCo
+    period: 2026 - 2028
+    status: live
+    since: "2026-08"
+    until: null
+    metric: {value: "~295k EUR/yr", label: "direct savings in the plan"}
+    tags: [Strategy, Roadmap, Governance, FinOps]
+    icon: assets/system-regular-14-article-hover-article.json
+    link: null
+    cv_line: "Seven-workstream data strategy to 2028 (semantic layer, orchestration, visualisation, AI platform, data quality, access governance, SLAs), costed at ~295k EUR/yr direct savings and adopted by ExCo."
+    site_summary: >-
+      The company data strategy, written, costed and taken to ExCo: seven workstreams to
+      2028 covering the semantic layer, orchestration, visualisation, the AI platform, data
+      quality at scale, access governance and SLAs. ~295k EUR a year of direct savings,
+      with the dbt Cloud saving already banked before the plan opened.
+    site_detail: >-
+      Owners and stewards are defined once in the semantic layer and reused by access
+      approvals, quality routing and AI context, which is what makes the seven workstreams
+      one ecosystem rather than a list of tools. Each era has exit criteria; SLAs come last,
+      by design, because service levels without coverage and ownership instrumentation are
+      fiction.
+
   - name: Data Access Governance
     org: South Pole
     venue: South Pole · Production
     period: "2026"
     status: live
+    since: "2026-10"
+    until: null
+    metric: {value: "40+ h", label: "returned to the team each month"}
     tags: [IAM, Terraform, GitHub App, Governance]
     icon: assets/system-regular-63-settings-cog-hover-cog-1.json
     link: null
@@ -276,6 +312,9 @@ projects:
     venue: South Pole · Production
     period: 2025 - Present
     status: live
+    since: "2025-01"
+    until: null
+    metric: {value: "195", label: "GCP projects watched"}
     tags: [FinOps, BigQuery, Looker Studio, Anomaly Detection]
     icon: assets/system-regular-consultation.json
     link: null
@@ -294,6 +333,9 @@ projects:
     venue: South Pole · Production
     period: "2024"
     status: live
+    since: "2024-03"
+    until: null
+    metric: {value: "18,000+", label: "resources under Terraform"}
     tags: [Terraform, GCP, Infrastructure-as-Code, CI/CD]
     icon: assets/system-regular-63-settings-cog-hover-cog-1.json
     link: null
@@ -311,6 +353,9 @@ projects:
     venue: Private AI System for Teams · Personal Project · Paused
     period: 2024 - 2026
     status: paused
+    since: "2024-01"
+    until: "2026-03"
+    metric: {value: "Paused", label: "ideas folded into Orca"}
     tags: [RAG, Agent Frameworks, Vector Stores, MCP]
     icon: assets/system-regular-1-share-hover-pinch.json
     link: https://knowsee.co.uk

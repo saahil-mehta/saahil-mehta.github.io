@@ -1,0 +1,32 @@
+---
+import Icon from "./Icon.astro";
+import { profile } from "../lib/profile";
+const { person, roles, site } = profile;
+const current = roles[0];
+const stat = (needle: string) => site.stats.find((s) => s.label.includes(needle));
+const people = stat("employees");
+const reports = stat("reports");
+const savings = stat("savings");
+---
+
+<div class="operator">
+  <div class="contrib-grid-wrapper" id="github-contributions" data-username="saahil-mehta">
+    <p class="loading">Loading the last twelve months of commits</p>
+    <noscript>
+      <p class="contrib-note">The calendar needs JavaScript. The activity itself is on <a href={person.links.github}>GitHub</a>.</p>
+    </noscript>
+  </div>
+  <div>
+    <ul class="facts" aria-label="Operator facts">
+      <li><span>Role</span><span class="fact-value">{current.title}</span></li>
+      <li><span>Direct reports</span><span class="fact-value">{reports?.value ?? 6}</span></li>
+      <li><span>People served</span><span class="fact-value">{people?.value.toLocaleString("en-GB") ?? "501"}</span></li>
+      <li><span>Data strategy</span><span class="fact-value">Adopted by ExCo</span></li>
+      <li><span>Direct savings in the plan</span><span class="fact-value">{savings ? `${savings.prefix}${savings.value}${savings.suffix}` : "~295k EUR/yr"}</span></li>
+      <li><span>Commits</span><span class="fact-value">Daily</span></li>
+    </ul>
+    <p class="contrib-note">
+      <a class="more" href="/github">Full activity <Icon name="arrow-right" size={14} /></a>
+    </p>
+  </div>
+</div>

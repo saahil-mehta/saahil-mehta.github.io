@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import EducationItem from "../components/EducationItem.astro";
+import Subscribe from "../components/Subscribe.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -9,11 +9,30 @@ const path = "/education";
 ---
 
 <Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="prose">
-    <h1>{meta.title}</h1>
-    <p class="lede">Computer science, mathematics and business analytics, in that order.</p>
+  <div class="page-head container">
+    <h1>Education</h1>
+    <p>Computer science, mathematics and business analytics, in that order.</p>
   </div>
-  <ol class="timeline">
-    {profile.education.map((e, i) => <EducationItem entry={e} index={i} />)}
-  </ol>
+  <section class="section container" aria-label="Degrees">
+    <ol class="releases">
+      {
+        profile.education.map((e) => (
+          <li class="release">
+            <span class="release-tag">{e.years ?? "degree"}</span>
+            <div>
+              <h2 class="release-title">{e.degree}</h2>
+              <p class="org">{e.org}</p>
+              <p class="desc">
+                <strong>{e.grade}.</strong> {e.desc}
+              </p>
+            </div>
+            <p class="dates">
+              <span class="loc">{e.location}</span>
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+  <Subscribe />
 </Base>

@@ -16,3 +16,8 @@ public/vendor/
 public/cv.md
 dist/
 .astro/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
+.impeccable/decision/
+.impeccable/live/

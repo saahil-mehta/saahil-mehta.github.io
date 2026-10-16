@@ -1,0 +1,59 @@
+---
+import Icon from "./Icon.astro";
+import type { Project } from "../lib/profile";
+import { stripCells, durationLabel, fmtMonth } from "../lib/dates";
+
+interface Props {
+  project: Project;
+  index: number;
+  detail?: boolean;
+}
+const { project: p, index, detail = false } = Astro.props;
+const cells = stripCells(p.since, p.until);
+const statusLabel: Record<Project["status"], string> = {
+  live: "Operational",
+  in_progress: "In build",
+  paused: "Paused",
+  archived: "Retired",
+};
+const firstSentence = p.site_summary.split(/(?<=\.)\s+/)[0];
+const span = p.until ? `${fmtMonth(p.since)} to ${fmtMonth(p.until)}` : `${fmtMonth(p.since)} to now`;
+---
+
+<li class="component" data-status={p.status} style={`--row:${index}`}>
+  <div class="component-name-wrap">
+    <div class="component-name">
+      <h3>{p.link ? <a href={p.link} target="_blank" rel="noopener">{p.name}</a> : p.name}</h3>
+      <span class="component-org">{p.venue}</span>
+    </div>
+    <p class="component-sum">{detail ? p.site_summary : firstSentence}</p>
+    {detail && <div class="tags">{p.tags.map((t) => <span>{t}</span>)}</div>}
+  </div>
+  <div class="strip-wrap">
+    <ol class="strip" aria-label={`Months in production, last 36 months: ${durationLabel(p.since, p.until)}`}>
+      {cells.map((c) => <li class={c.on ? "cell on" : "cell"} data-label={c.label} aria-hidden="true" />)}
+    </ol>
+    <div class="strip-caption">
+      <span>{span}</span>
+      <span>{durationLabel(p.since, p.until)}</span>
+    </div>
+  </div>
+  <div class="figure">
+    <strong>{p.metric.value}</strong>
+    <span class="figure-label">{p.metric.label}</span>
+  </div>
+  <span class="pill" data-status={p.status}>{statusLabel[p.status]}</span>
+  {
+    detail && p.site_detail && (
+      <details class="component-detail">
+        <summary>
+          <Icon name="chevron-right" size={14} />
+          How it's built
+        </summary>
+        <div class="component-detail-anim"><div><div class="component-detail-body">
+          <p>{p.site_detail}</p>
+        </div></div></div>
+      </details>
+    )
+  }
+</li>

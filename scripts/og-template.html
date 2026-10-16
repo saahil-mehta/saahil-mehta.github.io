@@ -3,40 +3,52 @@
 <head>
 <meta charset="utf-8" />
 <style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url("../public/fonts/BricolageGrotesque-latin.woff2") format("woff2"); font-weight: 200 800; }
   @font-face { font-family: "Satoshi"; src: url("../public/fonts/Satoshi-Variable.woff2") format("woff2"); font-weight: 300 900; }
   @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Medium.woff2") format("woff2"); font-weight: 500; }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
-  body {
-    position: relative; font-family: "Satoshi", sans-serif; color: #f5f5f5; background: #000;
-    display: flex; align-items: center; padding: 0 96px; box-sizing: border-box;
-  }
-  .glow { position: absolute; inset: -200px; background:
-    radial-gradient(620px circle at 78% 30%, rgba(95,242,107,.32), transparent 62%),
-    radial-gradient(520px circle at 20% 90%, rgba(175,103,255,.30), transparent 60%); filter: blur(40px); }
-  .grid { position: absolute; inset: 0; background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size: 48px 48px; mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%); }
-  .card { position: relative; display: grid; grid-template-columns: 1fr 240px; gap: 48px; align-items: center; width: 100%; }
-  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #5ff26b; margin: 0 0 18px; }
-  h1 { font-size: 84px; line-height: 1; letter-spacing: -.02em; margin: 0 0 20px; font-weight: 700; }
-  .title { font-size: 30px; margin: 0 0 28px; color: rgba(245,245,245,.85); font-weight: 500; }
-  .line { font-size: 26px; line-height: 1.35; margin: 0; color: rgba(245,245,245,.7); max-width: 720px; }
-  .avatar { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.18); box-shadow: 0 30px 80px rgba(0,0,0,.6); }
-  .url { position: absolute; left: 96px; bottom: 44px; font-family: "JetBrains Mono", monospace; font-size: 22px; color: rgba(245,245,245,.6); }
+  body { font-family: "Satoshi", sans-serif; color: #0f1419; background: #ffffff; display: flex; flex-direction: column; }
+  .banner { height: 150px; background: linear-gradient(180deg, #0f7f4c, #0b6b40); color: #fff; display: flex; align-items: center; gap: 22px; padding: 0 84px; box-sizing: border-box; }
+  .dot { width: 22px; height: 22px; border-radius: 50%; background: #7ff0b2; box-shadow: 0 0 0 7px rgba(127,240,178,.25); }
+  .banner h1 { font-family: "Bricolage Grotesque"; font-weight: 600; font-size: 46px; letter-spacing: -.01em; margin: 0; }
+  .banner .sub { font-size: 20px; color: rgba(255,255,255,.82); margin: 4px 0 0; }
+  .banner .meta { margin-left: auto; font-family: "JetBrains Mono"; font-size: 16px; color: rgba(255,255,255,.78); text-align: right; line-height: 1.5; }
+  .body { flex: 1; display: grid; grid-template-columns: 1fr 180px; gap: 48px; align-items: center; padding: 0 84px; }
+  h2 { font-family: "Bricolage Grotesque"; font-weight: 600; font-size: 72px; letter-spacing: -.02em; line-height: 1; margin: 0 0 14px; }
+  .role { font-size: 28px; color: #4b5563; margin: 0 0 30px; }
+  .rows { display: grid; gap: 12px; width: 760px; }
+  .row { display: grid; grid-template-columns: 220px 1fr 170px; gap: 24px; align-items: center; font-size: 20px; }
+  .row .name { font-weight: 600; }
+  .strip { display: grid; grid-template-columns: repeat(36, 1fr); gap: 3px; height: 22px; }
+  .strip i { border-radius: 2px; background: #e9ecef; }
+  .strip i.on { background: #1f9d5f; }
+  .row .num { text-align: right; font-family: "Bricolage Grotesque"; font-weight: 600; font-size: 24px; }
+  .avatar { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 1px solid #e3e7eb; box-shadow: 0 16px 40px -16px rgba(15,20,25,.28); }
 </style>
 </head>
 <body>
-  <div class="glow"></div>
-  <div class="grid"></div>
-  <div class="card">
+  <div class="banner">
+    <div class="dot"></div>
     <div>
-      <p class="eyebrow">Data &amp; AI leadership · London</p>
-      <h1>Saahil Mehta</h1>
-      <p class="title">Associate Director, Data &amp; Insights at South Pole</p>
-      <p class="line">Built Orca, an enterprise AI assistant for 501 people, and the governed data platform underneath it.</p>
+      <h1>All systems operational</h1>
+      <p class="sub">7 systems in production · 501 people served · one operator</p>
+    </div>
+    <div class="meta">saahil.co.uk<br>status page</div>
+  </div>
+  <div class="body">
+    <div>
+      <h2>Saahil Mehta</h2>
+      <p class="role">Associate Director, Data &amp; Insights at South Pole</p>
+      <div class="rows" id="rows"></div>
     </div>
     <img class="avatar" src="../public/profile-512.jpg" alt="" />
   </div>
-  <div class="url">saahil.co.uk</div>
+  <script>
+    // Three representative rows; the counts mirror profile.yaml at the time of rendering.
+    const rows = [["Orca", 5, "560,000+"], ["Orca Core", 2, "1,800+"], ["Data Foundation Plan", 3, "~295k EUR/yr"]];
+    document.getElementById("rows").innerHTML = rows.map(([name, on, num]) =>
+      `<div class="row"><span class="name">${name}</span><div class="strip">${Array.from({length: 36}, (_, i) => `<i class="${i >= 36 - on ? "on" : ""}"></i>`).join("")}</div><span class="num">${num}</span></div>`
+    ).join("");
+  </script>
 </body>
 </html>

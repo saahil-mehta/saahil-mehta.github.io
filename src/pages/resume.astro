@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import Subscribe from "../components/Subscribe.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -9,23 +11,20 @@ const pdf = "/Saahil-Mehta-Resume.pdf";
 ---
 
 <Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="prose">
-    <h1>{meta.title}</h1>
-    <p class="lede">
-      The full, printer-friendly history. The same facts are available as <a class="cactus-link" href="/cv.md">Markdown</a> and
-      <a class="cactus-link" href="/resume.json">JSON Resume</a>.
+  <div class="page-head container">
+    <h1>Resume</h1>
+    <p>
+      The full, printer-friendly history. The same facts are exported as <a href="/cv.md">Markdown</a> and <a href="/resume.json">JSON Resume</a>.
     </p>
+    <div class="actions" style="justify-content:flex-start;margin-top:1.25rem">
+      <a href={pdf} target="_blank" rel="noopener" class="button primary"><Icon name="file" size={16} /><span>Open PDF</span></a>
+      <a href={pdf} download class="button"><Icon name="download" size={16} /><span>Download</span></a>
+    </div>
   </div>
-  <div class="resume-frame" data-reveal>
-    <iframe src={`${pdf}#view=FitH`} title="Saahil Mehta resume PDF" loading="lazy"></iframe>
-  </div>
-  <div class="resume-actions">
-    <a href={pdf} target="_blank" rel="noopener" class="button primary">Open PDF</a>
-    <a href={pdf} download class="button secondary">Download PDF</a>
-  </div>
-  <hr class="section-break" />
-  <div class="cta">
-    <p>Want to talk?</p>
-    <a href={profile.person.links.calendly} target="_blank" rel="noopener noreferrer" class="button primary">Book a 30-minute call</a>
-  </div>
+  <section class="section container" aria-label="Resume preview">
+    <div class="resume-frame">
+      <iframe src={`${pdf}#view=FitH`} title="Saahil Mehta resume PDF" loading="lazy"></iframe>
+    </div>
+  </section>
+  <Subscribe />
 </Base>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Subscribe from "../components/Subscribe.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -7,15 +8,20 @@ const meta = profile.site.pages.github;
 const path = "/github";
 ---
 
-<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="prose">
-    <h1>{meta.title}</h1>
-    <p class="lede">
-      Live calendar pulled from GitHub activity for <a class="cactus-link" href={profile.person.links.github} target="_blank" rel="noopener">saahil-mehta</a>. Hover a cell for the day's count.
+<Base title={pageTitle("Activity")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Activity", path)]}>
+  <div class="page-head container">
+    <h1>Activity</h1>
+    <p>
+      The operator's own uptime: a live calendar of commits for <a href={profile.person.links.github} target="_blank" rel="noopener">saahil-mehta</a> over the last twelve months. Hover a day for its count.
     </p>
   </div>
-  <div id="github-contributions" class="contrib-grid-wrapper">
-    <div class="loading-spinner">Loading contributions</div>
-    <noscript><p class="contrib-note">The calendar needs JavaScript. The activity itself is on <a class="cactus-link" href={profile.person.links.github}>GitHub</a>.</p></noscript>
-  </div>
+  <section class="section container" aria-label="GitHub contributions">
+    <div class="contrib-grid-wrapper" id="github-contributions" data-username="saahil-mehta">
+      <p class="loading">Loading the last twelve months of commits</p>
+      <noscript>
+        <p class="contrib-note">The calendar needs JavaScript. The activity itself is on <a href={profile.person.links.github}>GitHub</a>.</p>
+      </noscript>
+    </div>
+  </section>
+  <Subscribe />
 </Base>

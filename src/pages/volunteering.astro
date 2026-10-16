@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import VolunteerCard from "../components/VolunteerCard.astro";
+import Icon from "../components/Icon.astro";
+import Subscribe from "../components/Subscribe.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -8,10 +9,46 @@ const meta = profile.site.pages.volunteering;
 const path = "/volunteering";
 ---
 
-<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="prose">
-    <h1>{meta.title}</h1>
-    <p class="lede">Work I do outside the day job, and the programmes that noticed.</p>
+<Base title={pageTitle("Community")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Community", path)]}>
+  <div class="page-head container">
+    <h1>Community</h1>
+    <p>Work outside the day job, and the programmes that noticed.</p>
   </div>
-  {profile.volunteering.map((v, i) => <VolunteerCard entry={v} index={i} />)}
+  <section class="section container" aria-label="Volunteering and recognition">
+    <ol class="releases">
+      {
+        profile.volunteering.map((v) => (
+          <li class="release">
+            <span class="release-tag">{v.year}</span>
+            <div>
+              <h2 class="release-title">{v.link ? <a href={v.link} target="_blank" rel="noopener">{v.name}</a> : v.name}</h2>
+              <p class="org">{v.venue}</p>
+              <p class="desc">{v.challenge}</p>
+              {v.details.map((d) => (
+                <details class="component-detail" style="margin-top:0.75rem">
+                  <summary>
+                    <Icon name="chevron-right" size={14} />
+                    {d.title}
+                  </summary>
+                  <div class="component-detail-anim"><div><div class="component-detail-body">
+                    {d.paragraphs.map((para) => (
+                      <p set:html={para} />
+                    ))}
+                  </div></div></div>
+                </details>
+              ))}
+              {v.outcome && (
+                <p class="desc">
+                  <strong>Outcome.</strong> {v.outcome}
+                </p>
+              )}
+              <div class="tags">{v.tags.map((t) => <span>{t}</span>)}</div>
+            </div>
+            <p class="dates" />
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+  <Subscribe />
 </Base>

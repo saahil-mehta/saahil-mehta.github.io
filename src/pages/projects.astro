@@ -1,17 +1,38 @@
 ---
 import Base from "../layouts/Base.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import ComponentsTable from "../components/ComponentsTable.astro";
+import Subscribe from "../components/Subscribe.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
 const meta = profile.site.pages.projects;
 const path = "/projects";
+const active = profile.projects.filter((p) => p.status === "live" || p.status === "in_progress");
+const retired = profile.projects.filter((p) => p.status === "paused" || p.status === "archived");
 ---
 
-<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="prose">
-    <h1>{meta.title}</h1>
-    <p class="lede">Production systems and infrastructure, newest first. Open "How it's built" on a card for the design decisions.</p>
+<Base title={pageTitle("Systems")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Systems", path)]}>
+  <div class="page-head container">
+    <h1>Systems</h1>
+    <p>Everything in production under my name, with its time live and the one number that matters. Open "How it's built" for the design decisions.</p>
   </div>
-  {profile.projects.map((p, i) => <ProjectCard project={p} index={i} />)}
+  <section class="section container" aria-labelledby="active-heading">
+    <div class="section-head">
+      <h2 id="active-heading">In production</h2>
+      <span class="label">{active.length} components</span>
+    </div>
+    <ComponentsTable projects={active} detail={true} />
+  </section>
+  {
+    retired.length > 0 && (
+      <section class="section container" aria-labelledby="retired-heading">
+        <div class="section-head">
+          <h2 id="retired-heading">Paused</h2>
+          <span class="label">{retired.length} component{retired.length === 1 ? "" : "s"}</span>
+        </div>
+        <ComponentsTable projects={retired} detail={true} />
+      </section>
+    )
+  }
+  <Subscribe />
 </Base>

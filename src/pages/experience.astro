@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import TimelineItem from "../components/TimelineItem.astro";
+import ReleaseRow from "../components/ReleaseRow.astro";
+import Subscribe from "../components/Subscribe.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -9,14 +10,14 @@ const path = "/experience";
 ---
 
 <Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="prose">
-    <h1>{meta.title}</h1>
-    <p class="lede">
-      I lead a data and insights team and run the platform underneath it, where the bar is reliability, governed access and
-      recoverable state. Strict standards, real backups, regular drills, full observability.
-    </p>
+  <div class="page-head container">
+    <h1>Experience</h1>
+    <p>Release history, newest first. Each version is a role; the notes under it are what shipped.</p>
   </div>
-  <ol class="timeline">
-    {profile.roles.map((role, i) => <TimelineItem role={role} index={i} />)}
-  </ol>
+  <section class="section container" aria-label="Roles">
+    <ol class="releases">
+      {profile.roles.map((r) => <ReleaseRow role={r} bullets={true} level={2} />)}
+    </ol>
+  </section>
+  <Subscribe />
 </Base>

@@ -1,0 +1,27 @@
+---
+import type { Role } from "../lib/profile";
+import { fmtMonth } from "../lib/dates";
+
+interface Props {
+  role: Role;
+  bullets?: boolean;
+  level?: 2 | 3;
+}
+const { role, bullets = false, level = 3 } = Astro.props;
+const Heading = `h${level}` as "h2" | "h3";
+const tag = `v${role.start.replace("-", ".")}`;
+---
+
+<li class="release">
+  <span class="release-tag" aria-label={`Started ${fmtMonth(role.start)}`}>{tag}</span>
+  <div>
+    <Heading class="release-title">{role.title}</Heading>
+    <p class="org">{role.org}{role.unit && `, ${role.unit}`}</p>
+    <p class="desc">{role.site_desc}</p>
+    {bullets && <ul>{role.cv_bullets.map((b) => <li>{b}</li>)}</ul>}
+  </div>
+  <p class="dates">
+    <time datetime={role.start}>{fmtMonth(role.start)}</time> to {role.end === "present" ? "present" : <time datetime={role.end}>{fmtMonth(role.end)}</time>}
+    <span class="loc">{role.location}</span>
+  </p>
+</li>

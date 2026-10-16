@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
-    "@lottiefiles/lottie-player": "2.0.12",
     "astro": "7.4.0",
     "yaml": "2.9.1"
   },

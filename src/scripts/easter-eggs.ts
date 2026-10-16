@@ -9,8 +9,12 @@ function wrapLetters(root: Element): void {
       if (!/[bB]/.test(value)) return NodeFilter.FILTER_REJECT;
       const parent = node.parentElement;
       if (!parent) return NodeFilter.FILTER_REJECT;
-      if (["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      if (["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "BUTTON", "SUMMARY", "TIME", "CODE"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
       if (parent.classList.contains("hover-b")) return NodeFilter.FILTER_REJECT;
+      if (parent.closest(".pill, .button, .tags, .label, .mono, .strip-caption, .release-tag, .site-nav, .brand, .banner-meta, .integrations")) return NodeFilter.FILTER_REJECT;
+      // Splitting a text node that is itself a flex or grid item turns one word into several items.
+      const display = getComputedStyle(parent).display;
+      if (display.includes("flex") || display.includes("grid")) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     },
   });
@@ -109,7 +113,7 @@ let globalBound = false;
 export function initEasterEggs(): void {
   const main = document.querySelector("main");
   if (main) wrapLetters(main);
-  const logo = document.querySelector<HTMLAnchorElement>(".header-logo");
+  const logo = document.querySelector<HTMLAnchorElement>(".brand");
   if (logo && !logo.dataset.bound) {
     logo.dataset.bound = "1";
     logo.addEventListener("click", (e) => {

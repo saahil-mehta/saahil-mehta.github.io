@@ -71,6 +71,7 @@ function render(container: HTMLElement, weeks: Week[]): void {
   const total = weeks.reduce((sum, w) => sum + w.days.reduce((s, d) => s + d.count, 0), 0);
   container.appendChild(el("div", "contrib-total", `${total.toLocaleString("en-GB")} contributions in the last year`));
 
+  const scroll = el("div", "contrib-scroll");
   const months = el("div", "contrib-months");
   let current = "";
   let startIndex = 0;
@@ -93,7 +94,7 @@ function render(container: HTMLElement, weeks: Week[]): void {
     label.style.left = `${startIndex * (CELL + GAP)}px`;
     months.appendChild(label);
   }
-  container.appendChild(months);
+  scroll.appendChild(months);
 
   const graph = el("div", "contrib-graph-container");
   const weekdays = el("div", "contrib-weekdays");
@@ -105,13 +106,16 @@ function render(container: HTMLElement, weeks: Week[]): void {
     const column = el("div", "contrib-week");
     for (const day of week.days) {
       const cell = el("span", `contrib-day ${level(day.count)}`);
-      cell.title = `${day.count} contribution${day.count === 1 ? "" : "s"} on ${day.date}`;
+      cell.dataset.label = `${day.count} contribution${day.count === 1 ? "" : "s"} · ${day.date}`;
+      cell.setAttribute("role", "img");
+      cell.setAttribute("aria-label", cell.dataset.label);
       column.appendChild(cell);
     }
     grid.appendChild(column);
   }
   graph.appendChild(grid);
-  container.appendChild(graph);
+  scroll.appendChild(graph);
+  container.appendChild(scroll);
 
   const legend = el("div", "contrib-legend");
   legend.appendChild(el("span", "contrib-legend-label", "Less"));
@@ -140,6 +144,6 @@ export async function initContributions(): Promise<void> {
     writeCache(cache);
     render(container, toWeeks(cache.contributions));
   } catch {
-    container.innerHTML = '<p class="contrib-note">Unable to load contributions right now.</p>';
+    container.innerHTML = '<p class="contrib-note">Unable to load contributions right now. The activity is on GitHub.</p>';
   }
 }
