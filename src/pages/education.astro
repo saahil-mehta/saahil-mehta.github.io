@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import Subscribe from "../components/Subscribe.astro";
+import Counter from "../components/Counter.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -9,30 +9,33 @@ const path = "/education";
 ---
 
 <Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="page-head container">
-    <h1>Education</h1>
-    <p>Computer science, mathematics and business analytics, in that order.</p>
-  </div>
-  <section class="section container" aria-label="Degrees">
-    <ol class="releases">
+  <section class="box sheet container page-head">
+    <div>
+      <h1>Education</h1>
+      <p>Computer science, mathematics and business analytics, in that order.</p>
+    </div>
+  </section>
+  <section class="box section container" aria-label="Degrees">
+    <ol class="tickets">
       {
         profile.education.map((e) => (
-          <li class="release">
-            <span class="release-tag">{e.years ?? "degree"}</span>
-            <div>
-              <h2 class="release-title">{e.degree}</h2>
-              <p class="org">{e.org}</p>
-              <p class="desc">
-                <strong>{e.grade}.</strong> {e.desc}
-              </p>
+          <li class="ticket shift">
+            <div class="ticket-stub">
+              <span class="ticket-serial">{e.years ?? "Degree"}</span>
+              <span class="label">{e.location}</span>
             </div>
-            <p class="dates">
-              <span class="loc">{e.location}</span>
-            </p>
+            <div class="ticket-body">
+              <div>
+                <h2 class="ticket-title">{e.degree}</h2>
+                <p class="org">{e.org}</p>
+              </div>
+              <p class="dates">{e.grade}</p>
+              <p class="desc">{e.desc}</p>
+            </div>
           </li>
         ))
       }
     </ol>
   </section>
-  <Subscribe />
+  <Counter />
 </Base>

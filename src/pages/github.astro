@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import Subscribe from "../components/Subscribe.astro";
+import Counter from "../components/Counter.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -8,20 +8,22 @@ const meta = profile.site.pages.github;
 const path = "/github";
 ---
 
-<Base title={pageTitle("Activity")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Activity", path)]}>
-  <div class="page-head container">
-    <h1>Activity</h1>
-    <p>
-      The operator's own uptime: a live calendar of commits for <a href={profile.person.links.github} target="_blank" rel="noopener">saahil-mehta</a> over the last twelve months. Hover a day for its count.
-    </p>
-  </div>
-  <section class="section container" aria-label="GitHub contributions">
-    <div class="contrib-grid-wrapper" id="github-contributions" data-username="saahil-mehta">
-      <p class="loading">Loading the last twelve months of commits</p>
+<Base title={pageTitle("Ledger")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Ledger", path)]}>
+  <section class="box sheet container page-head">
+    <div>
+      <h1>Production ledger</h1>
+      <p>
+        A live ledger of commits for <a href={profile.person.links.github} target="_blank" rel="noopener">saahil-mehta</a> over the last twelve months. Hover a day for its count.
+      </p>
+    </div>
+  </section>
+  <section class="box section container" aria-label="GitHub contributions">
+    <div class="ledger-graph" id="github-contributions" data-username="saahil-mehta" style="border-right:0">
+      <p class="loading">Fetching the last twelve months of commits</p>
       <noscript>
-        <p class="contrib-note">The calendar needs JavaScript. The activity itself is on <a href={profile.person.links.github}>GitHub</a>.</p>
+        <p class="contrib-note">The ledger needs JavaScript. The commits themselves are on <a href={profile.person.links.github}>GitHub</a>.</p>
       </noscript>
     </div>
   </section>
-  <Subscribe />
+  <Counter />
 </Base>

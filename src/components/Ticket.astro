@@ -1,0 +1,32 @@
+---
+import type { Role } from "../lib/profile";
+import { fmtMonth } from "../lib/dates";
+
+interface Props {
+  role: Role;
+  bullets?: boolean;
+  level?: 2 | 3;
+}
+const { role, bullets = false, level = 3 } = Astro.props;
+const Heading = `h${level}` as "h2" | "h3";
+const serial = `A ${role.start.replace("-", "")}`;
+---
+
+<li class="ticket shift">
+  <div class="ticket-stub">
+    <span class="ticket-serial" aria-label={`Ticket ${serial}`}>{serial}</span>
+    <span class="label">{role.end === "present" ? "Valid" : "Punched"}</span>
+  </div>
+  <div class="ticket-body">
+    <div>
+      <Heading class="ticket-title">{role.title}</Heading>
+      <p class="org">{role.org}{role.unit && `, ${role.unit}`}</p>
+    </div>
+    <p class="dates">
+      <time datetime={role.start}>{fmtMonth(role.start)}</time> to {role.end === "present" ? "present" : <time datetime={role.end}>{fmtMonth(role.end)}</time>}
+      <span class="loc">{role.location}</span>
+    </p>
+    <p class="desc">{role.site_desc}</p>
+    {bullets && <ul>{role.cv_bullets.map((b) => <li>{b}</li>)}</ul>}
+  </div>
+</li>

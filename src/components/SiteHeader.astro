@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import Mark from "./Mark.astro";
 import { profile } from "../lib/profile";
 
 interface Props {
@@ -9,41 +10,35 @@ const { path } = Astro.props;
 const { person } = profile;
 
 const items = [
-  { href: "/", label: "Status" },
+  { href: "/", label: "Kiosk" },
   { href: "/projects", label: "Systems" },
   { href: "/experience", label: "Experience" },
   { href: "/volunteering", label: "Community" },
   { href: "/education", label: "Education" },
-  { href: "/github", label: "Activity" },
+  { href: "/github", label: "Ledger" },
   { href: "/resume", label: "Resume" },
 ];
 ---
 
-<header class="site-header" id="main-header">
+<header class="masthead" id="main-header">
   <div class="container">
     <a href="/" class="brand" aria-label={`${person.name}, home`}>
-      <img src="/mark.svg" alt="" width="26" height="26" decoding="async" />
-      <span>{person.name}</span>
+      <span class="brand-marks" aria-hidden="true">
+        <Mark name="ring" size={22} ink="night" />
+        <Mark name="chevron" size={22} ink="red" />
+        <Mark name="arch" size={22} ink="green" />
+      </span>
+      <span>
+        <span class="brand-word">{person.name}</span>
+        <span class="brand-sub">Data &amp; Insights Office · London</span>
+      </span>
     </a>
     <nav class="site-nav" id="navigation-menu" aria-label="Primary">
-      {
-        items.map((item) => (
-          <a href={item.href} aria-current={item.href === path ? "page" : undefined}>
-            {item.label}
-            {item.href === path && <span class="nav-indicator" aria-hidden="true" />}
-          </a>
-        ))
-      }
+      {items.map((item) => <a href={item.href} aria-current={item.href === path ? "page" : undefined}>{item.label}</a>)}
     </nav>
-    <div class="header-tools">
-      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme">
-        <Icon name="sun" class="sun-icon" />
-        <Icon name="moon" class="moon-icon" />
-      </button>
-      <button id="toggle-navigation-menu" class="icon-button" type="button" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
-        <Icon name="menu" class="icon-menu" />
-        <Icon name="close" class="icon-close" />
-      </button>
-    </div>
+    <button id="toggle-navigation-menu" type="button" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
+      <Icon name="menu" class="icon-menu" size={20} />
+      <Icon name="close" class="icon-close" size={20} />
+    </button>
   </div>
 </header>

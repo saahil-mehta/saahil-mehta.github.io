@@ -1,0 +1,45 @@
+---
+import Icon from "./Icon.astro";
+import Mark from "./Mark.astro";
+import type { Project } from "../lib/profile";
+import { fmtMonth } from "../lib/dates";
+
+interface Props {
+  project: Project;
+  rank?: 1 | 2;
+  detail?: boolean;
+}
+const { project: p, rank = 1, detail = false } = Astro.props;
+const STATE: Record<Project["status"], string> = { live: "In production", in_progress: "In build", paused: "Paused", archived: "Retired" };
+const inkFor: Record<Project["status"], "night" | "red" | "green"> = { live: "night", in_progress: "red", paused: "night", archived: "night" };
+const firstSentence = p.site_summary.split(/(?<=\.)\s+/)[0];
+---
+
+<li class="good shift" data-rank={rank} data-status={p.status}>
+  <div class="good-top">
+    <div>
+      <span class="label">{p.category}</span>
+      <h3 class="good-name">{p.link ? <a href={p.link} target="_blank" rel="noopener">{p.name}</a> : p.name}</h3>
+      <p class="good-sub">{detail ? p.site_summary : firstSentence}</p>
+      {detail && <div class="tags">{p.tags.map((t) => <span>{t}</span>)}</div>}
+    </div>
+  </div>
+  <div class="good-mark" data-ink={p.status === "in_progress" ? "red" : rank === 2 ? "green" : undefined}>
+    <Mark name={p.mark} ink={rank === 2 && p.status === "live" ? "green" : inkFor[p.status]} />
+  </div>
+  {
+    detail && p.site_detail && (
+      <details class="good-detail">
+        <summary>
+          <Icon name="chevron-right" size={14} />
+          How it's built
+        </summary>
+        <div class="detail-anim"><div><div class="detail-body">{p.site_detail}</div></div></div>
+      </details>
+    )
+  }
+  <div class="good-foot">
+    <span class="serial"><span>No. {p.since.replace("-", ".")}{p.until && ` to ${fmtMonth(p.until)}`}</span><span class="good-state">{STATE[p.status]}</span></span>
+    <span class="figure" data-ink="red">{p.metric.value}<small>{p.metric.label}</small></span>
+  </div>
+</li>

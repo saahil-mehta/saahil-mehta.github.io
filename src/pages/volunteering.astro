@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import Subscribe from "../components/Subscribe.astro";
+import Counter from "../components/Counter.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -10,30 +10,36 @@ const path = "/volunteering";
 ---
 
 <Base title={pageTitle("Community")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Community", path)]}>
-  <div class="page-head container">
-    <h1>Community</h1>
-    <p>Work outside the day job, and the programmes that noticed.</p>
-  </div>
-  <section class="section container" aria-label="Volunteering and recognition">
-    <ol class="releases">
+  <section class="box sheet container page-head">
+    <div>
+      <h1>Community</h1>
+      <p>Work outside the day job, and the programmes that noticed.</p>
+    </div>
+  </section>
+  <section class="box section container" aria-label="Volunteering and recognition">
+    <ol class="tickets">
       {
         profile.volunteering.map((v) => (
-          <li class="release">
-            <span class="release-tag">{v.year}</span>
-            <div>
-              <h2 class="release-title">{v.link ? <a href={v.link} target="_blank" rel="noopener">{v.name}</a> : v.name}</h2>
-              <p class="org">{v.venue}</p>
+          <li class="ticket shift">
+            <div class="ticket-stub">
+              <span class="ticket-serial">{v.year}</span>
+              <span class="label">{v.venue.split(" · ")[1] ?? "Volunteer"}</span>
+            </div>
+            <div class="ticket-body">
+              <div>
+                <h2 class="ticket-title">{v.link ? <a href={v.link} target="_blank" rel="noopener">{v.name}</a> : v.name}</h2>
+                <p class="org">{v.venue}</p>
+              </div>
+              <p class="dates" />
               <p class="desc">{v.challenge}</p>
               {v.details.map((d) => (
-                <details class="component-detail" style="margin-top:0.75rem">
+                <details class="good-detail" style="grid-column:1/-1;margin-top:0.75rem">
                   <summary>
                     <Icon name="chevron-right" size={14} />
                     {d.title}
                   </summary>
-                  <div class="component-detail-anim"><div><div class="component-detail-body">
-                    {d.paragraphs.map((para) => (
-                      <p set:html={para} />
-                    ))}
+                  <div class="detail-anim"><div><div class="detail-body">
+                    {d.paragraphs.map((para) => <p set:html={para} />)}
                   </div></div></div>
                 </details>
               ))}
@@ -42,13 +48,12 @@ const path = "/volunteering";
                   <strong>Outcome.</strong> {v.outcome}
                 </p>
               )}
-              <div class="tags">{v.tags.map((t) => <span>{t}</span>)}</div>
+              <div class="tags" style="grid-column:1/-1">{v.tags.map((t) => <span>{t}</span>)}</div>
             </div>
-            <p class="dates" />
           </li>
         ))
       }
     </ol>
   </section>
-  <Subscribe />
+  <Counter />
 </Base>

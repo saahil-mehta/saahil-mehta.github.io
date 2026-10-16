@@ -26,6 +26,8 @@ const Project = z.object({
   venue: z.string(),
   period: z.string(),
   status: z.enum(["live", "in_progress", "paused", "archived"]),
+  category: z.string(),
+  mark: z.enum(["ring", "arch", "chevron", "bars", "keyhole", "quarter", "grid", "half"]),
   since: month,
   until: month.nullable(),
   metric: z.object({ value: z.string(), label: z.string() }),

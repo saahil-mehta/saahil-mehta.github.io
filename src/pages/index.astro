@@ -1,61 +1,57 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import StatusBanner from "../components/StatusBanner.astro";
-import IdentityRow from "../components/IdentityRow.astro";
-import ComponentsTable from "../components/ComponentsTable.astro";
-import OperatorBlock from "../components/OperatorBlock.astro";
-import ReleaseRow from "../components/ReleaseRow.astro";
-import Subscribe from "../components/Subscribe.astro";
+import KioskHero from "../components/KioskHero.astro";
+import Kiosk from "../components/Kiosk.astro";
+import Ledger from "../components/Ledger.astro";
+import Ticket from "../components/Ticket.astro";
+import Counter from "../components/Counter.astro";
 import { profile } from "../lib/profile";
 import { paragraphs } from "../lib/text";
 import { pageTitle, profilePageJsonLd } from "../lib/seo";
 
 const { site, summaries, projects, roles } = profile;
-const systems = projects.filter((p) => p.status !== "paused" && p.status !== "archived");
+const goods = projects.filter((p) => p.status === "live" || p.status === "in_progress");
 const bio = paragraphs(summaries.site_bio).slice(1, 3);
 ---
 
 <Base title={pageTitle()} description={site.description} path="/" ogType="profile" jsonLd={[profilePageJsonLd()]}>
-  <StatusBanner />
-  <IdentityRow />
+  <KioskHero />
 
-  <section class="section container" aria-labelledby="components-heading">
-    <div class="section-head">
-      <h2 id="components-heading">Components</h2>
-      <span class="label">{systems.length} systems</span>
+  <section class="box section container" aria-labelledby="shelf-heading">
+    <div class="box-head">
+      <h2 id="shelf-heading">On the shelf · {goods.length} goods</h2>
       <a class="more" href="/projects">All systems <Icon name="arrow-right" size={14} /></a>
     </div>
-    <ComponentsTable projects={systems} />
+    <Kiosk projects={goods} />
   </section>
 
-  <section class="section container" aria-labelledby="operator-heading">
-    <div class="section-head">
-      <h2 id="operator-heading">Operator</h2>
-      <span class="label">commits, last 12 months</span>
+  <section class="box section container" aria-labelledby="ledger-heading">
+    <div class="box-head">
+      <h2 id="ledger-heading">Production ledger · commits, last 12 months</h2>
+      <a class="more" href="/github">Full ledger <Icon name="arrow-right" size={14} /></a>
     </div>
-    <OperatorBlock />
+    <Ledger />
   </section>
 
-  <section class="section container" aria-labelledby="about-heading">
-    <div class="section-head">
-      <h2 id="about-heading">About</h2>
+  <section class="box section container" aria-labelledby="notes-heading">
+    <div class="box-head">
+      <h2 id="notes-heading">Office notes</h2>
     </div>
-    <div class="prose" style="padding-top:1.25rem">
+    <div class="prose" style="padding:1.5rem 2rem 1.75rem">
       {bio.map((p) => <p set:html={p} />)}
     </div>
   </section>
 
-  <section class="section container" aria-labelledby="history-heading">
-    <div class="section-head">
-      <h2 id="history-heading">Release history</h2>
-      <span class="label">{roles.length} releases</span>
-      <a class="more" href="/experience">Full history <Icon name="arrow-right" size={14} /></a>
+  <section class="box section container" aria-labelledby="tickets-heading">
+    <div class="box-head">
+      <h2 id="tickets-heading">Tickets · {roles.length} roles</h2>
+      <a class="more" href="/experience">Full strip <Icon name="arrow-right" size={14} /></a>
     </div>
-    <ol class="releases">
-      {roles.slice(0, 3).map((r) => <ReleaseRow role={r} />)}
+    <ol class="tickets">
+      {roles.slice(0, 3).map((r) => <Ticket role={r} />)}
     </ol>
   </section>
 
-  <Subscribe />
+  <Counter />
 </Base>

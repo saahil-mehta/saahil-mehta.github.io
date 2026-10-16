@@ -1,0 +1,15 @@
+---
+import Good from "./Good.astro";
+import type { Project } from "../lib/profile";
+
+interface Props {
+  projects: Project[];
+  detail?: boolean;
+  featured?: string;
+}
+const { projects, detail = false, featured = "Orca" } = Astro.props;
+---
+
+<ol class="kiosk">
+  {projects.map((p) => <Good project={p} rank={p.name === featured ? 2 : 1} detail={detail} />)}
+</ol>

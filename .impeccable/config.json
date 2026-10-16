@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "archivo",
+        "createdAt": "2026-10-16T19:02:28.004Z",
+        "reason": "user chose the kiosk-print replacement world (seed 8e222f9f re-roll 1); Archivo is its one geometric grotesque, DESIGN.md is rewritten at finish"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "archivo expanded",
+        "createdAt": "2026-10-16T19:02:28.023Z",
+        "reason": "user chose the kiosk-print replacement world; the width-125 instance of Archivo is the display face, DESIGN.md is rewritten at finish"
+      }
+    ]
+  }
+}

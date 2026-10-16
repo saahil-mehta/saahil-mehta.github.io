@@ -191,6 +191,8 @@ projects:
     venue: South Pole · Production
     period: 2026 - Present
     status: live
+    category: AI assistant
+    mark: ring
     since: "2026-06"
     until: null
     metric: {value: "560,000+", label: "requests at 99.99% success"}
@@ -217,6 +219,8 @@ projects:
     venue: South Pole · In Build
     period: 2026 - Present
     status: in_progress
+    category: Semantic layer
+    mark: arch
     since: "2026-07"
     until: null
     metric: {value: "6", label: "domains, owners named"}
@@ -241,6 +245,8 @@ projects:
     venue: South Pole · Production
     period: "2026"
     status: live
+    category: Orchestration
+    mark: chevron
     since: "2026-09"
     until: null
     metric: {value: "1,800+", label: "dbt models orchestrated"}
@@ -265,6 +271,8 @@ projects:
     venue: South Pole · Adopted by ExCo
     period: 2026 - 2028
     status: live
+    category: Strategy
+    mark: bars
     since: "2026-08"
     until: null
     metric: {value: "~295k EUR/yr", label: "direct savings in the plan"}
@@ -289,6 +297,8 @@ projects:
     venue: South Pole · Production
     period: "2026"
     status: live
+    category: Governance
+    mark: keyhole
     since: "2026-10"
     until: null
     metric: {value: "40+ h", label: "returned to the team each month"}
@@ -312,6 +322,8 @@ projects:
     venue: South Pole · Production
     period: 2025 - Present
     status: live
+    category: FinOps
+    mark: quarter
     since: "2025-01"
     until: null
     metric: {value: "195", label: "GCP projects watched"}
@@ -333,6 +345,8 @@ projects:
     venue: South Pole · Production
     period: "2024"
     status: live
+    category: Platform
+    mark: grid
     since: "2024-03"
     until: null
     metric: {value: "18,000+", label: "resources under Terraform"}
@@ -353,6 +367,8 @@ projects:
     venue: Private AI System for Teams · Personal Project · Paused
     period: 2024 - 2026
     status: paused
+    category: Side project
+    mark: half
     since: "2024-01"
     until: "2026-03"
     metric: {value: "Paused", label: "ideas folded into Orca"}

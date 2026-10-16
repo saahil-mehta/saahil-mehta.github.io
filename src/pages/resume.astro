@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import Subscribe from "../components/Subscribe.astro";
+import Counter from "../components/Counter.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -11,20 +11,22 @@ const pdf = "/Saahil-Mehta-Resume.pdf";
 ---
 
 <Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <div class="page-head container">
-    <h1>Resume</h1>
-    <p>
-      The full, printer-friendly history. The same facts are exported as <a href="/cv.md">Markdown</a> and <a href="/resume.json">JSON Resume</a>.
-    </p>
-    <div class="actions" style="justify-content:flex-start;margin-top:1.25rem">
-      <a href={pdf} target="_blank" rel="noopener" class="button primary"><Icon name="file" size={16} /><span>Open PDF</span></a>
-      <a href={pdf} download class="button"><Icon name="download" size={16} /><span>Download</span></a>
+  <section class="box sheet container">
+    <div class="page-head">
+      <div>
+        <h1>Resume</h1>
+        <p>
+          The full, printer-friendly history. The same facts are exported as <a href="/cv.md">Markdown</a> and <a href="/resume.json">JSON Resume</a>.
+        </p>
+      </div>
+      <div class="actions">
+        <a href={pdf} target="_blank" rel="noopener" class="btn fill"><Icon name="file" size={16} /><span>Open PDF</span></a>
+        <a href={pdf} download class="btn"><Icon name="download" size={16} /><span>Download</span></a>
+      </div>
     </div>
-  </div>
-  <section class="section container" aria-label="Resume preview">
     <div class="resume-frame">
       <iframe src={`${pdf}#view=FitH`} title="Saahil Mehta resume PDF" loading="lazy"></iframe>
     </div>
   </section>
-  <Subscribe />
+  <Counter />
 </Base>

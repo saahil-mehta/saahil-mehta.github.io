@@ -35,6 +35,7 @@ The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF 
 - Every page must be fully readable without JavaScript; all motion sits behind `prefers-reduced-motion`.
 - The GitHub contribution calendar is fetched client-side from a public API and must stay prominent.
 - Lighthouse floor: Performance 90+, Accessibility 95+, SEO 100.
+- The GitHub profile README (github.com/saahil-mehta) is a status-page rendition of the same facts, re-rendered daily from `/status.json`. The site's own visual world must be distinguishable from it in styling.
 
 ## Brand Commitments
 

@@ -1,0 +1,29 @@
+---
+import Icon from "./Icon.astro";
+import { profile } from "../lib/profile";
+const { person } = profile;
+---
+
+<section class="box section container counter" aria-labelledby="counter-heading">
+  <div>
+    <h2 id="counter-heading">The counter</h2>
+    <p>Enterprise AI, data platforms, or leading a data team: a 30-minute call is the fastest route, and email works too.</p>
+  </div>
+  <div class="actions">
+    <button class="btn" type="button" data-copy={person.email} aria-label={`Copy email address ${person.email}`}>
+      <Icon name="copy" size={16} />
+      <span class="when-idle">{person.email}</span>
+      <span class="when-copied">Copied</span>
+    </button>
+    <a class="btn" href={person.links.linkedin} target="_blank" rel="noopener"><Icon name="linkedin" size={16} /><span>LinkedIn</span></a>
+    <a class="btn fill" href={person.links.calendly} target="_blank" rel="noopener noreferrer"><Icon name="calendar" size={16} /><span>Book a call</span></a>
+  </div>
+  <p class="integrations">
+    <span>Machine-readable</span>
+    <a href="/status.json">status.json</a>
+    <a href="/resume.json">resume.json</a>
+    <a href="/cv.md">cv.md</a>
+    <a href="/llms.txt">llms.txt</a>
+    <a href="/Saahil-Mehta-Resume.pdf">resume.pdf</a>
+  </p>
+</section>

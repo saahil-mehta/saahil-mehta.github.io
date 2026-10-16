@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import ComponentsTable from "../components/ComponentsTable.astro";
-import Subscribe from "../components/Subscribe.astro";
+import Kiosk from "../components/Kiosk.astro";
+import Counter from "../components/Counter.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -12,27 +12,27 @@ const retired = profile.projects.filter((p) => p.status === "paused" || p.status
 ---
 
 <Base title={pageTitle("Systems")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Systems", path)]}>
-  <div class="page-head container">
-    <h1>Systems</h1>
-    <p>Everything in production under my name, with its time live and the one number that matters. Open "How it's built" for the design decisions.</p>
-  </div>
-  <section class="section container" aria-labelledby="active-heading">
-    <div class="section-head">
-      <h2 id="active-heading">In production</h2>
-      <span class="label">{active.length} components</span>
+  <section class="box sheet container page-head">
+    <div>
+      <h1>Systems</h1>
+      <p>Everything in production under my name, each with its serial, its state and the one number that matters. Open "How it's built" for the design decisions.</p>
     </div>
-    <ComponentsTable projects={active} detail={true} />
+  </section>
+  <section class="box section container" aria-labelledby="active-heading">
+    <div class="box-head">
+      <h2 id="active-heading">In print · {active.length} goods</h2>
+    </div>
+    <Kiosk projects={active} detail={true} />
   </section>
   {
     retired.length > 0 && (
-      <section class="section container" aria-labelledby="retired-heading">
-        <div class="section-head">
-          <h2 id="retired-heading">Paused</h2>
-          <span class="label">{retired.length} component{retired.length === 1 ? "" : "s"}</span>
+      <section class="box section container" aria-labelledby="retired-heading">
+        <div class="box-head">
+          <h2 id="retired-heading">Out of print · {retired.length}</h2>
         </div>
-        <ComponentsTable projects={retired} detail={true} />
+        <Kiosk projects={retired} detail={true} featured="" />
       </section>
     )
   }
-  <Subscribe />
+  <Counter />
 </Base>
