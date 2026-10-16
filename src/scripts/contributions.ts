@@ -78,7 +78,8 @@ function render(container: HTMLElement, weeks: Week[]): void {
     if (i === 0) {
       current = name;
     } else if (name !== current) {
-      if (i - startIndex >= 2) {
+      // Three columns is the narrowest a three-letter label fits over at the grid's 480px floor.
+      if (i - startIndex >= 3) {
         const label = el("span", "contrib-month-label", current);
         label.style.left = `${(startIndex / weeks.length) * 100}%`;
         months.appendChild(label);
@@ -89,7 +90,10 @@ function render(container: HTMLElement, weeks: Week[]): void {
   });
   if (weeks.length - startIndex >= 1) {
     const label = el("span", "contrib-month-label", current);
-    label.style.left = `${(startIndex / weeks.length) * 100}%`;
+    // A month with under three weeks showing is pinned to the right edge so its text
+    // stays inside the grid rather than hanging past the last column.
+    if (weeks.length - startIndex < 3) label.style.right = "0";
+    else label.style.left = `${(startIndex / weeks.length) * 100}%`;
     months.appendChild(label);
   }
   scroll.appendChild(months);

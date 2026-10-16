@@ -834,10 +834,8 @@ p {
   margin-top: 0.75rem;
 }
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem;
   margin-top: 0.75rem;
+  line-height: 1.7;
 }
 .tags span {
   font-family: var(--font-display);
@@ -846,10 +844,14 @@ p {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-2);
+  white-space: nowrap;
 }
-.tags span + span::before {
-  content: "·";
-  margin-right: 0.375rem;
+/* The separator trails each tag so a wrapped line never opens with a dot. The pseudo
+   element's normal white-space supplies the only break opportunity between tags. */
+.tags span:not(:last-child)::after {
+  /* Literal middot: a hex escape would swallow the trailing space that supplies the break. */
+  content: " · ";
+  white-space: normal;
   color: var(--ink-3);
 }
 @media (max-width: 1100px) {
@@ -937,7 +939,11 @@ p {
 .contrib-months {
   position: relative;
   height: 16px;
+  /* Weekday column (20px, border-box) plus the graph gap, so labels sit over their weeks. */
   margin: 0 0 0.375rem 26px;
+  /* Same floor as the grid: on narrow screens the labels scroll with the weeks instead of
+     compressing into the viewport and colliding. */
+  min-width: 480px;
 }
 .contrib-month-label {
   position: absolute;
