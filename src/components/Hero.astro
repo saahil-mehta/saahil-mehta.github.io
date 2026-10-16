@@ -6,7 +6,10 @@ const line = summaries.site_bio.split(/\n\s*\n/)[0];
 
 <section class="hero" aria-labelledby="hero-name">
   <div class="hero-glow" aria-hidden="true"></div>
-  <img src="/profile.jpg" alt={`Portrait of ${person.name}`} class="hero-avatar" width="128" height="128" fetchpriority="high" />
+  <picture>
+    <source type="image/webp" srcset="/profile-256.webp 1x, /profile-512.webp 2x" />
+    <img src="/profile-256.jpg" srcset="/profile-256.jpg 1x, /profile-512.jpg 2x" alt={`Portrait of ${person.name}`} class="hero-avatar" width="128" height="128" fetchpriority="high" decoding="async" />
+  </picture>
   <div>
     <p class="eyebrow">{person.location}</p>
     <h1 id="hero-name">{person.name}</h1>

@@ -18,5 +18,9 @@
     "@lottiefiles/lottie-player": "2.0.12",
     "astro": "7.4.0",
     "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
   }
 }

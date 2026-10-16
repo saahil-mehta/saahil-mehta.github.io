@@ -77,16 +77,6 @@ def test_fmt_month():
     assert rp.fmt_month("present") == "Present"
 
 
-def test_splice_bio_replaces_between_markers():
-    existing = "head\n<!-- profile:bio:start -->\nold\n<!-- profile:bio:end -->\ntail\n"
-    out = rp.splice_bio(existing, "new bio\n")
-    assert out == "head\n<!-- profile:bio:start -->\nnew bio\n<!-- profile:bio:end -->\ntail\n"
-
-
-def test_splice_bio_missing_marker():
-    with pytest.raises(rp.ProfileError, match="markers"):
-        rp.splice_bio("no markers here", "bio")
-
 
 def test_check_reports_stale_file(tmp_path, capsys):
     target = tmp_path / "out.md"

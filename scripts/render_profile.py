@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render profile/profile.yaml into the site pages, a CV paste and a LinkedIn paste.
+"""Render profile/profile.yaml into a CV paste (Rezi) and a LinkedIn paste.
 
 Usage:
     python scripts/render_profile.py          # write every output
@@ -19,15 +19,9 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 ROOT = Path(__file__).resolve().parent.parent
 PROFILE = ROOT / "profile" / "profile.yaml"
 TEMPLATES = ROOT / "profile" / "templates"
-ABOUT = ROOT / "docs" / "about.md"
-BIO_START = "<!-- profile:bio:start -->"
-BIO_END = "<!-- profile:bio:end -->"
 
-# template name -> output path
+# template name -> output path. The site itself is rendered by Astro from the same YAML.
 OUTPUTS = {
-    "experience.md.j2": ROOT / "docs" / "experience.md",
-    "projects.md.j2": ROOT / "docs" / "projects.md",
-    "volunteering.md.j2": ROOT / "docs" / "volunteering.md",
     "cv.md.j2": ROOT / "profile" / "out" / "cv.md",
     "linkedin.md.j2": ROOT / "profile" / "out" / "linkedin.md",
 }
@@ -93,24 +87,12 @@ def make_env(templates: Path = TEMPLATES) -> Environment:
     return env
 
 
-def splice_bio(existing: str, bio: str) -> str:
-    start = existing.find(BIO_START)
-    end = existing.find(BIO_END)
-    if start == -1 or end == -1 or end < start:
-        raise ProfileError(f"{ABOUT.name} needs both markers {BIO_START} and {BIO_END}")
-    head = existing[: start + len(BIO_START)]
-    tail = existing[end:]
-    return f"{head}\n{bio.strip(chr(10))}\n{tail}"
-
-
 def render_all(data: dict, env: Environment | None = None) -> dict[Path, str]:
     env = env or make_env()
     outputs: dict[Path, str] = {}
     for template_name, path in OUTPUTS.items():
         text = env.get_template(template_name).render(**data)
         outputs[path] = text if text.endswith("\n") else text + "\n"
-    bio = env.get_template("about_bio.md.j2").render(**data)
-    outputs[ABOUT] = splice_bio(ABOUT.read_text(encoding="utf-8"), bio)
     return outputs
 
 

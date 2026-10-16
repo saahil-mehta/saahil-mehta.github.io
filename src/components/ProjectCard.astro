@@ -11,7 +11,7 @@ const { project: p, index } = Astro.props;
 
 <article class="publication-card" data-reveal style={`--stagger:${Math.min(index, 7)}`}>
   <div class="publication-image" aria-hidden="true">
-    <lottie-player src={p.icon} background="transparent" speed="1" loop autoplay></lottie-player>
+    <lottie-player src={p.icon} background="transparent" speed="1" loop></lottie-player>
   </div>
   <div class="publication-content">
     <h2 class="publication-title">

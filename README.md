@@ -1,60 +1,68 @@
 # Portfolio
 
-Personal site for Saahil Mehta – Data & AI Engineer.
+Personal site for Saahil Mehta, Associate Director, Data & Insights at South Pole.
 
-**Live:** https://saahil-mehta.github.io
+**Live:** https://saahil.co.uk
 
 ## Stack
 
-Vanilla HTML, CSS, JavaScript. Markdown for content. No build process, no dependencies.
-
-## Development
-
-```bash
-python -m http.server 8000 -d docs/
-```
-
-Open `http://localhost:8000`
+Astro (static output), one `profile.yaml` as the source of truth, self-hosted fonts, vanilla scripts for motion. A small Python renderer turns the same YAML into a CV paste for Rezi and a LinkedIn paste.
 
 ## Structure
 
 ```
 profile/
-├── profile.yaml        # Single source of truth: roles, projects, bio, skills
-├── templates/          # Jinja2 templates for the site pages and the pastes
+├── profile.yaml        # Single source of truth: roles, projects, bio, skills, site meta
+├── templates/          # Jinja2 templates for the CV and LinkedIn pastes
 └── out/                # Generated: cv.md (Rezi), linkedin.md
+src/
+├── lib/profile.ts      # Loads and validates profile.yaml (zod); build fails on a bad field
+├── lib/seo.ts          # JSON-LD builders
+├── layouts/Base.astro  # Head (meta, OG, JSON-LD), header, footer, scripts
+├── components/         # Hero, StatTile, TimelineItem, ProjectCard, VolunteerCard, ...
+├── pages/              # index, experience, projects, volunteering, education, github, resume
+│   └── *.ts            # resume.json, llms.txt, robots.txt endpoints
+├── scripts/            # theme, menu, reveal, count-up, pointer glow, easter eggs, GitHub graph
+└── styles/global.css   # Tokens, components, motion (all motion behind prefers-reduced-motion)
+public/                 # Fonts, Lottie JSON, profile photo, resume PDF, CNAME, og.png
 scripts/
-└── render_profile.py   # render | --check
-docs/
-├── index.html          # Shell and navigation
-├── about.md            # Bio paragraphs generated between markers
-├── contributions.md    # GitHub graph
-├── projects.md         # Generated
-├── experience.md       # Generated
-├── volunteering.md     # Generated
-├── education.md        # Hand-written
-├── resume.md           # PDF embed
-├── styles.css          # Theme and layout
-├── script.js           # Markdown loader + graph
-└── assets/             # Images, resume PDF
+├── render_profile.py   # YAML -> profile/out/*.md   (render | --check)
+├── sync-public.mjs     # Copies cv.md and the pinned Lottie player into public/ (prebuild)
+├── assert-html.mjs     # Post-build checks on dist/
+└── make_og.py          # Renders scripts/og-template.html to public/og.png (run when the headline changes)
 ```
 
-## Editing
+## Development
+
+```bash
+npm install
+npm run dev          # http://localhost:4321
+npm run build        # dist/
+npm run assert       # checks on dist/
+```
+
+Node 22 or newer. Python 3.11+ with `pip install -r scripts/requirements.txt` for the pastes.
+
+## Editing content
 
 1. Edit `profile/profile.yaml`.
-2. `pip install -r scripts/requirements.txt` once, then `python scripts/render_profile.py`.
-3. Commit the YAML and the generated files together. CI runs `--check` and fails the deploy if they disagree.
-4. Paste `profile/out/cv.md` into Rezi, export the PDF, replace `docs/assets/Saahil-Mehta-Resume.pdf`.
+2. `python scripts/render_profile.py` regenerates `profile/out/cv.md` and `profile/out/linkedin.md`.
+3. Commit the YAML and the regenerated pastes together. CI fails if they disagree.
+4. Paste `profile/out/cv.md` into Rezi, export the PDF, replace `public/Saahil-Mehta-Resume.pdf`.
 5. Paste `profile/out/linkedin.md` into LinkedIn.
 
-- **Profile photo**: replace `docs/assets/profile.jpg`
-- **Domain**: `docs/CNAME`
+Other assets: profile photo at `public/profile.jpg`, domain in `public/CNAME`, Open Graph image via `python scripts/make_og.py`.
+
+## Machine-readable
+
+- `/llms.txt`: summary and index for LLM crawlers
+- `/cv.md`: the CV as Markdown
+- `/resume.json`: JSON Resume v1
+- `/sitemap-index.xml`, `/robots.txt`
 
 ## Deployment
 
-GitHub Actions workflow deploys automatically on push to `main`.
-
-Manual setup: Settings → Pages → Source: GitHub Actions
+Push to `main`. GitHub Actions runs the Python check, builds the site, runs the HTML assertions and deploys `dist/` to GitHub Pages.
 
 ---
 

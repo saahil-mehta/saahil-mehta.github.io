@@ -6,6 +6,7 @@ import { initCountUp } from "./countup";
 import { initPointerGlow } from "./pointer-glow";
 import { initEasterEggs } from "./easter-eggs";
 import { initContributions } from "./contributions";
+import { initLottie } from "./lottie";
 
 function initAll(): void {
   initTheme();
@@ -15,6 +16,7 @@ function initAll(): void {
   initCountUp();
   initPointerGlow();
   void initContributions();
+  initLottie();
 }
 
 document.addEventListener("astro:page-load", initAll);

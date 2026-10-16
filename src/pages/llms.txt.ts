@@ -6,7 +6,7 @@ export const GET: APIRoute = () => {
   const lines = [
     `# ${person.name}`,
     "",
-    `> ${person.title} at South Pole. ${summaries.cv}`,
+    `> ${summaries.cv}`,
     "",
     "Personal site. Every page is static HTML and readable without JavaScript.",
     "",

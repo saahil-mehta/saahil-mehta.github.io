@@ -8,6 +8,7 @@ export default defineConfig({
   trailingSlash: "never",
   build: {
     format: "directory",
+    inlineStylesheets: "always",
   },
   integrations: [sitemap()],
 });
