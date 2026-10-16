@@ -14,6 +14,7 @@ export const GET: APIRoute = () => {
     "",
     `- [CV as Markdown](${site.url}/cv.md): full work history, projects, education and skills`,
     `- [JSON Resume](${site.url}/resume.json): the same data in JSON Resume v1 schema`,
+    `- [Status JSON](${site.url}/status.json): systems in production with dates, status and headline figures, plus release history`,
     `- [Resume PDF](${site.url}/Saahil-Mehta-Resume.pdf)`,
     "",
     "## Pages",

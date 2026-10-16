@@ -51,7 +51,7 @@ for (const file of pages) {
   }
 }
 
-for (const path of ["llms.txt", "cv.md", "resume.json", "sitemap-index.xml", "robots.txt", "og.png", "CNAME"]) {
+for (const path of ["llms.txt", "cv.md", "resume.json", "status.json", "sitemap-index.xml", "robots.txt", "og.png", "CNAME"]) {
   if (!existsSync(join(dist, path))) failures.push(`missing dist/${path}`);
 }
 if (existsSync(join(dist, "resume.json"))) {

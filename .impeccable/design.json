@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T18:19:58Z",
+  "title": "Design System: saahil.co.uk",
+  "extensions": {
+    "colorMeta": {
+      "green": { "role": "primary", "displayName": "Status Green", "canonical": "#0b7a46", "dark": "#2fd27a", "tonalRamp": ["#032b18", "#064226", "#085a33", "#0b7a46", "#1f9d5f", "#43c184", "#8fe0b4", "#d8f1e3"] },
+      "green-ink": { "role": "primary", "displayName": "Green Ink", "canonical": "#0a6b3e", "dark": "#4ade80", "tonalRamp": ["#032b18", "#064226", "#0a6b3e", "#0f7f4c", "#2bbf6f", "#4ade80", "#9fe8c0", "#e2f7eb"] },
+      "green-field": { "role": "primary", "displayName": "Green Field", "canonical": "#0b6b40", "dark": "#0c5a37", "tonalRamp": ["#03261a", "#0c5a37", "#0b6b40", "#0f7f4c", "#1f9d5f", "#43c184", "#8fe0b4", "#d8f1e3"] },
+      "green-field-2": { "role": "primary", "displayName": "Green Field 2", "canonical": "#0f7f4c", "dark": "#0f6b41", "tonalRamp": ["#03261a", "#0c5a37", "#0f6b41", "#0f7f4c", "#1f9d5f", "#43c184", "#8fe0b4", "#d8f1e3"] },
+      "green-cell": { "role": "primary", "displayName": "Green Cell", "canonical": "#1f9d5f", "dark": "#2bbf6f", "tonalRamp": ["#053a22", "#0b6b40", "#1f9d5f", "#27b76f", "#43d88a", "#7ff0b2", "#b5f5d2", "#e2faec"] },
+      "green-cell-hi": { "role": "primary", "displayName": "Green Cell Hi", "canonical": "#27b76f", "dark": "#43d88a", "tonalRamp": ["#053a22", "#0b6b40", "#1f9d5f", "#27b76f", "#43d88a", "#7ff0b2", "#b5f5d2", "#e2faec"] },
+      "green-soft": { "role": "primary", "displayName": "Green Soft", "canonical": "#d8f1e3", "dark": "#0f2d1e", "tonalRamp": ["#0f2d1e", "#1a4a32", "#2d7a52", "#43c184", "#8fe0b4", "#b5f5d2", "#d8f1e3", "#eef9f3"] },
+      "green-dot": { "role": "primary", "displayName": "Green Dot", "canonical": "#7ff0b2", "dark": "#7ff0b2", "tonalRamp": ["#0b4a2c", "#157a48", "#1f9d5f", "#43d88a", "#7ff0b2", "#a6f5c9", "#cdfae0", "#ebfdf3"] },
+      "green-on-field": { "role": "primary", "displayName": "Green On Field", "canonical": "#ffffff", "dark": "#eafff3", "tonalRamp": ["#1a1f25", "#4b5563", "#6b7280", "#9ca3af", "#cfd5db", "#e9edf1", "#f4f6f8", "#ffffff"] },
+      "amber": { "role": "secondary", "displayName": "Amber", "canonical": "#7a4d0b", "dark": "#f0b454", "tonalRamp": ["#2d2410", "#4d3108", "#7a4d0b", "#a86b14", "#d99a2b", "#e3a63b", "#f0b454", "#fbefd6"] },
+      "amber-cell": { "role": "secondary", "displayName": "Amber Cell", "canonical": "#e3a63b", "dark": "#d99a2b", "tonalRamp": ["#2d2410", "#4d3108", "#7a4d0b", "#a86b14", "#d99a2b", "#e3a63b", "#f0b454", "#fbefd6"] },
+      "amber-soft": { "role": "secondary", "displayName": "Amber Soft", "canonical": "#fbefd6", "dark": "#2d2410", "tonalRamp": ["#2d2410", "#4d3108", "#7a4d0b", "#a86b14", "#d99a2b", "#f0b454", "#f7dca8", "#fbefd6"] },
+      "grey-cell": { "role": "tertiary", "displayName": "Grey Cell", "canonical": "#c2c8cf", "dark": "#3a4148", "tonalRamp": ["#1a1f25", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#c2c8cf", "#e3e7eb", "#eef0f3"] },
+      "grey-soft": { "role": "tertiary", "displayName": "Grey Soft", "canonical": "#eef0f3", "dark": "#1a1f25", "tonalRamp": ["#1a1f25", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#c2c8cf", "#e3e7eb", "#eef0f3"] },
+      "ground": { "role": "neutral", "displayName": "Ground", "canonical": "#ffffff", "dark": "#0b0d10", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] },
+      "ground-2": { "role": "neutral", "displayName": "Ground 2", "canonical": "#f4f6f8", "dark": "#121519", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] },
+      "ground-3": { "role": "neutral", "displayName": "Ground 3", "canonical": "#e9edf1", "dark": "#1a1f25", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0f1419", "dark": "#e8eaed", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink 2", "canonical": "#4b5563", "dark": "#b4bac2", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
+      "ink-3": { "role": "neutral", "displayName": "Ink 3", "canonical": "#6b7280", "dark": "#8b929b", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
+      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#e3e7eb", "dark": "#1f242a", "tonalRamp": ["#1f242a", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#cfd5db", "#e3e7eb", "#f4f6f8"] },
+      "rule-2": { "role": "neutral", "displayName": "Rule 2", "canonical": "#cfd5db", "dark": "#2c333b", "tonalRamp": ["#1f242a", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#cfd5db", "#e3e7eb", "#f4f6f8"] },
+      "cell-off": { "role": "neutral", "displayName": "Cell Off", "canonical": "#e9ecef", "dark": "#1a1f25", "tonalRamp": ["#1a1f25", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#c2c8cf", "#e9ecef", "#f4f6f8"] },
+      "tip-bg": { "role": "neutral", "displayName": "Tooltip Ground", "canonical": "#0f1419", "dark": "#e8eaed", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
+      "tip-fg": { "role": "neutral", "displayName": "Tooltip Text", "canonical": "#ffffff", "dark": "#0b0d10", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The operator's name in the identity row. 44px on desktop." },
+      "headline": { "displayName": "Headline", "purpose": "h1 on section pages (page-head)." },
+      "banner": { "displayName": "Banner", "purpose": "The status claim inside the green field." },
+      "section": { "displayName": "Section", "purpose": "section-head h2. Bare h2 and the subscribe heading use 1.375rem." },
+      "title": { "displayName": "Title", "purpose": "Component name, release title." },
+      "figure": { "displayName": "Figure", "purpose": "The headline figure in a component row; tabular, right-aligned." },
+      "body": { "displayName": "Body", "purpose": "Prose at 68ch, identity line at 54ch, page-head intro at 62ch." },
+      "body-sm": { "displayName": "Body small", "purpose": "Summaries, nav links, buttons (weight 500), release descriptions, fact rows, detail panel." },
+      "label": { "displayName": "Label", "purpose": "Table column heads, section counts, banner meta, release dates, integrations line." },
+      "caption": { "displayName": "Caption", "purpose": "Strip captions, tooltips, tags, calendar month labels and legend." }
+    },
+    "shadows": [
+      { "name": "shadow-1", "value": "0 1px 2px rgba(15, 20, 25, 0.06), 0 8px 24px -12px rgba(15, 20, 25, 0.18)", "dark": "0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 30px -14px rgba(0, 0, 0, 0.8)", "purpose": "Portrait, primary button at rest, tooltip, resume frame." },
+      { "name": "shadow-2", "value": "0 2px 4px rgba(15, 20, 25, 0.08), 0 16px 40px -16px rgba(15, 20, 25, 0.28)", "dark": "0 2px 4px rgba(0, 0, 0, 0.6), 0 20px 50px -20px rgba(0, 0, 0, 0.9)", "purpose": "Primary button on hover, with translateY(-1px)." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Exponential ease-out for every state transition and the strip sweep." },
+      { "name": "ease-io", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Theme cross-fade on body background and colour (240ms)." },
+      { "name": "fast", "value": "160ms", "purpose": "Hover and focus state transitions, tooltip entry, view-transition fade out." },
+      { "name": "dur", "value": "420ms", "purpose": "Strip sweep per cell; brand mark hover rotate." },
+      { "name": "sweep-stagger", "value": "calc(var(--row, 0) * 70ms + var(--i, 0) * 9ms)", "purpose": "Delay per lit cell: 70ms per row, 9ms per column. Triggered once by IntersectionObserver under html.js and no reduced-motion preference." },
+      { "name": "view-transition", "value": "160ms out, 320ms in with translateY(8px)", "purpose": "Page change on main; nav indicator group slides over 320ms." },
+      { "name": "detail-expand", "value": "320ms grid-template-rows 0fr to 1fr", "purpose": "How it's built disclosure." },
+      { "name": "nav-underline", "value": "220ms scaleX from left", "purpose": "Nav link hover underline, chevron and arrow nudges." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "860px", "purpose": "Nav collapses to a panel; components table stacks; operator, subscribe and identity go single column." },
+      { "name": "phone", "value": "640px", "purpose": "Banner wraps and meta moves left; release rows stack with dates first." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled green action in a group (Book a call, Open PDF).",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 7h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Zm0 4h16M8 4v4m8-4v4\"/></svg><span>Book a call</span></a>",
+      "css": ".ds-btn { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; height: 2.5rem; padding: 0 0.875rem; border-radius: 8px; border: 1px solid var(--rule-2, #cfd5db); background: var(--ground, #fff); color: var(--ink, #0f1419); font-family: var(--font-sans, 'Satoshi', sans-serif); font-size: 0.9375rem; font-weight: 500; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), border-color 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1), box-shadow 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary { background: var(--green-field-2, #0f7f4c); border-color: var(--green-field, #0b6b40); color: var(--green-on-field, #fff); box-shadow: var(--shadow-1, 0 1px 2px rgba(15,20,25,0.06), 0 8px 24px -12px rgba(15,20,25,0.18)); } .ds-btn-primary:hover { background: var(--green-field, #0b6b40); box-shadow: var(--shadow-2, 0 2px 4px rgba(15,20,25,0.08), 0 16px 40px -16px rgba(15,20,25,0.28)); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0) scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Quiet bordered action (Email, LinkedIn, Download). Carries a copied state.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\" type=\"button\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm-1 1 9 6 9-6\"/></svg><span>Email</span></button>",
+      "css": ".ds-btn { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; height: 2.5rem; padding: 0 0.875rem; border-radius: 8px; border: 1px solid var(--rule-2, #cfd5db); background: var(--ground, #fff); color: var(--ink, #0f1419); font-family: var(--font-sans, 'Satoshi', sans-serif); font-size: 0.9375rem; font-weight: 500; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), border-color 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary:hover { background: var(--ground-2, #f4f6f8); border-color: var(--ink-3, #6b7280); } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary[data-copied=\"true\"] { border-color: var(--green, #0b7a46); color: var(--green-ink, #0a6b3e); } .ds-btn:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; }"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "icon-button",
+      "description": "Header tool (theme toggle, menu). Glyph rotates on hover.",
+      "html": "<button class=\"ds-icon-button\" type=\"button\" aria-label=\"Switch to dark theme\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z\"/></svg></button>",
+      "css": ".ds-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; border: 1px solid var(--rule, #e3e7eb); background: var(--ground, #fff); color: var(--ink-2, #4b5563); cursor: pointer; transition: border-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1), background-color 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1); } .ds-icon-button:hover { border-color: var(--rule-2, #cfd5db); color: var(--ink, #0f1419); background: var(--ground-2, #f4f6f8); } .ds-icon-button:active { transform: scale(0.94); } .ds-icon-button svg { transition: transform 320ms cubic-bezier(0.16,1,0.3,1); } .ds-icon-button:hover svg { transform: rotate(15deg); } .ds-icon-button:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; }"
+    },
+    {
+      "name": "Status Pill",
+      "kind": "chip",
+      "refersTo": "pill-operational",
+      "description": "Row status with a drawn dot. Variants by data-status: in_progress (amber), paused or archived (grey).",
+      "html": "<span class=\"ds-pill\" data-status=\"live\">Operational</span> <span class=\"ds-pill\" data-status=\"in_progress\">In build</span> <span class=\"ds-pill\" data-status=\"paused\">Paused</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.4rem; height: 1.75rem; padding: 0 0.625rem 0 0.5rem; border-radius: 999px; font-family: var(--font-sans, 'Satoshi', sans-serif); font-size: 0.8125rem; font-weight: 500; white-space: nowrap; background: var(--green-soft, #d8f1e3); color: var(--green-ink, #0a6b3e); } .ds-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; } .ds-pill:hover::before { animation: ds-pill-pulse 1.2s cubic-bezier(0.16,1,0.3,1) 1; } @keyframes ds-pill-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 45%, transparent); } 100% { box-shadow: 0 0 0 6px transparent; } } .ds-pill[data-status=\"in_progress\"] { background: var(--amber-soft, #fbefd6); color: var(--amber, #7a4d0b); } .ds-pill[data-status=\"paused\"], .ds-pill[data-status=\"archived\"] { background: var(--grey-soft, #eef0f3); color: var(--ink-2, #4b5563); }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Mono technology tag under a detailed component.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag\">BigQuery</span><span class=\"ds-tag\">Dagster</span><span class=\"ds-tag\">Lightdash</span></div>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; } .ds-tag { font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.6875rem; padding: 0.15rem 0.45rem; border-radius: 4px; background: var(--ground, #fff); color: var(--ink-2, #4b5563); border: 1px solid var(--rule-2, #cfd5db); }"
+    },
+    {
+      "name": "Component Row",
+      "kind": "card",
+      "refersTo": "detail-panel",
+      "description": "Signature row: name, 36-cell month strip with caption, right-aligned figure, status pill. Hairline below, ground-2 wash on hover.",
+      "html": "<li class=\"ds-component\" data-status=\"live\"><div class=\"ds-component-name-wrap\"><div class=\"ds-component-name\"><h3>Orca</h3><span class=\"ds-component-org\">South Pole</span></div><p class=\"ds-component-sum\">Enterprise AI assistant used by over a quarter of the company.</p></div><div class=\"ds-strip-wrap\"><ol class=\"ds-strip\"><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell on\" data-label=\"Nov 2024\"></li><li class=\"ds-cell on\" data-label=\"Dec 2024\"></li><li class=\"ds-cell on\" data-label=\"Jan 2025\"></li><li class=\"ds-cell on\" data-label=\"Feb 2025\"></li><li class=\"ds-cell on\" data-label=\"Mar 2025\"></li><li class=\"ds-cell on\" data-label=\"Apr 2025\"></li><li class=\"ds-cell on\" data-label=\"May 2025\"></li><li class=\"ds-cell on\" data-label=\"Jun 2025\"></li><li class=\"ds-cell on\" data-label=\"Jul 2025\"></li><li class=\"ds-cell on\" data-label=\"Aug 2025\"></li><li class=\"ds-cell on\" data-label=\"Sep 2025\"></li><li class=\"ds-cell on\" data-label=\"Oct 2025\"></li></ol><div class=\"ds-strip-caption\"><span>Nov 2024 to now</span><span>12 months</span></div></div><div class=\"ds-figure\"><strong>560,000+</strong><span class=\"ds-figure-label\">requests at 99.99%</span></div><span class=\"ds-pill\">Operational</span></li>",
+      "css": ".ds-component { position: relative; list-style: none; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 1fr) minmax(150px, auto) 8.25rem; gap: 1rem 1.5rem; align-items: center; padding: 1.125rem 0; border-bottom: 1px solid var(--rule, #e3e7eb); font-family: var(--font-sans, 'Satoshi', sans-serif); color: var(--ink, #0f1419); } .ds-component::before { content: ''; position: absolute; inset: 0 -0.75rem; border-radius: 10px; background: var(--ground-2, #f4f6f8); opacity: 0; z-index: -1; transition: opacity 160ms cubic-bezier(0.16,1,0.3,1); } .ds-component:hover::before { opacity: 1; } .ds-component-name { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; } .ds-component-name h3 { margin: 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.015em; line-height: 1.1; font-variation-settings: 'opsz' 18; } .ds-component-org { font-size: 0.8125rem; color: var(--ink-3, #6b7280); } .ds-component-sum { margin: 0.25rem 0 0; font-size: 0.9375rem; color: var(--ink-2, #4b5563); max-width: 60ch; } .ds-strip-wrap { display: grid; gap: 0.375rem; min-width: 0; } .ds-strip { display: grid; grid-template-columns: repeat(36, minmax(0, 1fr)); gap: 2px; height: 22px; margin: 0; padding: 0; list-style: none; } .ds-cell { position: relative; border-radius: 2px; background: var(--cell-off, #e9ecef); transition: transform 160ms cubic-bezier(0.16,1,0.3,1), background-color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-cell.on { background: var(--green-cell, #1f9d5f); } .ds-component[data-status=\"in_progress\"] .ds-cell.on { background: var(--amber-cell, #e3a63b); } .ds-cell:hover { transform: scaleY(1.18); z-index: 2; } .ds-cell.on:hover { background: var(--green-cell-hi, #27b76f); } .ds-cell[data-label]::after { content: attr(data-label); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translate(-50%, 0); padding: 0.25rem 0.5rem; border-radius: 5px; background: var(--tip-bg, #0f1419); color: var(--tip-fg, #fff); font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.6875rem; line-height: 1.2; white-space: nowrap; pointer-events: none; display: none; z-index: 5; box-shadow: var(--shadow-1, 0 1px 2px rgba(15,20,25,0.06), 0 8px 24px -12px rgba(15,20,25,0.18)); } .ds-cell[data-label]:hover::after { display: block; } .ds-strip-caption { display: flex; justify-content: space-between; gap: 0.75rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.6875rem; color: var(--ink-3, #6b7280); } .ds-figure { text-align: right; } .ds-figure strong { display: block; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1.375rem; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; line-height: 1.1; font-variation-settings: 'opsz' 24; } .ds-figure-label { display: block; margin-top: 0.125rem; font-size: 0.75rem; color: var(--ink-3, #6b7280); } .ds-pill { display: inline-flex; align-items: center; gap: 0.4rem; height: 1.75rem; padding: 0 0.625rem 0 0.5rem; border-radius: 999px; font-size: 0.8125rem; font-weight: 500; white-space: nowrap; background: var(--green-soft, #d8f1e3); color: var(--green-ink, #0a6b3e); justify-self: start; } .ds-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }"
+    },
+    {
+      "name": "Release Row",
+      "kind": "card",
+      "refersTo": "detail-panel",
+      "description": "Career entry as a release: mono version tag, title, org, description, right-aligned mono dates.",
+      "html": "<li class=\"ds-release\"><span class=\"ds-release-tag\">v2026.07</span><div><h3 class=\"ds-release-title\">Associate Director, Data &amp; Insights Lead</h3><p class=\"ds-org\">South Pole</p><p class=\"ds-desc\">Sets the data strategy and still ships the systems underneath it.</p></div><p class=\"ds-dates\"><time datetime=\"2026-07\">Jul 2026</time> to present<span class=\"ds-loc\">London</span></p></li>",
+      "css": ".ds-release { position: relative; list-style: none; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) auto; gap: 0.5rem 1.5rem; padding: 1.125rem 0; border-bottom: 1px solid var(--rule, #e3e7eb); font-family: var(--font-sans, 'Satoshi', sans-serif); color: var(--ink, #0f1419); } .ds-release::before { content: ''; position: absolute; inset: 0 -0.75rem; border-radius: 10px; background: var(--ground-2, #f4f6f8); opacity: 0; z-index: -1; transition: opacity 160ms cubic-bezier(0.16,1,0.3,1); } .ds-release:hover::before { opacity: 1; } .ds-release-tag { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.8125rem; color: var(--green-ink, #0a6b3e); padding-top: 0.2rem; } .ds-release-title { margin: 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.015em; line-height: 1.1; font-variation-settings: 'opsz' 18; } .ds-org { margin: 0; color: var(--ink-2, #4b5563); font-size: 0.9375rem; } .ds-desc { margin: 0.375rem 0 0; color: var(--ink-2, #4b5563); font-size: 0.9375rem; max-width: 68ch; } .ds-dates { margin: 0; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.75rem; color: var(--ink-3, #6b7280); white-space: nowrap; text-align: right; padding-top: 0.25rem; } .ds-loc { display: block; margin-top: 0.2rem; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky translucent header: brand mark and name, link row with a green indicator under the current page, icon tools right.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-brand\" href=\"#\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"none\" stroke=\"#0b6b40\" stroke-width=\"6\"/><circle cx=\"32\" cy=\"32\" r=\"11\" fill=\"#1f9d5f\"/></svg><span>Saahil Mehta</span></a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Status<span class=\"ds-nav-indicator\"></span></a><a href=\"#\">Systems</a><a href=\"#\">Experience</a><a href=\"#\">Activity</a></nav></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 1rem; height: 3.5rem; padding: 0 1.5rem; background: color-mix(in srgb, var(--ground, #fff) 88%, transparent); backdrop-filter: blur(14px) saturate(140%); border-bottom: 1px solid var(--rule, #e3e7eb); font-family: var(--font-sans, 'Satoshi', sans-serif); } .ds-brand { display: inline-flex; align-items: center; gap: 0.625rem; text-decoration: none; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; color: var(--ink, #0f1419); } .ds-brand svg { transition: transform 420ms cubic-bezier(0.16,1,0.3,1); } .ds-brand:hover svg { transform: rotate(-12deg) scale(1.08); } .ds-nav { display: flex; align-items: stretch; gap: 0.125rem; margin-left: 0.5rem; height: 100%; } .ds-nav a { position: relative; display: inline-flex; align-items: center; padding: 0 0.75rem; font-size: 0.9375rem; color: var(--ink-2, #4b5563); text-decoration: none; white-space: nowrap; transition: color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: -1px; height: 2px; background: var(--rule-2, #cfd5db); border-radius: 2px 2px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 220ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover { color: var(--ink, #0f1419); } .ds-nav a:hover::after { transform: scaleX(1); } .ds-nav a[aria-current=\"page\"] { color: var(--ink, #0f1419); font-weight: 600; } .ds-nav a[aria-current=\"page\"]::after { display: none; } .ds-nav-indicator { position: absolute; left: 0.75rem; right: 0.75rem; bottom: -1px; height: 2px; background: var(--green, #0b7a46); border-radius: 2px 2px 0 0; } .ds-nav a:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; border-radius: 3px; }"
+    },
+    {
+      "name": "Status Banner",
+      "kind": "custom",
+      "refersTo": "banner",
+      "description": "The claim as a green field: check icon in green-dot, heading, sub-line, right-aligned mono timestamp.",
+      "html": "<section class=\"ds-banner\"><svg class=\"ds-banner-icon\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm-3.5-10 2.5 2.5 5-5\"/></svg><div><h1>All systems operational</h1><p class=\"ds-banner-sub\">6 operational · 1 in build · 501 people served · one operator</p></div><p class=\"ds-banner-meta\">Last checked<strong>16 Oct 2026, 18:19 UTC</strong></p></section>",
+      "css": ".ds-banner { display: flex; align-items: center; gap: 1rem; min-height: 6rem; padding: 1.25rem 1.5rem; background: linear-gradient(180deg, var(--green-field-2, #0f7f4c), var(--green-field, #0b6b40)); color: var(--green-on-field, #fff); font-family: var(--font-sans, 'Satoshi', sans-serif); } .ds-banner-icon { flex: none; color: var(--green-dot, #7ff0b2); } .ds-banner h1 { margin: 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; font-variation-settings: 'opsz' 48; } .ds-banner-sub { margin: 0.125rem 0 0; color: color-mix(in srgb, var(--green-on-field, #fff) 82%, var(--green-field, #0b6b40)); font-size: 0.9375rem; } .ds-banner-meta { margin: 0 0 0 auto; text-align: right; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.75rem; color: color-mix(in srgb, var(--green-on-field, #fff) 78%, var(--green-field, #0b6b40)); white-space: nowrap; } .ds-banner-meta strong { display: block; font-weight: 500; color: var(--green-on-field, #fff); }"
+    },
+    {
+      "name": "Detail Disclosure",
+      "kind": "custom",
+      "refersTo": "detail-panel",
+      "description": "How it's built: chevron summary in green-ink, body expands into a ground-2 panel.",
+      "html": "<details class=\"ds-detail\"><summary><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>How it's built</summary><div class=\"ds-detail-anim\"><div><div class=\"ds-detail-body\"><p>Semantic layer on BigQuery, self-hosted orchestration, access governance and FinOps underneath the assistant.</p></div></div></div></details>",
+      "css": ".ds-detail { font-family: var(--font-sans, 'Satoshi', sans-serif); } .ds-detail summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--green-ink, #0a6b3e); border-radius: 4px; } .ds-detail summary::-webkit-details-marker { display: none; } .ds-detail summary svg { transition: transform 220ms cubic-bezier(0.16,1,0.3,1); } .ds-detail[open] summary svg { transform: rotate(90deg); } .ds-detail summary:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; } .ds-detail-anim { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 320ms cubic-bezier(0.16,1,0.3,1); } .ds-detail[open] .ds-detail-anim { grid-template-rows: 1fr; } .ds-detail-anim > div { overflow: hidden; min-height: 0; } .ds-detail-body { margin-top: 0.75rem; padding: 1rem 1.25rem; background: var(--ground-2, #f4f6f8); border: 1px solid var(--rule, #e3e7eb); border-radius: 10px; font-size: 0.9375rem; color: var(--ink-2, #4b5563); max-width: 72ch; } .ds-detail-body p { margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Status Page",
+    "overview": "A career record presented the way an operations team presents uptime. White ground, one committed green, hairline dividers, and every number sitting in the row it describes. The scene is a hiring manager at a laptop in a daylit office; the light theme is the default and a dark panel theme is one toggle away, swapping every token without changing the layout.\n\nDensity is tabular. Rows carry a name, a 36-cell month strip, one figure and a status pill, and the same row grammar repeats for projects (components), roles (releases), degrees and volunteering. Ornament is limited to things the status metaphor already has: a drawn dot in a pill, a strip of cells, a timestamp in mono. One authored motion exists: the strips sweep in from the left, staggered by row, once.",
+    "keyCharacteristics": [
+      "One green owns the banner field, the strips, the primary button, the focus ring, selection, caret and scrollbar hover.",
+      "Hairline rules (1px, rule) separate rows and sections; there are no boxed cards on the lead surface.",
+      "Numbers are set in Bricolage Grotesque 600 with tabular numerals and right-aligned in their column.",
+      "JetBrains Mono is the voice of metadata: timestamps, strip captions, version tags, column labels, tooltips, calendar legend.",
+      "Every page reads without JavaScript; all motion sits behind prefers-reduced-motion."
+    ],
+    "rules": [
+      { "name": "The One Green Rule", "body": "Status green is the only saturated colour on a page unless a system is in build (amber) or paused (grey). No second accent is introduced for emphasis, links or decoration.", "section": "colors" },
+      { "name": "The Field Rule", "body": "Green appears as a filled field in exactly two places: the status banner and the primary button. Everywhere else it is text, a cell, a dot or a hairline.", "section": "colors" },
+      { "name": "The Token Swap Rule", "body": "Dark mode redefines every colour token under [data-theme=\"dark\"] and changes nothing else. New colours get a dark value in the same commit.", "section": "colors" },
+      { "name": "The Machine Voice Rule", "body": "JetBrains Mono is for values a system would emit: timestamps, dates, version tags, captions, column labels, tooltips, tags. It never sets a sentence or a heading.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Any number that sits in a column is set with font-variant-numeric: tabular-nums and right-aligned.", "section": "typography" },
+      { "name": "The Two Shadow Rule", "body": "Only shadow-1 and shadow-2 exist. Rows, panels, pills, tags and the header carry no shadow; the header separates itself with blur and a hairline.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put every left edge on the 1.5rem container gutter: banner text, name, table, headings, footer.",
+      "Do place a number inside the row it describes, set in Bricolage 600 with tabular numerals, right-aligned.",
+      "Do separate rows with a 1px rule hairline and signal hover with the ground-2 wash.",
+      "Do colour status with the three pill pairs only: green-soft/green-ink, amber-soft/amber, grey-soft/ink-2.",
+      "Do set metadata (timestamps, dates, version tags, captions, column labels, tooltips) in JetBrains Mono at 0.75rem or 0.6875rem in ink-3.",
+      "Do draw new icons on the 24-unit grid at 1.75 stroke with round joins, in currentColor.",
+      "Do give every new colour a [data-theme=\"dark\"] value in the same change.",
+      "Do keep every page readable with scripts off and every transform inside prefers-reduced-motion: no-preference."
+    ],
+    "donts": [
+      "Don't introduce a second accent; green owns the page, amber is reserved for in-build systems.",
+      "Don't fill a surface with green outside the status banner and the primary button.",
+      "Don't add shadows beyond shadow-1 and shadow-2, and never on rows, pills, tags or the header.",
+      "Don't box rows into cards; the lead surface has no bordered containers except the detail panel and the resume frame.",
+      "Don't set headings, sentences or button labels in the mono face, and do not use uppercase or letter-spaced caps anywhere.",
+      "Don't add a hero metric tile row, a portrait hero or a timeline; the status rows are the arrangement.",
+      "Don't add a second entry animation; the strip sweep is the only authored entry motion."
+    ]
+  }
+}
