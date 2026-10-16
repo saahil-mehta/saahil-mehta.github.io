@@ -1,184 +1,167 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T18:19:58Z",
+  "generatedAt": "2026-10-16T20:10:00Z",
   "title": "Design System: saahil.co.uk",
   "extensions": {
     "colorMeta": {
-      "green": { "role": "primary", "displayName": "Status Green", "canonical": "#0b7a46", "dark": "#2fd27a", "tonalRamp": ["#032b18", "#064226", "#085a33", "#0b7a46", "#1f9d5f", "#43c184", "#8fe0b4", "#d8f1e3"] },
-      "green-ink": { "role": "primary", "displayName": "Green Ink", "canonical": "#0a6b3e", "dark": "#4ade80", "tonalRamp": ["#032b18", "#064226", "#0a6b3e", "#0f7f4c", "#2bbf6f", "#4ade80", "#9fe8c0", "#e2f7eb"] },
-      "green-field": { "role": "primary", "displayName": "Green Field", "canonical": "#0b6b40", "dark": "#0c5a37", "tonalRamp": ["#03261a", "#0c5a37", "#0b6b40", "#0f7f4c", "#1f9d5f", "#43c184", "#8fe0b4", "#d8f1e3"] },
-      "green-field-2": { "role": "primary", "displayName": "Green Field 2", "canonical": "#0f7f4c", "dark": "#0f6b41", "tonalRamp": ["#03261a", "#0c5a37", "#0f6b41", "#0f7f4c", "#1f9d5f", "#43c184", "#8fe0b4", "#d8f1e3"] },
-      "green-cell": { "role": "primary", "displayName": "Green Cell", "canonical": "#1f9d5f", "dark": "#2bbf6f", "tonalRamp": ["#053a22", "#0b6b40", "#1f9d5f", "#27b76f", "#43d88a", "#7ff0b2", "#b5f5d2", "#e2faec"] },
-      "green-cell-hi": { "role": "primary", "displayName": "Green Cell Hi", "canonical": "#27b76f", "dark": "#43d88a", "tonalRamp": ["#053a22", "#0b6b40", "#1f9d5f", "#27b76f", "#43d88a", "#7ff0b2", "#b5f5d2", "#e2faec"] },
-      "green-soft": { "role": "primary", "displayName": "Green Soft", "canonical": "#d8f1e3", "dark": "#0f2d1e", "tonalRamp": ["#0f2d1e", "#1a4a32", "#2d7a52", "#43c184", "#8fe0b4", "#b5f5d2", "#d8f1e3", "#eef9f3"] },
-      "green-dot": { "role": "primary", "displayName": "Green Dot", "canonical": "#7ff0b2", "dark": "#7ff0b2", "tonalRamp": ["#0b4a2c", "#157a48", "#1f9d5f", "#43d88a", "#7ff0b2", "#a6f5c9", "#cdfae0", "#ebfdf3"] },
-      "green-on-field": { "role": "primary", "displayName": "Green On Field", "canonical": "#ffffff", "dark": "#eafff3", "tonalRamp": ["#1a1f25", "#4b5563", "#6b7280", "#9ca3af", "#cfd5db", "#e9edf1", "#f4f6f8", "#ffffff"] },
-      "amber": { "role": "secondary", "displayName": "Amber", "canonical": "#7a4d0b", "dark": "#f0b454", "tonalRamp": ["#2d2410", "#4d3108", "#7a4d0b", "#a86b14", "#d99a2b", "#e3a63b", "#f0b454", "#fbefd6"] },
-      "amber-cell": { "role": "secondary", "displayName": "Amber Cell", "canonical": "#e3a63b", "dark": "#d99a2b", "tonalRamp": ["#2d2410", "#4d3108", "#7a4d0b", "#a86b14", "#d99a2b", "#e3a63b", "#f0b454", "#fbefd6"] },
-      "amber-soft": { "role": "secondary", "displayName": "Amber Soft", "canonical": "#fbefd6", "dark": "#2d2410", "tonalRamp": ["#2d2410", "#4d3108", "#7a4d0b", "#a86b14", "#d99a2b", "#f0b454", "#f7dca8", "#fbefd6"] },
-      "grey-cell": { "role": "tertiary", "displayName": "Grey Cell", "canonical": "#c2c8cf", "dark": "#3a4148", "tonalRamp": ["#1a1f25", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#c2c8cf", "#e3e7eb", "#eef0f3"] },
-      "grey-soft": { "role": "tertiary", "displayName": "Grey Soft", "canonical": "#eef0f3", "dark": "#1a1f25", "tonalRamp": ["#1a1f25", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#c2c8cf", "#e3e7eb", "#eef0f3"] },
-      "ground": { "role": "neutral", "displayName": "Ground", "canonical": "#ffffff", "dark": "#0b0d10", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] },
-      "ground-2": { "role": "neutral", "displayName": "Ground 2", "canonical": "#f4f6f8", "dark": "#121519", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] },
-      "ground-3": { "role": "neutral", "displayName": "Ground 3", "canonical": "#e9edf1", "dark": "#1a1f25", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] },
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0f1419", "dark": "#e8eaed", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
-      "ink-2": { "role": "neutral", "displayName": "Ink 2", "canonical": "#4b5563", "dark": "#b4bac2", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
-      "ink-3": { "role": "neutral", "displayName": "Ink 3", "canonical": "#6b7280", "dark": "#8b929b", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
-      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#e3e7eb", "dark": "#1f242a", "tonalRamp": ["#1f242a", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#cfd5db", "#e3e7eb", "#f4f6f8"] },
-      "rule-2": { "role": "neutral", "displayName": "Rule 2", "canonical": "#cfd5db", "dark": "#2c333b", "tonalRamp": ["#1f242a", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#cfd5db", "#e3e7eb", "#f4f6f8"] },
-      "cell-off": { "role": "neutral", "displayName": "Cell Off", "canonical": "#e9ecef", "dark": "#1a1f25", "tonalRamp": ["#1a1f25", "#2c333b", "#3a4148", "#6b7280", "#9ca3af", "#c2c8cf", "#e9ecef", "#f4f6f8"] },
-      "tip-bg": { "role": "neutral", "displayName": "Tooltip Ground", "canonical": "#0f1419", "dark": "#e8eaed", "tonalRamp": ["#0f1419", "#1a1f25", "#2c333b", "#4b5563", "#6b7280", "#8b929b", "#b4bac2", "#e8eaed"] },
-      "tip-fg": { "role": "neutral", "displayName": "Tooltip Text", "canonical": "#ffffff", "dark": "#0b0d10", "tonalRamp": ["#0b0d10", "#121519", "#1a1f25", "#4b5563", "#9ca3af", "#e9edf1", "#f4f6f8", "#ffffff"] }
+      "night": { "role": "primary", "displayName": "Night Ink", "canonical": "#1e3a6b", "tonalRamp": ["#0b1528", "#132646", "#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#aeb8cf", "#dde2ec"] },
+      "ink-2": { "role": "primary", "displayName": "Steel Ink", "canonical": "#44527a", "tonalRamp": ["#141929", "#2a3450", "#44527a", "#5d6a8a", "#7b86a1", "#9ea7bb", "#c3c9d6", "#e6e9ef"] },
+      "ink-3": { "role": "primary", "displayName": "Faint Steel", "canonical": "#5d6a8a", "tonalRamp": ["#1b1f2b", "#333b50", "#4a5571", "#5d6a8a", "#7c88a3", "#9fa8bd", "#c4cad7", "#e7e9ef"] },
+      "red": { "role": "secondary", "displayName": "Civic Red", "canonical": "#c23a2b", "tonalRamp": ["#3a0f0a", "#6a1b12", "#8e2518", "#c23a2b", "#d6584a", "#e4877c", "#f0b5ae", "#f9e1de"] },
+      "red-ink": { "role": "secondary", "displayName": "Red Ink", "canonical": "#8e2518", "tonalRamp": ["#2e0b07", "#5a170f", "#8e2518", "#a82d1e", "#c23a2b", "#d6584a", "#eba59c", "#f9e1de"] },
+      "green": { "role": "tertiary", "displayName": "Depot Green", "canonical": "#6a7a43", "tonalRamp": ["#1d2212", "#353f20", "#46542c", "#6a7a43", "#86985a", "#a6b680", "#c8d3ad", "#e9eddc"] },
+      "green-ink": { "role": "tertiary", "displayName": "Green Ink", "canonical": "#46542c", "tonalRamp": ["#161a0e", "#2b331b", "#46542c", "#586a37", "#6a7a43", "#8fa062", "#bcc89c", "#e9eddc"] },
+      "board": { "role": "neutral", "displayName": "Recycled Board", "canonical": "#d7d2c6", "tonalRamp": ["#2e2b25", "#5a554b", "#8a8374", "#aea89a", "#c2bcad", "#cdc7b9", "#d7d2c6", "#f1ede3"] },
+      "board-2": { "role": "neutral", "displayName": "Board, second stock", "canonical": "#cdc7b9", "tonalRamp": ["#2a2721", "#534e44", "#847c6c", "#a69f8f", "#c2bcad", "#cdc7b9", "#dad5c9", "#f1ede3"] },
+      "board-3": { "role": "neutral", "displayName": "Board, third stock", "canonical": "#c2bcad", "tonalRamp": ["#26231d", "#4d483e", "#7c7565", "#9e9686", "#c2bcad", "#cdc7b9", "#d7d2c6", "#f1ede3"] },
+      "board-stock-b": { "role": "neutral", "displayName": "Board, run B", "canonical": "#d3cec0", "tonalRamp": ["#2c2923", "#56514a", "#857d6e", "#aaa394", "#c2bcad", "#d3cec0", "#dad5c9", "#f1ede3"] },
+      "board-stock-c": { "role": "neutral", "displayName": "Board, run C", "canonical": "#dad5c9", "tonalRamp": ["#2e2b26", "#5a554d", "#8a8375", "#aea89b", "#c2bcad", "#d3cec0", "#dad5c9", "#f1ede3"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f1ede3", "tonalRamp": ["#36332c", "#6a665b", "#9a9586", "#bdb7a8", "#d7d2c6", "#e4e0d5", "#f1ede3", "#faf8f3"] },
+      "ledger-1": { "role": "neutral", "displayName": "Ledger step 1", "canonical": "#aeb8cf", "tonalRamp": ["#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#aeb8cf", "#c5ccdc", "#dde2ec", "#f0f2f7"] },
+      "ledger-2": { "role": "neutral", "displayName": "Ledger step 2", "canonical": "#7a8fb8", "tonalRamp": ["#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#95a6c6", "#aeb8cf", "#dde2ec", "#f0f2f7"] },
+      "ledger-3": { "role": "neutral", "displayName": "Ledger step 3", "canonical": "#456aa3", "tonalRamp": ["#132646", "#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#aeb8cf", "#dde2ec", "#f0f2f7"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The operator's name in the identity row. 44px on desktop." },
-      "headline": { "displayName": "Headline", "purpose": "h1 on section pages (page-head)." },
-      "banner": { "displayName": "Banner", "purpose": "The status claim inside the green field." },
-      "section": { "displayName": "Section", "purpose": "section-head h2. Bare h2 and the subscribe heading use 1.375rem." },
-      "title": { "displayName": "Title", "purpose": "Component name, release title." },
-      "figure": { "displayName": "Figure", "purpose": "The headline figure in a component row; tabular, right-aligned." },
-      "body": { "displayName": "Body", "purpose": "Prose at 68ch, identity line at 54ch, page-head intro at 62ch." },
-      "body-sm": { "displayName": "Body small", "purpose": "Summaries, nav links, buttons (weight 500), release descriptions, fact rows, detail panel." },
-      "label": { "displayName": "Label", "purpose": "Table column heads, section counts, banner meta, release dates, integrations line." },
-      "caption": { "displayName": "Caption", "purpose": "Strip captions, tooltips, tags, calendar month labels and legend." }
+      "display": { "displayName": "Display", "purpose": "Page h1 on inner pages. Archivo Expanded 800, uppercase, tracked 0.04em." },
+      "headline": { "displayName": "Headline", "purpose": "The hero's three-line headline only. Archivo at width 100, 800, uppercase, no tracking." },
+      "title": { "displayName": "Title", "purpose": "Section h2 at 1.25rem; featured good name at 1.5rem; box-head h2 at 0.9375rem tracked 0.12em." },
+      "title-sm": { "displayName": "Title, small", "purpose": "h3, ticket titles, good names (1.0625rem, 0.06em)." },
+      "figure": { "displayName": "Figure", "purpose": "The headline figure in each good's foot, red-ink, tabular; 1.5rem on the featured good." },
+      "body": { "displayName": "Body", "purpose": "Running text at 1rem/1.55. Prose 1.0625rem at 64ch; hero line 1.125rem at 50ch." },
+      "body-sm": { "displayName": "Body, small", "purpose": "Sub-lines, descriptions, ledger facts, bullets at 0.9375rem in ink-2." },
+      "label": { "displayName": "Label", "purpose": "All signage: labels, buttons (0.75rem), nav tabs, box-head links, summaries. Archivo Expanded 700, 0.14em, uppercase." },
+      "label-sm": { "displayName": "Label, small", "purpose": "Tags, category, state and footer at 0.625rem." },
+      "serial": { "displayName": "Serial", "purpose": "JetBrains Mono for dates, serials, operator card and file list. Ticket serials 500 at 0.8125rem in red-ink." }
     },
-    "shadows": [
-      { "name": "shadow-1", "value": "0 1px 2px rgba(15, 20, 25, 0.06), 0 8px 24px -12px rgba(15, 20, 25, 0.18)", "dark": "0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 30px -14px rgba(0, 0, 0, 0.8)", "purpose": "Portrait, primary button at rest, tooltip, resume frame." },
-      { "name": "shadow-2", "value": "0 2px 4px rgba(15, 20, 25, 0.08), 0 16px 40px -16px rgba(15, 20, 25, 0.28)", "dark": "0 2px 4px rgba(0, 0, 0, 0.6), 0 20px 50px -20px rgba(0, 0, 0, 0.9)", "purpose": "Primary button on hover, with translateY(-1px)." }
-    ],
+    "shadows": [],
     "motion": [
-      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Exponential ease-out for every state transition and the strip sweep." },
-      { "name": "ease-io", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Theme cross-fade on body background and colour (240ms)." },
-      { "name": "fast", "value": "160ms", "purpose": "Hover and focus state transitions, tooltip entry, view-transition fade out." },
-      { "name": "dur", "value": "420ms", "purpose": "Strip sweep per cell; brand mark hover rotate." },
-      { "name": "sweep-stagger", "value": "calc(var(--row, 0) * 70ms + var(--i, 0) * 9ms)", "purpose": "Delay per lit cell: 70ms per row, 9ms per column. Triggered once by IntersectionObserver under html.js and no reduced-motion preference." },
-      { "name": "view-transition", "value": "160ms out, 320ms in with translateY(8px)", "purpose": "Page change on main; nav indicator group slides over 320ms." },
-      { "name": "detail-expand", "value": "320ms grid-template-rows 0fr to 1fr", "purpose": "How it's built disclosure." },
-      { "name": "nav-underline", "value": "220ms scaleX from left", "purpose": "Nav link hover underline, chevron and arrow nudges." }
+      { "name": "ease", "value": "cubic-bezier(0.2, 0.8, 0.2, 1)", "purpose": "Every transition and the print-run passes." },
+      { "name": "fast", "value": "160ms", "purpose": "Hover transitions: colour, border, registration shift, icon nudges." },
+      { "name": "pass", "value": "180ms", "purpose": "One ink pass of the print run. Red lands after one pass delay, green after two." },
+      { "name": "print-run-red", "value": "opacity, transform 180ms ease 180ms from translate(3px, -3px)", "purpose": "Entry of [data-ink=red] elements when html.js and no reduced-motion preference." },
+      { "name": "print-run-green", "value": "opacity, transform 180ms ease 360ms from translate(-3px, 3px)", "purpose": "Entry of [data-ink=green] elements." },
+      { "name": "view-transition-out", "value": "140ms ease fade", "purpose": "::view-transition-old(main)." },
+      { "name": "view-transition-in", "value": "260ms ease from translate(2px, 2px)", "purpose": "::view-transition-new(main); nav-active group also 260ms." },
+      { "name": "detail-open", "value": "grid-template-rows 320ms ease", "purpose": "The How it's built disclosure in a good." },
+      { "name": "ledger-cell-hover", "value": "transform 120ms ease, scale 1.35", "purpose": "Commit cell under the pointer." },
+      { "name": "reduced-motion", "value": "all entry, view-transition and hover transforms removed; passes print at once", "purpose": "prefers-reduced-motion: reduce." }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "860px", "purpose": "Nav collapses to a panel; components table stacks; operator, subscribe and identity go single column." },
-      { "name": "phone", "value": "640px", "purpose": "Banner wraps and meta moves left; release rows stack with dates first." }
-    ]
+      { "name": "nav-collapse", "value": "1140px" },
+      { "name": "kiosk-3", "value": "1100px" },
+      { "name": "stack", "value": "960px" },
+      { "name": "kiosk-2", "value": "760px" },
+      { "name": "ticket-stack", "value": "640px" },
+      { "name": "kiosk-1", "value": "480px" }
+    ],
+    "surfaces": {
+      "grain": "body::before fixed, SVG feTurbulence fractalNoise baseFrequency 0.9, 2 octaves, tiled 240px, mix-blend-mode multiply, opacity 0.28",
+      "masthead": "sticky, 4.5rem, color-mix(board 92%, transparent), backdrop-filter blur(10px), 1.5px night bottom rule",
+      "darkTheme": "none; color-scheme: light; one paper stock"
+    }
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Button, outline",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "The one filled green action in a group (Book a call, Open PDF).",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 7h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Zm0 4h16M8 4v4m8-4v4\"/></svg><span>Book a call</span></a>",
-      "css": ".ds-btn { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; height: 2.5rem; padding: 0 0.875rem; border-radius: 8px; border: 1px solid var(--rule-2, #cfd5db); background: var(--ground, #fff); color: var(--ink, #0f1419); font-family: var(--font-sans, 'Satoshi', sans-serif); font-size: 0.9375rem; font-weight: 500; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), border-color 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1), box-shadow 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary { background: var(--green-field-2, #0f7f4c); border-color: var(--green-field, #0b6b40); color: var(--green-on-field, #fff); box-shadow: var(--shadow-1, 0 1px 2px rgba(15,20,25,0.06), 0 8px 24px -12px rgba(15,20,25,0.18)); } .ds-btn-primary:hover { background: var(--green-field, #0b6b40); box-shadow: var(--shadow-2, 0 2px 4px rgba(15,20,25,0.08), 0 16px 40px -16px rgba(15,20,25,0.28)); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0) scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; }"
+      "refersTo": "button-outline",
+      "description": "Secondary control on every sheet. Rule box, board fill, signage type.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Book a call <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 7h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Zm0 4h16M8 4v4m8-4v4\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.625rem; height: 2.75rem; padding: 0 1.125rem; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.2,0.8,0.2,1), color 160ms cubic-bezier(0.2,0.8,0.2,1), border-color 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn svg { transition: transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn:hover { color: var(--red, #c23a2b); border-color: var(--red, #c23a2b); } .ds-btn:hover svg { transform: translateX(2px); } .ds-btn:active { transform: translate(1px, 1px); } .ds-btn:focus-visible { outline: 1.5px solid var(--red, #c23a2b); outline-offset: 3px; }"
     },
     {
-      "name": "Secondary Button",
+      "name": "Button, fill",
       "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "Quiet bordered action (Email, LinkedIn, Download). Carries a copied state.",
-      "html": "<button class=\"ds-btn ds-btn-secondary\" type=\"button\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm-1 1 9 6 9-6\"/></svg><span>Email</span></button>",
-      "css": ".ds-btn { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; height: 2.5rem; padding: 0 0.875rem; border-radius: 8px; border: 1px solid var(--rule-2, #cfd5db); background: var(--ground, #fff); color: var(--ink, #0f1419); font-family: var(--font-sans, 'Satoshi', sans-serif); font-size: 0.9375rem; font-weight: 500; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), border-color 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary:hover { background: var(--ground-2, #f4f6f8); border-color: var(--ink-3, #6b7280); } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary[data-copied=\"true\"] { border-color: var(--green, #0b7a46); color: var(--green-ink, #0a6b3e); } .ds-btn:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; }"
+      "refersTo": "button-fill",
+      "description": "The primary action on a sheet. Night fill, board text; hover fills red.",
+      "html": "<a class=\"ds-btn ds-btn-fill\" href=\"#\">Browse the systems <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.625rem; height: 2.75rem; padding: 0 1.125rem; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.2,0.8,0.2,1), color 160ms cubic-bezier(0.2,0.8,0.2,1), border-color 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn-fill { background: var(--night, #1e3a6b); color: var(--board, #d7d2c6); } .ds-btn-fill:hover { background: var(--red, #c23a2b); border-color: var(--red, #c23a2b); color: var(--board, #d7d2c6); } .ds-btn svg { transition: transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn:hover svg { transform: translateX(2px); } .ds-btn:active { transform: translate(1px, 1px); } .ds-btn:focus-visible { outline: 1.5px solid var(--red, #c23a2b); outline-offset: 3px; }"
     },
     {
-      "name": "Icon Button",
-      "kind": "button",
-      "refersTo": "icon-button",
-      "description": "Header tool (theme toggle, menu). Glyph rotates on hover.",
-      "html": "<button class=\"ds-icon-button\" type=\"button\" aria-label=\"Switch to dark theme\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z\"/></svg></button>",
-      "css": ".ds-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; border: 1px solid var(--rule, #e3e7eb); background: var(--ground, #fff); color: var(--ink-2, #4b5563); cursor: pointer; transition: border-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1), background-color 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1); } .ds-icon-button:hover { border-color: var(--rule-2, #cfd5db); color: var(--ink, #0f1419); background: var(--ground-2, #f4f6f8); } .ds-icon-button:active { transform: scale(0.94); } .ds-icon-button svg { transition: transform 320ms cubic-bezier(0.16,1,0.3,1); } .ds-icon-button:hover svg { transform: rotate(15deg); } .ds-icon-button:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; }"
+      "name": "Nav tabs",
+      "kind": "nav",
+      "refersTo": "nav-tab",
+      "description": "Rule-boxed caps tabs; the current page is night-filled.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">Systems</a><a href=\"#\">Experience</a><a href=\"#\">Ledger</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.375rem; } .ds-nav a { display: inline-flex; align-items: center; height: 2.125rem; padding: 0 0.75rem; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background-color 160ms cubic-bezier(0.2,0.8,0.2,1), color 160ms cubic-bezier(0.2,0.8,0.2,1), border-color 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-nav a:hover { color: var(--red, #c23a2b); border-color: var(--red, #c23a2b); } .ds-nav a[aria-current=page] { background: var(--night, #1e3a6b); color: var(--board, #d7d2c6); } .ds-nav a[aria-current=page]:hover { background: var(--red, #c23a2b); border-color: var(--red, #c23a2b); } .ds-nav a:focus-visible { outline: 1.5px solid var(--red, #c23a2b); outline-offset: 3px; }"
     },
     {
-      "name": "Status Pill",
-      "kind": "chip",
-      "refersTo": "pill-operational",
-      "description": "Row status with a drawn dot. Variants by data-status: in_progress (amber), paused or archived (grey).",
-      "html": "<span class=\"ds-pill\" data-status=\"live\">Operational</span> <span class=\"ds-pill\" data-status=\"in_progress\">In build</span> <span class=\"ds-pill\" data-status=\"paused\">Paused</span>",
-      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.4rem; height: 1.75rem; padding: 0 0.625rem 0 0.5rem; border-radius: 999px; font-family: var(--font-sans, 'Satoshi', sans-serif); font-size: 0.8125rem; font-weight: 500; white-space: nowrap; background: var(--green-soft, #d8f1e3); color: var(--green-ink, #0a6b3e); } .ds-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; } .ds-pill:hover::before { animation: ds-pill-pulse 1.2s cubic-bezier(0.16,1,0.3,1) 1; } @keyframes ds-pill-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 45%, transparent); } 100% { box-shadow: 0 0 0 6px transparent; } } .ds-pill[data-status=\"in_progress\"] { background: var(--amber-soft, #fbefd6); color: var(--amber, #7a4d0b); } .ds-pill[data-status=\"paused\"], .ds-pill[data-status=\"archived\"] { background: var(--grey-soft, #eef0f3); color: var(--ink-2, #4b5563); }"
-    },
-    {
-      "name": "Tag",
+      "name": "Tags",
       "kind": "chip",
       "refersTo": "tag",
-      "description": "Mono technology tag under a detailed component.",
-      "html": "<div class=\"ds-tags\"><span class=\"ds-tag\">BigQuery</span><span class=\"ds-tag\">Dagster</span><span class=\"ds-tag\">Lightdash</span></div>",
-      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; } .ds-tag { font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.6875rem; padding: 0.15rem 0.45rem; border-radius: 4px; background: var(--ground, #fff); color: var(--ink-2, #4b5563); border: 1px solid var(--rule-2, #cfd5db); }"
+      "description": "Inline uppercase labels with trailing middot separators. No box, no pill.",
+      "html": "<div class=\"ds-tags\"><span>dbt</span><span>BigQuery</span><span>Dagster</span><span>Lightdash</span></div>",
+      "css": ".ds-tags { line-height: 1.7; } .ds-tags span { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2, #44527a); white-space: nowrap; } .ds-tags span:not(:last-child)::after { content: ' · '; white-space: normal; color: var(--ink-3, #5d6a8a); }"
     },
     {
-      "name": "Component Row",
+      "name": "Good (kiosk cell)",
       "kind": "card",
-      "refersTo": "detail-panel",
-      "description": "Signature row: name, 36-cell month strip with caption, right-aligned figure, status pill. Hairline below, ground-2 wash on hover.",
-      "html": "<li class=\"ds-component\" data-status=\"live\"><div class=\"ds-component-name-wrap\"><div class=\"ds-component-name\"><h3>Orca</h3><span class=\"ds-component-org\">South Pole</span></div><p class=\"ds-component-sum\">Enterprise AI assistant used by over a quarter of the company.</p></div><div class=\"ds-strip-wrap\"><ol class=\"ds-strip\"><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell\"></li><li class=\"ds-cell on\" data-label=\"Nov 2024\"></li><li class=\"ds-cell on\" data-label=\"Dec 2024\"></li><li class=\"ds-cell on\" data-label=\"Jan 2025\"></li><li class=\"ds-cell on\" data-label=\"Feb 2025\"></li><li class=\"ds-cell on\" data-label=\"Mar 2025\"></li><li class=\"ds-cell on\" data-label=\"Apr 2025\"></li><li class=\"ds-cell on\" data-label=\"May 2025\"></li><li class=\"ds-cell on\" data-label=\"Jun 2025\"></li><li class=\"ds-cell on\" data-label=\"Jul 2025\"></li><li class=\"ds-cell on\" data-label=\"Aug 2025\"></li><li class=\"ds-cell on\" data-label=\"Sep 2025\"></li><li class=\"ds-cell on\" data-label=\"Oct 2025\"></li></ol><div class=\"ds-strip-caption\"><span>Nov 2024 to now</span><span>12 months</span></div></div><div class=\"ds-figure\"><strong>560,000+</strong><span class=\"ds-figure-label\">requests at 99.99%</span></div><span class=\"ds-pill\">Operational</span></li>",
-      "css": ".ds-component { position: relative; list-style: none; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 1fr) minmax(150px, auto) 8.25rem; gap: 1rem 1.5rem; align-items: center; padding: 1.125rem 0; border-bottom: 1px solid var(--rule, #e3e7eb); font-family: var(--font-sans, 'Satoshi', sans-serif); color: var(--ink, #0f1419); } .ds-component::before { content: ''; position: absolute; inset: 0 -0.75rem; border-radius: 10px; background: var(--ground-2, #f4f6f8); opacity: 0; z-index: -1; transition: opacity 160ms cubic-bezier(0.16,1,0.3,1); } .ds-component:hover::before { opacity: 1; } .ds-component-name { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; } .ds-component-name h3 { margin: 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.015em; line-height: 1.1; font-variation-settings: 'opsz' 18; } .ds-component-org { font-size: 0.8125rem; color: var(--ink-3, #6b7280); } .ds-component-sum { margin: 0.25rem 0 0; font-size: 0.9375rem; color: var(--ink-2, #4b5563); max-width: 60ch; } .ds-strip-wrap { display: grid; gap: 0.375rem; min-width: 0; } .ds-strip { display: grid; grid-template-columns: repeat(36, minmax(0, 1fr)); gap: 2px; height: 22px; margin: 0; padding: 0; list-style: none; } .ds-cell { position: relative; border-radius: 2px; background: var(--cell-off, #e9ecef); transition: transform 160ms cubic-bezier(0.16,1,0.3,1), background-color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-cell.on { background: var(--green-cell, #1f9d5f); } .ds-component[data-status=\"in_progress\"] .ds-cell.on { background: var(--amber-cell, #e3a63b); } .ds-cell:hover { transform: scaleY(1.18); z-index: 2; } .ds-cell.on:hover { background: var(--green-cell-hi, #27b76f); } .ds-cell[data-label]::after { content: attr(data-label); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translate(-50%, 0); padding: 0.25rem 0.5rem; border-radius: 5px; background: var(--tip-bg, #0f1419); color: var(--tip-fg, #fff); font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.6875rem; line-height: 1.2; white-space: nowrap; pointer-events: none; display: none; z-index: 5; box-shadow: var(--shadow-1, 0 1px 2px rgba(15,20,25,0.06), 0 8px 24px -12px rgba(15,20,25,0.18)); } .ds-cell[data-label]:hover::after { display: block; } .ds-strip-caption { display: flex; justify-content: space-between; gap: 0.75rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.6875rem; color: var(--ink-3, #6b7280); } .ds-figure { text-align: right; } .ds-figure strong { display: block; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1.375rem; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; line-height: 1.1; font-variation-settings: 'opsz' 24; } .ds-figure-label { display: block; margin-top: 0.125rem; font-size: 0.75rem; color: var(--ink-3, #6b7280); } .ds-pill { display: inline-flex; align-items: center; gap: 0.4rem; height: 1.75rem; padding: 0 0.625rem 0 0.5rem; border-radius: 999px; font-size: 0.8125rem; font-weight: 500; white-space: nowrap; background: var(--green-soft, #d8f1e3); color: var(--green-ink, #0a6b3e); justify-self: start; } .ds-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }"
+      "refersTo": "good-cell",
+      "description": "One system on the shelf: name, one line, its office mark, serial row and headline figure. Hover is the registration shift.",
+      "html": "<div class=\"ds-good ds-shift\"><div class=\"ds-good-top\"><h3 class=\"ds-good-name\">Orca</h3><p class=\"ds-good-sub\">The company's data assistant: natural language to governed SQL over the semantic layer.</p></div><div class=\"ds-good-mark\"><svg width=\"72\" height=\"72\" viewBox=\"0 0 64 64\" fill=\"var(--green, #6a7a43)\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M32 4a28 28 0 1 1 0 56 28 28 0 0 1 0-56Zm0 14a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z\"/></svg></div><div class=\"ds-good-foot\"><span class=\"ds-serial\"><span class=\"ds-cat\">Platform</span><span>No. 2024.06</span><span class=\"ds-state\">In production</span></span><span class=\"ds-figure\">560,000+<small>requests served</small></span></div></div>",
+      "css": ".ds-good { position: relative; display: grid; grid-template-rows: auto 1fr auto; gap: 1rem; padding: 1.125rem 1.25rem 0; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); min-height: 13rem; max-width: 22rem; font-family: Archivo, Helvetica, sans-serif; } .ds-good-name { margin: 0; font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.05; } .ds-good-sub { margin: 0.4rem 0 0; font-size: 0.9375rem; line-height: 1.55; color: var(--ink-2, #44527a); } .ds-good-mark { display: flex; justify-content: flex-end; align-items: flex-end; padding-bottom: 0.25rem; } .ds-good-mark svg { transition: transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-good:hover .ds-good-mark svg { transform: translate(2px, -2px); } .ds-good-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.75rem 0 0.875rem; border-top: var(--rule, 1.5px) solid var(--night, #1e3a6b); } .ds-serial { display: flex; flex-wrap: wrap; gap: 0.25rem 0.625rem; align-items: baseline; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 0.75rem; color: var(--ink-2, #44527a); } .ds-cat, .ds-state { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; } .ds-cat { color: var(--night, #1e3a6b); } .ds-state { color: var(--green-ink, #46542c); } .ds-figure { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 800; font-size: 1.125rem; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: var(--red-ink, #8e2518); text-align: right; } .ds-figure small { display: block; font-family: Archivo, Helvetica, sans-serif; font-weight: 400; font-size: 0.75rem; letter-spacing: 0; color: var(--ink-2, #44527a); margin-top: 0.125rem; } .ds-shift::after { content: ''; position: absolute; inset: calc(-1 * var(--rule, 1.5px)); border: var(--rule, 1.5px) solid var(--red, #c23a2b); pointer-events: none; opacity: 0; transform: translate(0, 0); transition: opacity 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); z-index: 2; } .ds-shift:hover::after, .ds-shift:focus-within::after { opacity: 1; transform: translate(3px, 3px); }"
     },
     {
-      "name": "Release Row",
-      "kind": "card",
-      "refersTo": "detail-panel",
-      "description": "Career entry as a release: mono version tag, title, org, description, right-aligned mono dates.",
-      "html": "<li class=\"ds-release\"><span class=\"ds-release-tag\">v2026.07</span><div><h3 class=\"ds-release-title\">Associate Director, Data &amp; Insights Lead</h3><p class=\"ds-org\">South Pole</p><p class=\"ds-desc\">Sets the data strategy and still ships the systems underneath it.</p></div><p class=\"ds-dates\"><time datetime=\"2026-07\">Jul 2026</time> to present<span class=\"ds-loc\">London</span></p></li>",
-      "css": ".ds-release { position: relative; list-style: none; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) auto; gap: 0.5rem 1.5rem; padding: 1.125rem 0; border-bottom: 1px solid var(--rule, #e3e7eb); font-family: var(--font-sans, 'Satoshi', sans-serif); color: var(--ink, #0f1419); } .ds-release::before { content: ''; position: absolute; inset: 0 -0.75rem; border-radius: 10px; background: var(--ground-2, #f4f6f8); opacity: 0; z-index: -1; transition: opacity 160ms cubic-bezier(0.16,1,0.3,1); } .ds-release:hover::before { opacity: 1; } .ds-release-tag { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.8125rem; color: var(--green-ink, #0a6b3e); padding-top: 0.2rem; } .ds-release-title { margin: 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.015em; line-height: 1.1; font-variation-settings: 'opsz' 18; } .ds-org { margin: 0; color: var(--ink-2, #4b5563); font-size: 0.9375rem; } .ds-desc { margin: 0.375rem 0 0; color: var(--ink-2, #4b5563); font-size: 0.9375rem; max-width: 68ch; } .ds-dates { margin: 0; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.75rem; color: var(--ink-3, #6b7280); white-space: nowrap; text-align: right; padding-top: 0.25rem; } .ds-loc { display: block; margin-top: 0.2rem; }"
-    },
-    {
-      "name": "Navigation",
-      "kind": "nav",
-      "refersTo": "nav-link",
-      "description": "Sticky translucent header: brand mark and name, link row with a green indicator under the current page, icon tools right.",
-      "html": "<header class=\"ds-header\"><a class=\"ds-brand\" href=\"#\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"none\" stroke=\"#0b6b40\" stroke-width=\"6\"/><circle cx=\"32\" cy=\"32\" r=\"11\" fill=\"#1f9d5f\"/></svg><span>Saahil Mehta</span></a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Status<span class=\"ds-nav-indicator\"></span></a><a href=\"#\">Systems</a><a href=\"#\">Experience</a><a href=\"#\">Activity</a></nav></header>",
-      "css": ".ds-header { display: flex; align-items: center; gap: 1rem; height: 3.5rem; padding: 0 1.5rem; background: color-mix(in srgb, var(--ground, #fff) 88%, transparent); backdrop-filter: blur(14px) saturate(140%); border-bottom: 1px solid var(--rule, #e3e7eb); font-family: var(--font-sans, 'Satoshi', sans-serif); } .ds-brand { display: inline-flex; align-items: center; gap: 0.625rem; text-decoration: none; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; color: var(--ink, #0f1419); } .ds-brand svg { transition: transform 420ms cubic-bezier(0.16,1,0.3,1); } .ds-brand:hover svg { transform: rotate(-12deg) scale(1.08); } .ds-nav { display: flex; align-items: stretch; gap: 0.125rem; margin-left: 0.5rem; height: 100%; } .ds-nav a { position: relative; display: inline-flex; align-items: center; padding: 0 0.75rem; font-size: 0.9375rem; color: var(--ink-2, #4b5563); text-decoration: none; white-space: nowrap; transition: color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: -1px; height: 2px; background: var(--rule-2, #cfd5db); border-radius: 2px 2px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 220ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover { color: var(--ink, #0f1419); } .ds-nav a:hover::after { transform: scaleX(1); } .ds-nav a[aria-current=\"page\"] { color: var(--ink, #0f1419); font-weight: 600; } .ds-nav a[aria-current=\"page\"]::after { display: none; } .ds-nav-indicator { position: absolute; left: 0.75rem; right: 0.75rem; bottom: -1px; height: 2px; background: var(--green, #0b7a46); border-radius: 2px 2px 0 0; } .ds-nav a:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; border-radius: 3px; }"
-    },
-    {
-      "name": "Status Banner",
+      "name": "Ticket (career)",
       "kind": "custom",
-      "refersTo": "banner",
-      "description": "The claim as a green field: check icon in green-dot, heading, sub-line, right-aligned mono timestamp.",
-      "html": "<section class=\"ds-banner\"><svg class=\"ds-banner-icon\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm-3.5-10 2.5 2.5 5-5\"/></svg><div><h1>All systems operational</h1><p class=\"ds-banner-sub\">6 operational · 1 in build · 501 people served · one operator</p></div><p class=\"ds-banner-meta\">Last checked<strong>16 Oct 2026, 18:19 UTC</strong></p></section>",
-      "css": ".ds-banner { display: flex; align-items: center; gap: 1rem; min-height: 6rem; padding: 1.25rem 1.5rem; background: linear-gradient(180deg, var(--green-field-2, #0f7f4c), var(--green-field, #0b6b40)); color: var(--green-on-field, #fff); font-family: var(--font-sans, 'Satoshi', sans-serif); } .ds-banner-icon { flex: none; color: var(--green-dot, #7ff0b2); } .ds-banner h1 { margin: 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; font-variation-settings: 'opsz' 48; } .ds-banner-sub { margin: 0.125rem 0 0; color: color-mix(in srgb, var(--green-on-field, #fff) 82%, var(--green-field, #0b6b40)); font-size: 0.9375rem; } .ds-banner-meta { margin: 0 0 0 auto; text-align: right; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.75rem; color: color-mix(in srgb, var(--green-on-field, #fff) 78%, var(--green-field, #0b6b40)); white-space: nowrap; } .ds-banner-meta strong { display: block; font-weight: 500; color: var(--green-on-field, #fff); }"
+      "refersTo": "ticket-stub",
+      "description": "One role as a tram ticket: perforated stub with serial and Valid/Punched, body with title, org, mono dates.",
+      "html": "<div class=\"ds-ticket ds-shift\"><div class=\"ds-stub\"><span class=\"ds-ticket-serial\">A 202507</span><span class=\"ds-label\">Valid</span></div><div class=\"ds-ticket-body\"><div><h3 class=\"ds-ticket-title\">Associate Director, Data &amp; Insights Lead</h3><p class=\"ds-org\">South Pole</p></div><p class=\"ds-dates\">Jul 2026 to present<span class=\"ds-loc\">London</span></p></div></div>",
+      "css": ".ds-ticket { position: relative; display: grid; grid-template-columns: 8.75rem minmax(0, 1fr); border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: Archivo, Helvetica, sans-serif; max-width: 40rem; } .ds-stub { position: relative; padding: 1.125rem 1rem 1.125rem 1.25rem; background: var(--board-2, #cdc7b9); } .ds-stub::after { content: ''; position: absolute; top: 0; bottom: 0; right: -5px; width: 10px; background: radial-gradient(circle at 50% 50%, var(--board, #d7d2c6) 2.6px, transparent 3.1px) 0 0 / 10px 10px repeat-y; } .ds-ticket-serial { display: block; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-weight: 500; font-size: 0.8125rem; color: var(--red-ink, #8e2518); } .ds-label { display: block; margin-top: 0.5rem; font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2, #44527a); } .ds-ticket-body { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1.5rem; padding: 1.125rem 1.5rem; } .ds-ticket-title { margin: 0; font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.05; } .ds-org { margin: 0.25rem 0 0; font-size: 0.9375rem; color: var(--ink-2, #44527a); } .ds-dates { margin: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 0.75rem; color: var(--ink-2, #44527a); text-align: right; white-space: nowrap; } .ds-loc { display: block; margin-top: 0.2rem; } .ds-shift::after { content: ''; position: absolute; inset: calc(-1 * var(--rule, 1.5px)); border: var(--rule, 1.5px) solid var(--red, #c23a2b); pointer-events: none; opacity: 0; transition: opacity 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); z-index: 2; } .ds-shift:hover::after { opacity: 1; transform: translate(3px, 3px); }"
     },
     {
-      "name": "Detail Disclosure",
+      "name": "Label",
       "kind": "custom",
-      "refersTo": "detail-panel",
-      "description": "How it's built: chevron summary in green-ink, body expands into a ground-2 panel.",
-      "html": "<details class=\"ds-detail\"><summary><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>How it's built</summary><div class=\"ds-detail-anim\"><div><div class=\"ds-detail-body\"><p>Semantic layer on BigQuery, self-hosted orchestration, access governance and FinOps underneath the assistant.</p></div></div></div></details>",
-      "css": ".ds-detail { font-family: var(--font-sans, 'Satoshi', sans-serif); } .ds-detail summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--green-ink, #0a6b3e); border-radius: 4px; } .ds-detail summary::-webkit-details-marker { display: none; } .ds-detail summary svg { transition: transform 220ms cubic-bezier(0.16,1,0.3,1); } .ds-detail[open] summary svg { transform: rotate(90deg); } .ds-detail summary:focus-visible { outline: 2px solid var(--focus, #0b7a46); outline-offset: 3px; } .ds-detail-anim { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 320ms cubic-bezier(0.16,1,0.3,1); } .ds-detail[open] .ds-detail-anim { grid-template-rows: 1fr; } .ds-detail-anim > div { overflow: hidden; min-height: 0; } .ds-detail-body { margin-top: 0.75rem; padding: 1rem 1.25rem; background: var(--ground-2, #f4f6f8); border: 1px solid var(--rule, #e3e7eb); border-radius: 10px; font-size: 0.9375rem; color: var(--ink-2, #4b5563); max-width: 72ch; } .ds-detail-body p { margin: 0; }"
+      "refersTo": "label",
+      "description": "The signage voice: Archivo Expanded 700, 0.6875rem, tracked 0.14em, uppercase, steel ink.",
+      "html": "<span class=\"ds-sig\">Operator</span> <span class=\"ds-sig\">London · est. 2019</span>",
+      "css": ".ds-sig { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2, #44527a); margin-right: 1rem; }"
+    },
+    {
+      "name": "Office marks",
+      "kind": "custom",
+      "refersTo": "good-cell",
+      "description": "The eight filled constructions on a 64-unit grid, here in the three inks.",
+      "html": "<div class=\"ds-marks\"><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path fill-rule=\"evenodd\" d=\"M32 4a28 28 0 1 1 0 56 28 28 0 0 1 0-56Zm0 14a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--red, #c23a2b)\"><path d=\"M10 60V32a22 22 0 0 1 44 0v28H40V32a8 8 0 0 0-16 0v28Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--green, #6a7a43)\"><path d=\"M4 44 32 16l28 28-9 9-19-19-19 19Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M6 8h52v12H6zm0 18h52v12H6zm0 18h38v12H6z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path fill-rule=\"evenodd\" d=\"M32 4a20 20 0 0 1 10 37.3L46 60H18l4-18.7A20 20 0 0 1 32 4Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M4 60V32A28 28 0 0 1 32 4h28v28H32v28Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M4 4h26v26H4zm30 0h26v26H34zM4 34h26v26H4zm30 0h26v26H34z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M4 34a28 28 0 0 1 56 0ZM4 42h56v14H4z\"/></svg></div>",
+      "css": ".ds-marks { display: flex; flex-wrap: wrap; gap: 0.75rem; } .ds-marks svg { width: 40px; height: 40px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Status Page",
-    "overview": "A career record presented the way an operations team presents uptime. White ground, one committed green, hairline dividers, and every number sitting in the row it describes. The scene is a hiring manager at a laptop in a daylit office; the light theme is the default and a dark panel theme is one toggle away, swapping every token without changing the layout.\n\nDensity is tabular. Rows carry a name, a 36-cell month strip, one figure and a status pill, and the same row grammar repeats for projects (components), roles (releases), degrees and volunteering. Ornament is limited to things the status metaphor already has: a drawn dot in a pill, a strip of cells, a timestamp in mono. One authored motion exists: the strips sweep in from the left, staggered by row, once.",
+    "northStar": "The State Kiosk",
+    "overview": "The site is printed matter from a civic design office. Every system Saahil has shipped is a good on a kiosk shelf, printed on recycled board in three permitted inks and stamped with its own geometric mark. The career is a strip of tram tickets with punched stubs. The commit calendar is the production ledger. Contact is the office counter.\n\nThe build carries this through one paper stock and three inks. Night ink sets all text, rules and primary controls. Civic red is the third ink: the active cell outline on hover, the headline figure where a price would sit, and the middle line of the headline. Depot green marks the secondary good and the operational state. There is no dark theme. The kiosk is a printed object, printed once on one stock; color-scheme: light is declared on :root and no toggle exists. The previous world's dark theme was removed with it.\n\nDensity is high and even. Rule boxes abut, cells share 1.5px gutters of night ink, and type is set in tracked expanded caps for every label. Motion is one authored moment: the print run, where the red and green passes land after the night pass. Everything else is a hover that reads as misregistration.",
     "keyCharacteristics": [
-      "One green owns the banner field, the strips, the primary button, the focus ring, selection, caret and scrollbar hover.",
-      "Hairline rules (1px, rule) separate rows and sections; there are no boxed cards on the lead surface.",
-      "Numbers are set in Bricolage Grotesque 600 with tabular numerals and right-aligned in their column.",
-      "JetBrains Mono is the voice of metadata: timestamps, strip captions, version tags, column labels, tooltips, calendar legend.",
-      "Every page reads without JavaScript; all motion sits behind prefers-reduced-motion."
+      "One recycled board stock with a fleck grain under everything; no second surface, no dark mode",
+      "Three inks only: night, civic red, depot green, each with a darker small-text variant where needed for contrast",
+      "Every container is a 1.5px night-ink rule box; corners are square everywhere",
+      "Archivo at two widths: text at width 100, display and labels at width 125 in tracked caps; JetBrains Mono for serials and dates",
+      "Eight filled geometric office marks drawn on a 64-unit grid, one per system, no strokes",
+      "Hover is a registration shift: a red duplicate of the rule box offset 3px",
+      "Entry motion is the print run: red at 180ms, green at 360ms, nothing else animates in"
     ],
     "rules": [
-      { "name": "The One Green Rule", "body": "Status green is the only saturated colour on a page unless a system is in build (amber) or paused (grey). No second accent is introduced for emphasis, links or decoration.", "section": "colors" },
-      { "name": "The Field Rule", "body": "Green appears as a filled field in exactly two places: the status banner and the primary button. Everywhere else it is text, a cell, a dot or a hairline.", "section": "colors" },
-      { "name": "The Token Swap Rule", "body": "Dark mode redefines every colour token under [data-theme=\"dark\"] and changes nothing else. New colours get a dark value in the same commit.", "section": "colors" },
-      { "name": "The Machine Voice Rule", "body": "JetBrains Mono is for values a system would emit: timestamps, dates, version tags, captions, column labels, tooltips, tags. It never sets a sentence or a heading.", "section": "typography" },
-      { "name": "The Tabular Rule", "body": "Any number that sits in a column is set with font-variant-numeric: tabular-nums and right-aligned.", "section": "typography" },
-      { "name": "The Two Shadow Rule", "body": "Only shadow-1 and shadow-2 exist. Rows, panels, pills, tags and the header carry no shadow; the header separates itself with blur and a hairline.", "section": "elevation" }
+      { "name": "The Three Inks Rule", "body": "Night, red and green are the only hues on the sheet. New surfaces pick from these three and their two darkened small-text variants; there is no fourth ink.", "section": "colors" },
+      { "name": "The Small Red Rule", "body": "Red and green text below 1.125rem uses red-ink or green-ink. The display inks are reserved for large type, marks and outlines.", "section": "colors" },
+      { "name": "The One Stock Rule", "body": "There is one paper stock and no dark theme. Depth, state and hierarchy are all expressed in ink, never in a second ground.", "section": "colors" },
+      { "name": "The Signage Rule", "body": "Anything that names, categorises or operates is Archivo Expanded 700 to 800, uppercase, tracked 0.12em to 0.18em. Running text never is.", "section": "typography" },
+      { "name": "The Serial Rule", "body": "Numbers that identify (dates, ticket and good serials, build run) are JetBrains Mono with tabular numerals. Numbers that persuade (the headline figure) are Archivo Expanded 800.", "section": "typography" },
+      { "name": "The No Shadow Rule", "body": "Nothing casts a shadow. State and depth are drawn in ink or printed on a different stock.", "section": "elevation" }
     ],
     "dos": [
-      "Do put every left edge on the 1.5rem container gutter: banner text, name, table, headings, footer.",
-      "Do place a number inside the row it describes, set in Bricolage 600 with tabular numerals, right-aligned.",
-      "Do separate rows with a 1px rule hairline and signal hover with the ground-2 wash.",
-      "Do colour status with the three pill pairs only: green-soft/green-ink, amber-soft/amber, grey-soft/ink-2.",
-      "Do set metadata (timestamps, dates, version tags, captions, column labels, tooltips) in JetBrains Mono at 0.75rem or 0.6875rem in ink-3.",
-      "Do draw new icons on the 24-unit grid at 1.75 stroke with round joins, in currentColor.",
-      "Do give every new colour a [data-theme=\"dark\"] value in the same change.",
-      "Do keep every page readable with scripts off and every transform inside prefers-reduced-motion: no-preference."
+      "Do draw every container as a 1.5px night rule box with square corners.",
+      "Do use red-ink and green-ink for red or green text below 1.125rem; keep red and green for display lines, marks and outlines.",
+      "Do mark new red or green elements on the entry sheet with data-ink so they join the print run.",
+      "Do set signage in Archivo Expanded, uppercase, tracked; set running text in Archivo at width 100.",
+      "Do give every new system one filled office mark from the eight on the 64-unit grid, in one of the three inks.",
+      "Do express rank by cell span in the kiosk, never by a louder type size on the shelf head.",
+      "Do keep tags inline with trailing middots."
     ],
     "donts": [
-      "Don't introduce a second accent; green owns the page, amber is reserved for in-build systems.",
-      "Don't fill a surface with green outside the status banner and the primary button.",
-      "Don't add shadows beyond shadow-1 and shadow-2, and never on rows, pills, tags or the header.",
-      "Don't box rows into cards; the lead surface has no bordered containers except the detail panel and the resume frame.",
-      "Don't set headings, sentences or button labels in the mono face, and do not use uppercase or letter-spaced caps anywhere.",
-      "Don't add a hero metric tile row, a portrait hero or a timeline; the status rows are the arrangement.",
-      "Don't add a second entry animation; the strip sweep is the only authored entry motion."
+      "Don't add a dark theme, a theme toggle or a second page ground; the kiosk is one stock.",
+      "Don't introduce a fourth hue, a gradient fill or a tinted background outside the board shades and paper.",
+      "Don't use shadows, radius or pills; depth is ink and stock, and tags are text.",
+      "Don't animate anything on entry other than the red and green passes.",
+      "Don't reintroduce status-page grammar: green banners, uptime strips, pill badges.",
+      "Don't stroke the office marks; they are filled constructions only."
     ]
   }
 }

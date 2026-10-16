@@ -1,398 +1,311 @@
 ---
 name: saahil.co.uk
-description: A personal record presented as a status page. One committed green, white operational ground, hairline rows, tabular numerals.
+description: A personal record printed as a state kiosk of goods. Recycled board, three inks, rule boxes, one geometric mark per system.
 colors:
-  ground: "#ffffff"
-  ground-2: "#f4f6f8"
-  ground-3: "#e9edf1"
-  ink: "#0f1419"
-  ink-2: "#4b5563"
-  ink-3: "#6b7280"
-  rule: "#e3e7eb"
-  rule-2: "#cfd5db"
-  green: "#0b7a46"
-  green-ink: "#0a6b3e"
-  green-soft: "#d8f1e3"
-  green-cell: "#1f9d5f"
-  green-cell-hi: "#27b76f"
-  green-field: "#0b6b40"
-  green-field-2: "#0f7f4c"
-  green-on-field: "#ffffff"
-  green-dot: "#7ff0b2"
-  amber: "#7a4d0b"
-  amber-cell: "#e3a63b"
-  amber-soft: "#fbefd6"
-  grey-cell: "#c2c8cf"
-  grey-soft: "#eef0f3"
-  cell-off: "#e9ecef"
-  tip-bg: "#0f1419"
-  tip-fg: "#ffffff"
+  board: "#d7d2c6"
+  board-2: "#cdc7b9"
+  board-3: "#c2bcad"
+  board-stock-b: "#d3cec0"
+  board-stock-c: "#dad5c9"
+  paper: "#f1ede3"
+  night: "#1e3a6b"
+  ink-2: "#44527a"
+  ink-3: "#5d6a8a"
+  red: "#c23a2b"
+  red-ink: "#8e2518"
+  green: "#6a7a43"
+  green-ink: "#46542c"
+  ledger-1: "#aeb8cf"
+  ledger-2: "#7a8fb8"
+  ledger-3: "#456aa3"
 typography:
   display:
-    fontFamily: "Bricolage Grotesque, Satoshi, sans-serif"
-    fontSize: "clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem)"
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.02em"
-    fontVariation: "'opsz' 64"
+    fontFamily: "Archivo Expanded, Archivo, Helvetica, sans-serif"
+    fontSize: "clamp(2rem, 1.4rem + 2.2vw, 3.25rem)"
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "0.04em"
+    textTransform: "uppercase"
   headline:
-    fontFamily: "Bricolage Grotesque, Satoshi, sans-serif"
-    fontSize: "clamp(2rem, 1.4rem + 2.4vw, 2.75rem)"
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.015em"
-    fontVariation: "'opsz' 48"
-  banner:
-    fontFamily: "Bricolage Grotesque, Satoshi, sans-serif"
-    fontSize: "clamp(1.5rem, 1.1rem + 1.6vw, 2rem)"
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.01em"
-    fontVariation: "'opsz' 48"
-  section:
-    fontFamily: "Bricolage Grotesque, Satoshi, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.015em"
-    fontVariation: "'opsz' 24"
+    fontFamily: "Archivo, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, sans-serif"
+    fontSize: "clamp(2.25rem, 1rem + 3.4vw, 3.75rem)"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "0"
+    textTransform: "uppercase"
   title:
-    fontFamily: "Bricolage Grotesque, Satoshi, sans-serif"
-    fontSize: "1.0625rem"
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.015em"
-    fontVariation: "'opsz' 18"
-  figure:
-    fontFamily: "Bricolage Grotesque, Satoshi, sans-serif"
-    fontSize: "1.375rem"
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.01em"
-    fontFeature: "tabular-nums"
-    fontVariation: "'opsz' 24"
-  body:
-    fontFamily: "Satoshi, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontFamily: "Archivo Expanded, Archivo, Helvetica, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "0.04em"
+    textTransform: "uppercase"
+  title-sm:
+    fontFamily: "Archivo Expanded, Archivo, Helvetica, sans-serif"
     fontSize: "1rem"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  body-sm:
-    fontFamily: "Satoshi, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "0.9375rem"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  label:
-    fontFamily: "JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace"
-    fontSize: "0.75rem"
-    fontWeight: 400
-    lineHeight: 1.6
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "0.06em"
+    textTransform: "uppercase"
+  figure:
+    fontFamily: "Archivo Expanded, Archivo, Helvetica, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 800
+    lineHeight: 1.05
     letterSpacing: "0.02em"
     fontFeature: "tabular-nums"
-  caption:
-    fontFamily: "JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace"
-    fontSize: "0.6875rem"
+  body:
+    fontFamily: "Archivo, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, sans-serif"
+    fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.2
+    lineHeight: 1.55
     letterSpacing: "normal"
+  body-sm:
+    fontFamily: "Archivo, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "normal"
+  label:
+    fontFamily: "Archivo Expanded, Archivo, Helvetica, sans-serif"
+    fontSize: "0.6875rem"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "0.14em"
+    textTransform: "uppercase"
+  label-sm:
+    fontFamily: "Archivo Expanded, Archivo, Helvetica, sans-serif"
+    fontSize: "0.625rem"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "0.14em"
+    textTransform: "uppercase"
+  serial:
+    fontFamily: "JetBrains Mono, ui-monospace, Menlo, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "normal"
+    fontFeature: "tabular-nums"
 rounded:
-  cell: "2px"
-  focus: "3px"
-  tag: "4px"
-  tip: "5px"
-  skip: "6px"
-  control: "8px"
-  panel: "10px"
-  pill: "999px"
-  avatar: "50%"
+  none: "0"
 spacing:
-  "1": "0.125rem"
-  "2": "0.25rem"
-  "3": "0.375rem"
-  "4": "0.5rem"
-  "5": "0.625rem"
-  "6": "0.75rem"
-  "7": "0.875rem"
-  "8": "1rem"
-  "9": "1.125rem"
-  "10": "1.25rem"
+  rule: "1.5px"
+  xs: "0.375rem"
+  sm: "0.75rem"
+  md: "1.125rem"
   gutter: "1.5rem"
-  "14": "1.75rem"
-  "16": "2rem"
-  "20": "2.5rem"
-  "24": "3rem"
+  lg: "2rem"
+  masthead: "4.5rem"
+  measure: "76rem"
 components:
-  button-secondary:
-    backgroundColor: "{colors.ground}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.control}"
-    padding: "0 0.875rem"
-    height: "2.5rem"
-  button-secondary-hover:
-    backgroundColor: "{colors.ground-2}"
-    textColor: "{colors.ink}"
-  button-primary:
-    backgroundColor: "{colors.green-field-2}"
-    textColor: "{colors.green-on-field}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.control}"
-    padding: "0 0.875rem"
-    height: "2.5rem"
-  button-primary-hover:
-    backgroundColor: "{colors.green-field}"
-    textColor: "{colors.green-on-field}"
-  icon-button:
-    backgroundColor: "{colors.ground}"
-    textColor: "{colors.ink-2}"
-    rounded: "{rounded.control}"
-    size: "2.25rem"
-  icon-button-hover:
-    backgroundColor: "{colors.ground-2}"
-    textColor: "{colors.ink}"
-  pill-operational:
-    backgroundColor: "{colors.green-soft}"
-    textColor: "{colors.green-ink}"
-    rounded: "{rounded.pill}"
-    padding: "0 0.625rem 0 0.5rem"
-    height: "1.75rem"
-  pill-in-build:
-    backgroundColor: "{colors.amber-soft}"
-    textColor: "{colors.amber}"
-    rounded: "{rounded.pill}"
-    padding: "0 0.625rem 0 0.5rem"
-    height: "1.75rem"
-  pill-paused:
-    backgroundColor: "{colors.grey-soft}"
-    textColor: "{colors.ink-2}"
-    rounded: "{rounded.pill}"
-    padding: "0 0.625rem 0 0.5rem"
-    height: "1.75rem"
+  button-outline:
+    backgroundColor: "{colors.board}"
+    textColor: "{colors.night}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0 1.125rem"
+    height: "2.75rem"
+  button-outline-hover:
+    backgroundColor: "{colors.board}"
+    textColor: "{colors.red}"
+  button-fill:
+    backgroundColor: "{colors.night}"
+    textColor: "{colors.board}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0 1.125rem"
+    height: "2.75rem"
+  button-fill-hover:
+    backgroundColor: "{colors.red}"
+    textColor: "{colors.board}"
+  nav-tab:
+    backgroundColor: "{colors.board}"
+    textColor: "{colors.night}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0 0.75rem"
+    height: "2.125rem"
+  nav-tab-active:
+    backgroundColor: "{colors.night}"
+    textColor: "{colors.board}"
+  good-cell:
+    backgroundColor: "{colors.board}"
+    textColor: "{colors.night}"
+    rounded: "{rounded.none}"
+    padding: "1.125rem 1.25rem 0"
+  ticket-stub:
+    backgroundColor: "{colors.board-2}"
+    textColor: "{colors.red-ink}"
+    typography: "{typography.serial}"
+    rounded: "{rounded.none}"
+    padding: "1.125rem 1rem 1.125rem 1.25rem"
+    width: "8.75rem"
   tag:
-    backgroundColor: "{colors.ground}"
     textColor: "{colors.ink-2}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.tag}"
-    padding: "0.15rem 0.45rem"
-  tooltip:
-    backgroundColor: "{colors.tip-bg}"
-    textColor: "{colors.tip-fg}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.tip}"
-    padding: "0.25rem 0.5rem"
-  detail-panel:
-    backgroundColor: "{colors.ground-2}"
-    textColor: "{colors.ink-2}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.panel}"
-    padding: "1rem 1.25rem"
-  banner:
-    backgroundColor: "{colors.green-field}"
-    textColor: "{colors.green-on-field}"
-    typography: "{typography.banner}"
-    padding: "1.25rem 0"
-    height: "6rem"
-  nav-link:
-    textColor: "{colors.ink-2}"
-    typography: "{typography.body-sm}"
-    padding: "0 0.75rem"
-    height: "3.5rem"
-  nav-link-current:
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    padding: "0 0.75rem"
-    height: "3.5rem"
+    typography: "{typography.label-sm}"
+    padding: "0"
 ---
 
 # Design System: saahil.co.uk
 
 ## Overview
 
-**Creative North Star: "The Status Page"**
+**Creative North Star: "The State Kiosk"**
 
-A career record presented the way an operations team presents uptime. White ground, one committed green, hairline dividers, and every number sitting in the row it describes. The scene is a hiring manager at a laptop in a daylit office; the light theme is the default and a dark panel theme is one toggle away, swapping every token without changing the layout.
+The site is printed matter from a civic design office. Every system Saahil has shipped is a good on a kiosk shelf, printed on recycled board in three permitted inks and stamped with its own geometric mark. The career is a strip of tram tickets with punched stubs. The commit calendar is the production ledger. Contact is the office counter.
 
-Density is tabular. Rows carry a name, a 36-cell month strip, one figure and a status pill, and the same row grammar repeats for projects (components), roles (releases), degrees and volunteering. Ornament is limited to things the status metaphor already has: a drawn dot in a pill, a strip of cells, a timestamp in mono. One authored motion exists: the strips sweep in from the left, staggered by row, once.
+The build carries this through one paper stock and three inks. Night ink sets all text, rules and primary controls. Civic red is the third ink: the active cell outline on hover, the headline figure where a price would sit, and the middle line of the headline. Depot green marks the secondary good and the operational state. There is no dark theme. The kiosk is a printed object, printed once on one stock; `color-scheme: light` is declared on `:root` and no toggle exists. The previous world's dark theme was removed with it.
+
+Density is high and even. Rule boxes abut, cells share 1.5px gutters of night ink, and type is set in tracked expanded caps for every label. Motion is one authored moment: the print run, where the red and green passes land after the night pass. Everything else is a hover that reads as misregistration.
 
 **Key Characteristics:**
-- One green owns the banner field, the strips, the primary button, the focus ring, selection, caret and scrollbar hover.
-- Hairline rules (1px, `rule`) separate rows and sections; there are no boxed cards on the lead surface.
-- Numbers are set in Bricolage Grotesque 600 with tabular numerals and right-aligned in their column.
-- JetBrains Mono is the voice of metadata: timestamps, strip captions, version tags, column labels, tooltips, calendar legend.
-- Every page reads without JavaScript; all motion sits behind `prefers-reduced-motion`.
+- One recycled board stock with a fleck grain under everything; no second surface, no dark mode
+- Three inks only: night, civic red, depot green, each with a darker small-text variant where needed for contrast
+- Every container is a 1.5px night-ink rule box; corners are square everywhere
+- Archivo at two widths: text at width 100, display and labels at width 125 in tracked caps; JetBrains Mono for serials and dates
+- Eight filled geometric office marks drawn on a 64-unit grid, one per system, no strokes
+- Hover is a registration shift: a red duplicate of the rule box offset 3px
+- Entry motion is the print run: red at 180ms, green at 360ms, nothing else animates in
 
 ## Colors
 
-A white operational ground with a greyscale ink ramp, one status green in several roles, amber for the single in-progress system, and grey for anything paused.
+A printed palette: one board stock, three inks, and the knock-out paper the inks leave uncovered.
 
 ### Primary
-- **Status Green** (`green`): the committed status colour. Focus ring (`--focus` is the same value), caret, scrollbar thumb on hover, list markers, sparkles. In dark mode it brightens to `#2fd27a`.
-- **Green Ink** (`green-ink`): green used as text. Prose links, "more" links, pill text, release tags, hover colour on row titles. Dark: `#4ade80`.
-- **Green Field** (`green-field`) and **Green Field 2** (`green-field-2`): the banner gradient (field-2 at top to field at bottom) and the primary button (field-2 at rest, field on hover). `green-field` is also the brand mark's ring, the theme-color meta tag and the deepest calendar level. Dark: `#0c5a37` and `#0f6b41`.
-- **Green Cell** (`green-cell`) and **Green Cell Hi** (`green-cell-hi`): a lit month cell and its hover state; the brand mark's lit dot is `green-cell`. Calendar levels 1 and 2 are `color-mix` of `green-cell` at 35% and 60% into `cell-off`. Dark: `#2bbf6f` and `#43d88a`.
-- **Green Soft** (`green-soft`): the Operational pill background and text selection. Dark: `#0f2d1e`.
-- **Green Dot** (`green-dot`): the banner check icon only; it stays `#7ff0b2` in both themes.
-- **Green On Field** (`green-on-field`): text on any green field. Dark: `#eafff3`.
+- **Night Ink** (`night`): all running text, headings, rules, borders, filled controls, the active nav tab, selection ground, the darkest ledger cell and the halftone portrait. The single working ink.
+- **Steel Ink** (`ink-2`): secondary text: sub-lines, descriptions, labels, serials, footer. It is night at reduced density, used wherever text sits below the heading in the hierarchy.
+- **Faint Steel** (`ink-3`): the middot separator between tags, and the label and dashed outline of an empty shelf slot.
 
 ### Secondary
-- **Amber** (`amber`), **Amber Cell** (`amber-cell`), **Amber Soft** (`amber-soft`): the one in-progress system. Pill text, lit strip cells, pill background. Also the hover colour of the `.hover-b` easter egg. Dark: `#f0b454`, `#d99a2b`, `#2d2410`.
+- **Civic Red** (`red`): the third ink. Headline line two, the red hover outline of the registration shift, hover colour on links, buttons and nav tabs, the focus ring, list markers in tickets, caret colour, scrollbar thumb on hover, in-build marks.
+- **Red Ink** (`red-ink`): civic red darkened for small text: the headline figure in each good, ticket serials, the in-build state label. Red at display size is `red`; red below 1.125rem is `red-ink`.
 
 ### Tertiary
-- **Grey Cell** (`grey-cell`) and **Grey Soft** (`grey-soft`): paused or retired systems; lit cells and pill background. Dark: `#3a4148`, `#1a1f25`.
+- **Depot Green** (`green`): headline line three, the featured good's mark, the hero's Orca fact mark, the third masthead mark.
+- **Green Ink** (`green-ink`): depot green darkened for small text: the production state label in each good's foot and the copied-state border on the email button.
 
 ### Neutral
-- **Ground** (`ground`): page background, button and tag surfaces, header at 88% with blur. Dark: `#0b0d10`.
-- **Ground 2** (`ground-2`): row hover wash, detail panel, hovered button. Dark: `#121519`.
-- **Ground 3** (`ground-3`): defined, used only as a dark-mode alias for grey surfaces. Dark: `#1a1f25`.
-- **Ink** (`ink`): headings, body text, fact values. Dark: `#e8eaed`.
-- **Ink 2** (`ink-2`): secondary copy, summaries, nav links at rest, role line. Dark: `#b4bac2`.
-- **Ink 3** (`ink-3`): labels, captions, footer, hovered button border. Dark: `#8b929b`.
-- **Rule** (`rule`): every hairline divider and resting border. Dark: `#1f242a`.
-- **Rule 2** (`rule-2`): button borders, tag borders, nav hover underline, scrollbar thumb. Dark: `#2c333b`.
-- **Cell Off** (`cell-off`): an unlit month or calendar cell. Dark: `#1a1f25`.
-- **Tip** (`tip-bg`, `tip-fg`): tooltips invert the ink and ground pair in both themes.
+- **Recycled Board** (`board`): the page ground and the fill of every rule box, cell, button and nav tab. Also the knock-out colour for text on night fills.
+- **Board, second stock** (`board-2`): the operator card and ticket stubs, one shade down.
+- **Board, third stock** (`board-3`): the empty ledger cell.
+- **Board, run B / run C** (`board-stock-b`, `board-stock-c`): kiosk goods alternate stock by position (every 3n+2 cell, every 3n cell) so the shelf reads as separate printed cards.
+- **Paper** (`paper`): knock-out panels that sit on top of the board: the ledger tooltip, the opened detail panel, the resume frame.
+- **Ledger ramp** (`ledger-1`, `ledger-2`, `ledger-3`): the three mid-steps of the commit calendar between empty board and full night.
 
 ### Named Rules
-**The One Green Rule.** Status green is the only saturated colour on a page unless a system is in build (amber) or paused (grey). No second accent is introduced for emphasis, links or decoration.
+**The Three Inks Rule.** Night, red and green are the only hues on the sheet. New surfaces pick from these three and their two darkened small-text variants; there is no fourth ink.
 
-**The Field Rule.** Green appears as a filled field in exactly two places: the status banner and the primary button. Everywhere else it is text, a cell, a dot or a hairline.
+**The Small Red Rule.** Red and green text below 1.125rem uses `red-ink` or `green-ink`. The display inks are reserved for large type, marks and outlines.
 
-**The Token Swap Rule.** Dark mode redefines every colour token under `[data-theme="dark"]` and changes nothing else. New colours get a dark value in the same commit.
+**The One Stock Rule.** There is one paper stock and no dark theme. Depth, state and hierarchy are all expressed in ink, never in a second ground.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque (self-hosted Latin subset, weight axis 200 to 800, optical size axis 12 to 96), falling back to Satoshi
-**Body Font:** Satoshi (self-hosted variable, 300 to 900, upright and italic), falling back to the system sans
-**Label/Mono Font:** JetBrains Mono (self-hosted, 400 and 500), falling back to ui-monospace
+**Display Font:** Archivo Expanded, the width-125 instance of Archivo (with Archivo, Helvetica fallback)
+**Body Font:** Archivo at width 100 (with system sans fallback)
+**Label/Mono Font:** JetBrains Mono, 400 and 500 (with ui-monospace, Menlo fallback)
 
-**Character:** A grotesque with visible optical sizing for names and numbers, a quiet humanist sans for sentences, and a monospace for anything a machine would print. Headings are tight (negative tracking, line-height 1.1, `text-wrap: balance`). Nothing is uppercase.
+**Character:** A single geometric grotesque at two widths. The expanded cut in tracked uppercase does the office signage: headings, labels, buttons, nav, footer. The normal cut sets the running text and the hero headline. The mono carries ticket serials, dates, ledger labels and the machine-readable file list.
 
 ### Hierarchy
-- **Display** (600, `clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem)`, 1.1, opsz 64, -0.02em): the operator's name in the identity row. 44px on desktop.
-- **Headline** (600, `clamp(2rem, 1.4rem + 2.4vw, 2.75rem)`, 1.1, opsz 48, -0.015em): h1 on section pages (page-head).
-- **Banner** (600, `clamp(1.5rem, 1.1rem + 1.6vw, 2rem)`, 1.1, -0.01em): the status claim inside the green field.
-- **Section** (600, 1.25rem, opsz 24): section-head h2. The same role at 1.375rem is used for the subscribe heading and bare h2.
-- **Title** (600, 1.0625rem, opsz 18): component name, release title.
-- **Figure** (600, 1.375rem, tabular numerals, opsz 24): the headline figure in a component row; fact values in the operator block use the same face at body size.
-- **Body** (400, 1rem, 1.6): prose, identity line, subscribe copy. Prose measure 68ch; identity line 54ch; page-head intro 62ch at 1.0625rem.
-- **Body small** (400, 0.9375rem): summaries, nav links, buttons (500), release descriptions, fact rows, detail panel.
-- **Label** (mono, 0.75rem, +0.02em, `ink-3`): table column heads, section counts, banner meta, release dates, integrations line.
-- **Caption** (mono, 0.6875rem, line-height 1.2): strip captions, tooltips, tags, calendar month labels and legend. Weekday labels drop to 0.625rem.
-- **Version tag** (mono, 0.8125rem, `green-ink`): the `vYYYY.MM` release tag.
+- **Display** (800, `clamp(2rem, 1.4rem + 2.2vw, 3.25rem)`, 1.05): page `h1` on inner pages; Archivo Expanded, uppercase, tracked 0.04em.
+- **Headline** (800, `clamp(2.25rem, 1rem + 3.4vw, 3.75rem)`, 1): the hero's three-line headline only. Set in Archivo at width 100, uppercase, no tracking. The direction contract asked for expanded caps here; the build uses the text width so three lines fit the column, and that is the record.
+- **Title** (800, 1.25rem, 1.05): section `h2`; the featured good's name at 1.5rem; the box head's `h2` at 0.9375rem with 0.12em tracking.
+- **Title, small** (800, 1rem, 1.05): `h3`, ticket titles and good names at 1.0625rem, tracked 0.06em.
+- **Figure** (800, 1.125rem, tabular-nums, `red-ink`): the headline figure in each good's foot; 1.5rem on the featured good. Its unit sits beneath in body text at 0.75rem.
+- **Body** (400, 1rem, 1.55): running text. Prose blocks are 1.0625rem at 64ch; the hero line is 1.125rem at 50ch; secondary copy, descriptions and ledger facts are 0.9375rem.
+- **Label** (700, 0.6875rem, 0.14em, uppercase, `ink-2`): all signage: `.label`, buttons at 0.75rem, nav tabs, box-head links, detail summaries. Labels at 0.625rem (`label-sm`) carry tags, category, state and the footer.
+- **Serial** (JetBrains Mono 400, 0.75rem, tabular-nums): good serials, dates, operator card, machine-readable list. Ticket serials are 500 at 0.8125rem in `red-ink`. Ledger month labels 0.6875rem, weekday labels 0.5625rem.
 
 ### Named Rules
-**The Machine Voice Rule.** JetBrains Mono is for values a system would emit: timestamps, dates, version tags, captions, column labels, tooltips, tags. It never sets a sentence or a heading.
+**The Signage Rule.** Anything that names, categorises or operates is Archivo Expanded 700 to 800, uppercase, tracked 0.12em to 0.18em. Running text never is.
 
-**The Tabular Rule.** Any number that sits in a column is set with `font-variant-numeric: tabular-nums` and right-aligned.
+**The Serial Rule.** Numbers that identify (dates, ticket and good serials, build run) are JetBrains Mono with tabular numerals. Numbers that persuade (the headline figure) are Archivo Expanded 800.
 
 ## Layout
 
-One container (`max-width: 68rem`, `padding-inline: 1.5rem`) carries every section, and every left edge on the page (banner text, name, table, section headings, footer) sits on that same 24px gutter. The sticky header is 3.5rem tall on a translucent ground (88% `ground`, `blur(14px) saturate(140%)`) with a hairline below.
+The page is a stack of rule-boxed sheets inside a 76rem measure with a 1.5rem gutter. Each sheet is a `.container.box` with 2rem above it. The sticky masthead is 4.5rem tall with a 1.5px bottom rule and a 92% board fill blurred 10px.
 
-The home page is a single column of full-width sections. The banner is a full-bleed green field with `min-height: 6rem` and 1.25rem vertical padding; its container is a flex row (icon, claim, right-aligned meta). The identity row is a three-column grid (`auto minmax(0,1fr) auto`): 72px portrait, name block, actions. Each section opens with a `section-head` flex row (heading left, mono count and "more" link right) closed by a hairline, with `padding-block: 2.5rem 0.5rem`.
+The kiosk is a dense grid: four columns, auto rows with a 13rem floor, `grid-auto-flow: dense`, 1.5px gaps filled with night ink so the cell borders are the grid. The featured good spans two columns; rank is expressed by span, never by a different type size on the shelf head. Columns step 4/3/2/1 at 1100px, 760px and 480px; at 480px the featured span drops to one.
 
-Row grids:
-- Component row: `minmax(0,1.4fr) minmax(220px,1fr) minmax(150px,auto) 8.25rem`, gap `1rem 1.5rem`, `padding-block: 1.125rem`, hairline below.
-- Release row: `7.5rem minmax(0,1fr) auto`, gap `0.5rem 1.5rem`, `padding-block: 1.125rem`.
-- Operator block: `minmax(0,1.6fr) minmax(260px,1fr)`, gap 2rem.
-- Facts list: `minmax(0,1fr) auto`, `padding-block: 0.75rem`, hairlines top and between.
+Two-column sheets (hero 1.9fr/1fr, ledger 1.6fr/1fr, counter, page head) stack to one column at 960px, their vertical dividing rule becoming a horizontal one. The ticket's 8.75rem stub column stacks above the body at 640px and its perforation turns from a vertical to a horizontal line of holes. The box head wraps at 640px. The nav collapses to a hamburger and a full-height board overlay at 1140px. The brand sub-line hides at 480px.
 
-Row hover is a wash: a `::before` layer in `ground-2` with 10px radius that bleeds half a gutter past the row on each side, fading in over 160ms.
+The ledger grid and its month label row share a 480px floor and scroll horizontally inside the sheet on phones; the weekday column is 20px, cells are square with 3px gaps.
 
-Strips are a 36-column grid, 22px tall, 2px gap. Calendar days are 11px squares, 3px gap, with a 26px left margin for weekday labels.
-
-Breakpoints:
-- `860px`: nav collapses behind a menu button into a full-height panel; the components table drops its header and stacks each row into named areas (name/pill, strip, figure, detail); operator and subscribe go single column; identity actions move under the name.
-- `640px`: banner wraps and its meta moves left at full width; the banner icon shrinks to 26px; release rows stack with dates first.
-
-Spacing uses a 2px-based rem ladder: 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.5, 1.75, 2, 2.5, 3rem. The gutter (1.5rem) and the section top (2.5rem) are the anchors.
+Spacing rhythm: 1.5px for rules, 0.375rem for tight gaps, 0.75rem for control gaps and box-head padding, 1.125rem to 1.25rem for cell padding, 1.5rem for gutters and ledger padding, 2rem for sheet separation and hero padding.
 
 ## Elevation & Depth
 
-Flat by default. Depth is carried by hairlines and tonal steps (`ground` to `ground-2`), and two soft shadow tokens appear only on things that sit on the page rather than in it: the portrait, the primary button, tooltips and the resume frame. The dark theme uses the same two tokens with deeper black values.
-
-### Shadow Vocabulary
-- **shadow-1** (`0 1px 2px rgba(15,20,25,0.06), 0 8px 24px -12px rgba(15,20,25,0.18)`): portrait, primary button at rest, tooltip, resume frame.
-- **shadow-2** (`0 2px 4px rgba(15,20,25,0.08), 0 16px 40px -16px rgba(15,20,25,0.28)`): primary button on hover, paired with `translateY(-1px)`.
+No shadows. Depth is paper: a fleck grain SVG tiled at 240px and multiplied at 28% opacity under the whole page (`body::before`), board shades one and two steps down for the operator card, ticket stubs and the empty ledger cell, and paper knock-out panels for the tooltip and opened detail. The only lifted treatments are the registration shift on hover (a red duplicate border translated 3px) and the ledger cell scaling to 1.35 under the pointer.
 
 ### Named Rules
-**The Two Shadow Rule.** Only `shadow-1` and `shadow-2` exist. Rows, panels, pills, tags and the header carry no shadow; the header separates itself with blur and a hairline.
+**The No Shadow Rule.** Nothing casts a shadow. State and depth are drawn in ink or printed on a different stock.
 
 ## Shapes
 
-Small radii that scale with the element. Cells are 2px, tags 4px, tooltips 5px, controls (buttons, icon buttons) 8px, panels (row hover wash, detail body, resume frame) 10px. Pills are fully round (999px) and the portrait is a circle. Borders are always 1px: `rule` at rest, `rule-2` on controls and tags, `ink-3` on a hovered button. The focus ring is a 2px outline in green, offset 3px, with a 3px radius.
+Square everywhere. Every container, button, tab, cell and tooltip is a 1.5px night-ink rule box with no radius. Perforations and the loading spinner are the only circles: the ticket stub carries a column of 2.6px board-coloured holes on a 10px pitch along its right edge, and the spinner is a 12px ring in the rule weight.
 
-Icons are a single drawn set on a 24-unit grid, 1.75 stroke, round caps and joins, `currentColor`, decorative unless given a label. Default size 18px; 16px inside buttons, 14px beside link text, 32px in the banner. The brand mark is a green ring (`green-field`, stroke 6 on a 64 grid) with a lit dot (`green-cell`) and is drawn from the same two tokens as the page.
+The eight office marks (ring, arch, chevron, bars, keyhole, quarter, grid, half) are filled constructions on a 64-unit grid with no strokes, rendered in one of the three inks. They appear at 22px in the masthead, 28px in hero facts, 56 to 88px in goods and 120 to 200px on the featured good. Interface icons are a separate 24-unit set at 1.75 stroke with round joins and are decorative unless labelled.
 
 ## Components
 
 ### Buttons
-Quiet controls that read as part of the row, with one filled green primary per group.
-- **Shape:** 8px radius, 2.5rem tall, `0 0.875rem` padding, 0.5rem gap to a 16px icon, 0.9375rem at weight 500.
-- **Secondary (default):** `ground` fill, 1px `rule-2` border, `ink` text. Hover: `ground-2` fill, `ink-3` border. Active: `scale(0.98)`.
-- **Primary:** `green-field-2` fill, `green-field` border, `green-on-field` text, `shadow-1`. Hover: `green-field` fill, `shadow-2`, `translateY(-1px)`. Active: back to rest with `scale(0.98)`.
-- **Copied state:** `data-copied="true"` swaps the border to `green`, the text to `green-ink`, and shows the "Copied" label.
-- **Icon button:** 2.25rem square, 8px radius, `rule` border, `ink-2` glyph; hover `rule-2` border, `ground-2` fill, glyph rotates 15deg over 320ms; active `scale(0.94)`.
+- **Shape:** rule box, 2.75rem tall, square corners (1.5px night border, radius 0)
+- **Outline:** board fill, night text, Archivo Expanded 700 at 0.75rem tracked 0.14em uppercase, padding 0 1.125rem, 0.625rem gap to a 16px icon
+- **Fill:** night fill, board text; the primary action on each sheet (Browse the systems, Book a call)
+- **Hover:** outline turns red text and border; fill turns red fill; icons slide 2px right; 160ms ease-out
+- **Active:** translate 1px, 1px
+- **Copied state:** green-ink border and green text with swapped label, 1.8s
 
-### Status Pills
-- **Style:** 1.75rem tall, 999px radius, 0.8125rem at weight 500, a drawn 8px dot in `currentColor` before the label.
-- **Operational:** `green-soft` on `green-ink`. **In build:** `amber-soft` on `amber`. **Paused / Retired:** `grey-soft` on `ink-2`.
-- **Behaviour:** when the parent row is hovered the dot pulses once (box-shadow ring to 6px over 1.2s).
+### Chips
+Tags are inline uppercase labels at 0.625rem in `ink-2`, separated by a trailing middot in `ink-3` on all but the last. There is no chip box, no fill, no pill. The separator trails so a wrapped line never opens with a dot.
 
-### Tags
-Mono caption (0.6875rem) on `ground`, 1px `rule-2` border, 4px radius, `0.15rem 0.45rem` padding, 0.375rem gap, used under a detailed component or volunteering entry.
+### Cards / Containers
+- **Corner Style:** square
+- **Background:** board; goods alternate run B and run C stock by position; operator card and ticket stubs use board-2
+- **Shadow Strategy:** none; see Elevation
+- **Border:** 1.5px night rule; inside the kiosk the grid gap supplies the border
+- **Internal Padding:** 1.125rem 1.25rem for cells; 0.75rem 1.25rem for box heads; 1.25rem to 1.5rem for sheet panels
 
-### Rows (Components, Releases)
-- **Divider:** 1px `rule` below each row; no card border, no shadow.
-- **Hover:** `ground-2` wash with 10px radius bleeding `calc(gutter * 0.5)` past the row.
-- **Internal padding:** 1.125rem block.
-- **Release tag:** `vYYYY.MM` in mono `green-ink`; the first column is 7.5rem.
-
-### Month Strip
-36 cells in a grid, 22px tall, 2px gap, 2px radius. Unlit cells are `cell-off`; lit cells take the row's status colour (`green-cell`, `amber-cell`, `grey-cell`). Hover scales a cell to 1.18 on the Y axis and lights `green-cell-hi`; a mono tooltip names the month above it (edge cells pin left or right). Caption below in mono: span on the left, duration on the right.
-
-### Detail Disclosure
-A `details` element whose summary is a chevron plus "How it's built" in `green-ink` at 0.875rem; the chevron rotates 90deg when open. The body expands with a `grid-template-rows` 0fr to 1fr transition over 320ms into a `ground-2` panel with `rule` border, 10px radius, `1rem 1.25rem` padding, 72ch measure.
-
-### Tooltip
-`tip-bg` on `tip-fg` (ink on ground inverted), mono 0.6875rem, `0.25rem 0.5rem`, 5px radius, `shadow-1`, 8px above the target, fading up 4px over 160ms.
+### Inputs / Fields
+No form fields exist. The copy-email control is a button.
 
 ### Navigation
-- **Header:** sticky, 3.5rem, translucent ground with blur, hairline below. Brand is the 26px mark plus the name in Bricolage 600 at 1rem; the mark rotates -12deg and scales 1.08 on hover.
-- **Links:** 0.9375rem `ink-2`, `0 0.75rem` padding, full header height. Hover: `ink` with a 2px `rule-2` underline scaling in from the left over 220ms. Current: `ink` at weight 600 with a 2px `green` indicator that carries a view-transition name so it slides between pages.
-- **Mobile (≤860px):** links stack in a fixed panel below the header, 1.125rem with hairlines between; the current page is `green-ink`. The menu button swaps a menu glyph for a close glyph via `aria-expanded`.
+Rule-boxed tabs, 2.125rem tall, Archivo Expanded 700 at 0.6875rem tracked 0.14em uppercase, board fill, night text, 0.375rem apart. Hover turns red. The current page is a night-filled tab that carries a `nav-active` view transition between pages. Below 1140px the tabs become a fixed board overlay under the masthead with one full-width row per link at 0.875rem, 0.16em, separated by rules; the toggle is a 2.5rem rule box swapping menu and close icons. The brand is three office marks in the three inks beside the wordmark; hovering shifts the marks 2px up, down, up.
 
-### Status Banner
-Full-bleed field, gradient `green-field-2` to `green-field`, `green-on-field` text, min 6rem tall. A 32px `check-circle` icon in `green-dot`, the claim at the banner size, a sub-line at 0.9375rem in 82% on-field colour, and a right-aligned mono meta block ("Last checked" over a bold timestamp).
+### Good (kiosk cell)
+Grid of head, mark and foot. Head: name in title small and a one-line sub at 0.9375rem in `ink-2`. Mark: the system's office mark, bottom-right, in night (live), red (in build) or green (featured). Foot: a serial row (category label, `No. YYYY.MM`, state label) and the headline figure in `red-ink` with its unit under it. Hover: registration shift plus the mark drifting 2px up-right. Detail pages add inline tags and a disclosure (How it's built) that opens a paper panel with a 320ms grid-rows transition.
 
-### Contribution Calendar
-Fetched client-side; the loading state is a 14px ring spinner (`rule-2` with a `green` top). Days are 11px, 3px gap, 2px radius, five levels from `cell-off` through two `color-mix` steps to `green-cell` and `green-field`. Month and weekday labels and the legend are mono captions in `ink-3`. Days scale 1.35 on hover with the same tooltip as the strips.
+A shelf whose last row is short ends in one empty slot spanning the free columns: board stock, a dashed inner outline in `ink-3`, and a centred Shelf space label. Kiosk.astro computes the span per column count and CSS hides the slot where the row is already full.
 
-### Motion
-- **Tokens:** `--ease: cubic-bezier(0.16, 1, 0.3, 1)` (exponential out), `--ease-io: cubic-bezier(0.65, 0, 0.35, 1)`, `--fast: 160ms`, `--dur: 420ms`.
-- **Entry:** under `html.js` and no reduced-motion preference, lit strip cells start at `opacity 0; scaleY(0.2)` from the bottom and transition in over 420ms with a delay of `row * 70ms + cell * 9ms`, triggered once per strip by an IntersectionObserver. Nothing else animates on entry.
-- **Page change:** `main` fades out over 160ms and in over 320ms with an 8px rise; the nav indicator slides over 320ms.
-- **Theme change:** body background and colour cross-fade over 240ms with `--ease-io`.
-- **Reduced motion:** view transitions are disabled, every hover transform is removed, the pill pulse and detail expand are cut, the strips render complete.
+### Ticket (career)
+Two columns: an 8.75rem stub in board-2 with the serial `A YYYYMM` in mono 500 `red-ink` and a Valid or Punched label, perforated along its right edge; a body with title, org, mono dates aligned right, description and optional bullets with red markers. Rows separate with rules; the whole strip is a rule box; each ticket carries the registration shift.
+
+### Ledger (production calendar)
+Fifty-two week columns of square cells on a 480px floor, five levels from board-3 through the ledger ramp to night, mono month and weekday labels, a mono legend, and a paper tooltip on hover. Beside it, a rule-separated list of office facts with values in Archivo Expanded 800 at 0.8125rem.
+
+### Counter (contact)
+A rule box with heading, one sentence at 54ch, three controls aligned right (copy email, LinkedIn, filled Book a call) and a mono list of machine-readable files below a rule.
+
+### Print run (entry motion)
+Night ink is painted on first load. Elements marked `data-ink="red"` start 3px up-right at opacity 0 and land after a 180ms delay over 180ms; `data-ink="green"` starts 3px down-left and lands at 360ms. Both use `cubic-bezier(0.2, 0.8, 0.2, 1)`. The hidden start state is gated on `html.js` so the sheet is fully printed without JavaScript, and `prefers-reduced-motion: reduce` prints everything at once. On view transitions the main sheet fades out in 140ms and in over 260ms from a 2px offset, the active nav tab slides, and the body re-runs the passes for the new page.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** put every left edge on the 1.5rem container gutter: banner text, name, table, headings, footer.
-- **Do** place a number inside the row it describes, set in Bricolage 600 with tabular numerals, right-aligned.
-- **Do** separate rows with a 1px `rule` hairline and signal hover with the `ground-2` wash.
-- **Do** colour status with the three pill pairs only: green-soft/green-ink, amber-soft/amber, grey-soft/ink-2.
-- **Do** set metadata (timestamps, dates, version tags, captions, column labels, tooltips) in JetBrains Mono at 0.75rem or 0.6875rem in `ink-3`.
-- **Do** draw new icons on the 24-unit grid at 1.75 stroke with round joins, in `currentColor`.
-- **Do** give every new colour a `[data-theme="dark"]` value in the same change.
-- **Do** keep every page readable with scripts off and every transform inside `prefers-reduced-motion: no-preference`.
+- **Do** draw every container as a 1.5px night rule box with square corners.
+- **Do** use `red-ink` and `green-ink` for red or green text below 1.125rem; keep `red` and `green` for display lines, marks and outlines.
+- **Do** mark new red or green elements on the entry sheet with `data-ink` so they join the print run.
+- **Do** set signage in Archivo Expanded, uppercase, tracked; set running text in Archivo at width 100.
+- **Do** give every new system one filled office mark from the eight on the 64-unit grid, in one of the three inks.
+- **Do** express rank by cell span in the kiosk, never by a louder type size on the shelf head.
+- **Do** keep tags inline with trailing middots.
 
 ### Don't:
-- **Don't** introduce a second accent; green owns the page, amber is reserved for in-build systems.
-- **Don't** fill a surface with green outside the status banner and the primary button.
-- **Don't** add shadows beyond `shadow-1` and `shadow-2`, and never on rows, pills, tags or the header.
-- **Don't** box rows into cards; the lead surface has no bordered containers except the detail panel and the resume frame.
-- **Don't** set headings, sentences or button labels in the mono face, and do not use uppercase or letter-spaced caps anywhere.
-- **Don't** add a hero metric tile row, a portrait hero or a timeline; the status rows are the arrangement.
-- **Don't** add a second entry animation; the strip sweep is the only authored entry motion.
+- **Don't** add a dark theme, a theme toggle or a second page ground; the kiosk is one stock.
+- **Don't** introduce a fourth hue, a gradient fill or a tinted background outside the board shades and paper.
+- **Don't** use shadows, radius or pills; depth is ink and stock, and tags are text.
+- **Don't** animate anything on entry other than the red and green passes.
+- **Don't** reintroduce status-page grammar: green banners, uptime strips, pill badges.
+- **Don't** stroke the office marks; they are filled constructions only.
