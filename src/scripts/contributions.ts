@@ -7,8 +7,6 @@ type Cache = { contributions: Day[]; fetchTime: number };
 const USERNAME = "saahil-mehta";
 const CACHE_KEY = `github-contrib-${USERNAME}-v2`;
 const CACHE_TTL = 60 * 60 * 1000;
-const CELL = 11;
-const GAP = 3;
 
 function readCache(): Cache | null {
   try {
@@ -82,16 +80,16 @@ function render(container: HTMLElement, weeks: Week[]): void {
     } else if (name !== current) {
       if (i - startIndex >= 2) {
         const label = el("span", "contrib-month-label", current);
-        label.style.left = `${startIndex * (CELL + GAP)}px`;
+        label.style.left = `${(startIndex / weeks.length) * 100}%`;
         months.appendChild(label);
       }
       startIndex = i;
       current = name;
     }
   });
-  if (weeks.length - startIndex >= 2) {
+  if (weeks.length - startIndex >= 1) {
     const label = el("span", "contrib-month-label", current);
-    label.style.left = `${startIndex * (CELL + GAP)}px`;
+    label.style.left = `${(startIndex / weeks.length) * 100}%`;
     months.appendChild(label);
   }
   scroll.appendChild(months);

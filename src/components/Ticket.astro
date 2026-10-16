@@ -10,6 +10,14 @@ interface Props {
 const { role, bullets = false, level = 3 } = Astro.props;
 const Heading = `h${level}` as "h2" | "h3";
 const serial = `A ${role.start.replace("-", "")}`;
+// With bullets shown, the summary prints only when it says something the bullets do not.
+const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+const summaryRepeatsBullets = bullets && role.cv_bullets.some((b) => {
+  const a = norm(role.site_desc), c = norm(b);
+  const probe = a.slice(0, 40);
+  return probe.length > 20 && c.includes(probe) || c.slice(0, 40).length > 20 && a.includes(c.slice(0, 40));
+});
+const showSummary = !summaryRepeatsBullets;
 ---
 
 <li class="ticket shift">
@@ -26,7 +34,7 @@ const serial = `A ${role.start.replace("-", "")}`;
       <time datetime={role.start}>{fmtMonth(role.start)}</time> to {role.end === "present" ? "present" : <time datetime={role.end}>{fmtMonth(role.end)}</time>}
       <span class="loc">{role.location}</span>
     </p>
-    <p class="desc">{role.site_desc}</p>
+    {showSummary && <p class="desc">{role.site_desc}</p>}
     {bullets && <ul>{role.cv_bullets.map((b) => <li>{b}</li>)}</ul>}
   </div>
 </li>

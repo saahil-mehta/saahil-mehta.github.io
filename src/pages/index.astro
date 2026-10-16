@@ -12,7 +12,7 @@ import { pageTitle, profilePageJsonLd } from "../lib/seo";
 
 const { site, summaries, projects, roles } = profile;
 const goods = projects.filter((p) => p.status === "live" || p.status === "in_progress");
-const bio = paragraphs(summaries.site_bio).slice(1, 3);
+const bio = paragraphs(summaries.site_bio).slice(2, 4);
 ---
 
 <Base title={pageTitle()} description={site.description} path="/" ogType="profile" jsonLd={[profilePageJsonLd()]}>
