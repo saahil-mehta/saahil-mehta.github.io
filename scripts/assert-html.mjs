@@ -20,7 +20,7 @@ function count(html, re) {
   return (html.match(re) ?? []).length;
 }
 
-const pages = walk(dist).filter((f) => f.endsWith("index.html"));
+const pages = walk(dist).filter((f) => f.endsWith(".html"));
 if (pages.length < 7) failures.push(`expected at least 7 pages, found ${pages.length}`);
 
 for (const file of pages) {
@@ -43,8 +43,10 @@ for (const file of pages) {
     }
   }
   for (const [, href] of html.matchAll(/href="(\/[^"#?]*)/g)) {
-    const target = href.endsWith("/") ? join(dist, href, "index.html") : join(dist, href);
-    const ok = existsSync(target) || existsSync(join(dist, href, "index.html"));
+    const candidates = href === "/"
+      ? [join(dist, "index.html")]
+      : [join(dist, href), join(dist, `${href}.html`), join(dist, href, "index.html")];
+    const ok = candidates.some((c) => existsSync(c));
     if (!ok) failures.push(`${rel}: link to ${href} resolves to nothing in dist/`);
   }
 }
