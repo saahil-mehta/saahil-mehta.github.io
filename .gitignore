@@ -10,3 +10,5 @@ node_modules/
 # Local design docs; this repo is public
 specs/
 plans/
+__pycache__/
+.pytest_cache/
