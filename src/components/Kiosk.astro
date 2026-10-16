@@ -8,8 +8,31 @@ interface Props {
   featured?: string;
 }
 const { projects, detail = false, featured = "Orca" } = Astro.props;
+const ranked = projects.map((p) => ({ p, rank: (p.name === featured ? 2 : 1) as 1 | 2 }));
+
+// The shelf runs 4, 3, 2 and 1 columns across the breakpoints. A short last row would
+// show the ink behind the grid, so each column count gets the slots it needs to fill
+// the row; CSS hides a slot at the widths where it is not needed. The featured good
+// spans two columns everywhere except the single column.
+const COLUMNS = [4, 3, 2] as const;
+const needed = Object.fromEntries(
+  COLUMNS.map((c) => {
+    const cells = ranked.reduce((n, { rank }) => n + (rank === 2 ? 2 : 1), 0);
+    return [c, (c - (cells % c)) % c];
+  }),
+) as Record<(typeof COLUMNS)[number], number>;
+const slots = Math.max(...COLUMNS.map((c) => needed[c]));
+const hideClasses = (slot: number) => COLUMNS.filter((c) => slot > needed[c]).map((c) => `hide-${c}`).join(" ");
 ---
 
 <ol class="kiosk">
-  {projects.map((p) => <Good project={p} rank={p.name === featured ? 2 : 1} detail={detail} />)}
+  {ranked.map(({ p, rank }) => <Good project={p} rank={rank} detail={detail} />)}
+  {Array.from({ length: slots }, (_, i) => (
+    <li class:list={["good", "good-empty", hideClasses(i + 1)]} aria-hidden="true">
+      <span>
+        <span class="label">Shelf space</span>
+        <span class="serial">Next print run</span>
+      </span>
+    </li>
+  ))}
 </ol>

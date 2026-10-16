@@ -837,7 +837,10 @@ p {
   margin-top: 0.75rem;
   line-height: 1.7;
 }
+/* Each tag is an atomic inline, so the grid of tags breaks only between tags. The
+   separator is glued to its tag with a no-break space and never opens a line. */
 .tags span {
+  display: inline-block;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.625rem;
@@ -846,17 +849,46 @@ p {
   color: var(--ink-2);
   white-space: nowrap;
 }
-/* The separator trails each tag so a wrapped line never opens with a dot. The pseudo
-   element's normal white-space supplies the only break opportunity between tags. */
+.tags span:not(:last-child) {
+  margin-right: 0.375rem;
+}
 .tags span:not(:last-child)::after {
-  /* Literal middot: a hex escape would swallow the trailing space that supplies the break. */
-  content: " · ";
-  white-space: normal;
+  content: "\00a0·";
   color: var(--ink-3);
+}
+/* Empty shelf slots keep the last row of a short shelf in board stock instead of ink. */
+.good-empty {
+  grid-template-rows: 1fr;
+  place-items: center;
+  padding: 1.125rem 1.25rem;
+  outline: 1px dashed var(--ink-3);
+  outline-offset: -0.75rem;
+}
+.good-empty > span {
+  display: grid;
+  gap: 0.375rem;
+  text-align: center;
+}
+.good-empty .label {
+  color: var(--ink-3);
+}
+.good-empty .serial {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+.good-empty.hide-4 {
+  display: none;
 }
 @media (max-width: 1100px) {
   .kiosk {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .good-empty.hide-4 {
+    display: grid;
+  }
+  .good-empty.hide-3 {
+    display: none;
   }
 }
 @media (max-width: 760px) {
@@ -864,10 +896,22 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: auto;
   }
+  .good-empty.hide-3 {
+    display: grid;
+  }
+  .good-empty.hide-2 {
+    display: none;
+  }
+  .good-empty {
+    min-height: 7rem;
+  }
 }
 @media (max-width: 480px) {
   .kiosk {
     grid-template-columns: 1fr;
+  }
+  .good-empty {
+    display: none;
   }
   .good[data-rank="2"] {
     grid-column: span 1;
