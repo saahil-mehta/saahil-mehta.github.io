@@ -27,6 +27,10 @@ const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "p
     </div>
   </Beat>
 
+  <Beat id="shipping" title="Still shipping" lede={n.ledes.shipping} more={{ href: "/github", label: "Activity" }}>
+    <CommitField />
+  </Beat>
+
   <Beat id="work" title="Work" lede={n.ledes.work} more={{ href: "/projects", label: "All systems" }}>
     <ol class="stills">
       {featuredProjects.map((p, i) => <StillRow project={p} index={i} />)}
@@ -40,10 +44,6 @@ const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "p
         </ul>
       )
     }
-  </Beat>
-
-  <Beat id="shipping" title="Still shipping" lede={n.ledes.shipping} more={{ href: "/github", label: "Activity" }}>
-    <CommitField />
   </Beat>
 
   <Beat id="experience" title="Experience" lede={n.ledes.experience} more={{ href: "/experience", label: "Full history" }}>
