@@ -155,7 +155,7 @@ if (featuredProjects.length !== profile.site.featured_projects.length) {
   throw new Error("site.featured_projects names a project that does not exist");
 }
 
-/** URL slug for a name: "Orca Core" becomes "orca-core". Stills live at /stills/<slug>.webp. */
+/** URL slug for a name: "Data Marts Core" becomes "data-marts-core". Stills live at /stills/<slug>.webp. */
 export function slug(name: string): string {
   return name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }

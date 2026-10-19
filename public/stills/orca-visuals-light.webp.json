@@ -1,0 +1,5 @@
+{
+ "generator": "codex exec, gpt-6.1-sol image generation tool, 2026-10-19",
+ "prompt": "Minimal 3D render of a single matte charcoal-grey object on a pure white background that stays pure white to every edge. Soft studio key light from the upper left, gentle falloff, a soft grey contact shadow under the object, very subtle fine film grain, no reflections, no colour, no text. The object is centred and occupies about 55 percent of the frame width. Square 1024x1024. The object: three slender matte rectangular columns of different heights standing side by side on the ground, evenly spaced, the tallest in the middle, like a quiet bar chart made of solid blocks.",
+ "edits": "object rescaled by 0.868 and aligned to the dark plate's object box; near-white (>=248) lifted to 255; white ground converted to alpha (alpha = 1 - min channel); WebP q82"
+}

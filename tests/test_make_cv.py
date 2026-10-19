@@ -54,13 +54,13 @@ def test_overlay_selects_and_rewords_without_adding_facts():
     overlay = {
         "summary": "Tailored summary.",
         "role_bullets": {first: [data["roles"][0]["cv_bullets"][1]]},
-        "projects": ["Orca Core", "Orca"],
+        "projects": ["Data Marts Core", "Orca"],
         "skills": {"ai": ["RAG"]},
     }
     out = make_cv.apply_overlay(data, overlay)
     assert out["summaries"]["cv"] == "Tailored summary."
     assert out["roles"][0]["cv_bullets"] == [data["roles"][0]["cv_bullets"][1]]
-    assert [p["name"] for p in out["projects"]] == ["Orca Core", "Orca"]
+    assert [p["name"] for p in out["projects"]] == ["Data Marts Core", "Orca"]
     assert out["skills"]["ai"] == ["RAG"]
     assert data["summaries"]["cv"] != "Tailored summary."  # the source is untouched
 

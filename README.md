@@ -48,7 +48,7 @@ Node 22 or newer. Python 3.11+ with `pip install -r scripts/requirements.txt` fo
 
 ## Editing content
 
-1. Edit `profile/profile.yaml`. Each project carries `since`, `until`, a `metric`, a `category` and a still at `public/stills/<slug>.webp` (slug from the name: `Orca Core` is `orca-core`). The home page's statement, the lines under Now, the section ledes and the end card live under `site.narrative`.
+1. Edit `profile/profile.yaml`. Each project carries `since`, `until`, a `metric`, a `category` and a still at `public/stills/<slug>.webp` (slug from the name: `Data Marts Core` is `data-marts-core`). The home page's statement, the lines under Now, the section ledes and the end card live under `site.narrative`.
 2. `python scripts/render_profile.py` regenerates `profile/out/cv.md` and `profile/out/linkedin.md`.
 3. `python scripts/make_cv.py` renders `public/Saahil-Mehta-Resume.pdf` (two pages; the script fails on a third). Needs Playwright Chromium: `python -m playwright install chromium`.
 4. Commit the YAML, the pastes and the PDF together. CI fails if the pastes or the PDF disagree with the YAML (the PDF carries a hash of its source in its metadata).

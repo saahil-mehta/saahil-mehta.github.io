@@ -68,7 +68,8 @@ Publicis Groupe, Digitas Mumbai · Mumbai · Jul 2019 to Dec 2020
 
 - **Orca** (2026 - Present): Enterprise AI assistant for 501 employees: deep research over company data, South Pole-format documents, decks and proposals, position-aware access; 560,000+ requests at 99.99% success.
 - **Orca Semantics** (2026 - Present): Governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context.
-- **Orca Core** (2026): Orchestration for 1,800+ dbt models migrated from dbt Cloud to self-hosted Dagster on GKE in three weeks, avoiding a three-year renewal at ~27k EUR a year.
+- **Orca Visuals** (2026 - Present): The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (98 reports, 410 users) and removing ~200k EUR a year in licences.
+- **Data Marts Core** (2026): Orchestration for 1,800+ dbt models migrated from dbt Cloud to self-hosted Dagster on GKE in three weeks, avoiding a three-year renewal at ~27k EUR a year.
 - **Data Foundation Plan** (2026 - 2028): Seven-workstream data strategy to 2028 (semantic layer, orchestration, visualisation, AI platform, data quality, access governance, SLAs), costed at ~295k EUR/yr direct savings and adopted by ExCo.
 - **Data Access Governance** (2026): Self-service access portal that opens Terraform IAM grant pull requests through a GitHub App; 40+ hours a month returned to the team.
 - **Cost Deep Dive** (2025 - Present): FinOps dashboard across 195 GCP projects with P99 anomaly alerting; caught a 6x BigQuery spend spike and cut marts query spend 46% year on year.

@@ -1,5 +1,5 @@
 {
- "generator": "codex exec, gpt-6.1-sol image generation tool with public/profile-512.jpg attached as the reference, 2026-10-19",
- "prompt": "A faithful stylised version of the attached portrait: a cinematic monochrome film still, black and white, soft directional key light from the upper left, deep black background fading to pure black at the edges, fine 35mm film grain, medium-close framing from the chest up, no text. 1024x1536.",
- "edits": "resized to 640x960 and converted to WebP q80 with Pillow"
+ "generator": "codex exec, gpt-6.1-sol image generation tool, 2026-10-19; second pass with the first still attached as the reference",
+ "prompt": "Keep the same person, glasses, hair, expression, framing, light and black-and-white film look; clear skin blemishes while keeping natural texture; replace the kurta with a plain charcoal crew-neck merino knit. 1024x1536. First pass: a faithful monochrome film still generated from public/profile-512.jpg.",
+ "edits": "resized to 640x960 and converted to WebP q82 with Pillow"
 }

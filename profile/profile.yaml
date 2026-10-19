@@ -249,7 +249,29 @@ projects:
       BigQuery. AI-drafted definitions are seeded in bulk and certified by domain owners in a
       task queue; uncertified drafts are hints, never truth.
 
-  - name: Orca Core
+  - name: Orca Visuals
+    org: South Pole
+    venue: South Pole · In build
+    period: "2026 - Present"
+    status: in_progress
+    category: Visualisation
+    since: "2026-08"
+    until: null
+    metric: {value: "~200k EUR/yr", label: "in licences removed as Power BI retires"}
+    tags: [Lightdash, Semantic layer, BI-as-code, Power BI]
+    icon: assets/system-regular-chart.json
+    link: null
+    cv_line: "The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (98 reports, 410 users) and removing ~200k EUR a year in licences."
+    site_summary: >-
+      The visualisation layer on top of Orca Semantics: dashboards and metrics defined as code
+      against the certified definitions, so a chart and Orca's answer agree. It replaces
+      Power BI, 98 reports and 410 users, and removes ~200k EUR a year in licences.
+    site_detail: >-
+      Self-hosted Lightdash reading the same semantic definitions Orca does, so the owners
+      named once in the semantic layer govern both. Reports move domain by domain, each one
+      rebuilt against a certified metric and signed off by its owner before the Power BI
+      original is retired.
+  - name: Data Marts Core
     org: South Pole
     venue: South Pole · Production
     period: "2026"
@@ -347,7 +369,7 @@ projects:
       query spend fell 46% year on year.
     site_detail: >-
       Built on the billing export in BigQuery with a view per app, a weekly BigQuery cost
-      job on Orca Core, and a Looker Studio front end.
+      job on Data Marts Core, and a Looker Studio front end.
 
   - name: Enterprise Data Platform Migration
     org: South Pole
@@ -496,7 +518,7 @@ site:
     - {value: 560000, prefix: "", suffix: "+", label: "Orca requests at 99.99% success"}
     - {value: 295, prefix: "~", suffix: "k EUR/yr", label: "direct savings in the data plan"}
     - {value: 6, prefix: "", suffix: "", label: "direct reports"}
-  featured_projects: [Orca, Orca Semantics, Orca Core]
+  featured_projects: [Orca, Orca Semantics, Orca Visuals, Data Marts Core]
   narrative:
     statement: "I lead data and AI at South Pole, and I still ship the systems myself."
     statement_key: "still ship the systems myself"
@@ -519,7 +541,7 @@ site:
       description: "Roles from Associate Director, Data & Insights at South Pole back to Digitas and WPP in Mumbai: enterprise AI, data platforms, cloud cost and team leadership."
     projects:
       title: Projects
-      description: "Orca, Orca Semantics, Orca Core, data access governance, FinOps dashboards and the Terraform platform migration: production systems built at South Pole."
+      description: "Orca, Orca Semantics, Orca Visuals, Data Marts Core, data access governance, FinOps and the Terraform platform migration: production systems built at South Pole."
     volunteering:
       title: Volunteering & Recognition
       description: "Museum of English Rural Life visitor insight engine, Data Science Festival mentoring and the Google Developer Specialist programme."
