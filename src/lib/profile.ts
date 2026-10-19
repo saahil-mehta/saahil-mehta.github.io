@@ -17,6 +17,7 @@ const Role = z.object({
   tags: z.array(z.string()),
   cv_bullets: z.array(z.string()).min(1),
   site_desc: z.string(),
+  site_line: z.string().optional(),
   linkedin_desc: z.string(),
 });
 
@@ -161,6 +162,10 @@ export function slug(name: string): string {
 
 export function stillFor(p: Project): string {
   return `/stills/${slug(p.name)}.webp`;
+}
+
+export function stillLightFor(p: Project): string {
+  return `/stills/${slug(p.name)}-light.webp`;
 }
 
 /** Opening of a summary: whole sentences until the text is at least `min` characters long. */

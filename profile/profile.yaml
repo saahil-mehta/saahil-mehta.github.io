@@ -65,6 +65,10 @@ roles:
       platform under it: a semantic layer on OpenMetadata, self-hosted Dagster, automated
       access governance and FinOps across 195 GCP projects. Wrote the Data Foundation
       Plan adopted by ExCo, ~295k EUR a year of direct savings.
+    site_line: >-
+      Lead a team of six and own the data platform, marts and reporting stack for the whole
+      company. Set the data strategy the executive committee adopted, and build the systems
+      above with the team.
     linkedin_desc: |-
       Lead a team of six (analytics engineers, analysts, data engineers) and own the data platform, data marts and reporting stack for 501 people. Author of the Data Foundation Plan, seven workstreams to 2028, adopted by ExCo with ~295k EUR a year of direct savings.
 
@@ -90,6 +94,10 @@ roles:
       modular Terraform, shipped governed FastAPI/FastMCP services that let LLM/RAG
       workloads reach sensitive carbon-credit data without breaking access controls, and
       launched Orca 1.0 to the company in June 2026.
+    site_line: >-
+      Own the climate-finance data estate: the move to Terraform, governed services that let
+      AI workloads reach sensitive carbon-credit data without breaking access controls, and the
+      first company-wide release of the AI assistant.
     linkedin_desc: |-
       Owned the climate-finance data estate: 95 datasets, 8,000+ tables, 21 TB. Migrated 18,000+ cloud resources from Pulumi to modular Terraform so five business units share one governed platform. Shipped FastAPI/FastMCP services that let LLM and RAG workloads reach sensitive carbon-credit data under enforced access controls. Built and launched Orca 1.0 in June 2026.
 
@@ -201,7 +209,7 @@ projects:
     link: null
     cv_line: "Enterprise AI assistant for 501 employees: deep research over company data, South Pole-format documents, decks and proposals, position-aware access; 560,000+ requests at 99.99% success."
     site_summary: >-
-      South Pole's enterprise AI assistant, open to all 501 employees. Deep research over
+      South Pole's enterprise AI assistant, open to the whole company. Deep research over
       the web and company data, South Pole-format documents, decks and sales proposals,
       scheduled runs, memory, and sharing with version history. Eight releases in four
       months. Within three weeks of 2.0, 131 employees were querying governed data through

@@ -101,8 +101,12 @@ function render(container: HTMLElement, weeks: Week[]): void {
   foot.appendChild(legend);
   container.appendChild(foot);
 
-  // The wave runs once the field is in view; above the fold it runs now.
-  const start = () => field.classList.add("in");
+  // The wave runs once the field is in view; above the fold it runs now. Once the last
+  // column has landed the animation is cleared so the hover transform applies again.
+  const start = () => {
+    field.classList.add("in");
+    window.setTimeout(() => field.classList.add("settled"), weeks.length * 14 + 600);
+  };
   if (!("IntersectionObserver" in window) || field.getBoundingClientRect().top < window.innerHeight) {
     requestAnimationFrame(start);
     return;

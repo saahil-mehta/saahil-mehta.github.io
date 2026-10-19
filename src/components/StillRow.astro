@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import type { Project } from "../lib/profile";
-import { stillFor, opening } from "../lib/profile";
+import { stillFor, stillLightFor, opening } from "../lib/profile";
 import { fmtMonth } from "../lib/dates";
 
 interface Props {
@@ -25,7 +25,10 @@ const firstSentence = opening(p.site_summary);
 
 <li class:list={["still-row", { compact }]} data-arrive>
   <figure class:list={["still", { "still-compact": compact }]} style="--i:0">
-    <img src={stillFor(p)} width="1024" height="1024" alt="" loading={index < 2 ? "eager" : "lazy"} decoding="async" />
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset={stillLightFor(p)} data-still-light />
+      <img src={stillFor(p)} width="1024" height="1024" alt="" loading={index < 2 ? "eager" : "lazy"} decoding="async" />
+    </picture>
   </figure>
   <div class="still-copy">
     <Heading class="h3" style="--i:1">{p.link ? <a href={p.link} target="_blank" rel="noopener">{p.name}</a> : p.name}</Heading>

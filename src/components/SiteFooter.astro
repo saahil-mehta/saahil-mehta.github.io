@@ -7,9 +7,9 @@ const { person } = profile;
 <footer class="site-footer wrap">
   <span>Written and built by me, with Claude.</span>
   <span class="num">Updated {buildTimestamp()}</span>
-  <span>
-    <a href={person.links.github} target="_blank" rel="noopener">GitHub</a> ·
-    <a href={person.links.linkedin} target="_blank" rel="noopener">LinkedIn</a> ·
+  <span class="footer-links">
+    <a href={person.links.github} target="_blank" rel="noopener">GitHub</a>
+    <a href={person.links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
     <a href={`mailto:${person.email}`}>Email</a>
   </span>
 </footer>

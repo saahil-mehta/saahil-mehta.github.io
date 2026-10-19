@@ -48,7 +48,7 @@ const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "p
 
   <Beat id="experience" title="Experience" lede={n.ledes.experience} more={{ href: "/experience", label: "Full history" }}>
     <ol class="credits">
-      {recentRoles.map((r) => <CreditRow when={when(r.start, r.end)} title={r.title} org={`${r.org}${r.unit ? `, ${r.unit}` : ""} · ${r.location}`} line={r.site_desc} />)}
+      {recentRoles.map((r) => <CreditRow when={when(r.start, r.end)} title={r.title} org={`${r.org}${r.unit ? `, ${r.unit}` : ""} · ${r.location}`} line={r.site_line ?? r.site_desc} />)}
     </ol>
   </Beat>
 
