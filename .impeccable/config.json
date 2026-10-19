@@ -1,7 +1,9 @@
 {
   "detector": {
     "ignoreRules": [],
-    "ignoreFiles": [],
+    "ignoreFiles": [
+      "scripts/og-template.html"
+    ],
     "ignoreValues": [
       {
         "rule": "design-system-font",
