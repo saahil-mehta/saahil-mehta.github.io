@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import type { Project } from "../lib/profile";
-import { stillFor, stillLightFor, opening } from "../lib/profile";
+import { stillFor, stillLightFor, opening, slug } from "../lib/profile";
 import { fmtMonth } from "../lib/dates";
 
 interface Props {
@@ -20,11 +20,20 @@ const STATE: Record<Project["status"], string> = {
   archived: "Retired",
 };
 const when = p.until ? `${fmtMonth(p.since)} to ${fmtMonth(p.until)}` : `since ${fmtMonth(p.since)}`;
+// Idle motion suited to the object's shape. Solid bodies float; the frame sways; the ring
+// turns a few degrees; the beam tips; the ramp drifts. Anything unlisted floats.
+const MOTION: Record<string, string> = {
+  "orca-core": "sway",
+  "data-access-governance": "turn",
+  "cost-deep-dive": "tilt",
+  "data-foundation-plan": "drift",
+};
+const motion = MOTION[slug(p.name)] ?? "float";
 const firstSentence = opening(p.site_summary);
 ---
 
 <li class:list={["still-row", { compact }]} data-arrive>
-  <figure class:list={["still", { "still-compact": compact }]} style="--i:0">
+  <figure class:list={["still", { "still-compact": compact }]} data-motion={motion} style={`--i:0; --n:${index}`}>
     <picture>
       <source media="(prefers-color-scheme: light)" srcset={stillLightFor(p)} data-still-light />
       <img src={stillFor(p)} width="1024" height="1024" alt="" loading={index < 2 ? "eager" : "lazy"} decoding="async" />

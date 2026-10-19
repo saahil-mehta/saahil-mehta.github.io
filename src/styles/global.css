@@ -628,10 +628,79 @@ html:not(.js) .key {
   height: 100%;
   object-fit: contain;
   mix-blend-mode: var(--still-blend);
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
   transition: transform var(--slow) var(--ease-out);
+  will-change: transform;
 }
 .still-row:hover .still img {
-  transform: translateY(-4px);
+  --lift: -4px;
+}
+/* Idle motion, one per object shape, slow enough to read as stillness with life in it. */
+html.js .still[data-motion] {
+  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: calc(var(--n, 0) * -1.7s);
+}
+html.js .still[data-motion="float"] {
+  animation-name: still-float;
+}
+html.js .still[data-motion="sway"] {
+  animation-name: still-sway;
+  animation-duration: 8s;
+}
+html.js .still[data-motion="turn"] {
+  animation-name: still-turn;
+  animation-duration: 10s;
+}
+html.js .still[data-motion="tilt"] {
+  animation-name: still-tilt;
+  animation-duration: 6s;
+}
+html.js .still[data-motion="drift"] {
+  animation-name: still-drift;
+  animation-duration: 11s;
+}
+@keyframes still-float {
+  from {
+    transform: translateY(4px);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+@keyframes still-sway {
+  from {
+    transform: translateY(3px) rotate(-1.4deg);
+  }
+  to {
+    transform: translateY(-4px) rotate(1.4deg);
+  }
+}
+@keyframes still-turn {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+@keyframes still-tilt {
+  from {
+    transform: rotate(-1.3deg) translateY(2px);
+  }
+  to {
+    transform: rotate(1.3deg) translateY(-2px);
+  }
+}
+@keyframes still-drift {
+  from {
+    transform: translateX(-5px) translateY(2px);
+  }
+  to {
+    transform: translateX(5px) translateY(-2px);
+  }
 }
 .still-copy {
   display: grid;
@@ -1030,6 +1099,12 @@ html.js [data-arrive].in > .still img {
   .site-nav,
   .how .how-body {
     transition: none;
+  }
+  html.js .still[data-motion] {
+    animation: none;
+  }
+  .still img {
+    transform: none;
   }
   html:focus-within {
     scroll-behavior: auto;

@@ -6,6 +6,7 @@ import { initArrive } from "./arrive";
 import { initParallax } from "./parallax";
 import { initProgress } from "./progress";
 import { initContributions } from "./contributions";
+import { initTilt } from "./tilt";
 
 function initAll(): void {
   initMenu();
@@ -14,6 +15,7 @@ function initAll(): void {
   initArrive();
   initParallax();
   initProgress();
+  initTilt();
   void initContributions();
 }
 
