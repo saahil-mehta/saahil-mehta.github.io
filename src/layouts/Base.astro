@@ -57,11 +57,19 @@ const ld = [personJsonLd(), ...jsonLd];
     <link rel="preload" href="/fonts/MonaSans-latin.woff2" as="font" type="font/woff2" crossorigin />
     {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <script is:inline>
-      document.documentElement.classList.add("js");
-      try {
-        var t = localStorage.getItem("theme");
-        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
-      } catch (e) {}
+      (function () {
+        function apply() {
+          document.documentElement.classList.add("js");
+          try {
+            var t = localStorage.getItem("theme");
+            if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+          } catch (e) {}
+        }
+        apply();
+        // A client-side navigation swaps in a fresh <html>; the stored scheme has to be put back
+        // before the new page paints, so this runs on the swap, not on page-load.
+        document.addEventListener("astro:after-swap", apply);
+      })();
     </script>
     {ld.map((entry) => <script type="application/ld+json" is:inline set:html={JSON.stringify(entry)} />)}
     <ClientRouter />
