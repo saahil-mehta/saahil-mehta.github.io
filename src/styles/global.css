@@ -12,11 +12,9 @@
 :root {
   color-scheme: dark;
   --field: #0c0c0e;
-  --field-2: #141416;
   --ink: #f2efe9;
   --ink-2: #b3aea5;
   --ink-3: #8a857d;
-  --line: rgb(242 239 233 / 0.14);
   --line-2: rgb(242 239 233 / 0.07);
   --accent: #ff4a1c;
   --on-accent: #0c0c0e;
@@ -29,7 +27,6 @@
   --glass: rgb(12 12 14 / 0.72);
 
   --font: "Mona Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   --measure: 76rem;
   --text-measure: 40rem;
   --gutter: clamp(1.25rem, 4vw, 3rem);
@@ -45,12 +42,10 @@
   :root:not([data-theme="dark"]) {
     color-scheme: light;
     --field: #f3f1ec;
-    --field-2: #e9e6df;
-    --ink: #15140f;
+      --ink: #15140f;
     --ink-2: #5b5852;
     --ink-3: #6d6962;
-    --line: rgb(21 20 15 / 0.16);
-    --line-2: rgb(21 20 15 / 0.08);
+      --line-2: rgb(21 20 15 / 0.08);
     --accent: #c8350d;
     --on-accent: #ffffff;
     --cell-0: rgb(21 20 15 / 0.07);
@@ -65,11 +60,9 @@
 :root[data-theme="light"] {
   color-scheme: light;
   --field: #f3f1ec;
-  --field-2: #e9e6df;
   --ink: #15140f;
   --ink-2: #5b5852;
   --ink-3: #6d6962;
-  --line: rgb(21 20 15 / 0.16);
   --line-2: rgb(21 20 15 / 0.08);
   --accent: #c8350d;
   --on-accent: #ffffff;

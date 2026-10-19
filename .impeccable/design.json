@@ -1,167 +1,718 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T20:10:00Z",
+  "generatedAt": "2026-10-19T12:30:00Z",
   "title": "Design System: saahil.co.uk",
   "extensions": {
     "colorMeta": {
-      "night": { "role": "primary", "displayName": "Night Ink", "canonical": "#1e3a6b", "tonalRamp": ["#0b1528", "#132646", "#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#aeb8cf", "#dde2ec"] },
-      "ink-2": { "role": "primary", "displayName": "Steel Ink", "canonical": "#44527a", "tonalRamp": ["#141929", "#2a3450", "#44527a", "#5d6a8a", "#7b86a1", "#9ea7bb", "#c3c9d6", "#e6e9ef"] },
-      "ink-3": { "role": "primary", "displayName": "Faint Steel", "canonical": "#5d6a8a", "tonalRamp": ["#1b1f2b", "#333b50", "#4a5571", "#5d6a8a", "#7c88a3", "#9fa8bd", "#c4cad7", "#e7e9ef"] },
-      "red": { "role": "secondary", "displayName": "Civic Red", "canonical": "#c23a2b", "tonalRamp": ["#3a0f0a", "#6a1b12", "#8e2518", "#c23a2b", "#d6584a", "#e4877c", "#f0b5ae", "#f9e1de"] },
-      "red-ink": { "role": "secondary", "displayName": "Red Ink", "canonical": "#8e2518", "tonalRamp": ["#2e0b07", "#5a170f", "#8e2518", "#a82d1e", "#c23a2b", "#d6584a", "#eba59c", "#f9e1de"] },
-      "green": { "role": "tertiary", "displayName": "Depot Green", "canonical": "#6a7a43", "tonalRamp": ["#1d2212", "#353f20", "#46542c", "#6a7a43", "#86985a", "#a6b680", "#c8d3ad", "#e9eddc"] },
-      "green-ink": { "role": "tertiary", "displayName": "Green Ink", "canonical": "#46542c", "tonalRamp": ["#161a0e", "#2b331b", "#46542c", "#586a37", "#6a7a43", "#8fa062", "#bcc89c", "#e9eddc"] },
-      "board": { "role": "neutral", "displayName": "Recycled Board", "canonical": "#d7d2c6", "tonalRamp": ["#2e2b25", "#5a554b", "#8a8374", "#aea89a", "#c2bcad", "#cdc7b9", "#d7d2c6", "#f1ede3"] },
-      "board-2": { "role": "neutral", "displayName": "Board, second stock", "canonical": "#cdc7b9", "tonalRamp": ["#2a2721", "#534e44", "#847c6c", "#a69f8f", "#c2bcad", "#cdc7b9", "#dad5c9", "#f1ede3"] },
-      "board-3": { "role": "neutral", "displayName": "Board, third stock", "canonical": "#c2bcad", "tonalRamp": ["#26231d", "#4d483e", "#7c7565", "#9e9686", "#c2bcad", "#cdc7b9", "#d7d2c6", "#f1ede3"] },
-      "board-stock-b": { "role": "neutral", "displayName": "Board, run B", "canonical": "#d3cec0", "tonalRamp": ["#2c2923", "#56514a", "#857d6e", "#aaa394", "#c2bcad", "#d3cec0", "#dad5c9", "#f1ede3"] },
-      "board-stock-c": { "role": "neutral", "displayName": "Board, run C", "canonical": "#dad5c9", "tonalRamp": ["#2e2b26", "#5a554d", "#8a8375", "#aea89b", "#c2bcad", "#d3cec0", "#dad5c9", "#f1ede3"] },
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f1ede3", "tonalRamp": ["#36332c", "#6a665b", "#9a9586", "#bdb7a8", "#d7d2c6", "#e4e0d5", "#f1ede3", "#faf8f3"] },
-      "ledger-1": { "role": "neutral", "displayName": "Ledger step 1", "canonical": "#aeb8cf", "tonalRamp": ["#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#aeb8cf", "#c5ccdc", "#dde2ec", "#f0f2f7"] },
-      "ledger-2": { "role": "neutral", "displayName": "Ledger step 2", "canonical": "#7a8fb8", "tonalRamp": ["#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#95a6c6", "#aeb8cf", "#dde2ec", "#f0f2f7"] },
-      "ledger-3": { "role": "neutral", "displayName": "Ledger step 3", "canonical": "#456aa3", "tonalRamp": ["#132646", "#1e3a6b", "#2b4a80", "#456aa3", "#7a8fb8", "#aeb8cf", "#dde2ec", "#f0f2f7"] }
+      "ink": {
+        "role": "primary",
+        "displayName": "Warm Ink",
+        "canonical": "#f2efe9",
+        "tonalRamp": [
+          "#1d1c19",
+          "#3b3833",
+          "#5c584f",
+          "#7d786e",
+          "#9e988d",
+          "#bfb9ad",
+          "#dcd7cd",
+          "#f2efe9"
+        ]
+      },
+      "ink-2": {
+        "role": "primary",
+        "displayName": "Second Ink",
+        "canonical": "#b3aea5",
+        "tonalRamp": [
+          "#1b1a17",
+          "#36332e",
+          "#524e46",
+          "#6e695f",
+          "#8a847a",
+          "#b3aea5",
+          "#cfcbc3",
+          "#ebe8e2"
+        ]
+      },
+      "ink-3": {
+        "role": "primary",
+        "displayName": "Credit Ink",
+        "canonical": "#8a857d",
+        "tonalRamp": [
+          "#171614",
+          "#2e2c28",
+          "#45423d",
+          "#5c5851",
+          "#736e66",
+          "#8a857d",
+          "#b0aca4",
+          "#dad7d1"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Vermilion",
+        "canonical": "#ff4a1c",
+        "tonalRamp": [
+          "#3a0d03",
+          "#6a1806",
+          "#9a2409",
+          "#c8350d",
+          "#ff4a1c",
+          "#ff7a57",
+          "#ffab93",
+          "#ffd9cd"
+        ]
+      },
+      "light-accent": {
+        "role": "secondary",
+        "displayName": "Vermilion, light exposure",
+        "canonical": "#c8350d",
+        "tonalRamp": [
+          "#2e0a02",
+          "#5c1405",
+          "#8a2008",
+          "#c8350d",
+          "#e8441a",
+          "#ff7a57",
+          "#ffab93",
+          "#ffd9cd"
+        ]
+      },
+      "on-accent": {
+        "role": "secondary",
+        "displayName": "On Vermilion (dark)",
+        "canonical": "#0c0c0e",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#1c1c1f",
+          "#333337",
+          "#4d4d52",
+          "#69696f",
+          "#8a8a90",
+          "#b3b3b8",
+          "#e0e0e3"
+        ]
+      },
+      "light-on-accent": {
+        "role": "secondary",
+        "displayName": "On Vermilion (light)",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#1a1a1a",
+          "#333333",
+          "#4d4d4d",
+          "#666666",
+          "#808080",
+          "#a6a6a6",
+          "#d9d9d9",
+          "#ffffff"
+        ]
+      },
+      "cell-0": {
+        "role": "tertiary",
+        "displayName": "Commit, none",
+        "canonical": "rgb(242 239 233 / 0.08)",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#1f1f20",
+          "#333335",
+          "#4b4b4c",
+          "#656566",
+          "#848482",
+          "#a8a7a3",
+          "#cfcdc8"
+        ]
+      },
+      "cell-1": {
+        "role": "tertiary",
+        "displayName": "Commit, low",
+        "canonical": "rgb(242 239 233 / 0.28)",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#262626",
+          "#4c4b49",
+          "#6b6a66",
+          "#8a8884",
+          "#a9a7a1",
+          "#c7c4be",
+          "#e5e2dc"
+        ]
+      },
+      "cell-2": {
+        "role": "tertiary",
+        "displayName": "Commit, mid",
+        "canonical": "rgb(242 239 233 / 0.5)",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#2d2c2a",
+          "#4e4c48",
+          "#7f7d78",
+          "#a09d97",
+          "#bcb9b2",
+          "#d6d3cd",
+          "#eeece7"
+        ]
+      },
+      "cell-3": {
+        "role": "tertiary",
+        "displayName": "Commit, high",
+        "canonical": "rgb(242 239 233 / 0.74)",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#333230",
+          "#5c5a56",
+          "#86837d",
+          "#b5b1ab",
+          "#cfcbc4",
+          "#e2dfd9",
+          "#f2efe9"
+        ]
+      },
+      "cell-4": {
+        "role": "tertiary",
+        "displayName": "Commit, full",
+        "canonical": "#f2efe9",
+        "tonalRamp": [
+          "#1d1c19",
+          "#3b3833",
+          "#5c584f",
+          "#7d786e",
+          "#9e988d",
+          "#bfb9ad",
+          "#dcd7cd",
+          "#f2efe9"
+        ]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Film Black",
+        "canonical": "#0c0c0e",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#141416",
+          "#1f1f22",
+          "#333337",
+          "#4d4d52",
+          "#69696f",
+          "#8a8a90",
+          "#b3b3b8"
+        ]
+      },
+      "light-field": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#f3f1ec",
+        "tonalRamp": [
+          "#1f1e1b",
+          "#3d3b36",
+          "#5c5952",
+          "#7a776f",
+          "#99958c",
+          "#b8b4aa",
+          "#d9d6cf",
+          "#f3f1ec"
+        ]
+      },
+      "light-ink": {
+        "role": "primary",
+        "displayName": "Warm Ink, light exposure",
+        "canonical": "#15140f",
+        "tonalRamp": [
+          "#15140f",
+          "#2b2a24",
+          "#44423a",
+          "#5b5852",
+          "#6d6962",
+          "#8a867e",
+          "#b0aca4",
+          "#dad7d1"
+        ]
+      },
+      "light-ink-2": {
+        "role": "primary",
+        "displayName": "Second Ink, light exposure",
+        "canonical": "#5b5852",
+        "tonalRamp": [
+          "#15140f",
+          "#2b2a24",
+          "#44423a",
+          "#5b5852",
+          "#746f68",
+          "#938e86",
+          "#b5b1aa",
+          "#dad7d1"
+        ]
+      },
+      "light-ink-3": {
+        "role": "primary",
+        "displayName": "Credit Ink, light exposure",
+        "canonical": "#6d6962",
+        "tonalRamp": [
+          "#15140f",
+          "#2d2b26",
+          "#46433d",
+          "#5b5852",
+          "#6d6962",
+          "#8c8880",
+          "#b0aca4",
+          "#dad7d1"
+        ]
+      },
+      "line-2": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgb(242 239 233 / 0.07)",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#1c1c1d",
+          "#2e2e2f",
+          "#454544",
+          "#5e5e5c",
+          "#7b7a77",
+          "#9f9e99",
+          "#c8c6c1"
+        ]
+      },
+      "light-line-2": {
+        "role": "neutral",
+        "displayName": "Hairline, light exposure",
+        "canonical": "rgb(21 20 15 / 0.08)",
+        "tonalRamp": [
+          "#15140f",
+          "#33322d",
+          "#54524c",
+          "#76736c",
+          "#98958d",
+          "#b9b6ae",
+          "#d9d6cf",
+          "#e2e0da"
+        ]
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "Top Line Glass",
+        "canonical": "rgb(12 12 14 / 0.72)",
+        "tonalRamp": [
+          "#0c0c0e",
+          "#141416",
+          "#1f1f22",
+          "#333337",
+          "#4d4d52",
+          "#69696f",
+          "#8a8a90",
+          "#b3b3b8"
+        ]
+      },
+      "light-glass": {
+        "role": "neutral",
+        "displayName": "Top Line Glass, light exposure",
+        "canonical": "rgb(243 241 236 / 0.76)",
+        "tonalRamp": [
+          "#1f1e1b",
+          "#3d3b36",
+          "#5c5952",
+          "#7a776f",
+          "#99958c",
+          "#b8b4aa",
+          "#d9d6cf",
+          "#f3f1ec"
+        ]
+      },
+      "plate-black": {
+        "role": "neutral",
+        "displayName": "Plate Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#292929",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#8c8c8c",
+          "#a6a6a6"
+        ]
+      },
+      "light-cell-0": {
+        "role": "tertiary",
+        "displayName": "Commit, none (light)",
+        "canonical": "rgb(21 20 15 / 0.07)",
+        "tonalRamp": [
+          "#15140f",
+          "#33322d",
+          "#54524c",
+          "#76736c",
+          "#98958d",
+          "#b9b6ae",
+          "#d9d6cf",
+          "#e3e1dc"
+        ]
+      },
+      "light-cell-1": {
+        "role": "tertiary",
+        "displayName": "Commit, low (light)",
+        "canonical": "rgb(21 20 15 / 0.26)",
+        "tonalRamp": [
+          "#15140f",
+          "#33322d",
+          "#54524c",
+          "#76736c",
+          "#98958d",
+          "#b9b6ae",
+          "#c6c3bc",
+          "#e3e1dc"
+        ]
+      },
+      "light-cell-2": {
+        "role": "tertiary",
+        "displayName": "Commit, mid (light)",
+        "canonical": "rgb(21 20 15 / 0.48)",
+        "tonalRamp": [
+          "#15140f",
+          "#33322d",
+          "#54524c",
+          "#76736c",
+          "#898680",
+          "#a9a69f",
+          "#c6c3bc",
+          "#e3e1dc"
+        ]
+      },
+      "light-cell-3": {
+        "role": "tertiary",
+        "displayName": "Commit, high (light)",
+        "canonical": "rgb(21 20 15 / 0.72)",
+        "tonalRamp": [
+          "#15140f",
+          "#33322d",
+          "#4f4d46",
+          "#76736c",
+          "#98958d",
+          "#b9b6ae",
+          "#d9d6cf",
+          "#e3e1dc"
+        ]
+      },
+      "light-cell-4": {
+        "role": "tertiary",
+        "displayName": "Commit, full (light)",
+        "canonical": "#15140f",
+        "tonalRamp": [
+          "#15140f",
+          "#2b2a24",
+          "#44423a",
+          "#5b5852",
+          "#6d6962",
+          "#8a867e",
+          "#b0aca4",
+          "#dad7d1"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page h1 on inner pages. Archivo Expanded 800, uppercase, tracked 0.04em." },
-      "headline": { "displayName": "Headline", "purpose": "The hero's three-line headline only. Archivo at width 100, 800, uppercase, no tracking." },
-      "title": { "displayName": "Title", "purpose": "Section h2 at 1.25rem; featured good name at 1.5rem; box-head h2 at 0.9375rem tracked 0.12em." },
-      "title-sm": { "displayName": "Title, small", "purpose": "h3, ticket titles, good names (1.0625rem, 0.06em)." },
-      "figure": { "displayName": "Figure", "purpose": "The headline figure in each good's foot, red-ink, tabular; 1.5rem on the featured good." },
-      "body": { "displayName": "Body", "purpose": "Running text at 1rem/1.55. Prose 1.0625rem at 64ch; hero line 1.125rem at 50ch." },
-      "body-sm": { "displayName": "Body, small", "purpose": "Sub-lines, descriptions, ledger facts, bullets at 0.9375rem in ink-2." },
-      "label": { "displayName": "Label", "purpose": "All signage: labels, buttons (0.75rem), nav tabs, box-head links, summaries. Archivo Expanded 700, 0.14em, uppercase." },
-      "label-sm": { "displayName": "Label, small", "purpose": "Tags, category, state and footer at 0.625rem." },
-      "serial": { "displayName": "Serial", "purpose": "JetBrains Mono for dates, serials, operator card and file list. Ticket serials 500 at 0.8125rem in red-ink." }
+      "title": {
+        "displayName": "Title",
+        "purpose": "The main title and the end card. Weight 560 at width 98%, tracking -0.03em. The key phrase inside it carries the drawn vermilion underline."
+      },
+      "h2": {
+        "displayName": "Section title",
+        "purpose": "The H2 at the head of every beat."
+      },
+      "h3": {
+        "displayName": "Credit title",
+        "purpose": "Titles inside credits rows."
+      },
+      "still-title": {
+        "displayName": "Still title",
+        "purpose": "The system name beside each still; the H3 voice stepped up to a fluid 1.5rem to 2rem."
+      },
+      "lines": {
+        "displayName": "Lines",
+        "purpose": "The three lines of Now. Weight 440, line height 1.4, measure 44rem."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The line under a section title, the role line under the main title, the line under the end card. Set in ink-2."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text: still sentences, credit lines, prose."
+      },
+      "credit": {
+        "displayName": "Credit",
+        "purpose": "Dates, captions, state lines, the commit field footer and legend. Uppercase, tracked 0.08em, tabular figures, ink-3."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Both buttons and the top line's Book a call link."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Top line nav links in ink-2; below 900px the nav becomes a full-field list at a fluid 1.75rem to 2.25rem, weight 540."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Tags, the end card's file list and the footer, in ink-3."
+      }
     },
     "shadows": [],
     "motion": [
-      { "name": "ease", "value": "cubic-bezier(0.2, 0.8, 0.2, 1)", "purpose": "Every transition and the print-run passes." },
-      { "name": "fast", "value": "160ms", "purpose": "Hover transitions: colour, border, registration shift, icon nudges." },
-      { "name": "pass", "value": "180ms", "purpose": "One ink pass of the print run. Red lands after one pass delay, green after two." },
-      { "name": "print-run-red", "value": "opacity, transform 180ms ease 180ms from translate(3px, -3px)", "purpose": "Entry of [data-ink=red] elements when html.js and no reduced-motion preference." },
-      { "name": "print-run-green", "value": "opacity, transform 180ms ease 360ms from translate(-3px, 3px)", "purpose": "Entry of [data-ink=green] elements." },
-      { "name": "view-transition-out", "value": "140ms ease fade", "purpose": "::view-transition-old(main)." },
-      { "name": "view-transition-in", "value": "260ms ease from translate(2px, 2px)", "purpose": "::view-transition-new(main); nav-active group also 260ms." },
-      { "name": "detail-open", "value": "grid-template-rows 320ms ease", "purpose": "The How it's built disclosure in a good." },
-      { "name": "ledger-cell-hover", "value": "transform 120ms ease, scale 1.35", "purpose": "Commit cell under the pointer." },
-      { "name": "reduced-motion", "value": "all entry, view-transition and hover transforms removed; passes print at once", "purpose": "prefers-reduced-motion: reduce." }
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The exponential ease-out behind the arrival, button lift, underline draw, still wipe and cell wave."
+      },
+      {
+        "name": "ease-soft",
+        "value": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+        "purpose": "Scheme change: body background and colour, top line glass, 360ms."
+      },
+      {
+        "name": "fast",
+        "value": "160ms",
+        "purpose": "Colour and background changes on links, buttons, icon buttons, nav."
+      },
+      {
+        "name": "slow",
+        "value": "700ms",
+        "purpose": "Still wipe and still hover rise."
+      },
+      {
+        "name": "arrive-rise",
+        "value": "translateY(22px) scaleX(1.03), clip-path inset(0 0 100% 0), to rest over 820ms (opacity 600ms)",
+        "purpose": "Every [data-arrive] child. The scaleX settle stands in for the contract's width-axis settle because animating font-variation-settings reflows text every frame."
+      },
+      {
+        "name": "arrive-stagger",
+        "value": "calc(var(--i) * 70ms)",
+        "purpose": "Children of one arrival group, indexed by --i."
+      },
+      {
+        "name": "arrive-fade",
+        "value": "translateY(10px), no clip, no scale",
+        "purpose": "The data-arrive=\"fade\" variant used by the portrait, credit rows and the commit field wrapper."
+      },
+      {
+        "name": "arrive-threshold",
+        "value": "IntersectionObserver threshold 0.18, rootMargin 0 0 -8% 0; groups above 90% of the viewport at load reveal at once",
+        "purpose": "When a group reveals. Each group reveals once."
+      },
+      {
+        "name": "key-underline",
+        "value": "background-size 0% to 100% x 0.06em over 900ms, 700ms delay",
+        "purpose": "The vermilion underline under the key phrase draws after the statement lands."
+      },
+      {
+        "name": "still-wipe",
+        "value": "clip-path inset(0 100% 0 0) to inset(-10%), 700ms",
+        "purpose": "Stills wipe in from the left on their own clock. The clip sits on the img, never the figure, so the blend group stays unisolated."
+      },
+      {
+        "name": "cell-wave",
+        "value": "520ms per cell, delay calc(var(--i) * 14ms) by column; settled after columns * 14ms + 600ms",
+        "purpose": "The commit field lights column by column, then clears its animation so hover applies."
+      },
+      {
+        "name": "button-lift",
+        "value": "translateY(-1px) over 240ms; active scale(0.985) in 80ms",
+        "purpose": "Both buttons."
+      },
+      {
+        "name": "arrow-slide",
+        "value": "translateX(3px) over 240ms",
+        "purpose": "The arrow in the text button on hover."
+      },
+      {
+        "name": "underline-draw",
+        "value": "scaleX(0) to scaleX(1) from the left over 320ms",
+        "purpose": "Nav links and credit titles on hover; current page link stays drawn."
+      },
+      {
+        "name": "portrait-parallax",
+        "value": "up to 8px against the cursor, eased 12% per frame, pointer: fine only",
+        "purpose": "The portrait frame. Does not bind under reduced motion."
+      },
+      {
+        "name": "progress",
+        "value": "scaleX from 0 to 1 on animation-timeline: scroll(root); JS fallback sets --progress",
+        "purpose": "The 1px accent hairline at the top edge."
+      },
+      {
+        "name": "menu-overlay",
+        "value": "opacity 240ms, translateY(-8px) to 0 over 420ms",
+        "purpose": "The full-field nav below 900px."
+      },
+      {
+        "name": "disclosure",
+        "value": "grid-template-rows 0fr to 1fr over 360ms; chevron rotates 90deg over 240ms",
+        "purpose": "The How it's built disclosure in a still row."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "every arrival, wipe, wave, underline and parallax at rest; smooth scroll off",
+        "purpose": "prefers-reduced-motion: reduce, and any page without JavaScript."
+      }
     ],
     "breakpoints": [
-      { "name": "nav-collapse", "value": "1140px" },
-      { "name": "kiosk-3", "value": "1100px" },
-      { "name": "stack", "value": "960px" },
-      { "name": "kiosk-2", "value": "760px" },
-      { "name": "ticket-stack", "value": "640px" },
-      { "name": "kiosk-1", "value": "480px" }
-    ],
-    "surfaces": {
-      "grain": "body::before fixed, SVG feTurbulence fractalNoise baseFrequency 0.9, 2 octaves, tiled 240px, mix-blend-mode multiply, opacity 0.28",
-      "masthead": "sticky, 4.5rem, color-mix(board 92%, transparent), backdrop-filter blur(10px), 1.5px night bottom rule",
-      "darkTheme": "none; color-scheme: light; one paper stock"
-    }
+      {
+        "name": "brand-role",
+        "value": "1100px",
+        "purpose": "Brand role hides; nav gap 1.25rem and size 0.9rem."
+      },
+      {
+        "name": "menu",
+        "value": "900px",
+        "purpose": "Hamburger and full-field overlay nav; main title copy spans the grid and the portrait follows it at 240px square."
+      },
+      {
+        "name": "stills",
+        "value": "760px",
+        "purpose": "Still rows stack, image first, still 260px aligned left."
+      },
+      {
+        "name": "credits",
+        "value": "640px",
+        "purpose": "Credit rows stack with the date after the row; beat head's more button drops below the lede."
+      },
+      {
+        "name": "portrait",
+        "value": "560px",
+        "purpose": "Portrait spans full width at 200px."
+      }
+    ]
   },
   "components": [
     {
-      "name": "Button, outline",
-      "kind": "button",
-      "refersTo": "button-outline",
-      "description": "Secondary control on every sheet. Rule box, board fill, signage type.",
-      "html": "<a class=\"ds-btn\" href=\"#\">Book a call <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 7h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Zm0 4h16M8 4v4m8-4v4\"/></svg></a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.625rem; height: 2.75rem; padding: 0 1.125rem; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.2,0.8,0.2,1), color 160ms cubic-bezier(0.2,0.8,0.2,1), border-color 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn svg { transition: transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn:hover { color: var(--red, #c23a2b); border-color: var(--red, #c23a2b); } .ds-btn:hover svg { transform: translateX(2px); } .ds-btn:active { transform: translate(1px, 1px); } .ds-btn:focus-visible { outline: 1.5px solid var(--red, #c23a2b); outline-offset: 3px; }"
-    },
-    {
-      "name": "Button, fill",
+      "name": "Filled button",
       "kind": "button",
       "refersTo": "button-fill",
-      "description": "The primary action on a sheet. Night fill, board text; hover fills red.",
-      "html": "<a class=\"ds-btn ds-btn-fill\" href=\"#\">Browse the systems <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.625rem; height: 2.75rem; padding: 0 1.125rem; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.2,0.8,0.2,1), color 160ms cubic-bezier(0.2,0.8,0.2,1), border-color 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn-fill { background: var(--night, #1e3a6b); color: var(--board, #d7d2c6); } .ds-btn-fill:hover { background: var(--red, #c23a2b); border-color: var(--red, #c23a2b); color: var(--board, #d7d2c6); } .ds-btn svg { transition: transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-btn:hover svg { transform: translateX(2px); } .ds-btn:active { transform: translate(1px, 1px); } .ds-btn:focus-visible { outline: 1.5px solid var(--red, #c23a2b); outline-offset: 3px; }"
+      "description": "The one filled control: a 2.75rem pill in the accent. Lifts 1px on hover.",
+      "html": "<a class=\"ds-btn ds-btn-fill\" href=\"#\">See the work <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; padding: 0 1.125rem; border-radius: 999px; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 540; letter-spacing: -0.005em; white-space: nowrap; text-decoration: none; transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), background-color 160ms, color 160ms; } .ds-btn:hover { transform: translateY(-1px); } .ds-btn:active { transform: translateY(0) scale(0.985); transition-duration: 80ms; } .ds-btn:focus-visible { outline: 2px solid var(--accent, #ff4a1c); outline-offset: 3px; } .ds-btn-fill { background: var(--accent, #ff4a1c); color: var(--on-accent, #0c0c0e); }"
     },
     {
-      "name": "Nav tabs",
+      "name": "Text button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The text control with the arrow. Lifts 1px; the arrow slides 3px on hover.",
+      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#\">Book a call <svg class=\"ds-arrow\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; padding: 0 1.125rem; border-radius: 999px; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 540; letter-spacing: -0.005em; white-space: nowrap; text-decoration: none; transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms; } .ds-btn:hover { transform: translateY(-1px); } .ds-btn:active { transform: translateY(0) scale(0.985); transition-duration: 80ms; } .ds-btn:focus-visible { outline: 2px solid var(--accent, #ff4a1c); outline-offset: 3px; } .ds-btn-ghost { padding-inline: 0.25rem; color: var(--ink, #f2efe9); background: none; } .ds-btn-ghost .ds-arrow { transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-ghost:hover .ds-arrow { transform: translateX(3px); }"
+    },
+    {
+      "name": "Top line",
       "kind": "nav",
-      "refersTo": "nav-tab",
-      "description": "Rule-boxed caps tabs; the current page is night-filled.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">Systems</a><a href=\"#\">Experience</a><a href=\"#\">Ledger</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 0.375rem; } .ds-nav a { display: inline-flex; align-items: center; height: 2.125rem; padding: 0 0.75rem; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background-color 160ms cubic-bezier(0.2,0.8,0.2,1), color 160ms cubic-bezier(0.2,0.8,0.2,1), border-color 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-nav a:hover { color: var(--red, #c23a2b); border-color: var(--red, #c23a2b); } .ds-nav a[aria-current=page] { background: var(--night, #1e3a6b); color: var(--board, #d7d2c6); } .ds-nav a[aria-current=page]:hover { background: var(--red, #c23a2b); border-color: var(--red, #c23a2b); } .ds-nav a:focus-visible { outline: 1.5px solid var(--red, #c23a2b); outline-offset: 3px; }"
+      "refersTo": "topline",
+      "description": "Sticky 4rem band on glass: brand, nav links with drawn underlines, vermilion Book a call, theme toggle.",
+      "html": "<header class=\"ds-topline\"><a class=\"ds-brand\" href=\"#\"><span>Saahil Mehta</span><span class=\"ds-role\">Associate Director, Data &amp; Insights</span></a><nav class=\"ds-nav\"><a class=\"ds-draw\" href=\"#\" aria-current=\"page\">Work</a><a class=\"ds-draw\" href=\"#\">Experience</a><a class=\"ds-draw\" href=\"#\">Activity</a><a class=\"ds-draw ds-cta\" href=\"#\">Book a call</a><button class=\"ds-icon-btn\" type=\"button\" aria-label=\"Switch colour scheme\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z\"/></svg></button></nav></header>",
+      "css": ".ds-topline { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 4rem; padding: 0 1.5rem; background: var(--glass, rgb(12 12 14 / 0.72)); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); color: var(--ink, #f2efe9); } .ds-brand { display: inline-flex; align-items: baseline; gap: 0.625rem; font-weight: 560; letter-spacing: -0.01em; color: inherit; text-decoration: none; white-space: nowrap; } .ds-role { font-weight: 400; font-size: 0.875rem; color: var(--ink-3, #8a857d); } .ds-nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.9375rem; color: var(--ink-2, #b3aea5); } .ds-nav a { color: inherit; text-decoration: none; white-space: nowrap; transition: color 160ms; } .ds-nav a:hover, .ds-draw[aria-current='page'] { color: var(--ink, #f2efe9); } .ds-draw { position: relative; } .ds-draw::after { content: ''; position: absolute; left: 0; right: 0; bottom: -0.2em; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-draw:hover::after, .ds-draw[aria-current='page']::after { transform: scaleX(1); } .ds-cta { color: var(--accent, #ff4a1c) !important; font-weight: 540; } .ds-icon-btn { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 999px; border: 0; background: none; color: var(--ink-2, #b3aea5); cursor: pointer; transition: color 160ms, background-color 160ms, transform 240ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-icon-btn:hover { color: var(--ink, #f2efe9); background: var(--line-2, rgb(242 239 233 / 0.07)); } .ds-icon-btn:active { transform: scale(0.94); } .ds-icon-btn:focus-visible { outline: 2px solid var(--accent, #ff4a1c); outline-offset: 3px; }"
     },
     {
-      "name": "Tags",
-      "kind": "chip",
-      "refersTo": "tag",
-      "description": "Inline uppercase labels with trailing middot separators. No box, no pill.",
-      "html": "<div class=\"ds-tags\"><span>dbt</span><span>BigQuery</span><span>Dagster</span><span>Lightdash</span></div>",
-      "css": ".ds-tags { line-height: 1.7; } .ds-tags span { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2, #44527a); white-space: nowrap; } .ds-tags span:not(:last-child)::after { content: ' · '; white-space: normal; color: var(--ink-3, #5d6a8a); }"
+      "name": "Credit row",
+      "kind": "custom",
+      "refersTo": "credit-row",
+      "description": "One row of the credits: date in the credit voice, title, organisation, line. Hairlines above and below.",
+      "html": "<ul class=\"ds-credits\"><li class=\"ds-credit-row\"><span class=\"ds-credit\">Jul 2026 to present</span><div class=\"ds-what\"><h3 class=\"ds-h3\"><a class=\"ds-link\" href=\"#\">Associate Director, Data &amp; Insights Lead</a></h3><p class=\"ds-org\">South Pole, Data &amp; Insights · London</p><p class=\"ds-line\">Set the data strategy adopted by ExCo and still ship the systems underneath it.</p></div></li></ul>",
+      "css": ".ds-credits { list-style: none; margin: 0; padding: 0; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); color: var(--ink, #f2efe9); line-height: 1.6; font-size: 1.0625rem; } .ds-credit-row { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 0.5rem 2rem; padding-block: 1.5rem; border-top: 1px solid var(--line-2, rgb(242 239 233 / 0.07)); border-bottom: 1px solid var(--line-2, rgb(242 239 233 / 0.07)); } .ds-credit { padding-top: 0.35rem; font-size: 0.75rem; font-weight: 540; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3, #8a857d); font-variant-numeric: tabular-nums; } .ds-what { display: grid; gap: 0.375rem; } .ds-h3 { margin: 0; font-size: 1.375rem; font-weight: 530; line-height: 1.2; letter-spacing: -0.015em; } .ds-link { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0% 1px; transition: background-size 320ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms; } .ds-link:hover { background-size: 100% 1px; } .ds-link:focus-visible { outline: 2px solid var(--accent, #ff4a1c); outline-offset: 3px; border-radius: 2px; } .ds-org, .ds-line { margin: 0; color: var(--ink-2, #b3aea5); max-width: 40rem; }"
     },
     {
-      "name": "Good (kiosk cell)",
+      "name": "Still row",
       "kind": "card",
-      "refersTo": "good-cell",
-      "description": "One system on the shelf: name, one line, its office mark, serial row and headline figure. Hover is the registration shift.",
-      "html": "<div class=\"ds-good ds-shift\"><div class=\"ds-good-top\"><h3 class=\"ds-good-name\">Orca</h3><p class=\"ds-good-sub\">The company's data assistant: natural language to governed SQL over the semantic layer.</p></div><div class=\"ds-good-mark\"><svg width=\"72\" height=\"72\" viewBox=\"0 0 64 64\" fill=\"var(--green, #6a7a43)\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M32 4a28 28 0 1 1 0 56 28 28 0 0 1 0-56Zm0 14a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z\"/></svg></div><div class=\"ds-good-foot\"><span class=\"ds-serial\"><span class=\"ds-cat\">Platform</span><span>No. 2024.06</span><span class=\"ds-state\">In production</span></span><span class=\"ds-figure\">560,000+<small>requests served</small></span></div></div>",
-      "css": ".ds-good { position: relative; display: grid; grid-template-rows: auto 1fr auto; gap: 1rem; padding: 1.125rem 1.25rem 0; border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); min-height: 13rem; max-width: 22rem; font-family: Archivo, Helvetica, sans-serif; } .ds-good-name { margin: 0; font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.05; } .ds-good-sub { margin: 0.4rem 0 0; font-size: 0.9375rem; line-height: 1.55; color: var(--ink-2, #44527a); } .ds-good-mark { display: flex; justify-content: flex-end; align-items: flex-end; padding-bottom: 0.25rem; } .ds-good-mark svg { transition: transform 160ms cubic-bezier(0.2,0.8,0.2,1); } .ds-good:hover .ds-good-mark svg { transform: translate(2px, -2px); } .ds-good-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.75rem 0 0.875rem; border-top: var(--rule, 1.5px) solid var(--night, #1e3a6b); } .ds-serial { display: flex; flex-wrap: wrap; gap: 0.25rem 0.625rem; align-items: baseline; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 0.75rem; color: var(--ink-2, #44527a); } .ds-cat, .ds-state { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; } .ds-cat { color: var(--night, #1e3a6b); } .ds-state { color: var(--green-ink, #46542c); } .ds-figure { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 800; font-size: 1.125rem; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: var(--red-ink, #8e2518); text-align: right; } .ds-figure small { display: block; font-family: Archivo, Helvetica, sans-serif; font-weight: 400; font-size: 0.75rem; letter-spacing: 0; color: var(--ink-2, #44527a); margin-top: 0.125rem; } .ds-shift::after { content: ''; position: absolute; inset: calc(-1 * var(--rule, 1.5px)); border: var(--rule, 1.5px) solid var(--red, #c23a2b); pointer-events: none; opacity: 0; transform: translate(0, 0); transition: opacity 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); z-index: 2; } .ds-shift:hover::after, .ds-shift:focus-within::after { opacity: 1; transform: translate(3px, 3px); }"
+      "refersTo": "still",
+      "description": "A system as a cast member: one blended still beside a title, a sentence and a credit line. No frame.",
+      "html": "<div class=\"ds-still-row\"><figure class=\"ds-still\"><img src=\"/stills/orca.webp\" width=\"1024\" height=\"1024\" alt=\"\"/></figure><div class=\"ds-still-copy\"><h3 class=\"ds-still-title\"><a href=\"#\">Orca</a></h3><p>An enterprise AI assistant used by over a quarter of the company within three weeks of its 2.0 release.</p><p class=\"ds-credit\">In production since Feb 2025 · AI</p></div></div>",
+      "css": ".ds-still-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; align-items: center; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); color: var(--ink, #f2efe9); line-height: 1.6; font-size: 1.0625rem; } .ds-still { margin: 0; width: 100%; max-width: 420px; aspect-ratio: 1; justify-self: center; } .ds-still img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: var(--still-blend, screen); transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-still-row:hover .ds-still img { transform: translateY(-4px); } .ds-still-copy { display: grid; gap: 0.875rem; max-width: 36rem; } .ds-still-copy p { margin: 0; color: var(--ink-2, #b3aea5); } .ds-still-title { margin: 0; font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem); font-weight: 530; line-height: 1.2; letter-spacing: -0.015em; } .ds-still-title a { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0% 1px; transition: background-size 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-still-title a:hover { background-size: 100% 1px; } .ds-still-copy .ds-credit { margin-top: 0.25rem; font-size: 0.75rem; font-weight: 540; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3, #8a857d); font-variant-numeric: tabular-nums; }"
     },
     {
-      "name": "Ticket (career)",
+      "name": "Commit field",
       "kind": "custom",
-      "refersTo": "ticket-stub",
-      "description": "One role as a tram ticket: perforated stub with serial and Valid/Punched, body with title, org, mono dates.",
-      "html": "<div class=\"ds-ticket ds-shift\"><div class=\"ds-stub\"><span class=\"ds-ticket-serial\">A 202507</span><span class=\"ds-label\">Valid</span></div><div class=\"ds-ticket-body\"><div><h3 class=\"ds-ticket-title\">Associate Director, Data &amp; Insights Lead</h3><p class=\"ds-org\">South Pole</p></div><p class=\"ds-dates\">Jul 2026 to present<span class=\"ds-loc\">London</span></p></div></div>",
-      "css": ".ds-ticket { position: relative; display: grid; grid-template-columns: 8.75rem minmax(0, 1fr); border: var(--rule, 1.5px) solid var(--night, #1e3a6b); background: var(--board, #d7d2c6); color: var(--night, #1e3a6b); font-family: Archivo, Helvetica, sans-serif; max-width: 40rem; } .ds-stub { position: relative; padding: 1.125rem 1rem 1.125rem 1.25rem; background: var(--board-2, #cdc7b9); } .ds-stub::after { content: ''; position: absolute; top: 0; bottom: 0; right: -5px; width: 10px; background: radial-gradient(circle at 50% 50%, var(--board, #d7d2c6) 2.6px, transparent 3.1px) 0 0 / 10px 10px repeat-y; } .ds-ticket-serial { display: block; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-weight: 500; font-size: 0.8125rem; color: var(--red-ink, #8e2518); } .ds-label { display: block; margin-top: 0.5rem; font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2, #44527a); } .ds-ticket-body { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1.5rem; padding: 1.125rem 1.5rem; } .ds-ticket-title { margin: 0; font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.05; } .ds-org { margin: 0.25rem 0 0; font-size: 0.9375rem; color: var(--ink-2, #44527a); } .ds-dates { margin: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 0.75rem; color: var(--ink-2, #44527a); text-align: right; white-space: nowrap; } .ds-loc { display: block; margin-top: 0.2rem; } .ds-shift::after { content: ''; position: absolute; inset: calc(-1 * var(--rule, 1.5px)); border: var(--rule, 1.5px) solid var(--red, #c23a2b); pointer-events: none; opacity: 0; transition: opacity 160ms cubic-bezier(0.2,0.8,0.2,1), transform 160ms cubic-bezier(0.2,0.8,0.2,1); z-index: 2; } .ds-shift:hover::after { opacity: 1; transform: translate(3px, 3px); }"
+      "refersTo": "cell",
+      "description": "Columns of seven square cells at five exposure levels, 3px apart. Cells scale 1.5 on hover with a label above.",
+      "html": "<div class=\"ds-field\" role=\"img\" aria-label=\"Sample of the commit field\"><div class=\"ds-week\"><span class=\"ds-cell\" data-label=\"0 contributions\"></span><span class=\"ds-cell ds-l1\" data-label=\"2 contributions\"></span><span class=\"ds-cell ds-l2\" data-label=\"4 contributions\"></span><span class=\"ds-cell ds-l3\" data-label=\"8 contributions\"></span><span class=\"ds-cell ds-l4\" data-label=\"12 contributions\"></span><span class=\"ds-cell ds-l1\" data-label=\"1 contribution\"></span><span class=\"ds-cell\" data-label=\"0 contributions\"></span></div><div class=\"ds-week\"><span class=\"ds-cell ds-l2\" data-label=\"5 contributions\"></span><span class=\"ds-cell ds-l4\" data-label=\"14 contributions\"></span><span class=\"ds-cell ds-l3\" data-label=\"7 contributions\"></span><span class=\"ds-cell ds-l1\" data-label=\"2 contributions\"></span><span class=\"ds-cell\" data-label=\"0 contributions\"></span><span class=\"ds-cell ds-l2\" data-label=\"3 contributions\"></span><span class=\"ds-cell ds-l1\" data-label=\"1 contribution\"></span></div><div class=\"ds-week\"><span class=\"ds-cell ds-l1\" data-label=\"1 contribution\"></span><span class=\"ds-cell ds-l3\" data-label=\"9 contributions\"></span><span class=\"ds-cell ds-l4\" data-label=\"11 contributions\"></span><span class=\"ds-cell ds-l4\" data-label=\"16 contributions\"></span><span class=\"ds-cell ds-l2\" data-label=\"4 contributions\"></span><span class=\"ds-cell\" data-label=\"0 contributions\"></span><span class=\"ds-cell ds-l1\" data-label=\"2 contributions\"></span></div></div>",
+      "css": ".ds-field { display: grid; grid-auto-flow: column; grid-auto-columns: 14px; gap: 3px; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); padding: 1.5rem 0 0.25rem; } .ds-week { display: grid; grid-template-rows: repeat(7, 14px); gap: 3px; } .ds-cell { position: relative; display: block; aspect-ratio: 1; border-radius: 2px; background: var(--cell-0, rgb(242 239 233 / 0.08)); transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), background-color 240ms; } .ds-l1 { background: var(--cell-1, rgb(242 239 233 / 0.28)); } .ds-l2 { background: var(--cell-2, rgb(242 239 233 / 0.5)); } .ds-l3 { background: var(--cell-3, rgb(242 239 233 / 0.74)); } .ds-l4 { background: var(--cell-4, #f2efe9); } .ds-cell:hover { transform: scale(1.5); z-index: 2; } .ds-cell::after { content: attr(data-label); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) scale(0.66); padding: 0.3rem 0.5rem; border-radius: 4px; background: var(--ink, #f2efe9); color: var(--field, #0c0c0e); font-size: 0.6875rem; font-weight: 500; white-space: nowrap; display: none; pointer-events: none; z-index: 3; } .ds-cell:hover::after { display: block; }"
     },
     {
-      "name": "Label",
+      "name": "Main title statement",
       "kind": "custom",
-      "refersTo": "label",
-      "description": "The signage voice: Archivo Expanded 700, 0.6875rem, tracked 0.14em, uppercase, steel ink.",
-      "html": "<span class=\"ds-sig\">Operator</span> <span class=\"ds-sig\">London · est. 2019</span>",
-      "css": ".ds-sig { font-family: 'Archivo Expanded', Archivo, Helvetica, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2, #44527a); margin-right: 1rem; }"
-    },
-    {
-      "name": "Office marks",
-      "kind": "custom",
-      "refersTo": "good-cell",
-      "description": "The eight filled constructions on a 64-unit grid, here in the three inks.",
-      "html": "<div class=\"ds-marks\"><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path fill-rule=\"evenodd\" d=\"M32 4a28 28 0 1 1 0 56 28 28 0 0 1 0-56Zm0 14a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--red, #c23a2b)\"><path d=\"M10 60V32a22 22 0 0 1 44 0v28H40V32a8 8 0 0 0-16 0v28Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--green, #6a7a43)\"><path d=\"M4 44 32 16l28 28-9 9-19-19-19 19Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M6 8h52v12H6zm0 18h52v12H6zm0 18h38v12H6z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path fill-rule=\"evenodd\" d=\"M32 4a20 20 0 0 1 10 37.3L46 60H18l4-18.7A20 20 0 0 1 32 4Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M4 60V32A28 28 0 0 1 32 4h28v28H32v28Z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M4 4h26v26H4zm30 0h26v26H34zM4 34h26v26H4zm30 0h26v26H34z\"/></svg><svg viewBox=\"0 0 64 64\" fill=\"var(--night, #1e3a6b)\"><path d=\"M4 34a28 28 0 0 1 56 0ZM4 42h56v14H4z\"/></svg></div>",
-      "css": ".ds-marks { display: flex; flex-wrap: wrap; gap: 0.75rem; } .ds-marks svg { width: 40px; height: 40px; }"
+      "refersTo": "title",
+      "description": "The title voice with the key phrase underlined in the accent, the role line as a lede, and the two controls.",
+      "html": "<div class=\"ds-main\"><h1 class=\"ds-title\">I set the data strategy for South Pole, and I still <span class=\"ds-key\">ship the systems</span> myself.</h1><p class=\"ds-lede\">Associate Director, Data &amp; Insights · London</p><div class=\"ds-controls\"><a class=\"ds-btn ds-btn-fill\" href=\"#\">See the work</a><a class=\"ds-btn ds-btn-ghost\" href=\"#\">Book a call <svg class=\"ds-arrow\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></div></div>",
+      "css": ".ds-main { display: grid; gap: 1.75rem; max-width: 46rem; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); color: var(--ink, #f2efe9); font-feature-settings: 'ss01', 'cv11'; } .ds-title { margin: 0; font-size: clamp(2.625rem, 1.25rem + 4.4vw, 4.5rem); font-weight: 560; font-stretch: 98%; line-height: 1.02; letter-spacing: -0.03em; text-wrap: balance; } .ds-key { background: linear-gradient(var(--accent, #ff4a1c), var(--accent, #ff4a1c)) no-repeat 0 94% / 100% 0.06em; box-decoration-break: clone; -webkit-box-decoration-break: clone; } .ds-lede { margin: 0; font-size: 1.125rem; line-height: 1.6; color: var(--ink-2, #b3aea5); max-width: 40rem; } .ds-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; } .ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; padding: 0 1.125rem; border-radius: 999px; font-size: 0.9375rem; font-weight: 540; letter-spacing: -0.005em; white-space: nowrap; text-decoration: none; color: inherit; transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { transform: translateY(-1px); } .ds-btn-fill { background: var(--accent, #ff4a1c); color: var(--on-accent, #0c0c0e); } .ds-btn-ghost { padding-inline: 0.25rem; } .ds-btn-ghost .ds-arrow { transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-ghost:hover .ds-arrow { transform: translateX(3px); }"
     }
   ],
   "narrative": {
-    "northStar": "The State Kiosk",
-    "overview": "The site is printed matter from a civic design office. Every system Saahil has shipped is a good on a kiosk shelf, printed on recycled board in three permitted inks and stamped with its own geometric mark. The career is a strip of tram tickets with punched stubs. The commit calendar is the production ledger. Contact is the office counter.\n\nThe build carries this through one paper stock and three inks. Night ink sets all text, rules and primary controls. Civic red is the third ink: the active cell outline on hover, the headline figure where a price would sit, and the middle line of the headline. Depot green marks the secondary good and the operational state. There is no dark theme. The kiosk is a printed object, printed once on one stock; color-scheme: light is declared on :root and no toggle exists. The previous world's dark theme was removed with it.\n\nDensity is high and even. Rule boxes abut, cells share 1.5px gutters of night ink, and type is set in tracked expanded caps for every label. Motion is one authored moment: the print run, where the red and green passes land after the night pass. Everything else is a hover that reads as misregistration.",
+    "northStar": "The Title Sequence",
+    "overview": "The profile reads the way a modern film title sequence tells its story. The field is near black, the type is warm off-white, and one vermilion accent is spent on three things: the underline drawn beneath the key phrase of the main title, the filled button, and the 1px progress hairline at the top edge. Systems are the cast, each with one still; the live commit field is the interlude; roles, community and education are the credits. Sections are plain words (Now, Work, Still shipping, Experience, Beyond work).\n\nTwo schemes ship. Dark is canonical and the one the tokens are written against. Light follows the system preference until the visitor chooses with the toggle in the top line; the choice is stored and applied before first paint. Both schemes are the same world at different exposures: the same face, the same voices, the same spacing, with the accent deepened in light so it holds contrast on paper.\n\nComposition is type on the field with generous vertical space. There are no cards, no panels and no boxed sections. The only drawn rules on the page are the 1px row dividers inside credits lists and the footer's top rule. Nothing glows and nothing casts a shadow. Motion is the one place the site goes all out, and it is confined to transform, opacity and clip.",
     "keyCharacteristics": [
-      "One recycled board stock with a fleck grain under everything; no second surface, no dark mode",
-      "Three inks only: night, civic red, depot green, each with a darker small-text variant where needed for contrast",
-      "Every container is a 1.5px night-ink rule box; corners are square everywhere",
-      "Archivo at two widths: text at width 100, display and labels at width 125 in tracked caps; JetBrains Mono for serials and dates",
-      "Eight filled geometric office marks drawn on a 64-unit grid, one per system, no strokes",
-      "Hover is a registration shift: a red duplicate of the rule box offset 3px",
-      "Entry motion is the print run: red at 180ms, green at 360ms, nothing else animates in"
+      "One field, one ink family, one accent, in two exposures (dark canonical, light by preference or choice).",
+      "One variable face (Mona Sans, weight 200 to 900, width 75% to 125%) at a handful of named settings; weight and tracking carry hierarchy, never a second face or a second colour.",
+      "No containers: no cards, no bordered sections, no backgrounds behind text. Credits rows divide with a 1px hairline and nothing else.",
+      "Stills are matte off-white objects on plates that blend into the field (screen on black, multiply on white), so each object floats on the page with no frame.",
+      "Everything arrives: lines rise behind a mask as the visitor scrolls, stills wipe in from the left, the commit field lights column by column. Every element is already settled without JavaScript and under reduced motion.",
+      "State is drawn by weight, line and colour within the ink ramp; the accent never marks state except on the copied email button."
     ],
     "rules": [
-      { "name": "The Three Inks Rule", "body": "Night, red and green are the only hues on the sheet. New surfaces pick from these three and their two darkened small-text variants; there is no fourth ink.", "section": "colors" },
-      { "name": "The Small Red Rule", "body": "Red and green text below 1.125rem uses red-ink or green-ink. The display inks are reserved for large type, marks and outlines.", "section": "colors" },
-      { "name": "The One Stock Rule", "body": "There is one paper stock and no dark theme. Depth, state and hierarchy are all expressed in ink, never in a second ground.", "section": "colors" },
-      { "name": "The Signage Rule", "body": "Anything that names, categorises or operates is Archivo Expanded 700 to 800, uppercase, tracked 0.12em to 0.18em. Running text never is.", "section": "typography" },
-      { "name": "The Serial Rule", "body": "Numbers that identify (dates, ticket and good serials, build run) are JetBrains Mono with tabular numerals. Numbers that persuade (the headline figure) are Archivo Expanded 800.", "section": "typography" },
-      { "name": "The No Shadow Rule", "body": "Nothing casts a shadow. State and depth are drawn in ink or printed on a different stock.", "section": "elevation" }
+      {
+        "name": "The One Accent Rule",
+        "body": "Vermilion is spent on the key phrase, the filled button, the progress hairline and nothing structural. It never fills a background larger than a button, never tints a section and never marks a state other than the copied email.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Exposures Rule",
+        "body": "Light and dark are the same system at different exposures. A new token gets a value in both blocks, and the two --still-blend values (screen on dark, multiply on light) travel with it so stills keep floating.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Face Rule",
+        "body": "Hierarchy is weight, width, size and tracking inside Mona Sans. No second family, no monospace, no italic voice.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Any figure inside a sentence, date line or count sits in tabular numerals (font-variant-numeric: tabular-nums, the .num and .credit voices).",
+        "section": "typography"
+      },
+      {
+        "name": "The Drawn Underline Rule",
+        "body": "Links underline with a 1px line of their own colour. Nav links and credit row titles draw the line from the left on hover (320ms); prose links, the end card's file links and inline links carry it at rest and turn vermilion on hover.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Container Rule",
+        "body": "Sections, stills, credits and the end card are set on the field with no background, border or panel. If a surface needs a boundary it uses space; if it needs separation inside a list it uses one line-2 hairline.",
+        "section": "layout"
+      },
+      {
+        "name": "The No Shadow Rule",
+        "body": "Nothing on the site casts a shadow or glows. A new surface that seems to need one uses blend, space or weight instead.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Settled Without Script Rule",
+        "body": "The arrival exists only under html.js. Without JavaScript, and under prefers-reduced-motion: reduce, every line, still, underline and cell is already at rest, parallax does not bind, and smooth scrolling is off.",
+        "section": "components"
+      },
+      {
+        "name": "The Width Settle Rule",
+        "body": "The contract described a width-axis settle from 110 to 100. The build substitutes scaleX(1.03) resolving to 1, because animating font-variation-settings reflows the text every frame. New motion follows the same constraint: transform, opacity and clip only; nothing that animates layout.",
+        "section": "components"
+      }
     ],
     "dos": [
-      "Do draw every container as a 1.5px night rule box with square corners.",
-      "Do use red-ink and green-ink for red or green text below 1.125rem; keep red and green for display lines, marks and outlines.",
-      "Do mark new red or green elements on the entry sheet with data-ink so they join the print run.",
-      "Do set signage in Archivo Expanded, uppercase, tracked; set running text in Archivo at width 100.",
-      "Do give every new system one filled office mark from the eight on the 64-unit grid, in one of the three inks.",
-      "Do express rank by cell span in the kiosk, never by a louder type size on the shelf head.",
-      "Do keep tags inline with trailing middots."
+      "Do set every new element in Mona Sans at one of the named voices; add a voice only when a reused role has no fit.",
+      "Do give every new colour a value in both scheme blocks and keep the two exposures parallel.",
+      "Do compose with vertical space; separate items in a list with one line-2 hairline.",
+      "Do keep new motion on transform, opacity and clip, on the exponential ease-out, settled under reduced motion and without JavaScript.",
+      "Do give each new system still the shared ground: one object centred at about 55% of a 1024px square, matte off-white on a pure black plate and matte charcoal-grey on a pure white plate, aligned to each other, with its provenance sidecar.",
+      "Do keep figures in tabular numerals inside sentences, and only figures that profile.yaml carries."
     ],
     "donts": [
-      "Don't add a dark theme, a theme toggle or a second page ground; the kiosk is one stock.",
-      "Don't introduce a fourth hue, a gradient fill or a tinted background outside the board shades and paper.",
-      "Don't use shadows, radius or pills; depth is ink and stock, and tags are text.",
-      "Don't animate anything on entry other than the red and green passes.",
-      "Don't reintroduce status-page grammar: green banners, uptime strips, pill badges.",
-      "Don't stroke the office marks; they are filled constructions only."
+      "Don't add cards, panels, bordered sections or background tints behind text.",
+      "Don't add shadows, glows, gradients or lit edges.",
+      "Don't spend the accent on anything beyond the key phrase, the filled button, the progress hairline, the Book a call link and list markers.",
+      "Don't introduce a second face, a monospace voice or glyph icons; icons come from the drawn 1.75-stroke set.",
+      "Don't animate font-variation-settings, width, height or any layout property.",
+      "Don't add stat tiles, repeated numerals, timelines or kicker labels above headings; the headings are the labels."
     ]
   }
 }
