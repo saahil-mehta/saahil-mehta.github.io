@@ -29,7 +29,8 @@ scripts/
 ├── render_profile.py   # YAML -> profile/out/*.md   (render | --check)
 ├── sync-public.mjs     # Copies cv.md into public/ (prebuild)
 ├── assert-html.mjs     # Post-build checks on dist/
-└── make_og.py          # Renders scripts/og-template.html to public/og.png (run when the headline changes)
+├── make_og.py          # Renders scripts/og-template.html to public/og.png (run when the headline changes)
+└── make_cv.py          # YAML -> public/Saahil-Mehta-Resume.pdf via profile/templates/cv.html.j2 (render | --check)
 
 ```
 
@@ -42,14 +43,14 @@ npm run build        # dist/
 npm run assert       # checks on dist/
 ```
 
-Node 22 or newer. Python 3.11+ with `pip install -r scripts/requirements.txt` for the pastes.
+Node 22 or newer. Python 3.11+ with `pip install -r scripts/requirements.txt` for the pastes and the PDF check; `python -m playwright install chromium` to render the PDF.
 
 ## Editing content
 
 1. Edit `profile/profile.yaml`. Each project carries `since`, `until`, a `metric`, a `category` and a still at `public/stills/<slug>.webp` (slug from the name: `Orca Core` is `orca-core`). The home page's statement, the lines under Now, the section ledes and the end card live under `site.narrative`.
 2. `python scripts/render_profile.py` regenerates `profile/out/cv.md` and `profile/out/linkedin.md`.
-3. Commit the YAML and the regenerated pastes together. CI fails if they disagree.
-4. Paste `profile/out/cv.md` into Rezi, export the PDF, replace `public/Saahil-Mehta-Resume.pdf`.
+3. `python scripts/make_cv.py` renders `public/Saahil-Mehta-Resume.pdf` (two pages; the script fails on a third). Needs Playwright Chromium: `python -m playwright install chromium`.
+4. Commit the YAML, the pastes and the PDF together. CI fails if the pastes or the PDF disagree with the YAML (the PDF carries a hash of its source in its metadata).
 5. Paste `profile/out/linkedin.md` into LinkedIn.
 
 Other assets: portrait still at `public/portrait-still.webp` (generated from `public/profile-512.jpg`), domain in `public/CNAME`, Open Graph image via `python scripts/make_og.py`.

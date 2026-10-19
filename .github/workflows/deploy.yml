@@ -26,6 +26,7 @@ jobs:
       - run: pip install -r scripts/requirements.txt
       - run: python -m pytest tests -q
       - run: python scripts/render_profile.py --check
+      - run: python scripts/make_cv.py --check
 
   build:
     name: Build site

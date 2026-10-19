@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>{{ person.name }} · {{ person.title }}</title>
+{% if base_href %}<base href="{{ base_href }}">{% endif %}
+<style>
+  @font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-latin.woff2") format("woff2"); font-weight: 200 900; font-style: normal; }
+  @font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-italic-latin.woff2") format("woff2"); font-weight: 200 900; font-style: italic; }
+  @page { size: A4; margin: 11mm 13mm 12mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Source Sans 3", "Source Sans Pro", Arial, sans-serif; font-size: 9.5pt; line-height: 1.3; color: #1f1f1f; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #1f5fbf; text-decoration: none; }
+  p, ul, h1, h2, h3 { margin: 0; }
+  header { text-align: center; padding-bottom: 7pt; border-bottom: 0.75pt solid #cfcfcf; }
+  header h1 { font-size: 20pt; font-weight: 700; letter-spacing: 0.005em; line-height: 1.1; margin-bottom: 3pt; }
+  .contact { font-size: 9pt; color: #333; }
+  .contact span + span::before { content: "\00a0\00a0·\00a0\00a0"; color: #999; }
+  section { padding-top: 6pt; }
+  section + section { margin-top: 5pt; border-top: 0.75pt solid #cfcfcf; }
+  h2 { font-size: 11pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; margin-bottom: 4pt; color: #1a1a1a; }
+  .summary { text-align: left; }
+  .entry { break-inside: avoid; margin-top: 4pt; }
+  .entry:first-of-type { margin-top: 0; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+  .row .l { font-weight: 700; font-size: 10.5pt; }
+  .row .r { font-size: 9pt; color: #333; white-space: nowrap; }
+  .row.sub .l { font-weight: 600; font-size: 9.5pt; color: #222; }
+  .projects li { margin-bottom: 2pt; }
+  ul { padding-left: 11pt; margin-top: 1.5pt; }
+  li { margin: 0 0 1pt; padding-left: 1pt; }
+  li::marker { color: #555; }
+  .meta { font-size: 9pt; color: #333; }
+  .skills p { margin: 0 0 1pt; }
+  .skills b { font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{ person.name }}</h1>
+  <p class="contact">
+    <span>{{ person.location }}</span>
+    <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
+    {% if person.phone %}<span>{{ person.phone }}</span>{% endif %}
+    <span><a href="{{ person.links.linkedin }}">in/{{ person.links.linkedin.rstrip('/').split('/')[-1] }}</a></span>
+    <span><a href="{{ person.links.github }}">github.com/{{ person.links.github.rstrip('/').split('/')[-1] }}</a></span>
+    <span><a href="https://saahil.co.uk">saahil.co.uk</a></span>
+  </p>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p class="summary">{{ summaries.cv }}</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  {% for role in roles %}
+  <div class="entry">
+    <div class="row"><span class="l">{{ role.org }}{% if role.unit %}, {{ role.unit }}{% endif %}</span><span class="r">{{ role.location }}</span></div>
+    <div class="row sub"><span class="l">{{ role.title }}</span><span class="r">{{ role.start | month }} to {{ role.end | month }}</span></div>
+    <ul>
+      {% for b in role.cv_bullets %}<li>{{ b }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <ul class="projects">
+    {% for p in projects if p.status in ["live", "in_progress"] %}<li><b>{{ p.name }}</b> <span class="meta">({{ p.period }} · {{ p.category }}{% if p.link %} · <a href="{{ p.link }}">{{ p.link.replace('https://', '') }}</a>{% endif %})</span> {{ p.cv_line }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>Volunteering and recognition</h2>
+  <ul>
+    {% for v in volunteering %}<li>{{ v.cv_line }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  {% for e in education %}
+  <div class="entry">
+    <div class="row"><span class="l">{{ e.degree }}</span><span class="r">{{ e.location }}{% if e.years %} · {{ e.years }}{% endif %}</span></div>
+    <p class="meta">{{ e.org }} · {{ e.grade }}</p>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+  <p><b>Platform:</b> {{ skills.platform | join(", ") }}</p>
+  <p><b>AI:</b> {{ skills.ai | join(", ") }}</p>
+  <p><b>Governance:</b> {{ skills.governance | join(", ") }}</p>
+  <p><b>Leadership:</b> {{ skills.leadership | join(", ") }}</p>
+</section>
+</body>
+</html>
