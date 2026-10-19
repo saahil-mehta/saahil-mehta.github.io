@@ -988,23 +988,28 @@ html.js [data-arrive="fade"] > * {
   transform: translateY(10px);
   clip-path: none;
 }
-/* Stills wipe in from the left on their own clock instead of sharing the headings' rise. */
+/* Stills wipe in from the left on their own clock instead of sharing the headings' rise.
+   The clip sits on the image itself: a clip on the figure would isolate the blend group
+   and the plate's ground would stop disappearing into the field. */
 html.js [data-arrive] > .still {
   opacity: 1;
   transform: none;
+  clip-path: none;
+  transition: none;
+}
+html.js [data-arrive] > .still img {
   clip-path: inset(0 100% 0 0);
 }
-html.js [data-arrive].in > .still {
+html.js [data-arrive].in > .still img {
   clip-path: inset(-10% -10% -10% -10%);
-  transition: clip-path var(--slow) var(--ease-out);
-  transition-delay: 0ms;
+  transition: clip-path var(--slow) var(--ease-out), transform var(--slow) var(--ease-out);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html.js [data-arrive] > *,
   html.js [data-arrive].in > *,
-  html.js [data-arrive] > .still,
-  html.js [data-arrive].in > .still {
+  html.js [data-arrive] > .still img,
+  html.js [data-arrive].in > .still img {
     opacity: 1;
     transform: none;
     clip-path: none;
