@@ -1,0 +1,44 @@
+---
+import Icon from "./Icon.astro";
+import type { Project } from "../lib/profile";
+import { stillFor, opening } from "../lib/profile";
+import { fmtMonth } from "../lib/dates";
+
+interface Props {
+  project: Project;
+  detail?: boolean;
+  compact?: boolean;
+  index?: number;
+  level?: 2 | 3;
+}
+const { project: p, detail = false, compact = false, index = 0, level = 3 } = Astro.props;
+const Heading = `h${level}` as "h2" | "h3";
+const STATE: Record<Project["status"], string> = {
+  live: "In production",
+  in_progress: "In build",
+  paused: "Paused",
+  archived: "Retired",
+};
+const when = p.until ? `${fmtMonth(p.since)} to ${fmtMonth(p.until)}` : `since ${fmtMonth(p.since)}`;
+const firstSentence = opening(p.site_summary);
+---
+
+<li class:list={["still-row", { compact }]} data-arrive>
+  <figure class:list={["still", { "still-compact": compact }]} style="--i:0">
+    <img src={stillFor(p)} width="1024" height="1024" alt="" loading={index < 2 ? "eager" : "lazy"} decoding="async" />
+  </figure>
+  <div class="still-copy">
+    <Heading class="h3" style="--i:1">{p.link ? <a href={p.link} target="_blank" rel="noopener">{p.name}</a> : p.name}</Heading>
+    <p style="--i:2">{detail ? p.site_summary : firstSentence}</p>
+    <p class="credit" style="--i:3">{STATE[p.status]} {when} · {p.category}</p>
+    {detail && p.tags.length > 0 && <div class="tags" style="--i:4">{p.tags.map((t) => <span>{t}</span>)}</div>}
+    {
+      detail && p.site_detail && (
+        <details class="how" style="--i:5">
+          <summary><Icon name="chevron-right" size={14} /> How it's built</summary>
+          <div class="how-body"><div><p class="how-text">{p.site_detail}</p></div></div>
+        </details>
+      )
+    }
+  </div>
+</li>

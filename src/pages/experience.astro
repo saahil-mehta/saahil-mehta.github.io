@@ -1,25 +1,22 @@
 ---
 import Base from "../layouts/Base.astro";
-import Ticket from "../components/Ticket.astro";
-import Counter from "../components/Counter.astro";
+import Beat from "../components/Beat.astro";
+import CreditRow from "../components/CreditRow.astro";
+import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
+import { fmtMonth } from "../lib/dates";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
-const meta = profile.site.pages.experience;
-const path = "/experience";
+const { site, roles } = profile;
+const meta = site.pages.experience;
+const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "present" ? "present" : fmtMonth(end)}`;
 ---
 
-<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <section class="box sheet container page-head">
-    <div>
-      <h1>Experience</h1>
-      <p>A strip of tickets, newest first. Each ticket is a role; the notes under it are what shipped.</p>
-    </div>
-  </section>
-  <section class="box section container" aria-label="Roles">
-    <ol class="tickets">
-      {profile.roles.map((r) => <Ticket role={r} bullets={true} level={2} />)}
+<Base title={pageTitle(meta.title)} description={meta.description} path="/experience" jsonLd={[breadcrumbJsonLd(meta.title, "/experience")]}>
+  <Beat id="experience" title="Experience" lede={site.narrative.ledes.experience} level={1}>
+    <ol class="credits">
+      {roles.map((r) => <CreditRow level={2} when={when(r.start, r.end)} title={r.title} org={`${r.org}${r.unit ? `, ${r.unit}` : ""} · ${r.location}`} line={r.site_desc} bullets={r.cv_bullets} />)}
     </ol>
-  </section>
-  <Counter />
+  </Beat>
+  <EndCard />
 </Base>

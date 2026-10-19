@@ -488,6 +488,22 @@ site:
     - {value: 295, prefix: "~", suffix: "k EUR/yr", label: "direct savings in the data plan"}
     - {value: 6, prefix: "", suffix: "", label: "direct reports"}
   featured_projects: [Orca, Orca Semantics, Orca Core]
+  narrative:
+    statement: "I lead data and AI at South Pole, and I still ship the systems myself."
+    statement_key: "still ship the systems myself"
+    role_line: "Associate Director, Data & Insights · South Pole · London"
+    portrait_caption: "Saahil Mehta, South Pole, 2026"
+    now:
+      - "I lead a team of six and own the data platform, the marts and the reporting stack for the whole company."
+      - "Most of my time goes into Orca, the enterprise AI assistant I built for the business, and the governed platform underneath it: a semantic layer that tells Orca what our data means, self-hosted orchestration, access governance that runs itself, and cost monitoring across every project we have."
+      - "I wrote the data strategy the executive committee adopted, and I commit code most days."
+    ledes:
+      work: "The systems in production at South Pole, designed and built by me with the team."
+      shipping: "Commits over the last twelve months, live from GitHub."
+      experience: "Seven years across South Pole, Publicis Groupe and WPP."
+      beyond: "Mentoring, a museum archive, and where I studied."
+      contact: "About building AI systems people actually use, leading data teams, or your data and cloud estate."
+    end_card: "Let's talk."
   pages:
     experience:
       title: Experience

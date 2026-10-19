@@ -14,6 +14,18 @@
         "value": "archivo expanded",
         "createdAt": "2026-10-16T19:02:28.023Z",
         "reason": "user chose the kiosk-print replacement world; the width-125 instance of Archivo is the display face, DESIGN.md is rewritten at finish"
+      },
+      {
+        "rule": "overused-font",
+        "value": "mona sans",
+        "createdAt": "2026-10-19T10:52:53.386Z",
+        "reason": "title-sequence world (seed 3e7c9518 re-roll 1): Mona Sans is the one face, chosen for its width axis (font-stretch in the title), tabular figures and its tie to the GitHub calendar the site keeps as its hallmark"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "mona sans",
+        "createdAt": "2026-10-19T10:52:53.406Z",
+        "reason": "title-sequence replacement world; DESIGN.md is rewritten at finish by the documenter"
       }
     ]
   }

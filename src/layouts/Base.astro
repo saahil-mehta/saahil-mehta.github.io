@@ -12,9 +12,10 @@ interface Props {
   path: string;
   jsonLd?: Record<string, unknown>[];
   ogType?: "website" | "profile";
+  preloadImage?: string;
 }
 
-const { title, description, path, jsonLd = [], ogType = "website" } = Astro.props;
+const { title, description, path, jsonLd = [], ogType = "website", preloadImage } = Astro.props;
 const { site, person } = profile;
 const canonical = `${site.url}${path === "/" ? "" : path}`;
 const ogImage = `${site.url}${site.og_image}`;
@@ -30,7 +31,8 @@ const ld = [personJsonLd(), ...jsonLd];
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="author" content={person.name} />
-    <meta name="theme-color" content="#1e3a6b" />
+    <meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)" />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={person.name} />
     <meta property="og:title" content={title} />
@@ -52,16 +54,21 @@ const ld = [personJsonLd(), ...jsonLd];
     <link rel="alternate" type="application/json" href="/resume.json" title="JSON Resume" />
     <link rel="alternate" type="application/json" href="/status.json" title="Status JSON" />
     <link rel="alternate" type="text/markdown" href="/cv.md" title="CV as Markdown" />
-    <link rel="preload" href="/fonts/ArchivoExpanded-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/MonaSans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <script is:inline>
       document.documentElement.classList.add("js");
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
     </script>
     {ld.map((entry) => <script type="application/ld+json" is:inline set:html={JSON.stringify(entry)} />)}
     <ClientRouter />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <div class="progress" aria-hidden="true"></div>
     <SiteHeader path={path} />
     <main id="main">
       <slot />

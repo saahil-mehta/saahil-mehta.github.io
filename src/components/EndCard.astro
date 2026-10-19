@@ -1,0 +1,30 @@
+---
+import Icon from "./Icon.astro";
+import { profile } from "../lib/profile";
+const { person, site } = profile;
+const n = site.narrative;
+---
+
+<section class="end-card wrap" id="contact" aria-labelledby="contact-title">
+  <div data-arrive>
+    <h2 class="title" id="contact-title" style="--i:0">{n.end_card}</h2>
+    <p class="lede" style="--i:1">{n.ledes.contact}</p>
+    <div class="controls" style="--i:2">
+      <button class="btn fill" type="button" data-copy={person.email} aria-label={`Copy ${person.email}`}>
+        <Icon name="mail" size={16} />
+        <span class="when-idle">{person.email}</span>
+        <span class="when-copied">Copied</span>
+      </button>
+      <a class="btn outline" href={person.links.linkedin} target="_blank" rel="noopener"><Icon name="linkedin" size={16} /> LinkedIn</a>
+      <a class="btn ghost" href={person.links.calendly} target="_blank" rel="noopener">Book a call <Icon name="arrow-right" size={16} class="arrow" /></a>
+    </div>
+  </div>
+  <p class="files">
+    <span>Also available as</span>
+    <a href="/Saahil-Mehta-Resume.pdf">resume.pdf</a>
+    <a href="/resume.json">resume.json</a>
+    <a href="/cv.md">cv.md</a>
+    <a href="/llms.txt">llms.txt</a>
+    <a href="/status.json">status.json</a>
+  </p>
+</section>

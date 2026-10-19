@@ -1,0 +1,32 @@
+---
+import Icon from "./Icon.astro";
+import { profile } from "../lib/profile";
+import { inline } from "../lib/text";
+
+const { person, site } = profile;
+const n = site.narrative;
+// The key phrase takes the drawn underline. Split once so the rest of the statement stays a plain string.
+const at = n.statement.indexOf(n.statement_key);
+if (at < 0) throw new Error("narrative.statement_key must appear in narrative.statement");
+const before = n.statement.slice(0, at);
+const after = n.statement.slice(at + n.statement_key.length);
+---
+
+<section class="main-title wrap" aria-label="Introduction">
+  <div class="grid">
+    <div class="copy" data-arrive>
+      <h1 class="title" style="--i:0">{before}<span class="key">{n.statement_key}</span>{after}</h1>
+      <p class="lede" style="--i:1" set:html={inline(n.role_line)} />
+      <div class="controls" style="--i:2">
+        <a class="btn fill" href="/projects">See the work <Icon name="arrow-right" size={16} /></a>
+        <a class="btn ghost" href={person.links.calendly} target="_blank" rel="noopener">Book a call <Icon name="arrow-right" size={16} class="arrow" /></a>
+      </div>
+    </div>
+    <figure class="portrait" data-arrive="fade">
+      <div class="portrait-frame" data-parallax style="--i:1">
+        <img src="/portrait-still.webp" width="640" height="960" alt={`${person.name}, a monochrome portrait`} fetchpriority="high" decoding="async" />
+      </div>
+      <figcaption class="credit" style="--i:2">{n.portrait_caption}</figcaption>
+    </figure>
+  </div>
+</section>

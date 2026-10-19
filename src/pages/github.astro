@@ -1,29 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
-import Counter from "../components/Counter.astro";
+import Beat from "../components/Beat.astro";
+import CommitField from "../components/CommitField.astro";
+import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
-const meta = profile.site.pages.github;
-const path = "/github";
+const { site, person } = profile;
+const meta = site.pages.github;
 ---
 
-<Base title={pageTitle("Ledger")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Ledger", path)]}>
-  <section class="box sheet container page-head">
-    <div>
-      <h1>Production ledger</h1>
-      <p>
-        A live ledger of commits for <a href={profile.person.links.github} target="_blank" rel="noopener">saahil-mehta</a> over the last twelve months. Hover a day for its count.
-      </p>
-    </div>
-  </section>
-  <section class="box section container" aria-label="GitHub contributions">
-    <div class="ledger-graph" id="github-contributions" data-username="saahil-mehta" style="border-right:0">
-      <p class="loading">Fetching the last twelve months of commits</p>
-      <noscript>
-        <p class="contrib-note">The ledger needs JavaScript. The commits themselves are on <a href={profile.person.links.github}>GitHub</a>.</p>
-      </noscript>
-    </div>
-  </section>
-  <Counter />
+<Base title={pageTitle(meta.title)} description={meta.description} path="/github" jsonLd={[breadcrumbJsonLd(meta.title, "/github")]}>
+  <Beat id="activity" title="Still shipping" lede={site.narrative.ledes.shipping} level={1} more={{ href: person.links.github, label: "GitHub profile" }}>
+    <CommitField />
+  </Beat>
+  <EndCard />
 </Base>

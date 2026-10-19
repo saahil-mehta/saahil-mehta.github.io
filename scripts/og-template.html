@@ -3,44 +3,27 @@
 <head>
 <meta charset="utf-8" />
 <style>
-  @font-face { font-family: "Archivo"; src: url("../public/fonts/Archivo-latin.woff2") format("woff2"); font-weight: 100 900; }
-  @font-face { font-family: "Archivo Expanded"; src: url("../public/fonts/ArchivoExpanded-latin.woff2") format("woff2"); font-weight: 100 900; }
-  @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Medium.woff2") format("woff2"); font-weight: 500; }
+  @font-face { font-family: "Mona Sans"; src: url("../public/fonts/MonaSans-latin.woff2") format("woff2"); font-weight: 200 900; font-stretch: 75% 125%; }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
-  body { font-family: "Archivo", sans-serif; color: #1e3a6b; background: #d7d2c6; position: relative; }
-  .grain { position: absolute; inset: 0; opacity: .3; mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"); }
-  .sheet { position: absolute; inset: 40px; border: 2px solid #1e3a6b; display: grid; grid-template-columns: 1fr 300px; }
-  .copy { padding: 44px 52px; border-right: 2px solid #1e3a6b; position: relative; }
-  .marks { display: flex; gap: 6px; margin-bottom: 26px; }
-  h1 { font-family: "Archivo"; font-weight: 800; text-transform: uppercase; font-size: 60px; line-height: 1; letter-spacing: .01em; margin: 0; }
-  h1 .r { color: #c23a2b; } h1 .g { color: #6a7a43; }
-  .line { font-size: 22px; margin: 26px 0 0; color: #44527a; max-width: 640px; }
-  .foot { position: absolute; left: 52px; right: 52px; bottom: 34px; display: flex; justify-content: space-between; font-family: "JetBrains Mono"; font-size: 15px; }
-  .card { background: #cdc7b9; padding: 24px; display: grid; grid-template-rows: auto 1fr auto; gap: 14px; }
-  .card .lbl { display: flex; justify-content: space-between; gap: 16px; font-family: "Archivo Expanded"; font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #44527a; }
-  .card img { width: 220px; height: 220px; margin: 0 auto; display: block; }
-  .card .serial { border-top: 2px solid #1e3a6b; padding-top: 10px; font-family: "JetBrains Mono"; font-size: 13px; display: flex; justify-content: space-between; }
+  body { font-family: "Mona Sans", sans-serif; color: #f2efe9; background: #0c0c0e; position: relative; -webkit-font-smoothing: antialiased; }
+  .copy { position: absolute; left: 72px; top: 72px; width: 640px; }
+  .name { font-size: 20px; font-weight: 560; letter-spacing: -0.01em; }
+  .name span { color: #8a857d; font-weight: 400; margin-left: 10px; }
+  h1 { font-size: 64px; font-weight: 560; font-stretch: 98%; line-height: 1.02; letter-spacing: -0.03em; margin: 150px 0 0; }
+  h1 .key { background: linear-gradient(#ff4a1c, #ff4a1c) no-repeat 0 94% / 100% 0.06em; }
+  .line { position: absolute; left: 72px; bottom: 64px; font-size: 18px; color: #8a857d; }
+  .still { position: absolute; right: 72px; top: 72px; width: 324px; height: 486px; border-radius: 6px; overflow: hidden; background: #000; }
+  .still img { width: 100%; height: 100%; object-fit: cover; }
+  .cap { position: absolute; right: 72px; bottom: 64px; width: 324px; font-size: 11px; font-weight: 540; letter-spacing: 0.08em; text-transform: uppercase; color: #8a857d; }
 </style>
 </head>
 <body>
-  <div class="grain"></div>
-  <div class="sheet">
-    <div class="copy">
-      <div class="marks">
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="#1e3a6b"><path fill-rule="evenodd" d="M32 4a28 28 0 1 1 0 56 28 28 0 0 1 0-56Zm0 14a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z"/></svg>
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="#c23a2b"><path d="M4 44 32 16l28 28-9 9-19-19-19 19Z"/></svg>
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="#6a7a43"><path d="M10 60V32a22 22 0 0 1 44 0v28H40V32a8 8 0 0 0-16 0v28Z"/></svg>
-      </div>
-      <h1>I run the platform.<br><span class="r">I ship the systems.</span><br><span class="g">For 501 people.</span></h1>
-      <p class="line">Saahil Mehta · Associate Director, Data &amp; Insights at South Pole. Orca, the governed platform underneath it, and a strategy adopted by ExCo.</p>
-      <div class="foot"><span>saahil.co.uk</span><span>Printed in small runs</span></div>
-    </div>
-    <div class="card">
-      <div class="lbl"><span>Operator</span><span>London · 2019</span></div>
-      <img src="../public/portrait-halftone.png" alt="" />
-      <div class="serial"><span>No. 202607</span><span>Associate Director</span></div>
-    </div>
+  <div class="copy">
+    <div class="name">Saahil Mehta <span>Associate Director, Data &amp; Insights</span></div>
+    <h1>I lead data and AI at South Pole, and I <span class="key">still ship the systems myself</span>.</h1>
   </div>
+  <div class="line">saahil.co.uk</div>
+  <div class="still"><img src="../public/portrait-still.webp" alt="" /></div>
+  <div class="cap">Saahil Mehta, South Pole, 2026</div>
 </body>
 </html>

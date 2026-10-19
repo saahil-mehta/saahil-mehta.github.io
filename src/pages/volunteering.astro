@@ -1,59 +1,38 @@
 ---
 import Base from "../layouts/Base.astro";
-import Icon from "../components/Icon.astro";
-import Counter from "../components/Counter.astro";
+import Beat from "../components/Beat.astro";
+import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
-const meta = profile.site.pages.volunteering;
-const path = "/volunteering";
+const { site, volunteering } = profile;
+const meta = site.pages.volunteering;
 ---
 
-<Base title={pageTitle("Community")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Community", path)]}>
-  <section class="box sheet container page-head">
-    <div>
-      <h1>Community</h1>
-      <p>Work outside the day job, and the programmes that noticed.</p>
-    </div>
-  </section>
-  <section class="box section container" aria-label="Volunteering and recognition">
-    <ol class="tickets">
+<Base title={pageTitle(meta.title)} description={meta.description} path="/volunteering" jsonLd={[breadcrumbJsonLd(meta.title, "/volunteering")]}>
+  <Beat id="community" title="Community" lede="Mentoring, a museum archive, and a developer programme." level={1}>
+    <ol class="credits">
       {
-        profile.volunteering.map((v) => (
-          <li class="ticket shift">
-            <div class="ticket-stub">
-              <span class="ticket-serial">{v.year}</span>
-              <span class="label">{v.venue.split(" · ")[1] ?? "Volunteer"}</span>
-            </div>
-            <div class="ticket-body">
-              <div>
-                <h2 class="ticket-title">{v.link ? <a href={v.link} target="_blank" rel="noopener">{v.name}</a> : v.name}</h2>
-                <p class="org">{v.venue}</p>
-              </div>
-              <p class="dates" />
-              <p class="desc">{v.challenge}</p>
-              {v.details.map((d) => (
-                <details class="good-detail" style="grid-column:1/-1;margin-top:0.75rem">
-                  <summary>
-                    <Icon name="chevron-right" size={14} />
-                    {d.title}
-                  </summary>
-                  <div class="detail-anim"><div><div class="detail-body">
-                    {d.paragraphs.map((para) => <p set:html={para} />)}
-                  </div></div></div>
-                </details>
+        volunteering.map((v) => (
+          <li class="credit-row" data-arrive="fade">
+            <span class="credit when" style="--i:0">{v.year}</span>
+            <div class="what">
+              <h2 class="h3" style="--i:1">{v.link ? <a class="link" href={v.link} target="_blank" rel="noopener">{v.name}</a> : v.name}</h2>
+              <p class="org" style="--i:2">{v.venue}</p>
+              <p class="line" style="--i:3">{v.challenge}</p>
+              {v.details.map((d, i) => (
+                <div class="prose" style={`--i:${4 + i}`}>
+                  <h3 class="h3" style="font-size:1.0625rem; margin: 1rem 0 0.375rem">{d.title}</h3>
+                  {d.paragraphs.map((p) => <p class="dim" set:html={p} />)}
+                </div>
               ))}
-              {v.outcome && (
-                <p class="desc">
-                  <strong>Outcome.</strong> {v.outcome}
-                </p>
-              )}
-              <div class="tags" style="grid-column:1/-1">{v.tags.map((t) => <span>{t}</span>)}</div>
+              {v.outcome && <p class="line" style="--i:8"><strong>Outcome.</strong> {v.outcome}</p>}
+              {v.tags.length > 0 && <div class="tags" style="--i:9">{v.tags.map((t) => <span>{t}</span>)}</div>}
             </div>
           </li>
         ))
       }
     </ol>
-  </section>
-  <Counter />
+  </Beat>
+  <EndCard />
 </Base>

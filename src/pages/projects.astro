@@ -1,38 +1,31 @@
 ---
 import Base from "../layouts/Base.astro";
-import Kiosk from "../components/Kiosk.astro";
-import Counter from "../components/Counter.astro";
+import Beat from "../components/Beat.astro";
+import StillRow from "../components/StillRow.astro";
+import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
-const meta = profile.site.pages.projects;
-const path = "/projects";
-const active = profile.projects.filter((p) => p.status === "live" || p.status === "in_progress");
-const retired = profile.projects.filter((p) => p.status === "paused" || p.status === "archived");
+const { site, projects } = profile;
+const meta = site.pages.projects;
+const active = projects.filter((p) => p.status === "live" || p.status === "in_progress");
+const retired = projects.filter((p) => p.status === "paused" || p.status === "archived");
 ---
 
-<Base title={pageTitle("Systems")} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd("Systems", path)]}>
-  <section class="box sheet container page-head">
-    <div>
-      <h1>Systems</h1>
-      <p>Everything in production under my name, each with its serial, its state and the one number that matters. Open "How it's built" for the design decisions.</p>
-    </div>
-  </section>
-  <section class="box section container" aria-labelledby="active-heading">
-    <div class="box-head">
-      <h2 id="active-heading">In print · {active.length} goods</h2>
-    </div>
-    <Kiosk projects={active} detail={true} />
-  </section>
+<Base title={pageTitle(meta.title)} description={meta.description} path="/projects" jsonLd={[breadcrumbJsonLd(meta.title, "/projects")]}>
+  <Beat id="work" title="Work" lede={site.narrative.ledes.work} level={1}>
+    <ol class="stills">
+      {active.map((p, i) => <StillRow project={p} detail index={i} level={2} />)}
+    </ol>
+  </Beat>
   {
     retired.length > 0 && (
-      <section class="box section container" aria-labelledby="retired-heading">
-        <div class="box-head">
-          <h2 id="retired-heading">Out of print · {retired.length}</h2>
-        </div>
-        <Kiosk projects={retired} detail={true} featured="" />
-      </section>
+      <Beat id="earlier" title="Earlier" lede="Work that is paused or retired. The ideas carried forward.">
+        <ol class="stills">
+          {retired.map((p, i) => <StillRow project={p} detail compact index={i + 10} level={3} />)}
+        </ol>
+      </Beat>
     )
   }
-  <Counter />
+  <EndCard />
 </Base>

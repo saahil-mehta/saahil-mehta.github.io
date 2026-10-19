@@ -1,0 +1,23 @@
+---
+interface Props {
+  when: string;
+  title: string;
+  org?: string;
+  line?: string;
+  bullets?: string[];
+  href?: string | null;
+  level?: 2 | 3;
+}
+const { when, title, org, line, bullets = [], href = null, level = 3 } = Astro.props;
+const Heading = `h${level}` as "h2" | "h3";
+---
+
+<li class="credit-row" data-arrive="fade">
+  <span class="credit when" style="--i:0">{when}</span>
+  <div class="what">
+    <Heading class="h3" style="--i:1">{href ? <a class="link" href={href} target="_blank" rel="noopener">{title}</a> : title}</Heading>
+    {org && <p class="org" style="--i:2">{org}</p>}
+    {line && <p class="line" style="--i:3">{line}</p>}
+    {bullets.length > 0 && <ul style="--i:4">{bullets.map((b) => <li>{b}</li>)}</ul>}
+  </div>
+</li>

@@ -1,32 +1,22 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import Counter from "../components/Counter.astro";
+import Beat from "../components/Beat.astro";
+import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
-const meta = profile.site.pages.resume;
-const path = "/resume";
-const pdf = "/Saahil-Mehta-Resume.pdf";
+const { site, person } = profile;
+const meta = site.pages.resume;
 ---
 
-<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <section class="box sheet container">
-    <div class="page-head">
-      <div>
-        <h1>Resume</h1>
-        <p>
-          The full, printer-friendly history. The same facts are exported as <a href="/cv.md">Markdown</a> and <a href="/resume.json">JSON Resume</a>.
-        </p>
-      </div>
-      <div class="actions">
-        <a href={pdf} target="_blank" rel="noopener" class="btn fill"><Icon name="file" size={16} /><span>Open PDF</span></a>
-        <a href={pdf} download class="btn"><Icon name="download" size={16} /><span>Download</span></a>
-      </div>
+<Base title={pageTitle(meta.title)} description={meta.description} path="/resume" jsonLd={[breadcrumbJsonLd(meta.title, "/resume")]}>
+  <Beat id="resume" title="Resume" lede="The two-page version, as a PDF. The same record is available as JSON and Markdown at the foot of the page." level={1}>
+    <div class="controls" style="display:flex; flex-wrap:wrap; gap:0.75rem 1.5rem; margin-bottom:2rem" data-arrive="fade">
+      <a class="btn fill" href="/Saahil-Mehta-Resume.pdf" download style="--i:0"><Icon name="download" size={16} /> Download PDF</a>
+      <a class="btn ghost" href={person.links.calendly} target="_blank" rel="noopener" style="--i:1">Book a call <Icon name="arrow-right" size={16} class="arrow" /></a>
     </div>
-    <div class="resume-frame">
-      <iframe src={`${pdf}#view=FitH`} title="Saahil Mehta resume PDF" loading="lazy"></iframe>
-    </div>
-  </section>
-  <Counter />
+    <iframe class="resume-frame" src="/Saahil-Mehta-Resume.pdf#view=FitH" title={`${person.name} resume`} loading="lazy"></iframe>
+  </Beat>
+  <EndCard />
 </Base>

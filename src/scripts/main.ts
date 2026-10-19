@@ -1,18 +1,20 @@
 // Single entry point. Each init is idempotent and re-runs after every view transition.
 import { initMenu } from "./menu";
-import { initPrintRun } from "./print-run";
+import { initTheme } from "./theme";
 import { initCopy } from "./copy";
-import { initEasterEggs } from "./easter-eggs";
+import { initArrive } from "./arrive";
+import { initParallax } from "./parallax";
+import { initProgress } from "./progress";
 import { initContributions } from "./contributions";
 
 function initAll(): void {
   initMenu();
-  initEasterEggs();
+  initTheme();
   initCopy();
+  initArrive();
+  initParallax();
+  initProgress();
   void initContributions();
-  initPrintRun();
 }
 
 document.addEventListener("astro:page-load", initAll);
-// A swapped-in page arrives unprinted; the passes run again for the new sheet.
-document.addEventListener("astro:after-swap", () => document.body.classList.remove("printed"));

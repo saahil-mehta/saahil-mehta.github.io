@@ -1,6 +1,5 @@
 ---
 import Icon from "./Icon.astro";
-import Mark from "./Mark.astro";
 import { profile } from "../lib/profile";
 
 interface Props {
@@ -10,35 +9,34 @@ const { path } = Astro.props;
 const { person } = profile;
 
 const items = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Systems" },
+  { href: "/projects", label: "Work" },
   { href: "/experience", label: "Experience" },
   { href: "/volunteering", label: "Community" },
   { href: "/education", label: "Education" },
-  { href: "/github", label: "Ledger" },
+  { href: "/github", label: "Activity" },
   { href: "/resume", label: "Resume" },
 ];
 ---
 
-<header class="masthead" id="main-header">
-  <div class="container">
+<header class="topline" id="main-header">
+  <div class="wrap">
     <a href="/" class="brand" aria-label={`${person.name}, home`}>
-      <span class="brand-marks" aria-hidden="true">
-        <Mark name="ring" size={22} ink="night" />
-        <Mark name="chevron" size={22} ink="red" />
-        <Mark name="arch" size={22} ink="green" />
-      </span>
-      <span>
-        <span class="brand-word">{person.name}</span>
-        <span class="brand-sub">Data &amp; Insights Office · London</span>
-      </span>
+      <span>{person.name}</span>
+      <span class="role">{person.title}</span>
     </a>
     <nav class="site-nav" id="navigation-menu" aria-label="Primary">
-      {items.map((item) => <a href={item.href} aria-current={item.href === path ? "page" : undefined}>{item.label}</a>)}
+      {items.map((item) => <a class="draw" href={item.href} aria-current={item.href === path ? "page" : undefined}>{item.label}</a>)}
+      <a class="cta draw" href={person.links.calendly} target="_blank" rel="noopener">Book a call</a>
     </nav>
-    <button id="toggle-navigation-menu" type="button" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
-      <Icon name="menu" class="icon-menu" size={20} />
-      <Icon name="close" class="icon-close" size={20} />
-    </button>
+    <div class="topline-tools">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch colour scheme">
+        <Icon name="moon" class="icon-moon" size={18} />
+        <Icon name="sun" class="icon-sun" size={18} />
+      </button>
+      <button id="toggle-navigation-menu" class="icon-btn" type="button" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
+        <Icon name="menu" class="icon-menu" size={20} />
+        <Icon name="close" class="icon-close" size={20} />
+      </button>
+    </div>
   </div>
 </header>

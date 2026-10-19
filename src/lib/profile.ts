@@ -27,7 +27,7 @@ const Project = z.object({
   period: z.string(),
   status: z.enum(["live", "in_progress", "paused", "archived"]),
   category: z.string(),
-  mark: z.enum(["ring", "arch", "chevron", "bars", "keyhole", "quarter", "grid", "half"]),
+  mark: z.string().optional(),
   since: month,
   until: month.nullable(),
   metric: z.object({ value: z.string(), label: z.string() }),
@@ -96,6 +96,15 @@ const Profile = z.object({
     og_image: z.string(),
     stats: z.array(z.object({ value: z.number(), prefix: z.string(), suffix: z.string(), label: z.string() })).length(4),
     featured_projects: z.array(z.string()).min(1),
+    narrative: z.object({
+      statement: z.string(),
+      statement_key: z.string(),
+      role_line: z.string(),
+      portrait_caption: z.string(),
+      now: z.array(z.string()).min(1),
+      ledes: z.object({ work: z.string(), shipping: z.string(), experience: z.string(), beyond: z.string(), contact: z.string() }),
+      end_card: z.string(),
+    }),
     pages: z.object({
       experience: PageMeta,
       projects: PageMeta,
@@ -143,4 +152,24 @@ export const featuredProjects = profile.site.featured_projects
 
 if (featuredProjects.length !== profile.site.featured_projects.length) {
   throw new Error("site.featured_projects names a project that does not exist");
+}
+
+/** URL slug for a name: "Orca Core" becomes "orca-core". Stills live at /stills/<slug>.webp. */
+export function slug(name: string): string {
+  return name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+export function stillFor(p: Project): string {
+  return `/stills/${slug(p.name)}.webp`;
+}
+
+/** Opening of a summary: whole sentences until the text is at least `min` characters long. */
+export function opening(text: string, min = 70): string {
+  const sentences = text.split(/(?<=\.)\s+/);
+  let out = "";
+  for (const s of sentences) {
+    out = out ? `${out} ${s}` : s;
+    if (out.length >= min) break;
+  }
+  return out;
 }

@@ -1,0 +1,22 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  lede?: string;
+  more?: { href: string; label: string };
+  level?: 1 | 2;
+}
+const { id, title, lede, more, level = 2 } = Astro.props;
+const Heading = level === 1 ? "h1" : "h2";
+---
+
+<section class="beat wrap" id={id} aria-labelledby={`${id}-title`}>
+  <div class:list={["beat-head", { row: Boolean(more) }]} data-arrive>
+    <Heading class="h2" id={`${id}-title`} style="--i:0">{title}</Heading>
+    {lede && <p class="lede" style="--i:1">{lede}</p>}
+    {more && <a class="btn ghost more" href={more.href} style="--i:2">{more.label} <Icon name="arrow-right" size={16} class="arrow" /></a>}
+  </div>
+  <slot />
+</section>

@@ -1,0 +1,5 @@
+{
+ "generator": "codex exec, gpt-6.1-sol image generation tool, 2026-10-19",
+ "prompt": "Minimal 3D render of a single matte off-white object on a pure black background that stays pure black to every edge. Soft studio key light from the upper left, gentle falloff, a faint contact shadow under the object, very subtle fine film grain, no reflections, no colour, no text. The object is centred and occupies about 55 percent of the frame width. Square 1024x1024. The object: five thin matte rectangular plates stacked with small even offsets, seen from a low three-quarter angle.",
+ "edits": "converted to WebP q84 with Pillow"
+}

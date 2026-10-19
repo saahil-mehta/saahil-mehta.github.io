@@ -1,41 +1,20 @@
 ---
 import Base from "../layouts/Base.astro";
-import Counter from "../components/Counter.astro";
+import Beat from "../components/Beat.astro";
+import CreditRow from "../components/CreditRow.astro";
+import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
-const meta = profile.site.pages.education;
-const path = "/education";
+const { site, education } = profile;
+const meta = site.pages.education;
 ---
 
-<Base title={pageTitle(meta.title)} description={meta.description} path={path} jsonLd={[breadcrumbJsonLd(meta.title, path)]}>
-  <section class="box sheet container page-head">
-    <div>
-      <h1>Education</h1>
-      <p>Computer science, mathematics and business analytics, in that order.</p>
-    </div>
-  </section>
-  <section class="box section container" aria-label="Degrees">
-    <ol class="tickets">
-      {
-        profile.education.map((e) => (
-          <li class="ticket shift">
-            <div class="ticket-stub">
-              <span class="ticket-serial">{e.years ?? "Degree"}</span>
-              <span class="label">{e.location}</span>
-            </div>
-            <div class="ticket-body">
-              <div>
-                <h2 class="ticket-title">{e.degree}</h2>
-                <p class="org">{e.org}</p>
-              </div>
-              <p class="dates">{e.grade}</p>
-              <p class="desc">{e.desc}</p>
-            </div>
-          </li>
-        ))
-      }
+<Base title={pageTitle(meta.title)} description={meta.description} path="/education" jsonLd={[breadcrumbJsonLd(meta.title, "/education")]}>
+  <Beat id="education" title="Education" lede="Three degrees, from a diploma in Mumbai to a distinction in Glasgow." level={1}>
+    <ol class="credits">
+      {education.map((e) => <CreditRow level={2} when={e.years ?? ""} title={e.degree} org={`${e.org} · ${e.location} · ${e.grade}`} line={e.desc} />)}
     </ol>
-  </section>
-  <Counter />
+  </Beat>
+  <EndCard />
 </Base>

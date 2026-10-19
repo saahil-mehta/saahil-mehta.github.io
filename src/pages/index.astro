@@ -1,57 +1,63 @@
 ---
 import Base from "../layouts/Base.astro";
-import Icon from "../components/Icon.astro";
-import KioskHero from "../components/KioskHero.astro";
-import Kiosk from "../components/Kiosk.astro";
-import Ledger from "../components/Ledger.astro";
-import Ticket from "../components/Ticket.astro";
-import Counter from "../components/Counter.astro";
-import { profile } from "../lib/profile";
-import { paragraphs } from "../lib/text";
+import MainTitle from "../components/MainTitle.astro";
+import Beat from "../components/Beat.astro";
+import StillRow from "../components/StillRow.astro";
+import CreditRow from "../components/CreditRow.astro";
+import CommitField from "../components/CommitField.astro";
+import EndCard from "../components/EndCard.astro";
+import { profile, featuredProjects, opening } from "../lib/profile";
+import { fmtMonth } from "../lib/dates";
 import { pageTitle, profilePageJsonLd } from "../lib/seo";
 
-const { site, summaries, projects, roles } = profile;
-const goods = projects.filter((p) => p.status === "live" || p.status === "in_progress");
-const bio = paragraphs(summaries.site_bio).slice(2, 4);
+const { site, roles, projects, volunteering, education } = profile;
+const n = site.narrative;
+const featured = new Set(featuredProjects.map((p) => p.name));
+const others = projects.filter((p) => !featured.has(p.name) && p.status !== "paused" && p.status !== "archived");
+const recentRoles = roles.slice(0, 3);
+const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "present" ? "present" : fmtMonth(end)}`;
 ---
 
-<Base title={pageTitle()} description={site.description} path="/" ogType="profile" jsonLd={[profilePageJsonLd()]}>
-  <KioskHero />
+<Base title={pageTitle()} description={site.description} path="/" ogType="profile" jsonLd={[profilePageJsonLd()]} preloadImage="/portrait-still.webp">
+  <MainTitle />
 
-  <section class="box section container" aria-labelledby="shelf-heading">
-    <div class="box-head">
-      <h2 id="shelf-heading">On the shelf · {goods.length} goods</h2>
-      <a class="more" href="/projects">All systems <Icon name="arrow-right" size={14} /></a>
+  <Beat id="now" title="Now">
+    <div class="lines" data-arrive>
+      {n.now.map((line, i) => <p style={`--i:${i}`}>{line}</p>)}
     </div>
-    <Kiosk projects={goods} />
-  </section>
+  </Beat>
 
-  <section class="box section container" aria-labelledby="ledger-heading">
-    <div class="box-head">
-      <h2 id="ledger-heading">Production ledger · commits, last 12 months</h2>
-      <a class="more" href="/github">Full ledger <Icon name="arrow-right" size={14} /></a>
-    </div>
-    <Ledger />
-  </section>
-
-  <section class="box section container" aria-labelledby="notes-heading">
-    <div class="box-head">
-      <h2 id="notes-heading">Office notes</h2>
-    </div>
-    <div class="prose" style="padding:1.5rem 2rem 1.75rem">
-      {bio.map((p) => <p set:html={p} />)}
-    </div>
-  </section>
-
-  <section class="box section container" aria-labelledby="tickets-heading">
-    <div class="box-head">
-      <h2 id="tickets-heading">Tickets · {roles.length} roles</h2>
-      <a class="more" href="/experience">Full strip <Icon name="arrow-right" size={14} /></a>
-    </div>
-    <ol class="tickets">
-      {roles.slice(0, 3).map((r) => <Ticket role={r} />)}
+  <Beat id="work" title="Work" lede={n.ledes.work} more={{ href: "/projects", label: "All systems" }}>
+    <ol class="stills">
+      {featuredProjects.map((p, i) => <StillRow project={p} index={i} />)}
     </ol>
-  </section>
+    {
+      others.length > 0 && (
+        <ul class="credits" style="margin-top: clamp(2.5rem, 6vh, 4.5rem)">
+          {others.map((p) => (
+            <CreditRow when={`since ${fmtMonth(p.since)}`} title={p.name} org={p.category} line={opening(p.site_summary)} />
+          ))}
+        </ul>
+      )
+    }
+  </Beat>
 
-  <Counter />
+  <Beat id="shipping" title="Still shipping" lede={n.ledes.shipping} more={{ href: "/github", label: "Activity" }}>
+    <CommitField />
+  </Beat>
+
+  <Beat id="experience" title="Experience" lede={n.ledes.experience} more={{ href: "/experience", label: "Full history" }}>
+    <ol class="credits">
+      {recentRoles.map((r) => <CreditRow when={when(r.start, r.end)} title={r.title} org={`${r.org}${r.unit ? `, ${r.unit}` : ""} · ${r.location}`} line={r.site_desc} />)}
+    </ol>
+  </Beat>
+
+  <Beat id="beyond" title="Beyond work" lede={n.ledes.beyond} more={{ href: "/volunteering", label: "Community" }}>
+    <ul class="credits">
+      {volunteering.map((v) => <CreditRow when={v.year} title={v.name} org={v.venue} href={v.link} />)}
+      {education.slice(0, 1).map((e) => <CreditRow when={e.years ?? ""} title={e.degree} org={`${e.org} · ${e.grade}`} href="/education" />)}
+    </ul>
+  </Beat>
+
+  <EndCard />
 </Base>
