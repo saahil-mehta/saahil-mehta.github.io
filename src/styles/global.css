@@ -23,7 +23,6 @@
   --cell-2: rgb(242 239 233 / 0.5);
   --cell-3: rgb(242 239 233 / 0.74);
   --cell-4: #f2efe9;
-  --still-blend: screen;
   --glass: rgb(12 12 14 / 0.72);
 
   --font: "Mona Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -53,7 +52,6 @@
     --cell-2: rgb(21 20 15 / 0.48);
     --cell-3: rgb(21 20 15 / 0.72);
     --cell-4: #15140f;
-    --still-blend: multiply;
     --glass: rgb(243 241 236 / 0.76);
   }
 }
@@ -71,7 +69,6 @@
   --cell-2: rgb(21 20 15 / 0.48);
   --cell-3: rgb(21 20 15 / 0.72);
   --cell-4: #15140f;
-  --still-blend: multiply;
   --glass: rgb(243 241 236 / 0.76);
 }
 
@@ -627,7 +624,6 @@ html:not(.js) .key {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: var(--still-blend);
   transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
   transition: transform var(--slow) var(--ease-out);
   will-change: transform;
@@ -1050,9 +1046,7 @@ html.js [data-arrive="fade"] > * {
   transform: translateY(10px);
   clip-path: none;
 }
-/* Stills wipe in from the left on their own clock instead of sharing the headings' rise.
-   The clip sits on the image itself: a clip on the figure would isolate the blend group
-   and the plate's ground would stop disappearing into the field. */
+/* Stills wipe in from the left on their own clock instead of sharing the headings' rise. */
 html.js [data-arrive] > .still {
   opacity: 1;
   transform: none;

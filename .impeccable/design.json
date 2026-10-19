@@ -506,7 +506,7 @@
       {
         "name": "still-wipe",
         "value": "clip-path inset(0 100% 0 0) to inset(-10%), 700ms",
-        "purpose": "Stills wipe in from the left on their own clock. The clip sits on the img, never the figure, so the blend group stays unisolated."
+        "purpose": "Stills wipe in from the left on their own clock; the clip sits on the img."
       },
       {
         "name": "cell-wave",
@@ -619,7 +619,7 @@
       "name": "Still row",
       "kind": "card",
       "refersTo": "still",
-      "description": "A system as a cast member: one blended still beside a title, a sentence and a credit line. No frame.",
+      "description": "A system as a cast member: one transparent still beside a title, a sentence and a credit line. No frame.",
       "html": "<div class=\"ds-still-row\"><figure class=\"ds-still\"><img src=\"/stills/orca.webp\" width=\"1024\" height=\"1024\" alt=\"\"/></figure><div class=\"ds-still-copy\"><h3 class=\"ds-still-title\"><a href=\"#\">Orca</a></h3><p>An enterprise AI assistant used by over a quarter of the company within three weeks of its 2.0 release.</p><p class=\"ds-credit\">In production since Feb 2025 · AI</p></div></div>",
       "css": ".ds-still-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; align-items: center; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); color: var(--ink, #f2efe9); line-height: 1.6; font-size: 1.0625rem; } .ds-still { margin: 0; width: 100%; max-width: 420px; aspect-ratio: 1; justify-self: center; } .ds-still img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: var(--still-blend, screen); transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-still-row:hover .ds-still img { transform: translateY(-4px); } .ds-still-copy { display: grid; gap: 0.875rem; max-width: 36rem; } .ds-still-copy p { margin: 0; color: var(--ink-2, #b3aea5); } .ds-still-title { margin: 0; font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem); font-weight: 530; line-height: 1.2; letter-spacing: -0.015em; } .ds-still-title a { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0% 1px; transition: background-size 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-still-title a:hover { background-size: 100% 1px; } .ds-still-copy .ds-credit { margin-top: 0.25rem; font-size: 0.75rem; font-weight: 540; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3, #8a857d); font-variant-numeric: tabular-nums; }"
     },
@@ -647,7 +647,7 @@
       "One field, one ink family, one accent, in two exposures (dark canonical, light by preference or choice).",
       "One variable face (Mona Sans, weight 200 to 900, width 75% to 125%) at a handful of named settings; weight and tracking carry hierarchy, never a second face or a second colour.",
       "No containers: no cards, no bordered sections, no backgrounds behind text. Credits rows divide with a 1px hairline and nothing else.",
-      "Stills are matte off-white objects on plates that blend into the field (screen on black, multiply on white), so each object floats on the page with no frame.",
+      "Stills are matte objects on transparent plates (alpha baked from the render's black or white ground), so each object floats on the page with no frame, whatever sits behind it.",
       "Everything arrives: lines rise behind a mask as the visitor scrolls, stills wipe in from the left, the commit field lights column by column. Every element is already settled without JavaScript and under reduced motion.",
       "State is drawn by weight, line and colour within the ink ramp; the accent never marks state except on the copied email button."
     ],
@@ -659,7 +659,7 @@
       },
       {
         "name": "The Two Exposures Rule",
-        "body": "Light and dark are the same system at different exposures. A new token gets a value in both blocks, and the two --still-blend values (screen on dark, multiply on light) travel with it so stills keep floating.",
+        "body": "Light and dark are the same system at different exposures. A new token gets a value in both blocks, and each still ships a light-ground and a dark-ground plate selected by scheme, so stills keep floating.",
         "section": "colors"
       },
       {
@@ -684,7 +684,7 @@
       },
       {
         "name": "The No Shadow Rule",
-        "body": "Nothing on the site casts a shadow or glows. A new surface that seems to need one uses blend, space or weight instead.",
+        "body": "Nothing on the site casts a shadow or glows. A new surface that seems to need one uses space or weight instead.",
         "section": "elevation"
       },
       {

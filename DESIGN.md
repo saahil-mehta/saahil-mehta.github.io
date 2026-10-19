@@ -189,7 +189,7 @@ Composition is type on the field with generous vertical space. There are no card
 - One field, one ink family, one accent, in two exposures (dark canonical, light by preference or choice).
 - One variable face (Mona Sans, weight 200 to 900, width 75% to 125%) at a handful of named settings; weight and tracking carry hierarchy, never a second face or a second colour.
 - No containers: no cards, no bordered sections, no backgrounds behind text. Credits rows divide with a 1px hairline and nothing else.
-- Stills are matte off-white objects on plates that blend into the field (screen on black, multiply on white), so each object floats on the page with no frame.
+- Stills are matte objects on transparent plates (alpha baked from the render's black or white ground), so each object floats on the page with no frame, whatever sits behind it.
 - Everything arrives: lines rise behind a mask as the visitor scrolls, stills wipe in from the left, the commit field lights column by column. Every element is already settled without JavaScript and under reduced motion.
 - State is drawn by weight, line and colour within the ink ramp; the accent never marks state except on the copied email button.
 
@@ -207,7 +207,7 @@ Dark is the canonical scheme; every token has a light counterpart under the `lig
 
 **The One Accent Rule.** Vermilion is spent on the key phrase, the filled button, the progress hairline and nothing structural. It never fills a background larger than a button, never tints a section and never marks a state other than the copied email.
 
-**The Two Exposures Rule.** Light and dark are the same system at different exposures. A new token gets a value in both blocks, and the two `--still-blend` values (screen on dark, multiply on light) travel with it so stills keep floating.
+**The Two Exposures Rule.** Light and dark are the same system at different exposures. A new token gets a value in both blocks, and each still ships a light-ground and a dark-ground plate selected by scheme, so stills keep floating.
 
 ## Typography
 
@@ -258,11 +258,11 @@ The page is a single column of beats on one measure (76rem, gutters fluid from 1
 
 There is no elevation. No box shadow, no glow, no gradient fill and no lit edge appears anywhere in the built CSS. Depth is carried by three things:
 
-- **Blend.** Stills are rendered on pure plates and blended into the field (`mix-blend-mode: screen` on black plates in dark, `multiply` on white plates in light), so the object sits on the page without a frame. The clip used for the arrival sits on the image, because a clip on the figure would isolate the blend group and the plate would reappear.
+- **Transparency.** Stills are rendered on pure black or white and the ground is converted to alpha (dark set: alpha from the brightest channel; light set: alpha from the darkest), so the object sits on the page without a frame and no blend mode is needed. The clip used for the arrival sits on the image, because a clip on the figure would isolate the blend group and the plate would reappear.
 - **Glass.** The top line is a translucent band of the field, blurred 14px with saturation 1.2.
 - **Lift.** Buttons rise 1px on hover and press to 98.5% on active; still images rise 4px on row hover; commit cells scale to 1.5 on hover with the label above them.
 
-**The No Shadow Rule.** Nothing on the site casts a shadow or glows. A new surface that seems to need one uses blend, space or weight instead.
+**The No Shadow Rule.** Nothing on the site casts a shadow or glows. A new surface that seems to need one uses space or weight instead.
 
 ## Shapes
 

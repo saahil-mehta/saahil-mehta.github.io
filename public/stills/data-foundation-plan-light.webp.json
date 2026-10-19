@@ -1,5 +1,5 @@
 {
  "generator": "codex exec, gpt-6.1-sol image generation tool, 2026-10-19",
  "prompt": "Minimal 3D render of a single matte charcoal-grey object on a pure white background that stays pure white to every edge. Soft studio key light from the upper left, gentle falloff, a soft grey contact shadow under the object, very subtle fine film grain, no reflections, no colour, no text. The object is centred and occupies about 55 percent of the frame width. Square 1024x1024. The object: a long shallow matte ramp of seven even steps rising from left to right.",
- "edits": "object rescaled by 1.219 and recentred to match the dark plate's object box; near-white (>=248) lifted to 255; converted to WebP q84 with Pillow"
+ "edits": "object rescaled by 1.219 and recentred to match the dark plate's object box; near-white (>=248) lifted to 255; converted to WebP q84 with Pillow; white ground converted to alpha (alpha = 1 - min channel) so the plate is transparent"
 }
