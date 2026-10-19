@@ -21,3 +21,6 @@ dist/
 .impeccable/build/
 .impeccable/decision/
 .impeccable/live/
+
+# Tailored CVs and cover letters name employers; they stay local
+applications/

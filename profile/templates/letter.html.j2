@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>{{ person.name }} · Cover letter</title>
+{% if base_href %}<base href="{{ base_href }}">{% endif %}
+<style>
+  @font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-latin.woff2") format("woff2"); font-weight: 200 900; font-style: normal; }
+  @font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-italic-latin.woff2") format("woff2"); font-weight: 200 900; font-style: italic; }
+  @page { size: A4; margin: 18mm 20mm 20mm; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Source Sans 3", "Source Sans Pro", Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #1f1f1f; }
+  a { color: #1f5fbf; text-decoration: none; }
+  p { margin: 0 0 9pt; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; padding-bottom: 8pt; margin-bottom: 18pt; border-bottom: 0.75pt solid #cfcfcf; }
+  header h1 { font-size: 16pt; font-weight: 700; margin: 0; }
+  header .contact { font-size: 9pt; color: #333; text-align: right; }
+  .meta { color: #333; margin-bottom: 14pt; }
+  .meta p { margin: 0; }
+  .body p { text-align: left; }
+  .sign { margin-top: 16pt; }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{ person.name }}</h1>
+  <div class="contact">{{ person.location }} · <a href="mailto:{{ person.email }}">{{ person.email }}</a>{% if person.phone %} · {{ person.phone }}{% endif %}<br>
+  <a href="{{ person.links.linkedin }}">in/{{ person.links.linkedin.rstrip('/').split('/')[-1] }}</a> · <a href="https://saahil.co.uk">saahil.co.uk</a></div>
+</header>
+<div class="meta">
+  {% if letter.date %}<p>{{ letter.date }}</p>{% endif %}
+  {% if letter.recipient %}<p>{{ letter.recipient }}</p>{% endif %}
+  {% if letter.company %}<p>{{ letter.company }}</p>{% endif %}
+  {% if letter.role %}<p><b>Re: {{ letter.role }}</b></p>{% endif %}
+</div>
+<div class="body">
+  {% if letter.greeting %}<p>{{ letter.greeting }}</p>{% endif %}
+  {% for para in letter.paragraphs %}<p>{{ para }}</p>
+  {% endfor %}
+  <p class="sign">{{ letter.signoff or "Kind regards," }}<br>{{ person.name }}</p>
+</div>
+</body>
+</html>

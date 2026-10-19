@@ -30,7 +30,8 @@ scripts/
 ├── sync-public.mjs     # Copies cv.md into public/ (prebuild)
 ├── assert-html.mjs     # Post-build checks on dist/
 ├── make_og.py          # Renders scripts/og-template.html to public/og.png (run when the headline changes)
-└── make_cv.py          # YAML -> public/Saahil-Mehta-Resume.pdf via profile/templates/cv.html.j2 (render | --check)
+├── make_cv.py          # YAML -> public/Saahil-Mehta-Resume.pdf via profile/templates/cv.html.j2 (render | --check | --overlay)
+└── make_letter.py      # Markdown cover letter -> PDF in the resume's typography
 
 ```
 
@@ -54,6 +55,10 @@ Node 22 or newer. Python 3.11+ with `pip install -r scripts/requirements.txt` fo
 5. Paste `profile/out/linkedin.md` into LinkedIn.
 
 Other assets: portrait still at `public/portrait-still.webp` (generated from `public/profile-512.jpg`), domain in `public/CNAME`, Open Graph image via `python scripts/make_og.py`.
+
+## Tailored applications
+
+`applications/` is gitignored. For one role, write `applications/<slug>/overlay.yaml` (keys: `summary`, `title`, `role_bullets`, `projects`, `skills`) and render a tailored CV with `python scripts/make_cv.py --overlay applications/<slug>/overlay.yaml --out applications/<slug>/cv.pdf`; write `applications/<slug>/letter.md` and render it with `python scripts/make_letter.py ... --out ...`. Overlays select, order and reword; the facts stay in `profile.yaml`. See `CLAUDE.md` for the working rules.
 
 ## Machine-readable
 
