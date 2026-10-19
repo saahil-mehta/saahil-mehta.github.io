@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Beat from "../components/Beat.astro";
 import EndCard from "../components/EndCard.astro";
 import { profile } from "../lib/profile";
+import { logoFor } from "../lib/logos";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
 const { site, volunteering } = profile;
@@ -18,7 +19,10 @@ const meta = site.pages.volunteering;
             <span class="credit when" style="--i:0">{v.year}</span>
             <div class="what">
               <h2 class="h3" style="--i:1">{v.link ? <a class="link" href={v.link} target="_blank" rel="noopener">{v.name}</a> : v.name}</h2>
-              <p class="org" style="--i:2">{v.venue}</p>
+              <p class="org" style="--i:2">
+                {logoFor(v.venue) && <span class="logo" role="img" aria-label={logoFor(v.venue)!.label} style={`--logo:url(${logoFor(v.venue)!.file}); --ar:${logoFor(v.venue)!.aspect.toFixed(3)}`} />}
+                {v.venue}
+              </p>
               <p class="line" style="--i:3">{v.challenge}</p>
               {v.details.map((d, i) => (
                 <div class="prose" style={`--i:${4 + i}`}>

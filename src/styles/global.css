@@ -822,6 +822,24 @@ html.js .still[data-motion="drift"] {
 }
 .credit-row .org {
   color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+/* Organisation marks: one-ink silhouettes sized by height, quiet at rest, ink on row hover. */
+.logo {
+  flex: none;
+  display: inline-block;
+  height: 1.125rem;
+  width: calc(1.125rem * var(--ar, 1));
+  background: currentColor;
+  color: var(--ink-3);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+  transition: color var(--fast);
+}
+.credit-row:hover .logo {
+  color: var(--ink);
 }
 .credit-row .line {
   color: var(--ink-2);
