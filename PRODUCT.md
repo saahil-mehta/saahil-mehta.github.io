@@ -12,7 +12,7 @@ Primary: hiring managers and executive recruiters evaluating Saahil for Director
 
 Secondary: peers in the data and AI community (engineers, leaders, Data Science Festival mentees, Medium readers) who want depth: how the systems were built, the design decisions, the GitHub activity.
 
-Both audiences are served by one site: the proof for the first group sits at the top of the home page; the depth for the second group sits beneath it and on the section pages.
+Both audiences are served by one site: the first group reads the statement and the first screen; the second group reads on into the work, the commit field and the section pages. The same record also reaches them as the GitHub profile README, the resume PDF, the LinkedIn profile and the machine-readable files, all rendered from one source.
 
 ## Product Purpose
 
@@ -24,38 +24,41 @@ The combination a neighbouring profile cannot truthfully copy: built an enterpri
 
 ## Operating Context
 
-The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF is open in another tab. It is reached by direct link, LinkedIn, search, or an LLM answering a question about Saahil. Content is maintained by Saahil through one YAML file and rebuilt in CI; there is no CMS and no backend.
+The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF is open in another tab. It is reached by direct link, LinkedIn, GitHub, search, or an LLM answering a question about Saahil. Content is maintained through one YAML file (`profile/profile.yaml`) and rebuilt in CI; there is no CMS and no backend. The resume PDF, the CV and LinkedIn pastes, `status.json` and the GitHub profile README all render from that file; tailored applications render from it through overlays and never change it.
 
 ## Capabilities and Constraints
 
-- Static Astro site at https://saahil.co.uk on GitHub Pages; one URL per section (home, experience, projects, volunteering, education, GitHub, resume) plus `/llms.txt`, `/cv.md`, `/resume.json`.
+- Static Astro site at https://saahil.co.uk on GitHub Pages; one URL per section (home, experience, projects, volunteering, education, GitHub, resume) plus `/llms.txt`, `/cv.md`, `/resume.json`, `/status.json` and the resume PDF.
 - All copy and facts come from `profile/profile.yaml`; the build fails on an invalid field. No numbers may appear on the site that are not in that file.
 - Figures are verified (billing export, BigQuery metadata, Cloud Monitoring, GitHub, Confluence) and must not be inflated beyond the agreed rounding.
 - Orca disclosure rule: capabilities and outcomes anywhere; architecture only as Saahil's own design decisions; no client data, security specifics or contract figures beyond the published savings.
 - Every page must be fully readable without JavaScript; all motion sits behind `prefers-reduced-motion`.
 - The GitHub contribution calendar is fetched client-side from a public API and must stay prominent.
 - Lighthouse floor: Performance 90+, Accessibility 95+, SEO 100.
-- The GitHub profile README (github.com/saahil-mehta) is a status-page rendition of the same facts, re-rendered daily from `/status.json`. The site's own visual world must be distinguishable from it in styling.
+- The GitHub profile README (github.com/saahil-mehta) is a smaller rendition of the same record in the same voice, re-rendered daily from `/status.json`. It has its own design within the same family (Markdown plus SVG images, no scripts, no hover) and never repeats the contribution graph GitHub draws beneath it.
+- Every system has a still: one matte object rendered on black and on white, transparent, at a shared scale (`public/stills/`), generated with the codex CLI from the prompt in its sidecar. A new system is not complete without its pair.
 
 ## Brand Commitments
 
-None binding. Saahil has released every current visual element (orb logo, Satoshi and JetBrains Mono, purple light / green dark accents, the bee and party-hat easter eggs) for replacement if the redesign calls for it. The GitHub activity graph is the one element that must remain a visible hallmark.
+The title-sequence world shipped on 2026-10-19 and recorded in `DESIGN.md`: film black and paper as two exposures of one field, vermilion as the only accent, Mona Sans as the only face, the stills, the drawn underline under the key phrase of the statement, the arrival on scroll. The monochrome portrait still and the system stills are brand assets. The GitHub activity graph remains a visible hallmark. Organisation marks appear only as one-ink silhouettes. Earlier elements (the orb, Satoshi, Bricolage, Archivo, the kiosk inks, the easter eggs) are retired.
 
 Voice: plain statements, each claim once, no em dashes, no rhetorical contrast constructions, headings are labels in a stranger's words (no conceit language). First person on the site, action-verb bullets in the CV. The full copy principles are in CLAUDE.md.
 
 ## Evidence on Hand
 
-- `profile/profile.yaml`: roles, bullets, projects with "how it's built" detail, volunteering, education, skills, headline stats (501 employees, 560,000+ Orca requests at 99.99%, ~295k EUR/yr direct savings, 6 reports).
-- `public/profile-512.jpg|webp`: portrait.
-- `public/Saahil-Mehta-Resume.pdf`: resume (to be refreshed from Rezi).
-- `public/assets/*.json`: Lottie icons and the orb mark; `public/logo.png` rasterised orb.
+- `profile/profile.yaml`: roles (bullets, site copy, a home line), projects (summary, how it's built, metric, category, since), volunteering, education, skills, the site narrative (statement, now, ledes, end card) and page metadata.
+- `public/portrait-still.webp`: the monochrome portrait still, generated from `public/profile-512.jpg` (the photograph, kept as the source).
+- `public/stills/`: a dark and a light still per system, with provenance sidecars.
+- `public/logos/`: organisation marks as one-ink files with their origin noted inside.
+- `public/Saahil-Mehta-Resume.pdf`: rendered by `scripts/make_cv.py` from the YAML; never edited by hand.
 - Live GitHub contributions via github-contributions-api.jogruber.de.
 - No testimonials, press, talks or client logos exist; none may be invented.
 
 ## Product Principles
 
 1. Statement before proof: the first screen says in one plain sentence what Saahil does and how; scale, systems and leadership follow as the record, told in sentences. Figures never carry the design and appear once per page, inside the sentence that gives them meaning.
-2. Hands-on director: strategy and code appear together; the GitHub graph sits beside the strategy claims.
+2. Hands-on director: strategy and code appear together; the commit field follows the lines that claim the strategy, and the work follows the field.
 3. One scroll, little clicking: the home page carries the whole case; section pages add depth rather than hide essentials.
 4. Readable under everything: motion, colour and layout never cost legibility or speed.
-5. Every number traceable: nothing on the page that `profile.yaml` cannot back.
+5. Every number traceable: nothing on any surface that `profile.yaml` cannot back.
+6. One record, many renditions: the site, the README, the PDF and the pastes render from the same file and may differ in form, never in fact or voice.
