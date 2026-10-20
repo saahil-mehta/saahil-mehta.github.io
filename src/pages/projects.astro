@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Beat from "../components/Beat.astro";
 import StillRow from "../components/StillRow.astro";
 import EndCard from "../components/EndCard.astro";
+import Diagram from "../components/Diagram.astro";
 import { profile } from "../lib/profile";
 import { pageTitle, breadcrumbJsonLd } from "../lib/seo";
 
@@ -14,8 +15,19 @@ const retired = projects.filter((p) => p.status === "paused" || p.status === "ar
 
 <Base title={pageTitle(meta.title)} description={meta.description} path="/projects" jsonLd={[breadcrumbJsonLd(meta.title, "/projects")]}>
   <Beat id="work" title="Work" lede={site.narrative.ledes.work} level={1}>
+    {
+      site.ecosystem && (
+        <div class="sub" id="platform">
+          <div data-arrive>
+            <h2 class="h3" style="--i:0">How it fits together</h2>
+            <p class="lede" style="--i:1">{site.narrative.ledes.platform}</p>
+          </div>
+          <Diagram kind="platform" note={site.ecosystem.note} />
+        </div>
+      )
+    }
     <ol class="stills">
-      {active.map((p, i) => <StillRow project={p} detail index={i} level={2} />)}
+      {active.map((p, i) => <StillRow project={p} detail index={i} level={2} figure={site.roadmap?.project === p.name ? "roadmap" : undefined} figureLede={site.narrative.ledes.plan} />)}
     </ol>
   </Beat>
   {

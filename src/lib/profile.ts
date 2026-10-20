@@ -62,6 +62,19 @@ const Education = z.object({
   desc: z.string(),
 });
 
+const quarter = z.string().regex(/^\d{4}-Q[1-4]$/, "want YYYY-Qn");
+const EcosystemNode = z.object({
+  id: z.string(),
+  name: z.string(),
+  line: z.string().optional(),
+  col: z.number().int().optional(),
+  row: z.number().int().optional(),
+  span: z.number().int().optional(),
+  kind: z.enum(["system", "people", "ground"]).optional(),
+  project: z.string().optional(),
+  state: z.enum(["built", "in_build", "planned"]).optional(),
+});
+
 const PageMeta = z.object({ title: z.string(), description: z.string().min(50).max(170) });
 
 const Profile = z.object({
@@ -103,9 +116,30 @@ const Profile = z.object({
       role_line: z.string(),
       portrait_caption: z.string(),
       now: z.array(z.string()).min(1),
-      ledes: z.object({ work: z.string(), shipping: z.string(), experience: z.string(), beyond: z.string(), contact: z.string() }),
+      ledes: z.object({
+        work: z.string(),
+        shipping: z.string(),
+        experience: z.string(),
+        beyond: z.string(),
+        contact: z.string(),
+        platform: z.string(),
+        plan: z.string(),
+      }),
       end_card: z.string(),
     }),
+    ecosystem: z
+      .object({
+        note: z.string().optional(),
+        nodes: z.array(EcosystemNode).min(2),
+        edges: z.array(z.object({ from: z.string(), to: z.string(), label: z.string() })).min(1),
+      })
+      .optional(),
+    roadmap: z
+      .object({
+        project: z.string(),
+        workstreams: z.array(z.object({ name: z.string(), line: z.string().optional(), start: quarter, end: quarter, state: z.enum(["built", "in_build", "planned"]) })).min(1),
+      })
+      .optional(),
     pages: z.object({
       experience: PageMeta,
       projects: PageMeta,
@@ -177,4 +211,28 @@ export function opening(text: string, min = 70): string {
     if (out.length >= min) break;
   }
   return out;
+}
+
+/** The state a diagram node or workstream is drawn in. A node that names a project takes the project's status. */
+export type BuildState = "built" | "in_build" | "planned";
+const PROJECT_STATE: Record<Project["status"], BuildState> = { live: "built", in_progress: "in_build", paused: "planned", archived: "planned" };
+
+export function nodeState(node: { project?: string; state?: BuildState }): BuildState {
+  if (node.project) {
+    const p = profile.projects.find((x) => x.name === node.project);
+    if (!p) throw new Error(`ecosystem names a project that does not exist: ${node.project}`);
+    return PROJECT_STATE[p.status];
+  }
+  return node.state ?? "built";
+}
+
+if (profile.site.ecosystem) {
+  const ids = new Set(profile.site.ecosystem.nodes.map((n) => n.id));
+  for (const e of profile.site.ecosystem.edges) {
+    if (!ids.has(e.from) || !ids.has(e.to)) throw new Error(`ecosystem edge ${e.from} -> ${e.to} names an unknown node`);
+  }
+  profile.site.ecosystem.nodes.forEach(nodeState);
+}
+if (profile.site.roadmap && !profile.projects.some((p) => p.name === profile.site.roadmap?.project)) {
+  throw new Error("site.roadmap.project names a project that does not exist");
 }

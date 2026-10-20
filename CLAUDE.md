@@ -16,9 +16,12 @@ python scripts/render_profile.py          # YAML -> profile/out/cv.md and linked
 python scripts/make_cv.py                 # YAML -> public/Saahil-Mehta-Resume.pdf (two-page limit enforced)
 python scripts/render_profile.py --check  # CI check: pastes match the YAML
 python scripts/make_cv.py --check         # CI check: PDF carries the hash of its source
+python scripts/make_diagrams.py           # YAML -> src/generated/*.svg and public/diagrams/*.svg (npm run build runs it)
 python -m pytest tests -q
 npm run build && npm run assert           # site build and HTML assertions
 ```
+
+`npm run build` renders the diagrams first through `scripts/sync-public.mjs`, which calls `python3`; set `PYTHON=/opt/homebrew/Caskroom/miniconda/base/envs/platform/bin/python` locally so it finds pyyaml, fonttools and brotli. The rendered SVGs are gitignored; CI renders them in the build job.
 
 Commit the YAML, the pastes and the PDF together. CI fails when any of them disagree.
 
@@ -64,6 +67,8 @@ When a draft feels thin without a number, the fix is a better sentence, not a bi
 ## The site
 
 Astro 7, static, deployed to GitHub Pages from `main`. The visual world is recorded in `DESIGN.md` and `.impeccable/design.json`; design changes go through the Impeccable skill and must end with the finish review and an updated `DESIGN.md`. Every page is readable without JavaScript; all motion sits behind `prefers-reduced-motion`; Lighthouse floor 90 performance, 95 accessibility, 100 SEO. Section pages and the home share one grammar; new content types extend `site.narrative` and the existing components rather than adding bespoke sections. Client-side navigations (Astro view transitions) swap in a fresh `<html>` element and do not re-run inline head scripts, so anything set on the document at runtime, such as the stored colour scheme, must be re-applied in an `astro:after-swap` listener; test theme and script state across a nav click, not only on reload.
+
+Diagrams: `site.ecosystem` in the YAML draws "How it fits together" (nodes with a name, a one-line description, a column and a row; an optional `project` takes that project's state; edges carry a short verb) and `site.roadmap` draws "The plan" (workstreams with a start quarter, an end quarter and a state: built, in_build or planned). `scripts/make_diagrams.py` renders both into an inline SVG the site includes (it takes the page's scheme and face) and standalone dark and light SVGs that `status.json` links and the GitHub README embeds. A new system goes in as a node with a place; no coordinates, no drawing by hand. Keep labels plain and free of figures.
 
 Stills: one per project at `public/stills/<slug>.webp` (dark ground) and `<slug>-light.webp` (light ground), generated with the codex CLI using the prompt text in the matching `.webp.json` sidecar. A new project needs both stills, the object rescaled to the set's shared size, and sidecars.
 

@@ -6,6 +6,7 @@ import StillRow from "../components/StillRow.astro";
 import CreditRow from "../components/CreditRow.astro";
 import CommitField from "../components/CommitField.astro";
 import EndCard from "../components/EndCard.astro";
+import Diagram from "../components/Diagram.astro";
 import { profile, featuredProjects, opening } from "../lib/profile";
 import { fmtMonth } from "../lib/dates";
 import { pageTitle, profilePageJsonLd } from "../lib/seo";
@@ -45,6 +46,14 @@ const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "p
       )
     }
   </Beat>
+
+  {
+    site.ecosystem && (
+      <Beat id="platform" title="How it fits together" lede={n.ledes.platform} more={{ href: "/projects", label: "All systems" }}>
+        <Diagram kind="platform" note={site.ecosystem.note} />
+      </Beat>
+    )
+  }
 
   <Beat id="experience" title="Experience" lede={n.ledes.experience} more={{ href: "/experience", label: "Full history" }}>
     <ol class="credits">

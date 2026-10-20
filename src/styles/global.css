@@ -1122,3 +1122,135 @@ html.js [data-arrive].in > .still img {
     scroll-behavior: auto;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Diagrams: the platform and the plan, drawn in the two inks.         */
+/* ------------------------------------------------------------------ */
+.diagram {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+.diagram-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+}
+.diagram-scroll:focus-visible {
+  outline-offset: 6px;
+}
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 860px;
+}
+.diagram svg text {
+  font-family: var(--font);
+  font-feature-settings: "ss01", "cv11";
+}
+.diagram-note {
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+  max-width: var(--text-measure);
+  text-wrap: pretty;
+}
+.still-figure {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.still-figure .lede {
+  font-size: 1.0625rem;
+}
+/* Sub-block inside a beat: a smaller heading and lede above a diagram. */
+.sub {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+}
+.sub .h3 {
+  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
+}
+.sub .diagram {
+  margin-top: 1rem;
+}
+/* The arrival for a diagram: the figure itself stays put; edges trace, names rise, bars draw. */
+html.js [data-arrive="diagram"] > .diagram-scroll {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+  transition: none;
+}
+html.js [data-arrive="diagram"] > .diagram-note {
+  transform: translateY(10px);
+  clip-path: none;
+}
+html.js .diagram .node {
+  opacity: 0;
+  transform: translateY(8px);
+}
+html.js .diagram.in .node {
+  opacity: 1;
+  transform: none;
+  transition: opacity 600ms var(--ease-out), transform 820ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+html.js .diagram .edge path:not(.head) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+html.js .diagram .edge .halo,
+html.js .diagram .edge .head,
+html.js .diagram .edge text {
+  opacity: 0;
+}
+html.js .diagram.in .edge path:not(.head) {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 900ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 90ms + 250ms);
+}
+html.js .diagram.in .edge .halo,
+html.js .diagram.in .edge .head,
+html.js .diagram.in .edge text {
+  opacity: 1;
+  transition: opacity 400ms linear;
+  transition-delay: calc(var(--i, 0) * 90ms + 700ms);
+}
+html.js .diagram .node .u {
+  transform-box: fill-box;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+html.js .diagram.in .node .u {
+  transform: scaleX(1);
+  transition: transform 900ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 90ms + 500ms);
+}
+html.js .diagram .lane {
+  transform-box: fill-box;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+html.js .diagram.in .lane {
+  transform: scaleX(1);
+  transition: transform 800ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms + 150ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .diagram .node,
+  html.js .diagram.in .node,
+  html.js .diagram .edge path:not(.head),
+  html.js .diagram .edge .halo,
+  html.js .diagram .edge .head,
+  html.js .diagram .edge text,
+  html.js .diagram .node .u,
+  html.js .diagram .lane {
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}

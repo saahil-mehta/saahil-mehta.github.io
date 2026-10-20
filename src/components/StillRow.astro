@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import Diagram from "./Diagram.astro";
 import type { Project } from "../lib/profile";
 import { stillFor, stillLightFor, opening, slug } from "../lib/profile";
 import { fmtMonth } from "../lib/dates";
@@ -10,8 +11,10 @@ interface Props {
   compact?: boolean;
   index?: number;
   level?: 2 | 3;
+  figure?: "roadmap";
+  figureLede?: string;
 }
-const { project: p, detail = false, compact = false, index = 0, level = 3 } = Astro.props;
+const { project: p, detail = false, compact = false, index = 0, level = 3, figure, figureLede } = Astro.props;
 const Heading = `h${level}` as "h2" | "h3";
 const STATE: Record<Project["status"], string> = {
   live: "In production",
@@ -53,4 +56,12 @@ const firstSentence = opening(p.site_summary);
       )
     }
   </div>
+  {
+    figure && (
+      <div class="still-figure">
+        {figureLede && <p class="lede" data-arrive="fade"><span style="--i:0">{figureLede}</span></p>}
+        <Diagram kind={figure} />
+      </div>
+    )
+  }
 </li>

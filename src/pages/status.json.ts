@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { profile, featuredProjects, opening, stillFor, stillLightFor } from "../lib/profile";
+import { profile, featuredProjects, opening, stillFor, stillLightFor, nodeState } from "../lib/profile";
 import { BUILD_DATE, BUILD_MONTH, durationLabel, monthsInProduction } from "../lib/dates";
 
 // Machine-readable rendition of the record: the same facts the home page renders, for the
@@ -74,6 +74,18 @@ export const GET: APIRoute = () => {
     })),
     community: volunteering.map((v) => ({ name: v.name, venue: v.venue, year: v.year, link: v.link })),
     education: education.map((e) => ({ degree: e.degree, org: e.org, location: e.location, years: e.years, grade: e.grade })),
+    ecosystem: site.ecosystem
+      ? {
+          note: site.ecosystem.note ?? null,
+          nodes: site.ecosystem.nodes.map((n) => ({ id: n.id, name: n.name, line: n.line ?? null, kind: n.kind ?? "system", project: n.project ?? null, state: nodeState(n) })),
+          edges: site.ecosystem.edges,
+        }
+      : null,
+    roadmap: site.roadmap ?? null,
+    diagrams: {
+      platform: site.ecosystem ? { dark: abs("/diagrams/platform-dark.svg"), light: abs("/diagrams/platform-light.svg"), title: "How it fits together", lede: n.ledes.platform } : null,
+      roadmap: site.roadmap ? { dark: abs("/diagrams/roadmap-dark.svg"), light: abs("/diagrams/roadmap-light.svg"), title: "The plan", lede: n.ledes.plan } : null,
+    },
     files: {
       resume_pdf: abs("/Saahil-Mehta-Resume.pdf"),
       resume_json: abs("/resume.json"),

@@ -191,7 +191,7 @@ Composition is type on the field with generous vertical space. There are no card
 - No containers: no cards, no bordered sections, no backgrounds behind text. Credits rows divide with a 1px hairline and nothing else.
 - Stills are matte objects on transparent plates (alpha baked from the render's black or white ground), so each object floats on the page with no frame, whatever sits behind it.
 - Everything arrives: lines rise behind a mask as the visitor scrolls, stills wipe in from the left, the commit field lights column by column. Every element is already settled without JavaScript and under reduced motion.
-- State is drawn by weight, line and colour within the ink ramp; the accent never marks state except on the copied email button.
+- State is drawn by weight, line and colour within the ink ramp; the accent marks state in two places only, the copied email button and what is in build on the diagrams.
 
 ## Colors
 
@@ -205,7 +205,7 @@ Dark is the canonical scheme; every token has a light counterpart under the `lig
 
 **Neutral: field, hairline, glass.** `field` is the page and the html background. `line-2` is the only hairline in use: credits row dividers, the footer's top rule, the resume frame's border and the icon button hover fill. `glass` is the top line's translucent backdrop (blurred 14px, saturated 1.2). `plate-black` is the portrait frame's ground in both schemes, because the portrait still is on black and does not blend.
 
-**The One Accent Rule.** Vermilion is spent on the key phrase, the filled button, the progress hairline and nothing structural. It never fills a background larger than a button, never tints a section and never marks a state other than the copied email.
+**The One Accent Rule.** Vermilion is spent on the key phrase, the filled button, the progress hairline and nothing structural. It never fills a background larger than a button and never tints a section. It marks two states only: the copied email, and what is in build on the diagrams (the underline under a system's name and, once the roadmap has data, the bar of a workstream and the hairline at now).
 
 **The Two Exposures Rule.** Light and dark are the same system at different exposures. A new token gets a value in both blocks, and each still ships a light-ground and a dark-ground plate selected by scheme, so stills keep floating.
 
@@ -295,9 +295,13 @@ Stills, credits rows, beats and the end card have no corner at all because they 
 
 **Credit row** (`credit-row`). Date in the credit voice, then title (H3, with a drawn-on-hover link when it has one), organisation, line and optional bullets with vermilion markers. Hairline between rows. The organisation line may open with a mark (`logo`): the organisation's symbol as a one-ink silhouette, a CSS mask over `currentColor` at 1.125rem tall with width from the mark's aspect ratio, `ink-3` at rest and `ink` on row hover. Symbols over lockups (the South Pole penguin, the Publicis lion, the MERL monogram, the Strathclyde shield, the Google G); wordmarks only where a few letters stay legible (WPP, DSF). Rows without a clean mark carry none. Files sit in `public/logos/` with their origin noted inside each file; `src/lib/logos.ts` maps organisation names to marks.
 
+**Diagram** (`diagram`). A generated SVG inlined in a figure, so it takes the page's scheme and face: the platform ("How it fits together") and the plan ("The plan"), rendered by `scripts/make_diagrams.py` from `site.ecosystem` and `site.roadmap`. Systems are names in Mona Sans at 18px weight 540 (people and sources at 440) with a one-line description beneath in `ink-2`; edges are 1px `ink-3` hairlines with drawn chevron heads and a short uppercase label in the credit voice on a field-coloured halo; a spanning node above the flow draws one bracket; the enterprise platform is a `line-2` ground hairline with its name. State is drawn on the name: built in `ink`, in build with a 2px vermilion underline, planned in `ink-2` with a dashed `ink-3` underline; a legend at the bottom right names only the states present. The plan renders the same way once `site.roadmap` carries data (none is recorded yet): a swimlane with one lane per workstream, quarters as `line-2` hairlines with year and quarter labels, bars filled `ink` when built, vermilion in build, outlined `ink-3` when planned, and a dashed vermilion hairline marking now. Below 860px the drawing keeps its width inside a horizontal scroller (`diagram-scroll`, keyboard focusable). The standalone renditions in `public/diagrams/` embed the face and the field and animate once on load.
+
 **Commit field** (`cell`, `cell-label`). Rendered client-side from the public contributions API for the last twelve months, cached for an hour. Five exposure levels; cells scale 1.5 on hover with a small `ink` label on `field` above them. The footer carries the total and span, the legend and a loading or failure line that links to GitHub.
 
 **End card.** Title voice, lede, three controls (email copy, LinkedIn, Book a call) and a small line of machine-readable files. The footer below it carries the build line and three links separated by middle dots.
+
+**Diagram arrival.** A `[data-arrive="diagram"]` figure keeps its frame still and animates inside the SVG: names rise 8px and fade in by column (90ms apart), edges trace along their length over 900ms (`pathLength` 1, dash offset to 0) a beat after their column lands, then labels and chevron heads fade in, and in-build underlines draw from the left. Roadmap bars scale from the left by lane. Everything is settled without JavaScript and under reduced motion.
 
 **Arrival.** Every `[data-arrive]` group reveals once, when 18% of it enters the viewport (or at load if it is above 90% of the viewport height). Children start at opacity 0, 22px down, scaled 103% on the x axis from the left edge, and clipped from the bottom; on reveal they move to rest over 820ms (opacity 600ms) on the exponential ease-out, each child delayed 70ms times its `--i`. The `fade` variant rises 10px with no clip or scale. The key phrase's underline draws over 900ms once the statement has landed (700ms delay). Stills wipe in from the left on the image over 700ms. The commit field lights column by column at 14ms per column over 520ms per cell, then clears its animation so hover applies.
 
@@ -320,7 +324,8 @@ Stills, credits rows, beats and the end card have no corner at all because they 
 
 - Don't add cards, panels, bordered sections or background tints behind text.
 - Don't add shadows, glows, gradients or lit edges.
-- Don't spend the accent on anything beyond the key phrase, the filled button, the progress hairline, the Book a call link and list markers.
+- Don't spend the accent on anything beyond the key phrase, the filled button, the progress hairline, the Book a call link, list markers and the in-build mark on the diagrams.
 - Don't introduce a second face, a monospace voice or glyph icons; icons come from the drawn 1.75-stroke set.
 - Don't animate `font-variation-settings`, width, height or any layout property.
-- Don't add stat tiles, repeated numerals, timelines or kicker labels above headings; the headings are the labels.
+- Don't add stat tiles, repeated numerals or kicker labels above headings; the headings are the labels. The one timeline allowed is the plan, drawn from roadmap data when it exists, never by hand.
+- Don't draw a diagram by hand or in a third-party style (Mermaid, boxes, fills); add a node or a workstream to the YAML and let the renderer draw it in the two inks.

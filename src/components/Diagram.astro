@@ -1,0 +1,20 @@
+---
+// A generated diagram, inlined so it takes the page's scheme and face. The SVGs are rendered
+// by scripts/make_diagrams.py from profile.yaml before every build (npm run build runs it).
+// On narrow screens the drawing keeps a readable width inside a horizontal scroller, like
+// the commit field. The arrival traces the edges and raises the names once, under html.js.
+const svgs = import.meta.glob<string>("../generated/*.svg", { query: "?raw", import: "default", eager: true });
+
+interface Props {
+  kind: "platform" | "roadmap";
+  note?: string;
+}
+const { kind, note } = Astro.props;
+const svg = svgs[`../generated/${kind}.svg`];
+if (!svg) throw new Error(`src/generated/${kind}.svg is missing; run python scripts/make_diagrams.py`);
+---
+
+<figure class:list={["diagram", kind]} data-arrive="diagram">
+  <div class="diagram-scroll" tabindex="0" style="--i:0"><Fragment set:html={svg} /></div>
+  {note && <figcaption class="diagram-note" style="--i:1">{note}</figcaption>}
+</figure>

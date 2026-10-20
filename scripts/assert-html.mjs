@@ -51,7 +51,7 @@ for (const file of pages) {
   }
 }
 
-for (const path of ["llms.txt", "cv.md", "resume.json", "status.json", "sitemap-index.xml", "robots.txt", "og.png", "CNAME"]) {
+for (const path of ["llms.txt", "cv.md", "resume.json", "status.json", "sitemap-index.xml", "robots.txt", "og.png", "CNAME", "diagrams/platform-dark.svg", "diagrams/platform-light.svg"]) {
   if (!existsSync(join(dist, path))) failures.push(`missing dist/${path}`);
 }
 if (existsSync(join(dist, "resume.json"))) {
@@ -61,6 +61,10 @@ if (existsSync(join(dist, "resume.json"))) {
   } catch (err) {
     failures.push(`resume.json does not parse (${err.message})`);
   }
+}
+for (const page of ["index.html", "projects.html"]) {
+  const html = readFileSync(join(dist, page), "utf8");
+  if (!/<svg[^>]*class="diagram-svg platform"/.test(html)) failures.push(`${page}: the platform diagram is not inlined`);
 }
 if (existsSync(join(dist, "cv.md")) && !/^# Saahil Mehta/m.test(readFileSync(join(dist, "cv.md"), "utf8"))) {
   failures.push("cv.md: unexpected content");

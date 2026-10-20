@@ -37,6 +37,7 @@ The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF 
 - Lighthouse floor: Performance 90+, Accessibility 95+, SEO 100.
 - The GitHub profile README (github.com/saahil-mehta) is a smaller rendition of the same record in the same voice, re-rendered daily from `/status.json`. It has its own design within the same family (Markdown plus SVG images, no scripts, no hover) and never repeats the contribution graph GitHub draws beneath it.
 - Every system has a still: one matte object rendered on black and on white, transparent, at a shared scale (`public/stills/`), generated with the codex CLI from the prompt in its sidecar. A new system is not complete without its pair.
+- The platform diagram renders from `site.ecosystem` in the YAML, drawn in the two inks by `scripts/make_diagrams.py`, inlined on the site and published as standalone SVGs for `status.json` and the README. The same renderer draws the plan as a swimlane once a `site.roadmap` block is added. Nothing is drawn by hand; a new system is a node with a place.
 
 ## Brand Commitments
 
@@ -50,6 +51,7 @@ Voice: plain statements, each claim once, no em dashes, no rhetorical contrast c
 - `public/portrait-still.webp`: the monochrome portrait still, generated from `public/profile-512.jpg` (the photograph, kept as the source).
 - `public/stills/`: a dark and a light still per system, with provenance sidecars.
 - `public/logos/`: organisation marks as one-ink files with their origin noted inside.
+- `site.ecosystem` in the YAML: the platform's nodes and edges, rendered as a diagram at build time. A `site.roadmap` block (workstreams with quarters and states) is not recorded yet.
 - `public/Saahil-Mehta-Resume.pdf`: rendered by `scripts/make_cv.py` from the YAML; never edited by hand.
 - Live GitHub contributions via github-contributions-api.jogruber.de.
 - No testimonials, press, talks or client logos exist; none may be invented.

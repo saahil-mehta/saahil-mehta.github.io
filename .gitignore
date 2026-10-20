@@ -24,3 +24,7 @@ dist/
 
 # Tailored CVs and cover letters name employers; they stay local
 applications/
+
+# Rendered from profile.yaml at build time by scripts/make_diagrams.py
+src/generated/
+public/diagrams/
