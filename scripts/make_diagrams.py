@@ -151,7 +151,7 @@ MIN_GUTTER = 44
 ROW_Y = {-1: 46, 0: 206, 1: 338}
 ARC_Y = 134
 GROUND_Y = 440
-HEIGHT = 476
+HEIGHT = 458
 X0 = 6
 
 
@@ -278,7 +278,7 @@ def arrowhead(x: float, y: float, direction: str, stroke: str) -> str:
     return f'<path class="head" d="{d}" fill="none" stroke="{stroke}" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>'
 
 
-def platform_svg(eco: dict, projects: dict[str, dict], palette: str, note: str = "") -> str:
+def platform_svg(eco: dict, projects: dict[str, dict], palette: str) -> str:
     c = PALETTES[palette]
     nodes, edges = layout_platform(eco, projects)
     standalone = palette != "inline"
@@ -346,7 +346,6 @@ def platform_svg(eco: dict, projects: dict[str, dict], palette: str, note: str =
         f'<defs><style>{style}</style></defs>'
         + (f'<rect width="{W}" height="{HEIGHT}" fill="{c["field"]}"/>' if standalone else "")
         + "".join(parts) + "".join(legend)
-        + (text(X0, HEIGHT - 10, note, 12, c["ink3"]) if (standalone and note) else "")
         + "</svg>\n"
     )
 
@@ -508,12 +507,11 @@ def render_all(data: dict, inline_dir: Path, public_dir: Path, now: datetime | N
     public_dir.mkdir(parents=True, exist_ok=True)
     eco = site.get("ecosystem")
     if eco:
-        note = eco.get("note", "")
         (inline_dir / "platform.svg").write_text(platform_svg(eco, projects, "inline"), encoding="utf-8")
         written.append(inline_dir / "platform.svg")
         for theme in ("dark", "light"):
             p = public_dir / f"platform-{theme}.svg"
-            p.write_text(platform_svg(eco, projects, theme, note), encoding="utf-8")
+            p.write_text(platform_svg(eco, projects, theme), encoding="utf-8")
             written.append(p)
     road = site.get("roadmap")
     if road:
