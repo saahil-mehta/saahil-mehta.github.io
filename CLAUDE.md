@@ -46,6 +46,21 @@ When asked to apply for a specific role, create `applications/<company>-<role>/`
 
 No em dashes anywhere (the loaders reject them). Plain statements, each claim once; no rhetorical contrast constructions; headings are labels. British spelling. Action-verb bullets on the CV, first person on the site.
 
+## Copy principles
+
+These came out of the October 2026 redesign rounds and apply to every surface: the site, the CV, cover letters, the LinkedIn paste.
+
+1. **Figures never carry the design.** No stat tiles, no hero metrics, no numeral set larger than the sentence it belongs to. A number earns its place inside a sentence that says what it means. The page reads as a record of judgement; the numbers are footnotes to that record.
+2. **Each figure once per surface.** A number that appears twice on a page reads as padding. Where the same fact is needed in two places (Now, Work, Experience), say it in words the second time, or cut the second mention.
+3. **Statement before proof.** The first thing a reader meets is one plain sentence about what Saahil does and how (leads data and AI, still ships the systems himself). Evidence follows in the order a reader would ask for it: what he does now, what he has built, that he still commits, where he has worked.
+4. **Scope and prowess through the work, not through adjectives.** No "seasoned", "passionate", "proven". Director-level scope is shown by what was decided and adopted; hands-on prowess by what was built and by the live commit field.
+5. **No conceit language.** Labels are plain words a stranger would use: Work, Experience, Community, Education, Activity, Resume, Now, Still shipping, Let's talk. No serials, tickets, shelves, print runs, dashboards-as-metaphor. If a label needs the design to explain it, it is wrong.
+6. **Generic enough to scale.** Copy is written so the structure survives the next role, project or year: sections take lists, not fixed slots; a new system needs a name, one line, a since date and a still, nothing bespoke.
+7. **Say the thing once, in the register of the surface.** First person and present tense on the site; action-verb past tense on the CV; one claim per sentence; the last sentence of a block is a plain fact, never a flourish.
+8. **Every claim traceable.** Nothing on any surface that `profile/profile.yaml` cannot back. Tailoring for an application is selection, ordering and wording; it never adds a fact.
+
+When a draft feels thin without a number, the fix is a better sentence, not a bigger numeral.
+
 ## The site
 
 Astro 7, static, deployed to GitHub Pages from `main`. The visual world is recorded in `DESIGN.md` and `.impeccable/design.json`; design changes go through the Impeccable skill and must end with the finish review and an updated `DESIGN.md`. Every page is readable without JavaScript; all motion sits behind `prefers-reduced-motion`; Lighthouse floor 90 performance, 95 accessibility, 100 SEO. Section pages and the home share one grammar; new content types extend `site.narrative` and the existing components rather than adding bespoke sections. Client-side navigations (Astro view transitions) swap in a fresh `<html>` element and do not re-run inline head scripts, so anything set on the document at runtime, such as the stored colour scheme, must be re-applied in an `astro:after-swap` listener; test theme and script state across a nav click, not only on reload.

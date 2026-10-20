@@ -41,7 +41,7 @@ The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF 
 
 None binding. Saahil has released every current visual element (orb logo, Satoshi and JetBrains Mono, purple light / green dark accents, the bee and party-hat easter eggs) for replacement if the redesign calls for it. The GitHub activity graph is the one element that must remain a visible hallmark.
 
-Voice: plain statements, each claim once, no em dashes, no rhetorical contrast constructions, headings are labels. First person on the site, action-verb bullets in the CV.
+Voice: plain statements, each claim once, no em dashes, no rhetorical contrast constructions, headings are labels in a stranger's words (no conceit language). First person on the site, action-verb bullets in the CV. The full copy principles are in CLAUDE.md.
 
 ## Evidence on Hand
 
@@ -54,7 +54,7 @@ Voice: plain statements, each claim once, no em dashes, no rhetorical contrast c
 
 ## Product Principles
 
-1. Proof before prose: the first screen shows scale, systems and leadership as facts, not adjectives.
+1. Statement before proof: the first screen says in one plain sentence what Saahil does and how; scale, systems and leadership follow as the record, told in sentences. Figures never carry the design and appear once per page, inside the sentence that gives them meaning.
 2. Hands-on director: strategy and code appear together; the GitHub graph sits beside the strategy claims.
 3. One scroll, little clicking: the home page carries the whole case; section pages add depth rather than hide essentials.
 4. Readable under everything: motion, colour and layout never cost legibility or speed.
