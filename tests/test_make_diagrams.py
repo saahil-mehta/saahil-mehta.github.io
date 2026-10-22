@@ -34,7 +34,7 @@ def test_platform_renders_in_every_palette_from_the_record():
 def test_node_state_follows_the_project_status():
     data = load_profile()
     projects = {p["name"]: p for p in data["projects"]}
-    nodes, _ = make_diagrams.layout_platform(data["site"]["ecosystem"], projects)
+    nodes, _, _ = make_diagrams.layout_platform(data["site"]["ecosystem"], projects)
     by_id = {n.id: n for n in nodes}
     assert by_id["orca"].state == "built"
     assert by_id["semantics"].state == "in_build"
@@ -55,10 +55,10 @@ def test_edges_and_projects_must_exist():
 def test_routes_cover_every_shape():
     data = load_profile()
     projects = {p["name"]: p for p in data["projects"]}
-    nodes, edges = make_diagrams.layout_platform(data["site"]["ecosystem"], projects)
+    nodes, edges, _ = make_diagrams.layout_platform(data["site"]["ecosystem"], projects)
     shapes = {(e.src.id, e.dst.id): e.d for e in edges}
-    assert shapes[("sources", "core")].count(" H") == 1 and " V" not in shapes[("sources", "core")]  # along the row
-    assert shapes[("cost", "core")].startswith("M") and " V" in shapes[("cost", "core")] and " H" not in shapes[("cost", "core")]  # up a column
+    assert shapes[("sources", "raw")].count(" H") == 1 and " V" not in shapes[("sources", "raw")]  # along the row
+    assert shapes[("core", "marts")].count(" H") == 1  # along the row
     assert shapes[("marts", "orca")].count(" V") == 2  # the arc over Orca Semantics
     assert shapes[("plan", "core")].count(" V") == 2  # the bracket
     for e in edges:
@@ -91,3 +91,14 @@ def test_render_all_writes_both_renditions(tmp_path):
     written = make_diagrams.render_all(data, tmp_path / "inline", tmp_path / "public", datetime(2026, 10, 20, tzinfo=timezone.utc))
     names = sorted(p.name for p in written)
     assert names == ["platform-dark.svg", "platform-light.svg", "platform.svg", "roadmap-dark.svg", "roadmap-light.svg", "roadmap.svg"]
+
+
+def test_band_lines_must_fit_their_slot():
+    data = load_profile()
+    projects = {p["name"]: p for p in data["projects"]}
+    eco = dict(data["site"]["ecosystem"])
+    eco["nodes"] = [dict(n) for n in eco["nodes"]]
+    band = next(n for n in eco["nodes"] if n.get("kind") == "band")
+    band["line"] = "a line written far too long to sit beside its neighbours in the band under every layer"
+    with pytest.raises(ProfileError):
+        make_diagrams.platform_svg(eco, projects, "inline")

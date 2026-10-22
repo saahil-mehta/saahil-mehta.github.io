@@ -104,7 +104,7 @@ class Node:
     col: int
     row: int
     span: int = 1
-    kind: str = "system"  # system | people | ground
+    kind: str = "system"  # system | people | band
     state: str = "built"
     cx: float = 0.0
     y: float = 0.0
@@ -148,10 +148,11 @@ NAME_SIZE = 18
 LINE_SIZE = 12.5
 LABEL_SIZE = 10
 MIN_GUTTER = 44
-ROW_Y = {-1: 46, 0: 206, 1: 338}
-ARC_Y = 134
-GROUND_Y = 440
-HEIGHT = 458
+ROW_Y = {-1: 76, 0: 228, 1: 354}
+ARC_Y = 158
+HEAD_Y = 18
+BAND_Y = 430
+HEIGHT = 506
 X0 = 6
 
 
@@ -166,7 +167,7 @@ def resolve_state(node: dict, projects: dict[str, dict]) -> str:
     return state
 
 
-def layout_platform(eco: dict, projects: dict[str, dict]) -> tuple[list[Node], list[Edge]]:
+def layout_platform(eco: dict, projects: dict[str, dict]) -> tuple[list[Node], list[Edge], dict[int, tuple[float, float]]]:
     nodes: list[Node] = []
     for i, raw in enumerate(eco["nodes"]):
         n = Node(id=raw["id"], name=raw["name"], line=raw.get("line", ""), col=int(raw.get("col", 0)), row=int(raw.get("row", 0)),
@@ -178,7 +179,7 @@ def layout_platform(eco: dict, projects: dict[str, dict]) -> tuple[list[Node], l
     by_id = {n.id: n for n in nodes}
     if len(by_id) != len(nodes):
         raise ProfileError("ecosystem node ids must be unique")
-    placed = [n for n in nodes if n.kind != "ground"]
+    placed = [n for n in nodes if n.kind != "band"]
     ncols = max(n.col + n.span for n in placed)
     # Columns take the width of their widest content (name or line); the slack is shared out
     # as gutters, so edges along the flow always have room for a line between the names.
@@ -195,14 +196,18 @@ def layout_platform(eco: dict, projects: dict[str, dict]) -> tuple[list[Node], l
         left[i] = x
         x += need[i] + gutter
     for n in nodes:
-        if n.kind == "ground":
-            n.cx, n.y, n.w = W / 2, GROUND_Y, W - 2 * X0
+        if n.kind == "band":
             continue
         x1 = left[n.col]
         x2 = left[n.col + n.span - 1] + need[n.col + n.span - 1]
         n.cx = (x1 + x2) / 2
         n.y = ROW_Y[n.row]
         n.span_x = (x1, x2)
+    for raw in eco.get("columns", []):
+        for key in ("from", "to"):
+            if not 0 <= int(raw[key]) < ncols:
+                raise ProfileError(f"ecosystem column {raw['title']!r} spans a column that does not exist")
+    extents = {i: (left[i], left[i] + need[i]) for i in range(ncols)}
     edges: list[Edge] = []
     for i, raw in enumerate(eco["edges"]):
         for key in ("from", "to"):
@@ -212,7 +217,7 @@ def layout_platform(eco: dict, projects: dict[str, dict]) -> tuple[list[Node], l
         no_em_dash(e.label, "ecosystem edge")
         route(e, nodes)
         edges.append(e)
-    return nodes, edges
+    return nodes, edges, extents
 
 
 def route(e: Edge, nodes: list[Node]) -> None:
@@ -258,7 +263,7 @@ def route(e: Edge, nodes: list[Node]) -> None:
     if d.row > s.row:
         # Leave the bottom, arrive at the left: a fork beneath the source.
         e.d = f"M{s.cx:.1f} {s.bottom + gap:.1f} V{d.mid:.1f} H{d.left - gap:.1f}"
-        e.label_at = ((s.cx + d.left - gap) / 2, d.mid - 8, "middle")
+        e.label_at = (s.cx + 10, (s.bottom + gap + d.mid) / 2 + 4, "start")
         e.head = (d.left - gap, d.mid, "right")
         return
     # Leave the right, arrive at the bottom.
@@ -280,9 +285,19 @@ def arrowhead(x: float, y: float, direction: str, stroke: str) -> str:
 
 def platform_svg(eco: dict, projects: dict[str, dict], palette: str) -> str:
     c = PALETTES[palette]
-    nodes, edges = layout_platform(eco, projects)
+    nodes, edges, extents = layout_platform(eco, projects)
     standalone = palette != "inline"
     parts: list[str] = []
+    # Column headings: the layer each column belongs to, with a hairline under its span.
+    for col in eco.get("columns", []):
+        x1, x2 = extents[int(col["from"])][0], extents[int(col["to"])][1]
+        no_em_dash(col["title"], "ecosystem column")
+        parts.append(
+            f'<g class="node head" style="--i:{int(col["from"])}">'
+            f'{text(x1, HEAD_Y, col["title"], 10.5, c["ink3"], 540, "start", "lab", "0.08em", upper=True)}'
+            f'<path d="M{x1:.1f} {HEAD_Y + 10} H{x2:.1f}" stroke="{c["line"]}" stroke-width="1" fill="none"/>'
+            "</g>"
+        )
     # Edges first so nodes sit over them.
     for e in edges:
         lx, ly, anchor = e.label_at
@@ -298,15 +313,7 @@ def platform_svg(eco: dict, projects: dict[str, dict], palette: str) -> str:
         )
     legend_states: set[str] = set()
     for n in nodes:
-        if n.kind == "ground":
-            name_w = measure(540).width(n.name, 14, -0.012)
-            parts.append(
-                f'<g class="node ground" style="--i:0">'
-                f'<path d="M{X0} {n.y:.1f} H{W - X0}" pathLength="1" fill="none" stroke="{c["line"]}" stroke-width="1"/>'
-                f'{text(X0, n.y - 12, n.name, 14, c["ink"], 540, tracking="-0.012em")}'
-                f'{text(X0 + name_w + 14, n.y - 12, n.line, LINE_SIZE, c["ink2"])}'
-                "</g>"
-            )
+        if n.kind == "band":
             continue
         weight = 540 if n.kind == "system" else 440
         ink = c["ink"] if n.state != "planned" else c["ink2"]
@@ -322,7 +329,33 @@ def platform_svg(eco: dict, projects: dict[str, dict], palette: str) -> str:
             g.append(text(n.cx, n.y + LINE_SIZE + 10, n.line, LINE_SIZE, c["ink2"], 400, "middle"))
         g.append("</g>")
         parts.append("".join(g))
-    # Legend: only the states that appear, at the bottom right above the ground line.
+    # The band: services that run under every layer, in a row beneath a hairline.
+    band = [n for n in nodes if n.kind == "band"]
+    if band:
+        title = eco.get("band_title", "")
+        parts.append(f'<g class="node band-head" style="--i:0"><path d="M{X0} {BAND_Y} H{W - X0}" stroke="{c["line"]}" stroke-width="1" fill="none"/>'
+                     + (text(X0, BAND_Y - 9, title, 10.5, c["ink3"], 540, "start", "lab", "0.08em", upper=True) if title else "") + "</g>")
+        slot = (W - 2 * X0) / len(band)
+        for n in band:
+            widest = max(measure(540).width(n.name, 15, -0.012), measure(400).width(n.line, 12))
+            if widest > slot - 18:
+                raise ProfileError(f"ecosystem band node {n.id!r} is {widest:.0f}px wide, its slot allows {slot - 18:.0f}px; shorten its name or line")
+        for i, n in enumerate(band):
+            x = X0 + i * slot
+            ink = c["ink"] if n.state != "planned" else c["ink2"]
+            name_w = measure(540).width(n.name, 15, -0.012)
+            g = [f'<g class="node band-node" style="--i:{i + 1}">', text(x, BAND_Y + 28, n.name, 15, ink, 540, tracking="-0.012em")]
+            if n.state == "in_build":
+                legend_states.add("in_build")
+                g.append(f'<rect class="u" x="{x:.1f}" y="{BAND_Y + 33:.1f}" width="{name_w:.1f}" height="2" fill="{c["accent"]}"/>')
+            elif n.state == "planned":
+                legend_states.add("planned")
+                g.append(f'<path class="u" d="M{x:.1f} {BAND_Y + 34:.1f} H{x + name_w:.1f}" stroke="{c["ink3"]}" stroke-width="1" stroke-dasharray="3 3" fill="none"/>')
+            if n.line:
+                g.append(text(x, BAND_Y + 48, n.line, 12, c["ink2"]))
+            g.append("</g>")
+            parts.append("".join(g))
+    # Legend: only the states that appear, at the right of the band's title line.
     legend = []
     lx = W - X0
     for state in ("planned", "in_build"):
@@ -330,12 +363,12 @@ def platform_svg(eco: dict, projects: dict[str, dict], palette: str) -> str:
             continue
         label = STATE_LABEL[state]
         lw = measure(540).width(label.upper(), 11, 0.08)
-        legend.append(text(lx, GROUND_Y - 12, label, 11, c["ink3"], 540, "end", "lab", "0.08em", upper=True))
+        legend.append(text(lx, BAND_Y - 9, label, 11, c["ink3"], 540, "end", "lab", "0.08em", upper=True))
         lx -= lw + 10
         if state == "in_build":
-            legend.append(f'<rect x="{lx - 18:.1f}" y="{GROUND_Y - 16}" width="18" height="2" fill="{c["accent"]}"/>')
+            legend.append(f'<rect x="{lx - 18:.1f}" y="{BAND_Y - 13}" width="18" height="2" fill="{c["accent"]}"/>')
         else:
-            legend.append(f'<path d="M{lx - 18:.1f} {GROUND_Y - 15} H{lx:.1f}" stroke="{c["ink3"]}" stroke-width="1" stroke-dasharray="3 3"/>')
+            legend.append(f'<path d="M{lx - 18:.1f} {BAND_Y - 12} H{lx:.1f}" stroke="{c["ink3"]}" stroke-width="1" stroke-dasharray="3 3"/>')
         lx -= 18 + 22
     title = "How it fits together"
     desc = "; ".join(f"{e.src.name} {e.label} {e.dst.name}" for e in edges)
@@ -366,7 +399,6 @@ def standalone_style(c: dict, count: int) -> str:
         ".edge .halo,.edge text,.edge .head{opacity:0;animation:appear 400ms linear forwards;animation-delay:calc(var(--i,0) * 90ms + 700ms)}"
         ".node{opacity:0;transform:translateY(8px);animation:rise 700ms cubic-bezier(0.16,1,0.3,1) forwards;animation-delay:calc(var(--i,0) * 90ms)}"
         ".node .u{transform-box:fill-box;transform-origin:left center;transform:scaleX(0);animation:draw 900ms cubic-bezier(0.16,1,0.3,1) forwards;animation-delay:calc(var(--i,0) * 90ms + 500ms)}"
-        ".ground path{animation:none;stroke-dasharray:none}"
         "@keyframes trace{to{stroke-dashoffset:0}}@keyframes appear{to{opacity:1}}@keyframes rise{to{opacity:1;transform:none}}@keyframes draw{to{transform:scaleX(1)}}"
         "@media (prefers-reduced-motion: reduce){.edge path:not(.head),.edge .halo,.edge text,.edge .head,.node,.node .u{animation:none;opacity:1;transform:none;stroke-dashoffset:0}}"
     )

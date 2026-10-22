@@ -70,7 +70,7 @@ const EcosystemNode = z.object({
   col: z.number().int().optional(),
   row: z.number().int().optional(),
   span: z.number().int().optional(),
-  kind: z.enum(["system", "people", "ground"]).optional(),
+  kind: z.enum(["system", "people", "band"]).optional(),
   project: z.string().optional(),
   state: z.enum(["built", "in_build", "planned"]).optional(),
 });
@@ -130,6 +130,8 @@ const Profile = z.object({
     ecosystem: z
       .object({
         note: z.string().optional(),
+        band_title: z.string().optional(),
+        columns: z.array(z.object({ title: z.string(), from: z.number().int(), to: z.number().int() })).optional(),
         nodes: z.array(EcosystemNode).min(2),
         edges: z.array(z.object({ from: z.string(), to: z.string(), label: z.string() })).min(1),
       })

@@ -537,25 +537,37 @@ site:
       platform: "The systems in production, what each one does and what flows between them."
       plan: "Seven workstreams to 2028 and where each one stands."
     end_card: "Let's talk."
-  # The platform diagram. Nodes sit on a column (left to right) and a row (0 is the flow,
-  # -1 above it, 1 below it); a node that names a project takes that project's state. Edges
-  # carry a short verb. The renderer is scripts/make_diagrams.py.
+  # The platform diagram. Columns carry a heading; nodes sit on a column (left to right) and a
+  # row (0 is the flow, -1 above it, 1 below it); band nodes run under every layer. A node that
+  # names a project takes that project's state. Edges carry a short verb. The renderer is
+  # scripts/make_diagrams.py.
   ecosystem:
     note: "Owners are named once, in the semantic layer, and access approvals, quality routing and Orca's context all reuse them."
+    band_title: Under every layer
+    columns:
+      - {title: Sources, from: 0, to: 0}
+      - {title: Ingest and land, from: 1, to: 1}
+      - {title: Transform and own, from: 2, to: 4}
+      - {title: Serve and analyse, from: 5, to: 5}
+      - {title: People, from: 6, to: 6}
     nodes:
       - {id: sources, name: Source systems, line: operational systems, col: 0, row: 0, kind: people}
-      - {id: core, name: Data Marts Core, line: "dbt on Dagster, orchestrated", col: 1, row: 0, project: Data Marts Core}
-      - {id: marts, name: Data marts, line: governed tables in BigQuery, col: 2, row: 0}
-      - {id: semantics, name: Orca Semantics, line: definitions and named owners, col: 3, row: 0, project: Orca Semantics}
-      - {id: orca, name: Orca, line: the AI assistant, col: 4, row: 0, project: Orca}
-      - {id: company, name: The company, line: everyone at South Pole, col: 5, row: 0, kind: people}
-      - {id: cost, name: Cost Deep Dive, line: spend and anomalies, col: 1, row: 1, project: Cost Deep Dive}
-      - {id: access, name: Data Access Governance, line: self-service access, col: 2, row: 1, project: Data Access Governance}
-      - {id: visuals, name: Orca Visuals, line: dashboards as code, col: 4, row: 1, project: Orca Visuals}
-      - {id: plan, name: Data Foundation Plan, line: the strategy the executive committee adopted, col: 1, row: -1, span: 4, project: Data Foundation Plan}
-      - {id: platform, name: Enterprise data platform, line: one Terraform estate shared by every business unit, kind: ground, project: Enterprise Data Platform Migration}
+      - {id: raw, name: Raw layer, line: landed by pipelines, col: 1, row: 0}
+      - {id: core, name: Data Marts Core, line: dbt on Dagster, col: 2, row: 0, project: Data Marts Core}
+      - {id: marts, name: Data marts, line: tables in BigQuery, col: 3, row: 0}
+      - {id: semantics, name: Orca Semantics, line: definitions and owners, col: 4, row: 0, project: Orca Semantics}
+      - {id: orca, name: Orca, line: the AI assistant, col: 5, row: 0, project: Orca}
+      - {id: company, name: The company, line: everyone at South Pole, col: 6, row: 0, kind: people}
+      - {id: visuals, name: Orca Visuals, line: dashboards as code, col: 5, row: 1, project: Orca Visuals}
+      - {id: plan, name: Data Foundation Plan, line: the strategy the executive committee adopted, col: 1, row: -1, span: 5, project: Data Foundation Plan}
+      - {id: platform, name: Enterprise data platform, line: one Terraform estate for the company, kind: band, project: Enterprise Data Platform Migration}
+      - {id: access, name: Data Access Governance, line: grants with a reason and an audit trail, kind: band, project: Data Access Governance}
+      - {id: cost, name: Cost Deep Dive, line: spend and anomalies on every project, kind: band, project: Cost Deep Dive}
+      - {id: quality, name: Data quality at scale, line: tests and alerts routed to owners, kind: band, state: planned}
+      - {id: sla, name: Service levels, line: freshness and reliability targets, kind: band, state: planned}
     edges:
-      - {from: sources, to: core, label: feeds}
+      - {from: sources, to: raw, label: lands in}
+      - {from: raw, to: core, label: transformed by}
       - {from: core, to: marts, label: builds}
       - {from: marts, to: semantics, label: defined in}
       - {from: semantics, to: orca, label: gives meaning to}
@@ -563,8 +575,6 @@ site:
       - {from: semantics, to: visuals, label: certified metrics for}
       - {from: orca, to: company, label: answers}
       - {from: visuals, to: company, label: dashboards for}
-      - {from: cost, to: core, label: watches}
-      - {from: access, to: marts, label: grants read access to}
       - {from: plan, to: core, label: sets the roadmap for everything below}
   pages:
     experience:
