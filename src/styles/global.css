@@ -838,6 +838,11 @@ html.js .still[data-motion="drift"] {
   mask: var(--logo) center / contain no-repeat;
   transition: color var(--fast);
 }
+.logo.tall {
+  height: 1.75rem;
+  width: calc(1.75rem * var(--ar, 1));
+  margin-top: -0.2rem;
+}
 .credit-row:hover .logo {
   color: var(--ink);
 }
@@ -868,10 +873,28 @@ html.js .still[data-motion="drift"] {
   }
 }
 
-/* The commit field. */
+/* The commit field: a year of weeks, month names above, the day under the pointer read in
+   the footer line. Below 900px it keeps its width inside a scroller padded so a lifted cell
+   is never clipped. */
 .field-wrap {
   overflow-x: auto;
-  padding-bottom: 0.25rem;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+}
+.field-months {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 3px;
+  min-width: 640px;
+  margin-bottom: 0.625rem;
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+.field-months span {
+  grid-row: 1;
 }
 .field {
   display: grid;
@@ -905,37 +928,20 @@ html.js .still[data-motion="drift"] {
   background: var(--cell-4);
 }
 .cell:hover {
-  transform: scale(1.5);
+  transform: scale(1.4);
   z-index: 2;
-}
-.cell::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%) scale(0.66);
-  padding: 0.3rem 0.5rem;
-  border-radius: 4px;
   background: var(--ink);
-  color: var(--field);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  white-space: nowrap;
-  display: none;
-  pointer-events: none;
-  z-index: 3;
-}
-.cell:hover::after {
-  display: block;
 }
 .field-foot {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   flex-wrap: wrap;
+}
+.field-foot .num {
+  min-height: 1.2em;
 }
 .field-foot .legend {
   display: inline-flex;
@@ -948,9 +954,19 @@ html.js .still[data-motion="drift"] {
 }
 .field-foot .legend .cell:hover {
   transform: none;
+  background: var(--cell-0);
 }
-.field-foot .legend .cell::after {
-  display: none;
+.field-foot .legend .cell.l1:hover {
+  background: var(--cell-1);
+}
+.field-foot .legend .cell.l2:hover {
+  background: var(--cell-2);
+}
+.field-foot .legend .cell.l3:hover {
+  background: var(--cell-3);
+}
+.field-foot .legend .cell.l4:hover {
+  background: var(--cell-4);
 }
 .field-loading {
   color: var(--ink-3);
@@ -977,7 +993,7 @@ html.js .field.wave.settled .cell {
   transform: none;
 }
 html.js .field.wave.settled .cell:hover {
-  transform: scale(1.5);
+  transform: scale(1.4);
 }
 
 /* End card. */

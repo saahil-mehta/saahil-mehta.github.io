@@ -76,6 +76,21 @@ function render(container: HTMLElement, weeks: Week[]): void {
   const last = weeks.at(-1)?.days.at(-1)?.date ?? "";
 
   const scroll = el("div", "field-wrap");
+  // Month names above the columns, each at the first week that starts in that month.
+  const months = el("div", "field-months credit");
+  let seenMonth = "";
+  weeks.forEach((week, wi) => {
+    const first = week.days[0]?.date ?? "";
+    const m = first.slice(0, 7);
+    if (m && m !== seenMonth) {
+      if (seenMonth !== "" || new Date(first).getDate() <= 7) {
+        const label = el("span", "", new Date(first).toLocaleDateString("en-GB", { month: "short" }).slice(0, 3));
+        label.style.gridColumn = String(wi + 1);
+        months.appendChild(label);
+      }
+      seenMonth = m;
+    }
+  });
   const field = el("div", "field wave");
   field.setAttribute("role", "img");
   field.setAttribute("aria-label", `${total.toLocaleString("en-GB")} contributions on GitHub between ${fmt(first)} and ${fmt(last)}`);
@@ -89,11 +104,22 @@ function render(container: HTMLElement, weeks: Week[]): void {
     }
     field.appendChild(column);
   });
+  scroll.appendChild(months);
   scroll.appendChild(field);
   container.appendChild(scroll);
 
   const foot = el("div", "field-foot");
-  foot.appendChild(el("span", "credit num", `${total.toLocaleString("en-GB")} contributions · ${fmt(first)} to ${fmt(last)}`));
+  const summary = `${total.toLocaleString("en-GB")} contributions · ${fmt(first)} to ${fmt(last)}`;
+  const line = el("span", "credit num", summary);
+  foot.appendChild(line);
+  // The day under the pointer reads in the footer line, so nothing pops over the field.
+  field.addEventListener("mouseover", (e) => {
+    const label = (e.target as HTMLElement).dataset.label;
+    if (label) line.textContent = label;
+  });
+  field.addEventListener("mouseleave", () => {
+    line.textContent = summary;
+  });
   const legend = el("span", "legend credit");
   legend.appendChild(el("span", "", "Less"));
   for (const l of ["", "l1", "l2", "l3", "l4"]) legend.appendChild(el("span", `cell ${l}`.trim()));

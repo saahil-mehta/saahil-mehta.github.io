@@ -22,7 +22,7 @@ const logo = logoFor(org);
     {
       org && (
         <p class="org" style="--i:2">
-          {logo && <span class="logo" role="img" aria-label={logo.label} style={`--logo:url(${logo.file}); --ar:${logo.aspect.toFixed(3)}`} />}
+          {logo && <span class:list={["logo", { tall: logo.tall }]} role="img" aria-label={logo.label} style={`--logo:url(${logo.file}); --ar:${logo.aspect.toFixed(3)}`} />}
           {org}
         </p>
       )
