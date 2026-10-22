@@ -631,6 +631,41 @@ html:not(.js) .key {
 .still-row:hover .still img {
   --lift: -4px;
 }
+/* The 3D object: a canvas laid over the still. It fades in over the image once its first frame
+   is drawn; the image stays underneath as the fallback and the first paint. */
+.still {
+  position: relative;
+}
+.still canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(var(--lift, 0px));
+  transition: opacity 900ms var(--ease-out), transform var(--slow) var(--ease-out);
+  pointer-events: none;
+}
+.still[data-three="on"] canvas {
+  opacity: 1;
+}
+.still[data-three="on"] img {
+  opacity: 0;
+  transition: opacity 900ms var(--ease-out), clip-path var(--slow) var(--ease-out);
+}
+.still-row:hover .still canvas {
+  --lift: -4px;
+}
+html.js .still[data-motion][data-three="on"] {
+  animation: none;
+}
+html.js [data-arrive] > .still canvas {
+  clip-path: inset(0 100% 0 0);
+}
+html.js [data-arrive].in > .still canvas {
+  clip-path: inset(-10% -10% -10% -10%);
+  transition: opacity 900ms var(--ease-out), clip-path var(--slow) var(--ease-out), transform var(--slow) var(--ease-out);
+}
 /* Idle motion, one per object shape, slow enough to read as stillness with life in it. */
 html.js .still[data-motion] {
   animation-duration: 7s;
@@ -1268,5 +1303,246 @@ html.js .diagram.in .lane {
     transform: none;
     stroke-dashoffset: 0;
     transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Phone: the same world, set for a thumb and a 390px column.          */
+/* ------------------------------------------------------------------ */
+.flow-phone {
+  display: none;
+}
+@media (max-width: 760px) {
+  /* The diagram becomes a list read top to bottom. */
+  .diagram.has-phone .diagram-scroll {
+    display: none;
+  }
+  .flow-phone {
+    display: grid;
+    gap: 1.75rem;
+  }
+  .flow-phone ul,
+  .flow-phone ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .flow-lead {
+    display: grid;
+    gap: 0.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .flow-layers {
+    display: grid;
+    gap: 1.75rem;
+  }
+  .flow-layer,
+  .flow-band {
+    display: grid;
+    gap: 0.875rem;
+  }
+  .flow-layer-title {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .flow-layer ul,
+  .flow-band ul {
+    display: grid;
+    gap: 1.125rem;
+  }
+  /* One spine down each layer: a hairline with a dot at every system. */
+  .flow-layer ul {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .flow-layer ul::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 1px;
+    background: var(--line-2);
+  }
+  .flow-layer .flow-node {
+    position: relative;
+  }
+  .flow-layer .flow-node::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.25rem);
+    top: 0.5rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ink-3);
+  }
+  .flow-node,
+  .flow-lead {
+    display: grid;
+    gap: 0.2rem;
+  }
+  .flow-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.625rem;
+    font-size: 1.1875rem;
+    font-weight: 540;
+    letter-spacing: -0.012em;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .flow-lead .flow-name {
+    font-size: 1.375rem;
+  }
+  .is-in_build .flow-name > span:first-child {
+    background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 100% / 100% 2px;
+    padding-bottom: 2px;
+  }
+  .is-planned .flow-name > span:first-child {
+    color: var(--ink-2);
+    background: linear-gradient(90deg, var(--ink-3) 50%, transparent 0) repeat-x 0 100% / 6px 1px;
+    padding-bottom: 2px;
+  }
+  .flow-state {
+    font-size: 0.6875rem;
+  }
+  .flow-node.is-in_build .flow-state {
+    color: var(--accent);
+  }
+  .flow-line {
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+  }
+  .flow-edge {
+    margin-top: 0.25rem;
+    font-size: 0.6875rem;
+  }
+  .flow-edge::before {
+    content: "\2192\00a0";
+  }
+  .flow-edge span {
+    color: var(--ink-2);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Rhythm: sections close enough to read as one story. */
+  .beat {
+    padding-block: 3.25rem;
+  }
+  .beat-head {
+    margin-bottom: 2rem;
+    gap: 0.75rem;
+  }
+  .end-card {
+    padding-block: 4rem 2.5rem;
+  }
+  .stills {
+    gap: 3rem;
+  }
+  .lines {
+    gap: 1rem;
+  }
+  /* The main title: statement, role, controls, then the portrait at the column's width. */
+  .main-title {
+    min-height: 0;
+    padding-block: 2.5rem 1rem;
+  }
+  .main-title .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+  .main-title .copy,
+  .main-title .portrait {
+    grid-column: 1;
+  }
+  .main-title .copy {
+    gap: 1.375rem;
+  }
+  .main-title .portrait {
+    grid-column: 1 / -1;
+    justify-items: stretch;
+  }
+  .portrait-frame {
+    max-width: none;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+  }
+  /* Stills: centred and large enough to hold the eye. */
+  .still,
+  .still-compact {
+    max-width: min(78vw, 320px);
+    justify-self: center;
+  }
+  .still-row,
+  .still-row.compact {
+    gap: 1.25rem;
+  }
+  /* Controls a thumb can find: the primary action full width, the rest in a row beneath. */
+  .end-card .controls,
+  .main-title .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+  }
+  .end-card .controls .btn.fill,
+  .main-title .controls .btn.fill {
+    grid-column: 1 / -1;
+    justify-content: center;
+    height: 3rem;
+  }
+  .end-card .controls .btn.ghost,
+  .main-title .controls .btn.ghost {
+    justify-content: flex-start;
+    height: 3rem;
+  }
+  .main-title .controls .btn.ghost {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+  /* A mark beside a name that wraps sits at the top of the name. */
+  .credit-row .org {
+    align-items: flex-start;
+  }
+  .credit-row .org .logo {
+    margin-top: 0.2rem;
+  }
+  .credit-row .org .logo.tall {
+    margin-top: 0;
+  }
+  /* The commit field opens on the latest weeks; a fade on the left says there is more. */
+  .field-wrap:not(.at-start) {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 2.5rem);
+    mask-image: linear-gradient(to right, transparent, #000 2.5rem);
+  }
+  .field-foot .num {
+    text-wrap: balance;
+  }
+}
+
+/* The resume on a phone: the PDF's pages as images, since mobile browsers will not draw a PDF
+   inside a page. Each opens the PDF. */
+.resume-pages {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+.resume-pages img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--line-2);
+}
+@media (max-width: 760px) {
+  .resume-frame {
+    display: none;
+  }
+  .resume-pages {
+    display: grid;
   }
 }

@@ -76,6 +76,30 @@ def render_html(data: dict, base_href: str = "") -> str:
     return make_env().get_template(TEMPLATE).render(base_href=base_href, **data)
 
 
+PREVIEWS = ROOT / "public" / "resume"
+
+
+def write_previews(pdf: Path, out_dir: Path = PREVIEWS, width: int = 900) -> list[Path]:
+    """Each page of the PDF as a WebP, for screens that cannot draw a PDF inside a page."""
+    import fitz  # PyMuPDF; only needed when writing
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    written = []
+    with fitz.open(pdf) as doc:
+        for i, page in enumerate(doc, start=1):
+            zoom = width / page.rect.width
+            pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False)
+            png = out_dir / f"page-{i}.png"
+            pix.save(png)
+            from PIL import Image
+
+            target = out_dir / f"page-{i}.webp"
+            Image.open(png).save(target, "WEBP", quality=82, method=6)
+            png.unlink()
+            written.append(target)
+    return written
+
+
 def content_hash(data: dict) -> str:
     return hashlib.sha256(render_html(data).encode("utf-8")).hexdigest()
 
@@ -158,6 +182,9 @@ def main(argv: list[str] | None = None) -> int:
     out = args.out or OUT
     pages = write_pdf(data, out=out, stamp_hash=out == OUT)
     print(f"wrote {_rel(out)} ({pages} page{'s' if pages != 1 else ''}, {out.stat().st_size // 1024} KB)")
+    if out == OUT:
+        for img in write_previews(out):
+            print(f"wrote {_rel(img)}")
     if pages > MAX_PAGES:
         print(f"resume runs to {pages} pages; the limit is {MAX_PAGES}. Trim profile.yaml or the template.", file=sys.stderr)
         return 1

@@ -1,0 +1,83 @@
+---
+// The platform diagram for a phone: the same ecosystem block read top to bottom. The Plan
+// leads, each layer follows under its heading with its systems on one spine, what flows out of
+// a system is written beneath it, and the services under every layer close the list. Shown
+// below 760px, where the drawing would need a sideways scroller.
+import { profile, nodeState } from "../lib/profile";
+
+const eco = profile.site.ecosystem!;
+const byId = new Map(eco.nodes.map((n) => [n.id, n]));
+const out = (id: string) => eco.edges.filter((e) => e.from === id);
+const placed = eco.nodes.filter((n) => n.kind !== "band" && (n.row ?? 0) >= 0);
+const lead = eco.nodes.filter((n) => n.kind !== "band" && (n.row ?? 0) < 0);
+const band = eco.nodes.filter((n) => n.kind === "band");
+const columns = eco.columns ?? [];
+const layers = columns.map((c) => ({
+  title: c.title,
+  nodes: placed
+    .filter((n) => (n.col ?? 0) >= c.from && (n.col ?? 0) <= c.to)
+    .sort((a, b) => (a.col ?? 0) - (b.col ?? 0) || (a.row ?? 0) - (b.row ?? 0)),
+}));
+const STATE: Record<string, string> = { in_build: "In build", planned: "Planned" };
+---
+
+<div class="flow-phone">
+  {
+    lead.map((n) => (
+      <div class="flow-lead" data-arrive>
+        <p class="flow-name" style="--i:0">{n.name}</p>
+        {n.line && <p class="flow-line" style="--i:1">{n.line}</p>}
+        {out(n.id).map((e) => <p class="flow-edge credit" style="--i:2">{e.label}</p>)}
+      </div>
+    ))
+  }
+  <ol class="flow-layers">
+    {
+      layers.map((layer) => (
+        <li class="flow-layer" data-arrive>
+          <p class="credit flow-layer-title" style="--i:0">{layer.title}</p>
+          <ul>
+            {layer.nodes.map((n, i) => {
+              const state = nodeState(n);
+              return (
+                <li class:list={["flow-node", `is-${state}`]} style={`--i:${i + 1}`}>
+                  <p class="flow-name">
+                    <span>{n.name}</span>
+                    {STATE[state] && <span class="credit flow-state">{STATE[state]}</span>}
+                  </p>
+                  {n.line && <p class="flow-line">{n.line}</p>}
+                  {out(n.id).map((e) => (
+                    <p class="flow-edge credit">
+                      {e.label} <span>{byId.get(e.to)?.name}</span>
+                    </p>
+                  ))}
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+  {
+    band.length > 0 && (
+      <div class="flow-band" data-arrive>
+        <p class="credit flow-layer-title" style="--i:0">{eco.band_title ?? "Under every layer"}</p>
+        <ul>
+          {band.map((n, i) => {
+            const state = nodeState(n);
+            return (
+              <li class:list={["flow-node", `is-${state}`]} style={`--i:${i + 1}`}>
+                <p class="flow-name">
+                  <span>{n.name}</span>
+                  {STATE[state] && <span class="credit flow-state">{STATE[state]}</span>}
+                </p>
+                {n.line && <p class="flow-line">{n.line}</p>}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    )
+  }
+</div>

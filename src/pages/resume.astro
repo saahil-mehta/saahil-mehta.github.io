@@ -17,6 +17,13 @@ const meta = site.pages.resume;
       <a class="btn ghost" href={person.links.calendly} target="_blank" rel="noopener" style="--i:1">Book a call <Icon name="arrow-right" size={16} class="arrow" /></a>
     </div>
     <iframe class="resume-frame" src="/Saahil-Mehta-Resume.pdf#view=FitH" title={`${person.name} resume`} loading="lazy"></iframe>
+    <ol class="resume-pages" aria-label="Resume pages">
+      {[1, 2].map((n) => (
+        <li>
+          <a href="/Saahil-Mehta-Resume.pdf"><img src={`/resume/page-${n}.webp`} width="900" height="1274" alt={`${person.name} resume, page ${n} of 2`} loading={n === 1 ? "eager" : "lazy"} decoding="async" /></a>
+        </li>
+      ))}
+    </ol>
   </Beat>
   <EndCard />
 </Base>

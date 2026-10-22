@@ -36,7 +36,7 @@ const firstSentence = opening(p.site_summary);
 ---
 
 <li class:list={["still-row", { compact }]} data-arrive>
-  <figure class:list={["still", { "still-compact": compact }]} data-motion={motion} style={`--i:0; --n:${index}`}>
+  <figure class:list={["still", { "still-compact": compact }]} data-motion={motion} data-object={slug(p.name)} style={`--i:0; --n:${index}`}>
     <picture>
       <source media="(prefers-color-scheme: light)" srcset={stillLightFor(p)} data-still-light />
       <img src={stillFor(p)} width="1024" height="1024" alt="" loading={index < 2 ? "eager" : "lazy"} decoding="async" />

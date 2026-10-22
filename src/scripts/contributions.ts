@@ -107,6 +107,13 @@ function render(container: HTMLElement, weeks: Week[]): void {
   scroll.appendChild(months);
   scroll.appendChild(field);
   container.appendChild(scroll);
+  // On a narrow screen the field scrolls; open it on the latest weeks, where the reader looks first.
+  requestAnimationFrame(() => {
+    scroll.scrollLeft = scroll.scrollWidth;
+    const edge = () => scroll.classList.toggle("at-start", scroll.scrollLeft < 4);
+    edge();
+    scroll.addEventListener("scroll", edge, { passive: true });
+  });
 
   const foot = el("div", "field-foot");
   const summary = `${total.toLocaleString("en-GB")} contributions · ${fmt(first)} to ${fmt(last)}`;
