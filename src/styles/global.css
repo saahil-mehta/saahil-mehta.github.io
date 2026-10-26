@@ -1229,7 +1229,8 @@ html.js [data-arrive].in > .still img {
   margin-top: 1rem;
 }
 /* The arrival for a diagram: the figure itself stays put; edges trace, names rise, bars draw. */
-html.js [data-arrive="diagram"] > .diagram-scroll {
+html.js [data-arrive="diagram"] > .diagram-scroll,
+html.js [data-arrive="diagram"] > .flow-phone {
   opacity: 1;
   transform: none;
   clip-path: none;
@@ -1462,14 +1463,22 @@ html.js .diagram.in .lane {
   .main-title .copy {
     gap: 1.375rem;
   }
+  /* The portrait leads on a phone, small enough that the statement still lands on the
+     first screen; the caption sits beside it. */
   .main-title .portrait {
     grid-column: 1 / -1;
-    justify-items: stretch;
+    order: -1;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    align-items: end;
+    gap: 1rem;
   }
   .portrait-frame {
     max-width: none;
-    width: 100%;
+    width: 9.5rem;
     aspect-ratio: 4 / 5;
+  }
+  .main-title .portrait figcaption {
+    padding-bottom: 0.125rem;
   }
   /* Stills: centred and large enough to hold the eye. */
   .still,
