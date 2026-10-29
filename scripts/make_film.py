@@ -62,7 +62,7 @@ def counted(line: dict) -> dict:
     m = NUMBER.match(line["lead"])
     if not m:
         sys.exit(f"film line has no leading figure to count: {line['lead']!r}")
-    return {**line, "count": int(m.group(1).replace(",", "")), "comma": "," in m.group(1)}
+    return {**line, "count": int(m.group(1).replace(",", "")), "comma": "," in m.group(1), "num": m.group(1), "rest": line["lead"][m.end():]}
 
 
 def layouts() -> dict:

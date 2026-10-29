@@ -2171,7 +2171,54 @@ html.js [data-arrive="slate"].in .slate-bar i {
   transition: transform 1100ms var(--ease-out) calc(var(--r) * 90ms + var(--c) * 170ms);
 }
 
-/* Savings: the credit rows, with what replaced each cost. */
+/* Savings: the credit rows, with what replaced each cost. As a row arrives, a vermilion line
+   strikes the old cost through and dims it, then the replacement and its amount come in. It
+   plays once; without script or under reduced motion the row is already struck. */
+.reel-money .gone {
+  position: relative;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 500ms var(--ease-out) 850ms;
+}
+.reel-money .gone::after {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  top: 54%;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left center;
+  transition: transform 700ms var(--ease-out) 450ms;
+}
+.reel-money .org {
+  color: var(--ink);
+  transition: opacity 500ms var(--ease-out) 1000ms, transform 600ms var(--ease-out) 1000ms;
+}
+.reel-money .amount {
+  transition: opacity 500ms var(--ease-out) 1250ms;
+}
+html.js .reel-money li:not(.in) .gone {
+  color: var(--ink);
+}
+html.js .reel-money li:not(.in) .gone::after {
+  transform: scaleX(0);
+}
+html.js .reel-money li:not(.in) .org {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+html.js .reel-money li:not(.in) .amount {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reel-money .gone,
+  .reel-money .gone::after,
+  .reel-money .org,
+  .reel-money .amount {
+    transition: none;
+  }
+}
 .reel-money .org .swap {
   color: var(--ink-3);
 }

@@ -225,7 +225,7 @@ table.t { width: 100%; border-collapse: collapse; font-size: 17px; }
 
   {% for a in adoption %}
   <section class="scene sn" id="s-n{{ loop.index0 }}">
-    <p class="giant abs centre num"><span class="cnt" data-to="{{ a.count }}" data-comma="{{ 1 if a.comma else 0 }}">{{ a.lead }}</span></p>
+    <p class="giant abs centre num"><span class="cnt" data-to="{{ a.count }}" data-comma="{{ 1 if a.comma else 0 }}">{{ a.num }}</span><span class="rest">{{ a.rest }}</span></p>
     <p class="say abs centre num-say" style="font-size:46px">{{ a.text }}</p>
   </section>
   {% endfor %}
@@ -491,6 +491,8 @@ $$(".sn").forEach((sec) => {
   const sc = S[sec.id], g = sec.querySelector(".giant"), c = sec.querySelector(".cnt");
   at(g, sc.a + 0.05, 0.9, { o: [0, 1], s: [0.9, 1], blur: [16, 0] });
   if (Number(c.dataset.to)) at(c, sc.a + 0.05, 1.2, { count: [0, Number(c.dataset.to)] }, { ease: "out2" });
+  // a "+" after the figure lands once the count has
+  at(sec.querySelector(".rest"), sc.a + 1.15, 0.35, { o: [0, 1] });
   at(sec.querySelector(".say"), sc.a + 0.6, 0.7, { o: [0, 1], y: [14, 0] });
   at(g, sc.b - 0.45, 0.45, { s: [1, 1.04] }, { ease: "soft" });
 });

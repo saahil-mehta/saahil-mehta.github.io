@@ -36,9 +36,15 @@ def test_node_state_follows_the_project_status():
     projects = {p["name"]: p for p in data["projects"]}
     nodes, _, _ = make_diagrams.layout_platform(data["site"]["ecosystem"], projects)
     by_id = {n.id: n for n in nodes}
-    assert by_id["orca"].state == "built"
-    assert by_id["semantics"].state == "in_build"
     assert by_id["marts"].state == "built"
+    # every node that names a project draws that project's status, whatever the data says today
+    for raw in data["site"]["ecosystem"]["nodes"]:
+        if "project" in raw:
+            assert by_id[raw["id"]].state == make_diagrams.PROJECT_STATE[projects[raw["project"]]["status"]]
+    # and a project moved into build is drawn in build
+    projects["Orca Semantics"] = {**projects["Orca Semantics"], "status": "in_progress"}
+    nodes, _, _ = make_diagrams.layout_platform(data["site"]["ecosystem"], projects)
+    assert {n.id: n for n in nodes}["semantics"].state == "in_build"
 
 
 def test_edges_and_projects_must_exist():

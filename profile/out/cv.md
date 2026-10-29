@@ -15,7 +15,7 @@ South Pole · London / Remote · Jul 2026 to Present
 - Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and sales proposals, position-aware access. Within three weeks of the 2.0 release, 131 employees, over a quarter of the company, were querying governed data through it; 560,000+ requests served at 99.99% success.
 - Designed Orca Semantics, a governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context and underpinning the visualisation layer.
 - Replaced dbt Cloud with self-hosted Dagster on GKE in three weeks, validated by shadow runs across 1,800+ models matching production output, avoiding a three-year lock-in quoted at over 50k EUR a year. Deploys run without a human step.
-- Retiring Power BI (88 reports, 220 licensed seats) for Orca Visuals before its March 2027 renewal; Orca Semantics on open-source OpenMetadata and GCP-native observability avoid ~60k EUR a year of paid tooling.
+- Replaced Power BI (88 reports, 220 licensed seats) with Orca Visuals, ending about CHF 25,000 a year of licences; Orca Semantics on open-source OpenMetadata and GCP-native observability avoid ~60k EUR a year of paid tooling.
 - Took platform incidents from one every two days to roughly one a month with proactive alerting and self-healing pipelines.
 - Automated data access governance: a self-service portal opens IAM grant pull requests through a GitHub App, returning 40+ hours a month to the team.
 - FinOps across 195 GCP projects: anomaly dashboard with P99 alerting caught a 6x BigQuery spend spike in March 2026 and returned it to baseline; marts query spend down 46% year on year.
@@ -68,7 +68,7 @@ Publicis Groupe, Digitas Mumbai · Mumbai · Jul 2019 to Dec 2020
 
 - **Orca** (2026 - Present): Enterprise AI assistant for 501 employees: deep research over company data, South Pole-format documents, decks and proposals, position-aware access; 560,000+ requests at 99.99% success.
 - **Orca Semantics** (2026 - Present): Governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context.
-- **Orca Visuals** (2026 - Present): The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (88 reports, 220 licensed seats) before its March 2027 renewal.
+- **Orca Visuals** (2026 - Present): The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (88 reports, 220 licensed seats).
 - **Data Marts Core** (2026): Orchestration for 1,800+ dbt models migrated from dbt Cloud to self-hosted Dagster on GKE in three weeks, avoiding a three-year lock-in quoted at over 50k EUR a year.
 - **Data Foundation Plan** (2026 - 2028): Seven-workstream data strategy to 2028 (semantic layer, orchestration, visualisation, AI platform, data quality, access governance, SLAs), costed at ~150k EUR/yr banked or avoided and adopted by ExCo.
 - **Data Access Governance** (2026): Self-service access portal that opens Terraform IAM grant pull requests through a GitHub App; 40+ hours a month returned to the team.

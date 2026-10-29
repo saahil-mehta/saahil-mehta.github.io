@@ -55,7 +55,7 @@ roles:
       - "Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and sales proposals, position-aware access. Within three weeks of the 2.0 release, 131 employees, over a quarter of the company, were querying governed data through it; 560,000+ requests served at 99.99% success."
       - "Designed Orca Semantics, a governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context and underpinning the visualisation layer."
       - "Replaced dbt Cloud with self-hosted Dagster on GKE in three weeks, validated by shadow runs across 1,800+ models matching production output, avoiding a three-year lock-in quoted at over 50k EUR a year. Deploys run without a human step."
-      - "Retiring Power BI (88 reports, 220 licensed seats) for Orca Visuals before its March 2027 renewal; Orca Semantics on open-source OpenMetadata and GCP-native observability avoid ~60k EUR a year of paid tooling."
+      - "Replaced Power BI (88 reports, 220 licensed seats) with Orca Visuals, ending about CHF 25,000 a year of licences; Orca Semantics on open-source OpenMetadata and GCP-native observability avoid ~60k EUR a year of paid tooling."
       - "Took platform incidents from one every two days to roughly one a month with proactive alerting and self-healing pipelines."
       - "Automated data access governance: a self-service portal opens IAM grant pull requests through a GitHub App, returning 40+ hours a month to the team."
       - "FinOps across 195 GCP projects: anomaly dashboard with P99 alerting caught a 6x BigQuery spend spike in March 2026 and returned it to baseline; marts query spend down 46% year on year."
@@ -225,9 +225,9 @@ projects:
 
   - name: Orca Semantics
     org: South Pole
-    venue: South Pole · In Build
+    venue: South Pole · Production
     period: 2026 - Present
-    status: in_progress
+    status: live
     category: Semantic layer
     mark: arch
     since: "2026-07"
@@ -251,9 +251,9 @@ projects:
 
   - name: Orca Visuals
     org: South Pole
-    venue: South Pole · In build
+    venue: South Pole · Production
     period: "2026 - Present"
-    status: in_progress
+    status: live
     category: Visualisation
     since: "2026-08"
     until: null
@@ -261,11 +261,11 @@ projects:
     tags: [Lightdash, Semantic layer, BI-as-code, Power BI]
     icon: assets/system-regular-chart.json
     link: null
-    cv_line: "The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (88 reports, 220 licensed seats) before its March 2027 renewal."
+    cv_line: "The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (88 reports, 220 licensed seats)."
     site_summary: >-
       The visualisation layer on top of Orca Semantics: dashboards and metrics defined as code
-      against the certified definitions, so a chart and Orca's answer agree. It replaces
-      Power BI, 88 reports on 220 licensed seats, before the licences renew in March 2027.
+      against the certified definitions, so a chart and Orca's answer agree. It replaced
+      Power BI, 88 reports on 220 licensed seats.
     site_detail: >-
       Self-hosted Lightdash reading the same semantic definitions Orca does, so the owners
       named once in the semantic layer govern both. Reports move domain by domain, each one
@@ -563,8 +563,8 @@ site:
       - {id: platform, name: Enterprise data platform, line: one Terraform estate for the company, kind: band, project: Enterprise Data Platform Migration}
       - {id: access, name: Data Access Governance, line: grants with a reason and an audit trail, kind: band, project: Data Access Governance}
       - {id: cost, name: Cost Deep Dive, line: spend and anomalies on every project, kind: band, project: Cost Deep Dive}
-      - {id: quality, name: Data quality at scale, line: tests and alerts routed to owners, kind: band, state: in_build}
-      - {id: sla, name: Service levels, line: freshness and reliability targets, kind: band, state: planned}
+      - {id: quality, name: Data quality at scale, line: tests and alerts routed to owners, kind: band}
+      - {id: sla, name: Service levels, line: freshness and reliability targets, kind: band}
     edges:
       - {from: sources, to: raw, label: lands in}
       - {from: raw, to: core, label: transformed by}
@@ -614,7 +614,7 @@ site:
         - {name: Memory, line: "Shared chats and artefacts, personal memory and instructions."}
       adoption:
         - "Since the first release on 11 June, 335 people have signed up and 272 have asked a question. 188 used Orca in the last 30 days."
-        - "It has run 15,227 governed queries as the person asking and produced 1,648 artefacts, 247 of them exported to Docs, Sheets and Slides."
+        - "It has run more than 15,000 governed queries as the person asking and produced over 1,600 artefacts, nearly 250 of them exported to Docs, Sheets and Slides."
         - "A release ships about once a month, each gated by an answer-quality evaluation. Release 2.0 carried more than 150 improvements."
       lean:
         - "Orca runs in a Google Cloud region on 79% carbon-free energy."
@@ -641,12 +641,12 @@ site:
         - "The marts hold 17.7 TiB of analytics-ready data, roughly the plain text of 19 million books."
         - "About 800,000 queries a month run against them, one every three seconds, day and night."
         - "160 people queried the marts in October, up from 25 in May."
-        - "2,939 infrastructure resources are defined in code from 69 reusable patterns, so adding a person, a dataset or a pipeline is a one-line change."
+        - "Nearly 3,000 infrastructure resources are defined in code from 69 reusable patterns, so adding a person, a dataset or a pipeline is a one-line change."
         - "Hand-made access changes fell from more than 1,100 in October 2025 to under 10 a month by mid-2026. About 2,200 grants are defined in code and reviewed."
         - "The ERP feed alone carries close to 2 billion rows. 600 tables are copied twice a day, and 46 of them stream live."
       money:
         - {stopped: dbt Cloud, instead: Dagster on GKE, amount: "Renewal quoted at over 50k EUR a year on a three-year lock-in", state: "Banked, September 2026"}
-        - {stopped: Power BI Pro, instead: Orca Visuals on Lightdash, amount: "CHF 25,199 a year for 220 seats", state: From March 2027}
+        - {stopped: Power BI Pro, instead: Orca Visuals on Lightdash, amount: "About CHF 25,000 a year for 220 seats", state: Banked}
         - {stopped: A paid data catalogue, instead: Orca Semantics on OpenMetadata, amount: "40k to 60k EUR a year", state: Avoided}
         - {stopped: Paid observability tooling, instead: GCP-native logging and monitoring, amount: "About 11k USD a year", state: Avoided}
         - {stopped: BI copilot and automation tools, instead: Orca, amount: "About 20k EUR a year", state: Avoided}
@@ -664,13 +664,13 @@ site:
         - {line: "It gets smarter with every definition.", note: "Owners certify what the business means, and every answer reads it."}
       adoption:
         - {lead: "335", text: "people signed up since June."}
-        - {lead: "15,227", text: "governed queries, each run as the person asking."}
-        - {lead: "1,648", text: "artefacts made, from decks to sheets."}
+        - {lead: "15,000+", text: "governed queries, each run as the person asking."}
+        - {lead: "1,600+", text: "artefacts made, from decks to sheets."}
       bridge: ["Under every answer,", "a platform."]
       stack: [Orca, Orca Semantics, Data marts, Data platform]
       platform_line: "Rebuilt from 2023 to 2026, while in daily use."
       runs: {title: "Runs that succeed.", from: "47.7%", to: "99.8%", from_year: "2024", to_year: "2026"}
-      code: {title: "Infrastructure in code.", from_label: "By hand", note: "2,939 resources from 69 reusable patterns.", from_year: "2023", to_year: "2026"}
+      code: {title: "Infrastructure in code.", from_label: "By hand", note: "Nearly 3,000 resources from 69 reusable patterns.", from_year: "2023", to_year: "2026"}
       review: {title: "Every change reviewed.", from: "48%", to: "Required", from_year: "2023", to_year: "2026"}
       books: {lead: "17.7 TiB", text: "of analytics-ready data. The text of 19 million books."}
       ticker: {lead: "800,000", text: "queries a month. One every three seconds."}
