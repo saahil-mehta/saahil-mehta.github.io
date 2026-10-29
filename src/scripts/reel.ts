@@ -87,7 +87,28 @@ function initChapters(): void {
   update();
 }
 
+// The film plays, muted, while most of it is in view and motion is allowed, and pauses when it
+// leaves; its controls stay with the visitor.
+let filmObserver: IntersectionObserver | null = null;
+function initFilm(): void {
+  filmObserver?.disconnect();
+  const video = document.querySelector<HTMLVideoElement>("[data-film] video");
+  if (!video || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  filmObserver = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) void video.play().catch(() => undefined);
+        else video.pause();
+      }
+    },
+    { threshold: 0.6 },
+  );
+  filmObserver.observe(video);
+}
+
 export function initReel(): void {
+  initFilm();
   initDemo();
   initChapters();
 }

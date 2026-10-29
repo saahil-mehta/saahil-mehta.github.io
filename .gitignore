@@ -28,3 +28,6 @@ applications/
 # Rendered from profile.yaml at build time by scripts/make_diagrams.py
 src/generated/
 public/diagrams/
+
+# film build scratch
+film/.build/

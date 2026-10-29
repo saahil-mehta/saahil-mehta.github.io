@@ -553,6 +553,10 @@ def render_all(data: dict, inline_dir: Path, public_dir: Path, now: datetime | N
             p = public_dir / f"roadmap-{theme}.svg"
             p.write_text(roadmap_svg(road, theme, now), encoding="utf-8")
             written.append(p)
+    else:
+        # A plan taken out of the YAML must not linger as a file the build would still publish.
+        for stale in (inline_dir / "roadmap.svg", public_dir / "roadmap-dark.svg", public_dir / "roadmap-light.svg"):
+            stale.unlink(missing_ok=True)
     return written
 
 

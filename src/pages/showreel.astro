@@ -1,8 +1,8 @@
 ---
 // The showreel: Orca and the platform under it, one scene per screen. The chapter bar at the
 // foot of the window names the scene in view and jumps between them. All copy and figures come
-// from site.showreel in profile.yaml; the roadmap and the platform drawing are the generated
-// diagrams the projects page uses.
+// from site.showreel in profile.yaml. The film beside the title is rendered from the same block by
+// scripts/make_film.py; the platform drawing is the generated diagram the projects page uses.
 import Base from "../layouts/Base.astro";
 import Beat from "../components/Beat.astro";
 import OrcaDemo from "../components/OrcaDemo.astro";
@@ -18,10 +18,11 @@ const { site } = profile;
 const reel = site.showreel;
 const meta = site.pages.showreel;
 if (!reel || !meta) throw new Error("site.showreel and site.pages.showreel are both needed for /showreel");
-const { orca, platform } = reel;
+const { orca, platform, film } = reel;
 
 const chapters = [
   { id: "orca", label: "Orca" },
+  { id: "product", label: "The product" },
   { id: "how", label: "How it works" },
   { id: "does", label: "What it does" },
   { id: "adoption", label: "Adoption" },
@@ -30,7 +31,6 @@ const chapters = [
   { id: "scale", label: "Scale" },
   { id: "savings", label: "Savings" },
   { id: "fits", label: "How it fits together" },
-  ...(site.roadmap ? [{ id: "plan", label: "The plan" }] : []),
 ];
 ---
 
@@ -41,6 +41,23 @@ const chapters = [
       <h1 class="title" id="orca-title" style="--i:1">Orca</h1>
       <p class="lede" style="--i:2">{orca.line}</p>
       <p class="reel-meta" style="--i:3">{reel.lede} Figures as of {fmtDay(reel.as_of)}.</p>
+    </div>
+    {
+      film && (
+        <figure class="reel-film" data-film>
+          <video src={film.file} poster={film.poster} width="1920" height="1080" controls muted playsinline preload="none" aria-label={`The Orca showreel as a film. ${film.credit}.`}></video>
+          <figcaption>
+            <span class="demo-note">The film. Every figure in it is on this page.</span>
+            <a class="draw demo-note" href={film.file} download>Download</a>
+          </figcaption>
+        </figure>
+      )
+    }
+  </section>
+
+  <section class="beat wrap" id="product" aria-labelledby="product-title">
+    <div class="beat-head" data-arrive>
+      <h2 class="h2" id="product-title" style="--i:0">The product</h2>
     </div>
     <OrcaDemo />
   </section>
@@ -131,14 +148,6 @@ const chapters = [
     site.ecosystem && (
       <Beat id="fits" title="How it fits together" lede={site.narrative.ledes.platform}>
         <Diagram kind="platform" note={site.ecosystem.note} />
-      </Beat>
-    )
-  }
-
-  {
-    site.roadmap && (
-      <Beat id="plan" title="The plan" lede={site.narrative.ledes.plan}>
-        <Diagram kind="roadmap" />
       </Beat>
     )
   }

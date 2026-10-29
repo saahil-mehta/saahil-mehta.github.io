@@ -576,18 +576,6 @@ site:
       - {from: orca, to: company, label: answers}
       - {from: visuals, to: company, label: dashboards for}
       - {from: plan, to: core, label: sets the roadmap for everything below}
-  roadmap:
-    project: Data Foundation Plan
-    workstreams:
-      - {name: Orchestration, line: Dagster runs the marts, start: "2026-Q3", end: "2026-Q3", state: built}
-      - {name: Orca Semantics, line: in production in January, start: "2026-Q3", end: "2027-Q1", state: in_build}
-      - {name: Orca Visuals, line: live before the licences renew, start: "2026-Q3", end: "2027-Q1", state: in_build}
-      - {name: Access governance, line: self-service portal in January, start: "2026-Q4", end: "2027-Q1", state: in_build}
-      - {name: New sources, line: live in December, start: "2026-Q4", end: "2026-Q4", state: in_build}
-      - {name: Orca releases, line: "monthly, up to a headless layer", start: "2026-Q4", end: "2027-Q1", state: in_build}
-      - {name: Observability, line: Orca alerting first, start: "2026-Q4", end: "2027-Q1", state: in_build}
-      - {name: Data quality, line: contracts and scorecards next, start: "2026-Q4", end: "2027-Q1", state: in_build}
-      - {name: Service levels, line: once owners and coverage are in, start: "2027-Q2", end: "2027-Q2", state: planned}
   showreel:
     as_of: "2026-10-26"
     lede: "Orca and the data platform under it: what I built at South Pole, how it works and what it changed."
@@ -663,6 +651,26 @@ site:
         - {stopped: Paid observability tooling, instead: GCP-native logging and monitoring, amount: "About 11k USD a year", state: Avoided}
         - {stopped: BI copilot and automation tools, instead: Orca, amount: "About 20k EUR a year", state: Avoided}
       money_note: "About 150k EUR a year banked or avoided. GCP logging and monitoring cost about 710 EUR over the last twelve months."
+    film:
+      file: /showreel/orca-showreel.mp4
+      poster: /showreel/orca-showreel.webp
+      credit: Designed and built by Saahil Mehta
+      adoption:
+        - {lead: "335 people", text: "signed up since June"}
+        - {lead: "188", text: "used Orca in the last 30 days"}
+        - {lead: "15,227 queries", text: "run as the person asking"}
+        - {lead: "1,648 artefacts", text: "produced, from decks to sheets"}
+      lean:
+        - {lead: "79%", text: "carbon-free energy where it runs"}
+        - {lead: "Two thirds", text: "of what it reads comes from cache"}
+        - {lead: "1 to 30 instances", text: "under load, and back to one"}
+        - {lead: "About 12 EUR", text: "a person a month, hosting and models"}
+      scale:
+        - {lead: "17.7 TiB", text: "of analytics-ready data"}
+        - {lead: "800,000 queries", text: "a month, one every three seconds"}
+        - {lead: "25 to 160 people", text: "querying the marts, May to October"}
+        - {lead: "2,939 resources", text: "defined in code, from 69 patterns"}
+      close: "About 150k EUR a year banked or avoided."
   pages:
     experience:
       title: Experience
@@ -681,7 +689,7 @@ site:
       description: "Live GitHub contribution calendar for saahil-mehta over the last twelve months."
     showreel:
       title: Showreel
-      description: "Orca, South Pole's enterprise AI assistant, and the data platform under it: the product, how it works, adoption, cost, the 2023 to 2026 story and the plan."
+      description: "Orca, South Pole's enterprise AI assistant, and the data platform under it: the product, how it works, adoption, cost, the 2023 to 2026 story and the savings."
     resume:
       title: Resume
       description: "Saahil Mehta's resume as a PDF, with download and a link to book a 30-minute call."

@@ -62,6 +62,7 @@ const Education = z.object({
   desc: z.string(),
 });
 
+const FilmLine = z.object({ lead: z.string(), text: z.string() });
 const quarter = z.string().regex(/^\d{4}-Q[1-4]$/, "want YYYY-Qn");
 const EcosystemNode = z.object({
   id: z.string(),
@@ -172,6 +173,17 @@ const Profile = z.object({
           money: z.array(z.object({ stopped: z.string(), instead: z.string(), amount: z.string(), state: z.string() })).min(1),
           money_note: z.string(),
         }),
+        film: z
+          .object({
+            file: z.string(),
+            poster: z.string(),
+            credit: z.string(),
+            adoption: z.array(FilmLine).min(1),
+            lean: z.array(FilmLine).min(1),
+            scale: z.array(FilmLine).min(1),
+            close: z.string(),
+          })
+          .optional(),
       })
       .superRefine((s, ctx) => {
         const n = s.platform.eras.length;
