@@ -28,7 +28,7 @@ The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF 
 
 ## Capabilities and Constraints
 
-- Static Astro site at https://saahil.co.uk on GitHub Pages; one URL per section (home, experience, projects, volunteering, education, GitHub, resume) plus `/llms.txt`, `/cv.md`, `/resume.json`, `/status.json` and the resume PDF.
+- Static Astro site at https://saahil.co.uk on GitHub Pages; one URL per section (home, showreel, experience, projects, volunteering, education, GitHub, resume) plus `/llms.txt`, `/cv.md`, `/resume.json`, `/status.json` and the resume PDF.
 - All copy and facts come from `profile/profile.yaml`; the build fails on an invalid field. No numbers may appear on the site that are not in that file.
 - Figures are verified (billing export, BigQuery metadata, Cloud Monitoring, GitHub, Confluence) and must not be inflated beyond the agreed rounding.
 - Orca disclosure rule: capabilities and outcomes anywhere; architecture only as Saahil's own design decisions; no client data, security specifics or contract figures beyond the published savings.
@@ -37,7 +37,7 @@ The site is read on a laptop or phone, often while a LinkedIn profile or CV PDF 
 - Lighthouse floor: Performance 90+, Accessibility 95+, SEO 100.
 - The GitHub profile README (github.com/saahil-mehta) is a smaller rendition of the same record in the same voice, re-rendered daily from `/status.json`. It has its own design within the same family (Markdown plus SVG images, no scripts, no hover) and never repeats the contribution graph GitHub draws beneath it.
 - Every system has a still: one matte object rendered on black and on white, transparent, at a shared scale (`public/stills/`), generated with the codex CLI from the prompt in its sidecar. A new system is not complete without its pair.
-- The platform diagram renders from `site.ecosystem` in the YAML, drawn in the two inks by `scripts/make_diagrams.py`, inlined on the site and published as standalone SVGs for `status.json` and the README. The same renderer draws the plan as a swimlane once a `site.roadmap` block is added. Nothing is drawn by hand; a new system is a node with a place.
+- The platform diagram renders from `site.ecosystem` in the YAML, drawn in the two inks by `scripts/make_diagrams.py`, inlined on the site and published as standalone SVGs for `status.json` and the README. The same renderer draws the plan as a swimlane from `site.roadmap`. Nothing is drawn by hand; a new system is a node with a place.
 
 ## Brand Commitments
 
@@ -51,7 +51,8 @@ Voice: plain statements, each claim once, no em dashes, no rhetorical contrast c
 - `public/portrait-still.webp`: the monochrome portrait still, generated from `public/profile-512.jpg` (the photograph, kept as the source).
 - `public/stills/`: a dark and a light still per system, with provenance sidecars.
 - `public/logos/`: organisation marks as one-ink files with their origin noted inside.
-- `site.ecosystem` in the YAML: the platform's nodes and edges, rendered as a diagram at build time. A `site.roadmap` block (workstreams with quarters and states) is not recorded yet.
+- `site.ecosystem` in the YAML: the platform's nodes and edges, rendered as a diagram at build time. `site.roadmap`: the plan's workstreams with quarters and states.
+- `site.showreel`: the showreel's copy and figures (Orca's demo script, loop, capabilities, adoption, running cost; the platform's eras, measures, scale and savings), synced from the owner's internal roadmap artifact.
 - `public/Saahil-Mehta-Resume.pdf`: rendered by `scripts/make_cv.py` from the YAML; never edited by hand.
 - Live GitHub contributions via github-contributions-api.jogruber.de.
 - No testimonials, press, talks or client logos exist; none may be invented.

@@ -1,0 +1,53 @@
+---
+// The platform from 2023 to 2026: the four eras as columns, then each measure as a row of four
+// cells whose bar is the value against that measure's own best year. A cell with no value (not
+// tracked, done by hand) draws an empty track and keeps its words.
+import { profile } from "../lib/profile";
+
+const p = profile.site.showreel!.platform;
+const rows = p.measures.map((m) => {
+  const max = Math.max(...m.values.map((v) => v ?? 0));
+  return { ...m, share: m.values.map((v) => (v == null || max === 0 ? null : v / max)) };
+});
+---
+
+<div class="reel-story">
+  <ol class="eras" data-arrive>
+    {
+      p.eras.map((e, i) => (
+        <li style={`--i:${i}`}>
+          <span class="era-year credit num">{e.year}</span>
+          <span class="h3">{e.name}</span>
+          <span class="era-line">{e.line}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <table class="slate" data-arrive="slate">
+    <caption class="sr-only">Platform measures by year, {p.eras.map((e) => e.year).join(", ")}</caption>
+    <thead>
+      <tr>
+        <th scope="col"><span class="sr-only">Measure</span></th>
+        {p.eras.map((e) => <th scope="col" class="credit num">{e.year}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((m, r) => (
+          <tr style={`--r:${r}`}>
+            <th scope="row">{m.name}</th>
+            {m.labels.map((label, c) => (
+              <td data-year={p.eras[c].year} class:list={{ none: m.share[c] == null }}>
+                <span class="slate-val num">{label}</span>
+                <span class="slate-bar" aria-hidden="true">
+                  <i style={`--v:${m.share[c] ?? 0};--c:${c}`} />
+                </span>
+              </td>
+            ))}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="slate-note credit">{p.measures_note}</p>
+</div>

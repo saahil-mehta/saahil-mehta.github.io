@@ -8,6 +8,7 @@ import { initProgress } from "./progress";
 import { initContributions } from "./contributions";
 import { initTilt } from "./tilt";
 import { initObjects } from "./objects3d";
+import { initReel } from "./reel";
 
 function initAll(): void {
   initMenu();
@@ -17,6 +18,7 @@ function initAll(): void {
   initParallax();
   initProgress();
   initTilt();
+  initReel();
   void initContributions();
   // The 3D objects load after the page has settled, so they never compete with first paint.
   const later = (window as unknown as { requestIdleCallback?: (cb: () => void) => void }).requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 400));

@@ -19,7 +19,7 @@ summaries:
     assistant, and the governed platform underneath it: a semantic layer on
     OpenMetadata, self-hosted Dagster orchestration, automated access governance and
     FinOps across 195 GCP projects. Author of the data strategy adopted by ExCo, with
-    ~295k EUR a year of direct savings in its plan. Hands-on across GCP, BigQuery,
+    ~150k EUR a year banked or avoided in its plan. Hands-on across GCP, BigQuery,
     Terraform, dbt, Dagster, FastAPI and LLM systems.
   site_bio: |-
     I build data platforms that are reliable by design. The best infrastructure is the kind you don't notice. It works quietly and scales without surprises.
@@ -36,7 +36,7 @@ summaries:
 
     In 2026 I built Orca, South Pole's enterprise AI assistant. It researches, writes South Pole-format documents, decks and proposals, and answers questions from governed company data, with each person seeing only what their role allows. Within three weeks of the 2.0 release, over a quarter of the company was querying data through it.
 
-    Underneath Orca sits the platform my team and I run: a semantic layer on OpenMetadata that records what our data means and who owns it, self-hosted Dagster orchestration (migrated from dbt Cloud in three weeks), automated access governance, and cost monitoring with anomaly alerting across 195 GCP projects. The Data Foundation Plan I wrote, seven workstreams to 2028, was adopted by ExCo with ~295k EUR a year of direct savings.
+    Underneath Orca sits the platform my team and I run: a semantic layer on OpenMetadata that records what our data means and who owns it, self-hosted Dagster orchestration (migrated from dbt Cloud in three weeks), automated access governance, and cost monitoring with anomaly alerting across 195 GCP projects. The Data Foundation Plan I wrote, seven workstreams to 2028, was adopted by ExCo with ~150k EUR a year of costs banked or avoided.
 
     Before South Pole: data engineering at Publicis Groupe (Digitas UK and Mumbai) and WPP for brands including Samsung, Formula 1 and Disney+ Hotstar.
 
@@ -54,8 +54,8 @@ roles:
       - "Own the company data strategy: defined, costed and secured ExCo endorsement for the Data Foundation Plan, a roadmap to 2028 across seven workstreams (semantic layer, orchestration, visualisation, AI platform, data quality at scale, access governance, SLAs). Lead a team of six serving 501 employees."
       - "Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and sales proposals, position-aware access. Within three weeks of the 2.0 release, 131 employees, over a quarter of the company, were querying governed data through it; 560,000+ requests served at 99.99% success."
       - "Designed Orca Semantics, a governed semantic layer on self-hosted OpenMetadata: version-controlled definitions, named domain owners, streamed into Orca as context and underpinning the visualisation layer."
-      - "Replaced dbt Cloud with self-hosted Dagster on GKE in three weeks, validated by shadow runs across 1,800+ models matching production output, avoiding a three-year renewal at ~27k EUR a year (81k EUR over the term). Deploys run without a human step."
-      - "Retiring Power BI (98 reports, 410 users) for Orca Visuals, removing ~200k EUR a year in licences; ~295k EUR a year of direct savings across the ecosystem plan."
+      - "Replaced dbt Cloud with self-hosted Dagster on GKE in three weeks, validated by shadow runs across 1,800+ models matching production output, avoiding a three-year lock-in quoted at over 50k EUR a year. Deploys run without a human step."
+      - "Retiring Power BI (88 reports, 220 licensed seats) for Orca Visuals before its March 2027 renewal; Orca Semantics on open-source OpenMetadata and GCP-native observability avoid ~60k EUR a year of paid tooling."
       - "Took platform incidents from one every two days to roughly one a month with proactive alerting and self-healing pipelines."
       - "Automated data access governance: a self-service portal opens IAM grant pull requests through a GitHub App, returning 40+ hours a month to the team."
       - "FinOps across 195 GCP projects: anomaly dashboard with P99 alerting caught a 6x BigQuery spend spike in March 2026 and returned it to baseline; marts query spend down 46% year on year."
@@ -65,13 +65,13 @@ roles:
       people. Built Orca, the company's enterprise AI assistant, and the governed
       platform under it: a semantic layer on OpenMetadata, self-hosted Dagster, automated
       access governance and FinOps across 195 GCP projects. Wrote the Data Foundation
-      Plan adopted by ExCo, ~295k EUR a year of direct savings.
+      Plan adopted by ExCo, ~150k EUR a year banked or avoided.
     site_line: >-
       Lead a team of six and own the data platform, marts and reporting stack for the whole
       company. Set the data strategy the executive committee adopted, and build the systems
       above with the team.
     linkedin_desc: |-
-      Lead a team of six (analytics engineers, analysts, data engineers) and own the data platform, data marts and reporting stack for 501 people. Author of the Data Foundation Plan, seven workstreams to 2028, adopted by ExCo with ~295k EUR a year of direct savings.
+      Lead a team of six (analytics engineers, analysts, data engineers) and own the data platform, data marts and reporting stack for 501 people. Author of the Data Foundation Plan, seven workstreams to 2028, adopted by ExCo with ~150k EUR a year of costs banked or avoided.
 
       Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and proposals, position-aware access. Within three weeks of the 2.0 release, over a quarter of the company was querying governed data through it; 560,000+ requests at 99.99% success.
 
@@ -257,15 +257,15 @@ projects:
     category: Visualisation
     since: "2026-08"
     until: null
-    metric: {value: "~200k EUR/yr", label: "in licences removed as Power BI retires"}
+    metric: {value: "88", label: "Power BI reports moving to code"}
     tags: [Lightdash, Semantic layer, BI-as-code, Power BI]
     icon: assets/system-regular-chart.json
     link: null
-    cv_line: "The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (98 reports, 410 users) and removing ~200k EUR a year in licences."
+    cv_line: "The visualisation layer on the semantic layer: dashboards defined as code against certified metrics, replacing Power BI (88 reports, 220 licensed seats) before its March 2027 renewal."
     site_summary: >-
       The visualisation layer on top of Orca Semantics: dashboards and metrics defined as code
       against the certified definitions, so a chart and Orca's answer agree. It replaces
-      Power BI, 98 reports and 410 users, and removes ~200k EUR a year in licences.
+      Power BI, 88 reports on 220 licensed seats, before the licences renew in March 2027.
     site_detail: >-
       Self-hosted Lightdash reading the same semantic definitions Orca does, so the owners
       named once in the semantic layer govern both. Reports move domain by domain, each one
@@ -284,12 +284,12 @@ projects:
     tags: [Dagster, dbt, GKE, Cloud Build]
     icon: assets/system-regular-22-build-hover-build.json
     link: null
-    cv_line: "Orchestration for 1,800+ dbt models migrated from dbt Cloud to self-hosted Dagster on GKE in three weeks, avoiding a three-year renewal at ~27k EUR a year."
+    cv_line: "Orchestration for 1,800+ dbt models migrated from dbt Cloud to self-hosted Dagster on GKE in three weeks, avoiding a three-year lock-in quoted at over 50k EUR a year."
     site_summary: >-
       Orchestration for 1,800+ dbt models, migrated from dbt Cloud to self-hosted Dagster
       on GKE in three weeks. Shadow runs proved the output identical to production before
       cutover; deploys rebuild the image and roll out without a human step. Avoided a
-      three-year renewal at ~27k EUR a year.
+      three-year lock-in quoted at over 50k EUR a year.
     site_detail: >-
       Dagster mirrors each dbt Cloud job verbatim (selectors, threads, schedules), so any
       difference is the runner's fault. Evidence compares every relation between shadow
@@ -306,16 +306,16 @@ projects:
     mark: bars
     since: "2026-08"
     until: null
-    metric: {value: "~295k EUR/yr", label: "direct savings in the plan"}
+    metric: {value: "~150k EUR/yr", label: "banked or avoided in the plan"}
     tags: [Strategy, Roadmap, Governance, FinOps]
     icon: assets/system-regular-14-article-hover-article.json
     link: null
-    cv_line: "Seven-workstream data strategy to 2028 (semantic layer, orchestration, visualisation, AI platform, data quality, access governance, SLAs), costed at ~295k EUR/yr direct savings and adopted by ExCo."
+    cv_line: "Seven-workstream data strategy to 2028 (semantic layer, orchestration, visualisation, AI platform, data quality, access governance, SLAs), costed at ~150k EUR/yr banked or avoided and adopted by ExCo."
     site_summary: >-
       The company data strategy, written, costed and taken to ExCo: seven workstreams to
       2028 covering the semantic layer, orchestration, visualisation, the AI platform, data
-      quality at scale, access governance and SLAs. ~295k EUR a year of direct savings,
-      with the dbt Cloud saving already banked before the plan opened.
+      quality at scale, access governance and SLAs. About 150k EUR a year in costs banked
+      or avoided, the dbt Cloud renewal first.
     site_detail: >-
       Owners and stewards are defined once in the semantic layer and reused by access
       approvals, quality routing and AI context, which is what makes the seven workstreams
@@ -516,7 +516,7 @@ site:
   stats:
     - {value: 501, prefix: "", suffix: "", label: "employees served by the data platform"}
     - {value: 560000, prefix: "", suffix: "+", label: "Orca requests at 99.99% success"}
-    - {value: 295, prefix: "~", suffix: "k EUR/yr", label: "direct savings in the data plan"}
+    - {value: 150, prefix: "~", suffix: "k EUR/yr", label: "banked or avoided in the data plan"}
     - {value: 6, prefix: "", suffix: "", label: "direct reports"}
   featured_projects: [Orca, Orca Semantics, Orca Visuals, Data Marts Core]
   narrative:
@@ -535,7 +535,7 @@ site:
       beyond: "Mentoring, a museum archive, and where I studied."
       contact: "About building AI systems people actually use, leading data teams, or your data and cloud estate."
       platform: "The systems in production, what each one does and what flows between them."
-      plan: "Seven workstreams to 2028 and where each one stands."
+      plan: "Where each workstream of the Data Foundation Plan stands, from autumn 2026 to spring 2027."
     end_card: "Let's talk."
   # The platform diagram. Columns carry a heading; nodes sit on a column (left to right) and a
   # row (0 is the flow, -1 above it, 1 below it); band nodes run under every layer. A node that
@@ -563,7 +563,7 @@ site:
       - {id: platform, name: Enterprise data platform, line: one Terraform estate for the company, kind: band, project: Enterprise Data Platform Migration}
       - {id: access, name: Data Access Governance, line: grants with a reason and an audit trail, kind: band, project: Data Access Governance}
       - {id: cost, name: Cost Deep Dive, line: spend and anomalies on every project, kind: band, project: Cost Deep Dive}
-      - {id: quality, name: Data quality at scale, line: tests and alerts routed to owners, kind: band, state: planned}
+      - {id: quality, name: Data quality at scale, line: tests and alerts routed to owners, kind: band, state: in_build}
       - {id: sla, name: Service levels, line: freshness and reliability targets, kind: band, state: planned}
     edges:
       - {from: sources, to: raw, label: lands in}
@@ -576,6 +576,93 @@ site:
       - {from: orca, to: company, label: answers}
       - {from: visuals, to: company, label: dashboards for}
       - {from: plan, to: core, label: sets the roadmap for everything below}
+  roadmap:
+    project: Data Foundation Plan
+    workstreams:
+      - {name: Orchestration, line: Dagster runs the marts, start: "2026-Q3", end: "2026-Q3", state: built}
+      - {name: Orca Semantics, line: in production in January, start: "2026-Q3", end: "2027-Q1", state: in_build}
+      - {name: Orca Visuals, line: live before the licences renew, start: "2026-Q3", end: "2027-Q1", state: in_build}
+      - {name: Access governance, line: self-service portal in January, start: "2026-Q4", end: "2027-Q1", state: in_build}
+      - {name: New sources, line: live in December, start: "2026-Q4", end: "2026-Q4", state: in_build}
+      - {name: Orca releases, line: "monthly, up to a headless layer", start: "2026-Q4", end: "2027-Q1", state: in_build}
+      - {name: Observability, line: Orca alerting first, start: "2026-Q4", end: "2027-Q1", state: in_build}
+      - {name: Data quality, line: contracts and scorecards next, start: "2026-Q4", end: "2027-Q1", state: in_build}
+      - {name: Service levels, line: once owners and coverage are in, start: "2027-Q2", end: "2027-Q2", state: planned}
+  showreel:
+    as_of: "2026-10-26"
+    lede: "Orca and the data platform under it: what I built at South Pole, how it works and what it changed."
+    orca:
+      line: "South Pole's enterprise AI assistant. I designed and built it, and it opened to the whole company in June 2026."
+      demo:
+        note: "A reconstruction of the Orca interface. The accounts and figures are invented."
+        question: "Which accounts with a 2030 net-zero target retired fewer credits this year than last? Turn it into a deck for Monday."
+        steps:
+          - "Read the certified definition of a retirement"
+          - "Queried the marts as you, three tables"
+          - "Matched targets to retirements by account"
+          - "Built a six-slide deck from the company template"
+        answer: "Three accounts with a 2030 target retired fewer credits this year. Northwind Foods fell furthest."
+        table:
+          head: [Account, Retired 2025, Retired 2026, Change]
+          rows:
+            - [Northwind Foods, "12,400", "7,300", "−41%"]
+            - [Contoso Energy, "8,900", "6,100", "−31%"]
+            - [Fabrikam Logistics, "5,200", "4,600", "−12%"]
+        artefact: {name: Net-zero account review, meta: "Six slides, ready in Google Slides"}
+        stamp: "Data as of 06:00 today, read as you"
+      loop:
+        - {name: Context, line: "Data, documents, mail and owners"}
+        - {name: Reasoning, line: "Plans, queries and research"}
+        - {name: Guardrails, line: "Read-only checks, run as you, logged"}
+        - {name: Output, line: "Answers, artefacts and drafts in your tools"}
+        - {name: Learning, line: "Memory, feedback and certified meaning"}
+      loop_note: "Learning feeds back into context. Orca never writes to the warehouse and never uses a shared identity for data."
+      capabilities:
+        - {name: Ask, line: "Live answers from the marts as you, with charts and tables."}
+        - {name: Research, line: "Cited deep research in the background, up to 40 minutes."}
+        - {name: Schedules, line: "Any prompt daily, weekly or monthly, emailed when done."}
+        - {name: Artefacts, line: "Documents, sheets and decks, exported to Google Workspace."}
+        - {name: Dashboards, line: "Account, market and buyer boards, plus a personal board."}
+        - {name: Memory, line: "Shared chats and artefacts, personal memory and instructions."}
+      adoption:
+        - "Since the first release on 11 June, 335 people have signed up and 272 have asked a question. 188 used Orca in the last 30 days."
+        - "It has run 15,227 governed queries as the person asking and produced 1,648 artefacts, 247 of them exported to Docs, Sheets and Slides."
+        - "A release ships about once a month, each gated by an answer-quality evaluation. Release 2.0 carried more than 150 improvements."
+      lean:
+        - "Orca runs in a Google Cloud region on 79% carbon-free energy."
+        - "Two thirds of what it read in October came from cache, which has saved about 4,600 EUR on model input since June."
+        - "Every query is cost-checked before it runs. The typical one reads about 19 MB."
+        - "It scales to 30 instances under load and back to one when the load passes."
+        - "Offering Orca to every employee costs about 12 EUR a person a month, hosting and models together."
+        - "Its hosting emitted about 1.5 kg CO₂e in September, roughly a 9 km drive in a petrol car."
+    platform:
+      line: "The governed platform under Orca. My team and I rebuilt it while it stayed in daily use."
+      eras:
+        - {year: "2023", name: Inherited, line: "Infrastructure changed by hand, half of pipeline changes skipped review, and nothing tracked whether runs succeeded."}
+        - {year: "2024", name: Stabilised, line: "We wrote the standards for marts, pull requests and review, and repaired the failing runs."}
+        - {year: "2025", name: Codified, line: "The core of the estate moved into Terraform in about four months, secrets were encrypted in code, and review became the default."}
+        - {year: "2026", name: Governed, line: "Sensitive columns are masked at source, Dagster runs the marts, and the Orca family runs on the platform."}
+      measures:
+        - {name: dbt runs that succeeded, values: [null, 47.7, 99.6, 99.8], labels: [Not tracked, "47.7%", "99.6%", "99.8%"]}
+        - {name: Changes reviewed before merging, values: [48, 85, 99.2, 100], labels: ["48%", "85%", "Over 99%", Required]}
+        - {name: Data tests in the marts, values: [166, 243, 260, 389], labels: ["166", "243", "260", "389"]}
+        - {name: Lines of code we run, values: [59900, 65800, 76500, 251000], labels: ["59,900", "65,800", "76,500", "251,000"]}
+        - {name: Terraform lines for the infrastructure, values: [null, null, 8000, 11600], labels: [By hand, By hand, "8,000", "11,600"]}
+      measures_note: "Counts at year end; 2026 to 19 October. From the git history of the platform repositories, dbt run artefacts and the orchestration run history."
+      scale:
+        - "The marts hold 17.7 TiB of analytics-ready data, roughly the plain text of 19 million books."
+        - "About 800,000 queries a month run against them, one every three seconds, day and night."
+        - "160 people queried the marts in October, up from 25 in May."
+        - "2,939 infrastructure resources are defined in code from 69 reusable patterns, so adding a person, a dataset or a pipeline is a one-line change."
+        - "Hand-made access changes fell from more than 1,100 in October 2025 to under 10 a month by mid-2026. About 2,200 grants are defined in code and reviewed."
+        - "The ERP feed alone carries close to 2 billion rows. 600 tables are copied twice a day, and 46 of them stream live."
+      money:
+        - {stopped: dbt Cloud, instead: Dagster on GKE, amount: "Renewal quoted at over 50k EUR a year on a three-year lock-in", state: "Banked, September 2026"}
+        - {stopped: Power BI Pro, instead: Orca Visuals on Lightdash, amount: "CHF 25,199 a year for 220 seats", state: From March 2027}
+        - {stopped: A paid data catalogue, instead: Orca Semantics on OpenMetadata, amount: "40k to 60k EUR a year", state: Avoided}
+        - {stopped: Paid observability tooling, instead: GCP-native logging and monitoring, amount: "About 11k USD a year", state: Avoided}
+        - {stopped: BI copilot and automation tools, instead: Orca, amount: "About 20k EUR a year", state: Avoided}
+      money_note: "About 150k EUR a year banked or avoided. GCP logging and monitoring cost about 710 EUR over the last twelve months."
   pages:
     experience:
       title: Experience
@@ -592,6 +679,9 @@ site:
     github:
       title: GitHub Activity
       description: "Live GitHub contribution calendar for saahil-mehta over the last twelve months."
+    showreel:
+      title: Showreel
+      description: "Orca, South Pole's enterprise AI assistant, and the data platform under it: the product, how it works, adoption, cost, the 2023 to 2026 story and the plan."
     resume:
       title: Resume
       description: "Saahil Mehta's resume as a PDF, with download and a link to book a 30-minute call."

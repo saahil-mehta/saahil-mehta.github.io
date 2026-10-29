@@ -142,7 +142,48 @@ const Profile = z.object({
         workstreams: z.array(z.object({ name: z.string(), line: z.string().optional(), start: quarter, end: quarter, state: z.enum(["built", "in_build", "planned"]) })).min(1),
       })
       .optional(),
+    showreel: z
+      .object({
+        as_of: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "want YYYY-MM-DD"),
+        lede: z.string(),
+        orca: z.object({
+          line: z.string(),
+          demo: z.object({
+            note: z.string(),
+            question: z.string(),
+            steps: z.array(z.string()).min(1),
+            answer: z.string(),
+            table: z.object({ head: z.array(z.string()), rows: z.array(z.array(z.string())) }),
+            artefact: z.object({ name: z.string(), meta: z.string() }),
+            stamp: z.string(),
+          }),
+          loop: z.array(z.object({ name: z.string(), line: z.string() })).min(2),
+          loop_note: z.string(),
+          capabilities: z.array(z.object({ name: z.string(), line: z.string() })).min(1),
+          adoption: z.array(z.string()).min(1),
+          lean: z.array(z.string()).min(1),
+        }),
+        platform: z.object({
+          line: z.string(),
+          eras: z.array(z.object({ year: z.string(), name: z.string(), line: z.string() })).min(2),
+          measures: z.array(z.object({ name: z.string(), values: z.array(z.number().nullable()), labels: z.array(z.string()) })),
+          measures_note: z.string(),
+          scale: z.array(z.string()).min(1),
+          money: z.array(z.object({ stopped: z.string(), instead: z.string(), amount: z.string(), state: z.string() })).min(1),
+          money_note: z.string(),
+        }),
+      })
+      .superRefine((s, ctx) => {
+        const n = s.platform.eras.length;
+        s.platform.measures.forEach((m, i) => {
+          if (m.values.length !== n || m.labels.length !== n) {
+            ctx.addIssue({ code: "custom", path: ["platform", "measures", i], message: `want ${n} values and labels, one per era` });
+          }
+        });
+      })
+      .optional(),
     pages: z.object({
+      showreel: PageMeta.optional(),
       experience: PageMeta,
       projects: PageMeta,
       volunteering: PageMeta,

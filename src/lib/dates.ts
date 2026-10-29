@@ -20,6 +20,12 @@ export function fmtMonth(ym: string): string {
   return `${MONTHS[Number(m) - 1]} ${y}`;
 }
 
+/** A YYYY-MM-DD date as "26 Oct 2026". */
+export function fmtDay(ymd: string): string {
+  const [y, m, d] = ymd.split("-");
+  return `${Number(d)} ${MONTHS[Number(m) - 1]} ${y}`;
+}
+
 /** Whole months from `since` to `until` (or the build month), inclusive of the start month. */
 export function monthsInProduction(since: string, until: string | null): number {
   return Math.max(1, toIndex(until ?? BUILD_MONTH) - toIndex(since) + 1);

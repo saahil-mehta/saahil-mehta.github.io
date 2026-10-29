@@ -10,7 +10,7 @@ I lead Data & Insights at South Pole: a team of six running the data platform, d
 
 In 2026 I built Orca, South Pole's enterprise AI assistant. It researches, writes South Pole-format documents, decks and proposals, and answers questions from governed company data, with each person seeing only what their role allows. Within three weeks of the 2.0 release, over a quarter of the company was querying data through it.
 
-Underneath Orca sits the platform my team and I run: a semantic layer on OpenMetadata that records what our data means and who owns it, self-hosted Dagster orchestration (migrated from dbt Cloud in three weeks), automated access governance, and cost monitoring with anomaly alerting across 195 GCP projects. The Data Foundation Plan I wrote, seven workstreams to 2028, was adopted by ExCo with ~295k EUR a year of direct savings.
+Underneath Orca sits the platform my team and I run: a semantic layer on OpenMetadata that records what our data means and who owns it, self-hosted Dagster orchestration (migrated from dbt Cloud in three weeks), automated access governance, and cost monitoring with anomaly alerting across 195 GCP projects. The Data Foundation Plan I wrote, seven workstreams to 2028, was adopted by ExCo with ~150k EUR a year of costs banked or avoided.
 
 Before South Pole: data engineering at Publicis Groupe (Digitas UK and Mumbai) and WPP for brands including Samsung, Formula 1 and Disney+ Hotstar.
 
@@ -21,7 +21,7 @@ I mentor through the Data Science Festival and volunteer at the Museum of Englis
 ### Associate Director, Data & Insights
 South Pole · Jul 2026 to Present · London / Remote
 
-Lead a team of six (analytics engineers, analysts, data engineers) and own the data platform, data marts and reporting stack for 501 people. Author of the Data Foundation Plan, seven workstreams to 2028, adopted by ExCo with ~295k EUR a year of direct savings.
+Lead a team of six (analytics engineers, analysts, data engineers) and own the data platform, data marts and reporting stack for 501 people. Author of the Data Foundation Plan, seven workstreams to 2028, adopted by ExCo with ~150k EUR a year of costs banked or avoided.
 
 Built Orca, South Pole's enterprise AI assistant: deep research grounded in company data, South Pole-format documents, decks and proposals, position-aware access. Within three weeks of the 2.0 release, over a quarter of the company was querying governed data through it; 560,000+ requests at 99.99% success.
 

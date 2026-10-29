@@ -21,6 +21,7 @@ export const GET: APIRoute = () => {
     "",
     `- [Home](${site.url}/): summary, headline numbers, selected work`,
     `- [Experience](${site.url}/experience): ${site.pages.experience.description}`,
+    ...(site.pages.showreel ? [`- [Showreel](${site.url}/showreel): ${site.pages.showreel.description}`] : []),
     `- [Projects](${site.url}/projects): ${site.pages.projects.description}`,
     `- [Volunteering](${site.url}/volunteering): ${site.pages.volunteering.description}`,
     `- [Education](${site.url}/education): ${site.pages.education.description}`,
