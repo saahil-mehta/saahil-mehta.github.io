@@ -1,11 +1,12 @@
 <!doctype html>
 <!-- The showreel film. Rendered by scripts/make_film.py from profile/profile.yaml (site.showreel);
-     every figure comes from there. The page is a 1920x1080 stage: render(t) sets every element
-     for time t, so the film is captured frame by frame and every frame is exact. -->
+     every figure and line comes from there, and the accounts in the demo are invented. The page is
+     a 1920x1080 stage: render(t) sets every element for time t, and the site's own object renderer
+     draws the turning objects, so the film is captured frame by frame and every frame is exact. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<title>Orca showreel</title>
+<title>Showreel</title>
 <style>
 @font-face { font-family: "Mona Sans"; font-weight: 200 900; font-stretch: 75% 125%; src: url("{{ font_url }}") format("woff2"); }
 :root { --field: #0c0c0e; --ink: #f2efe9; --ink-2: #b3aea5; --ink-3: #8a857d; --line: rgb(242 239 233 / 0.12); --accent: #ff4a1c; --panel: #161618; --rule: rgb(242 239 233 / 0.11); }
@@ -13,229 +14,325 @@
 html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--field); }
 body { font-family: "Mona Sans", sans-serif; color: var(--ink); font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
 .stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
-.scene { position: absolute; inset: 0; padding: 150px 160px 140px; opacity: 0; }
-.credit { font-size: 20px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); }
-.head { font-size: 68px; font-weight: 540; letter-spacing: -0.03em; line-height: 1.05; }
-.sub { font-size: 30px; color: var(--ink-2); margin-top: 22px; max-width: 1100px; line-height: 1.4; }
+.scene { position: absolute; inset: 0; opacity: 0; }
+.abs { position: absolute; }
+.credit { font-size: 20px; font-weight: 560; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.mega { font-size: 112px; font-weight: 600; letter-spacing: -0.045em; line-height: 1.02; }
+.cap { font-size: 96px; font-weight: 600; letter-spacing: -0.045em; line-height: 1.02; }
+.giant { font-size: 300px; font-weight: 600; letter-spacing: -0.06em; line-height: 0.9; }
+.say { font-size: 40px; color: var(--ink-2); letter-spacing: -0.015em; line-height: 1.3; }
+.centre { left: 0; right: 0; text-align: center; }
+.w { display: inline-block; }
 .mask { display: inline-block; background: currentColor; -webkit-mask: url("{{ mark_url }}") center / contain no-repeat; mask: url("{{ mark_url }}") center / contain no-repeat; }
-
-/* chrome */
-.bar { position: absolute; top: 0; left: 0; height: 3px; width: 1920px; background: var(--accent); transform-origin: left center; z-index: 5; }
-.foot { position: absolute; left: 160px; right: 160px; bottom: 56px; display: flex; justify-content: space-between; z-index: 5; }
-.foot .tags { position: relative; height: 24px; width: 700px; }
+canvas.obj { position: absolute; width: 900px; height: 900px; }
+.bar { position: absolute; top: 0; left: 0; height: 3px; width: 1920px; background: var(--accent); transform-origin: left center; z-index: 9; }
+.foot { position: absolute; left: 120px; right: 120px; bottom: 50px; display: flex; justify-content: space-between; z-index: 9; }
+.foot .tags { position: relative; height: 24px; width: 600px; }
 .foot .tag { position: absolute; right: 0; top: 0; opacity: 0; white-space: nowrap; }
 
-/* 1 title */
-.s-title { display: grid; place-items: center; align-content: center; text-align: center; gap: 0; }
-.s-title .mask { width: 132px; height: 126px; color: var(--ink); margin-bottom: 30px; }
-.s-title h1 { font-size: 248px; font-weight: 560; letter-spacing: -0.045em; line-height: 0.95; font-stretch: 98%; position: relative; }
-.s-title h1 span { display: inline-block; }
-.s-title .u { position: absolute; left: 4px; right: 12px; bottom: -14px; height: 8px; background: var(--accent); transform-origin: left center; }
-.s-title .line { font-size: 46px; color: var(--ink-2); margin-top: 58px; letter-spacing: -0.01em; }
-.s-title .credit { margin-top: 34px; font-size: 22px; }
-
-/* 2 product */
-.s-product { perspective: 2200px; }
-.win { position: absolute; left: 330px; top: 70px; width: 1260px; height: 892px; background: var(--panel); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; font-size: 23px; line-height: 1.45; transform-origin: 50% 40%; }
-.win-bar { display: flex; align-items: center; gap: 16px; padding: 20px 30px; border-bottom: 1px solid var(--rule); }
-.win-bar .mask { width: 32px; height: 30px; color: var(--ink); }
-.win-bar b { font-weight: 560; font-size: 26px; }
-.chip { font-size: 16px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--rule); border-radius: 99px; padding: 3px 14px; }
+/* chat window */
+.win { position: absolute; width: 1020px; height: 760px; background: var(--panel); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; font-size: 21px; line-height: 1.45; transform-origin: 0% 75%; }
+.win-bar { display: flex; align-items: center; gap: 14px; padding: 18px 26px; border-bottom: 1px solid var(--rule); }
+.win-bar .mask { width: 28px; height: 27px; color: var(--ink); } .win-bar b { font-weight: 560; font-size: 23px; }
+.chip { font-size: 14px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--rule); border-radius: 99px; padding: 3px 12px; }
 .dots { margin-left: auto; display: flex; gap: 6px; } .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
-.convo { padding: 28px 44px; display: grid; gap: 18px; align-content: start; }
-.you { justify-self: end; width: 80%; background: rgb(242 239 233 / 0.09); border-radius: 22px 22px 6px 22px; padding: 16px 24px; min-height: 104px; }
-.steps { list-style: none; display: grid; gap: 9px; font-size: 20px; color: var(--ink-2); }
-.steps li { display: flex; align-items: center; gap: 16px; }
-.dot { position: relative; width: 26px; height: 26px; flex: none; }
+.convo { padding: 26px 36px; display: grid; gap: 16px; align-content: start; }
+.you { justify-self: end; width: 82%; background: rgb(242 239 233 / 0.09); border-radius: 20px 20px 6px 20px; padding: 14px 22px; min-height: 92px; }
+.steps { list-style: none; display: grid; gap: 8px; font-size: 18px; color: var(--ink-2); }
+.steps li { display: flex; align-items: center; gap: 14px; }
+.dot { position: relative; width: 24px; height: 24px; flex: none; }
 .dot .ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgb(242 239 233 / 0.25); border-top-color: var(--ink); }
 .dot .fill { position: absolute; inset: 0; border-radius: 50%; background: var(--ink); display: grid; place-items: center; }
-.dot .fill svg { width: 15px; height: 15px; }
-.reply { display: grid; gap: 14px; }
-.reply p { max-width: 980px; }
-table { width: 100%; border-collapse: collapse; font-size: 19px; }
-th { text-align: left; font-size: 15px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); padding: 0 16px 10px 0; }
-td { padding: 8px 16px 8px 0; border-top: 1px solid var(--rule); color: var(--ink-2); }
-th:not(:first-child), td:not(:first-child) { text-align: right; } th:last-child, td:last-child { padding-right: 0; }
-td:first-child, td:last-child { color: var(--ink); }
-.art { display: flex; align-items: center; gap: 18px; border: 1px solid var(--rule); border-radius: 14px; padding: 14px 18px; width: 620px; }
-.thumb { width: 52px; height: 52px; border-radius: 9px; background: rgb(242 239 233 / 0.09); display: grid; place-items: center; color: var(--ink-2); }
-.art .nm { font-weight: 540; } .art .mt { font-size: 18px; color: var(--ink-3); }
-.open { margin-left: auto; font-size: 19px; font-weight: 540; border: 1px solid var(--rule); border-radius: 99px; padding: 6px 18px; }
-.open-hot { position: absolute; inset: -1px; border-radius: 99px; border: 2px solid var(--accent); }
-.stamp { font-size: 16px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); }
-.composer { margin: 0 28px 26px; border: 1px solid var(--rule); border-radius: 16px; padding: 14px 16px 14px 22px; display: flex; align-items: center; gap: 14px; color: var(--ink-3); }
-.send { margin-left: auto; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--field); display: grid; place-items: center; }
-.note { position: absolute; left: 330px; top: 980px; font-size: 20px; color: var(--ink-3); }
+.reply { display: grid; gap: 12px; }
+table.t { width: 100%; border-collapse: collapse; font-size: 17px; }
+.t th { text-align: left; font-size: 13px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); padding: 0 14px 8px 0; }
+.t td { padding: 7px 14px 7px 0; border-top: 1px solid var(--rule); color: var(--ink-2); }
+.t th:not(:first-child), .t td:not(:first-child) { text-align: right; } .t th:last-child, .t td:last-child { padding-right: 0; }
+.t td:first-child, .t td:last-child { color: var(--ink); }
+.art { display: flex; align-items: center; gap: 16px; border: 1px solid var(--rule); border-radius: 12px; padding: 12px 16px; width: 560px; }
+.thumb { width: 46px; height: 46px; border-radius: 8px; background: rgb(242 239 233 / 0.09); display: grid; place-items: center; color: var(--ink-2); }
+.art .nm { font-weight: 540; display: block; } .art .mt { font-size: 16px; color: var(--ink-3); }
+.open { position: relative; margin-left: auto; font-size: 17px; font-weight: 540; border: 1px solid var(--rule); border-radius: 99px; padding: 5px 16px; }
+.open i { position: absolute; inset: -1px; border-radius: 99px; border: 2px solid var(--accent); }
+.stamp { font-size: 14px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); }
+.composer { margin: 0 24px 22px; border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px 12px 20px; display: flex; align-items: center; gap: 12px; color: var(--ink-3); }
+.send { margin-left: auto; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--field); display: grid; place-items: center; }
+.capstack { position: absolute; left: 120px; top: 390px; width: 600px; height: 260px; }
+.capstack .cap { position: absolute; left: 0; top: 0; font-size: 76px; opacity: 0; }
 
-/* 3 loop */
-.loop { position: absolute; left: 160px; right: 160px; top: 430px; display: grid; grid-template-columns: repeat({{ loop|length }}, 1fr); }
-.loop .rail { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ink-3); transform-origin: left center; }
-.loop .pulse { position: absolute; top: -9px; left: -3px; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); }
-.loop .step { position: relative; padding-top: 44px; }
-.loop .step::before { content: ""; position: absolute; top: -6px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); }
-.loop .nm { display: block; font-size: 54px; font-weight: 540; letter-spacing: -0.03em; }
-.loop .ln { display: block; font-size: 25px; color: var(--ink-2); margin-top: 12px; max-width: 280px; line-height: 1.4; }
-.ret { position: absolute; left: 160px; top: 640px; width: 1600px; height: 120px; overflow: visible; }
-.ret path { fill: none; stroke: var(--ink-3); stroke-width: 2; }
-.loop-note { position: absolute; left: 160px; top: 800px; font-size: 34px; color: var(--ink-2); }
+/* truths */
+.truth-line { top: 210px; }
+.t1 svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.t1 svg path { fill: none; stroke: var(--ink-3); stroke-width: 1.5; }
+.t1 .part { position: absolute; font-size: 34px; font-weight: 520; letter-spacing: -0.01em; white-space: nowrap; }
+.t1 .hub { position: absolute; left: 905px; top: 660px; width: 110px; height: 106px; color: var(--ink); }
+.t1 .ping { position: absolute; left: 860px; top: 613px; width: 200px; height: 200px; border-radius: 50%; border: 2px solid var(--accent); }
+.mt2 { position: absolute; left: 460px; top: 470px; width: 1000px; border-collapse: collapse; font-size: 26px; }
+.mt2 th { text-align: left; font-size: 16px; font-weight: 560; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); padding: 0 0 14px; }
+.mt2 td { padding: 13px 0; border-top: 1px solid var(--line); position: relative; }
+.mt2 td.m span.v { display: inline-block; }
+.mt2 td.m i { position: absolute; left: 0; top: 50%; height: 18px; margin-top: -9px; width: 230px; border-radius: 4px; background: var(--ink-3); transform-origin: left center; }
+.scan { position: absolute; left: 440px; width: 1040px; height: 2px; background: var(--accent); top: 470px; }
+.badge { position: absolute; left: 460px; top: 820px; }
+.t3row { position: absolute; left: 260px; right: 260px; top: 480px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+.t3row > div { display: grid; justify-items: center; gap: 26px; text-align: center; }
+.t3row svg { width: 150px; height: 150px; overflow: visible; }
+.t3row svg * { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.t3row #t3-hand { transform-origin: 12px 12px; }
+.t3row .t3-bar { transform-origin: center 12px; transform-box: fill-box; }
+.t3row span { font-size: 34px; font-weight: 520; }
+.t3row .prog { width: 220px; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; } .t3row .prog i { display: block; height: 100%; background: var(--accent); transform-origin: left center; }
+.net { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.net line { stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 1; }
+.net circle { fill: var(--ink); transform-box: fill-box; transform-origin: center; }
+.net circle.c { fill: var(--accent); }
+.tnote { top: 920px; }
 
-/* 4 capabilities */
-.caps { margin-top: 90px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 70px 80px; }
-.caps div { border-top: 1px solid var(--line); padding-top: 26px; }
-.caps b { display: block; font-size: 64px; font-weight: 530; letter-spacing: -0.025em; }
-.caps span { display: block; font-size: 25px; color: var(--ink-2); margin-top: 12px; line-height: 1.4; max-width: 470px; }
+/* numbers */
+.num { top: 300px; }
+.num-say { top: 640px; }
 
-/* 5, 6, 8 sentence scenes */
-.lines { margin-top: 80px; display: grid; gap: 34px; }
-.lines p { font-size: 62px; font-weight: 460; letter-spacing: -0.02em; line-height: 1.15; color: var(--ink-2); }
-.lines p b { font-weight: 560; color: var(--ink); }
-.inst { position: absolute; left: 160px; bottom: 140px; display: flex; gap: 10px; }
-.inst i { width: 26px; height: 26px; border-radius: 4px; background: var(--ink); }
+/* stack */
+.stack3d { position: absolute; left: 400px; top: 440px; width: 560px; height: 560px; transform-style: preserve-3d; }
+.slab { position: absolute; inset: 0; border: 2px solid var(--ink-3); background: rgb(22 22 24 / 0.94); border-radius: 18px; }
+.slab.top { border-color: var(--ink); }
+.slab .g { position: absolute; inset: 44px; display: grid; gap: 14px; }
+.slab .g i { border: 1.5px solid var(--ink-3); border-radius: 4px; }
+.slab .mk { position: absolute; left: 170px; top: 174px; width: 220px; height: 210px; color: var(--ink); transform: rotate(40deg); }
+.slabel { position: absolute; left: 1180px; font-size: 44px; font-weight: 540; letter-spacing: -0.02em; white-space: nowrap; opacity: 0; }
+.slabel::before { content: ""; position: absolute; right: calc(100% + 24px); top: 50%; width: 180px; height: 1px; background: var(--ink-3); }
+.bridge { top: 96px; }
 
-/* 7 platform */
-.yr { position: absolute; left: 160px; top: 330px; width: 520px; }
-.yr .num { position: relative; height: 200px; }
-.yr .num span { position: absolute; left: 0; top: 0; font-size: 200px; font-weight: 520; letter-spacing: -0.05em; line-height: 1; opacity: 0; }
-.yr .era { position: relative; height: 60px; margin-top: 26px; }
-.yr .era span { position: absolute; left: 0; top: 0; font-size: 48px; font-weight: 530; letter-spacing: -0.02em; opacity: 0; }
-.yr .eline { position: relative; height: 140px; margin-top: 10px; }
-.yr .eline span { position: absolute; left: 0; top: 0; font-size: 25px; color: var(--ink-2); line-height: 1.45; width: 470px; opacity: 0; }
-.meas { position: absolute; left: 820px; right: 160px; top: 330px; display: grid; gap: 34px; }
-.meas .row { display: grid; grid-template-columns: 1fr 190px; gap: 8px 30px; align-items: end; }
-.meas .lb { font-size: 26px; color: var(--ink-2); }
-.meas .vals { position: relative; height: 40px; text-align: right; }
-.meas .vals span { position: absolute; right: 0; top: 0; font-size: 34px; font-weight: 540; opacity: 0; white-space: nowrap; }
-.meas .vals span.none { color: var(--ink-3); font-weight: 420; font-size: 28px; top: 4px; }
-.meas .track { grid-column: 1 / -1; height: 6px; background: rgb(242 239 233 / 0.08); border-radius: 3px; overflow: hidden; }
-.meas .track i { display: block; height: 100%; width: 100%; background: var(--ink); transform-origin: left center; transform: scaleX(0); }
+/* platform shifts */
+.ptitle { position: absolute; left: 160px; top: 170px; }
+.yr { position: absolute; left: 164px; top: 330px; height: 30px; width: 500px; }
+.yr span { position: absolute; left: 0; top: 0; opacity: 0; white-space: nowrap; }
+.morph { position: absolute; left: 150px; top: 400px; height: 300px; width: 900px; }
+.morph span { position: absolute; left: 0; top: 0; opacity: 0; white-space: nowrap; }
+.grid100 { position: absolute; left: 1150px; top: 300px; display: grid; grid-template-columns: repeat(10, 46px); gap: 12px; }
+.grid100 i { position: relative; width: 46px; height: 46px; border-radius: 6px; background: var(--ink); }
+.grid100 i.f { background: transparent; box-shadow: inset 0 0 0 2px var(--ink-3); }
+.grid100 i b { position: absolute; inset: 0; border-radius: 6px; background: var(--ink); }
+.blocks { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.blocks i { position: absolute; left: 0; top: 0; width: 56px; height: 30px; border-radius: 5px; border: 2px solid var(--ink-2); background: rgb(242 239 233 / 0.06); opacity: 0; }
+.pnote { position: absolute; left: 160px; top: 880px; }
+.git { position: absolute; left: 160px; right: 160px; top: 760px; height: 80px; }
+.git .rail { position: absolute; left: 0; right: 0; top: 39px; height: 2px; background: var(--ink-3); transform-origin: left center; }
+.git .c { position: absolute; top: 18px; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--ink-2); background: var(--field); }
+.git .c b { position: absolute; inset: -2px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; }
+.git .c svg { width: 22px; height: 22px; }
 
-/* 9 savings */
-.money { margin-top: 48px; display: grid; gap: 14px; }
-.money .row { display: grid; grid-template-columns: 640px 50px 1fr; align-items: center; gap: 24px; border-top: 1px solid var(--line); padding-top: 14px; }
+/* scale */
+.spines { position: absolute; left: 160px; right: 160px; bottom: 140px; height: 300px; display: flex; align-items: flex-end; gap: 4px; }
+.spines i { flex: 1; background: var(--ink); border-radius: 2px 2px 0 0; transform-origin: bottom center; }
+.spines i:nth-child(5n+2) { background: var(--ink-2); } .spines i:nth-child(7n+3) { background: var(--ink-3); } .spines i:nth-child(23n) { background: var(--accent); }
+.big-left { position: absolute; left: 150px; top: 150px; }
+.say-left { position: absolute; left: 160px; width: 1100px; }
+.pulse { position: absolute; left: 1420px; top: 330px; width: 280px; height: 280px; }
+.pulse i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent); }
+.pulse b { position: absolute; left: 120px; top: 120px; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); }
+.dots160 { position: absolute; left: 1010px; top: 300px; display: grid; grid-template-columns: repeat(16, 30px); gap: 16px; }
+.dots160 i { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); }
+.plabel { position: absolute; left: 1010px; top: 760px; height: 30px; width: 400px; }
+.plabel span { position: absolute; left: 0; top: 0; opacity: 0; }
+
+/* savings */
+.money { position: absolute; left: 160px; right: 160px; top: 330px; display: grid; gap: 12px; }
+.money .row { display: grid; grid-template-columns: 640px 50px 1fr; align-items: center; gap: 24px; border-top: 1px solid var(--line); padding-top: 12px; }
 .money .stop { position: relative; white-space: nowrap; font-size: 40px; font-weight: 530; letter-spacing: -0.02em; justify-self: start; }
 .money .strike { position: absolute; left: -6px; right: -6px; top: 54%; height: 4px; background: var(--accent); transform-origin: left center; }
 .money .arrow { color: var(--ink-3); }
-.money .inst2 { font-size: 34px; color: var(--ink); }
-.money .amt { display: block; font-size: 21px; color: var(--ink-3); margin-top: 4px; }
-.close { position: absolute; left: 160px; bottom: 112px; font-size: 56px; font-weight: 540; letter-spacing: -0.02em; }
+.money .inst2 { font-size: 34px; }
+.money .amt { display: block; font-size: 20px; color: var(--ink-3); margin-top: 4px; }
 
-/* 10 diagram */
+/* diagram */
 .dia { position: absolute; left: 160px; top: 330px; width: 1600px; transform-origin: 50% 50%; }
 .dia svg { width: 1600px; height: auto; display: block; }
 
-/* 11 end */
-.s-end { display: grid; align-content: center; justify-items: start; }
-.s-end h2 { font-size: 196px; font-weight: 560; letter-spacing: -0.045em; line-height: 0.95; position: relative; }
-.s-end .u { position: absolute; left: 4px; right: 8px; bottom: -16px; height: 8px; background: var(--accent); transform-origin: left center; }
-.s-end .role { font-size: 46px; color: var(--ink-2); margin-top: 60px; }
-.s-end .url { font-size: 46px; margin-top: 22px; font-weight: 540; }
+/* end */
+.endname { top: 640px; }
+.endrole { top: 790px; }
+.endurl { top: 856px; }
+.objlab { position: absolute; top: 590px; width: 600px; text-align: center; }
 </style>
 </head>
 <body>
 <div class="stage">
   <div class="bar" id="bar"></div>
 
-  <section class="scene s-title" id="s1">
-    <span class="mask" id="t-mark"></span>
-    <h1 id="t-h1">{% for ch in "Orca" %}<span class="t-ch">{{ ch }}</span>{% endfor %}<i class="u" id="t-u"></i></h1>
-    <p class="line" id="t-line">{{ title_line }}</p>
-    <p class="credit" id="t-credit">{{ film.credit }}</p>
+  <section class="scene" id="s-open">
+    <p class="credit abs centre" id="o-cred" style="top:370px">{{ name }} · South Pole</p>
+    {% set halves = film.open.split(', ', 1) %}
+    <h1 class="mega abs centre" id="o-h" style="top:440px">{% for w in (halves[0] ~ ',').split(' ') %}<span class="w ow">{{ w }}</span> {% endfor %}<br><span style="position:relative;display:inline-block">{% for w in halves[1].split(' ') %}<span class="w ow">{{ w }}</span> {% endfor %}<i id="o-line" style="position:absolute;left:0;right:28px;bottom:-14px;height:6px;background:var(--accent);transform-origin:left center"></i></span></h1>
   </section>
 
-  <section class="scene s-product" id="s2">
-    <div class="win" id="win">
+  <section class="scene" id="s-orca">
+    <p class="abs centre" id="or-word" style="top:110px;font-size:420px;font-weight:620;letter-spacing:-0.06em;line-height:1">Orca</p>
+    <canvas class="obj" id="or-obj" data-slug="orca" width="900" height="900" style="left:510px;top:170px"></canvas>
+    <p class="say abs centre" id="or-say" style="top:930px">{{ film.orca_line }}</p>
+  </section>
+
+  <section class="scene" id="s-ask" style="perspective:2400px">
+    <div class="capstack">{% for c in film.ask %}<p class="cap ac">{{ c }}</p>{% endfor %}</div>
+    <div class="win" id="win" style="left:780px;top:150px">
       <div class="win-bar"><span class="mask"></span><b>Orca</b><span class="chip">New chat</span><span class="dots"><i></i><i></i><i></i></span></div>
       <div class="convo">
         <p class="you" id="q" data-full="{{ demo.question }}"></p>
-        <ol class="steps">
-          {% for s in demo.steps %}<li class="st"><span class="dot"><span class="ring"></span><span class="fill"><svg viewBox="0 0 24 24" fill="none" stroke="#0c0c0e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>{{ s }}</span></li>{% endfor %}
-        </ol>
+        <ol class="steps">{% for s in demo.steps %}<li class="st"><span class="dot"><span class="ring"></span><span class="fill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0c0c0e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>{{ s }}</span></li>{% endfor %}</ol>
         <div class="reply">
           <p id="ans">{{ demo.answer }}</p>
-          <table id="tbl"><thead><tr>{% for h in demo.table.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
-            <tbody>{% for r in demo.table.rows %}<tr class="tr">{% for c in r %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}</tbody></table>
-          <div class="art" id="art"><span class="thumb"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 11v4m-4 0h8"/></svg></span><span><span class="nm" style="display:block">{{ demo.artefact.name }}</span><span class="mt">{{ demo.artefact.meta }}</span></span><span class="open" style="position:relative">Open<i class="open-hot" id="hot"></i></span></div>
+          <table class="t" id="tbl"><thead><tr>{% for h in demo.table.head %}<th>{{ h }}</th>{% endfor %}</tr></thead><tbody>{% for r in demo.table.rows %}<tr class="tr">{% for c in r %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}</tbody></table>
+          <div class="art" id="art"><span class="thumb"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 11v4m-4 0h8"/></svg></span><span><span class="nm">{{ demo.artefact.name }}</span><span class="mt">{{ demo.artefact.meta }}</span></span><span class="open">Open<i id="hot"></i></span></div>
           <p class="stamp" id="stamp">{{ demo.stamp }}</p>
         </div>
       </div>
-      <div class="composer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>Ask Orca</span><span class="send"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></span></div>
+      <div class="composer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>Ask Orca</span><span class="send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></span></div>
     </div>
-    <p class="note" id="note">{{ demo.note }}</p>
+    <p class="abs" id="ask-note" style="left:120px;top:960px;font-size:18px;color:var(--ink-3)">{{ demo.note }}</p>
   </section>
 
-  <section class="scene" id="s3">
-    <h2 class="head sh">How it works</h2>
-    <div class="loop" id="loop">
-      <i class="rail" id="rail"></i><i class="pulse" id="pulse"></i>
-      {% for s in loop %}<div class="step"><span class="nm">{{ s.name }}</span><span class="ln">{{ s.line }}</span></div>{% endfor %}
+  <section class="scene t1" id="s-t1">
+    <p class="cap abs centre truth-line tl">{{ film.truths[0].line }}</p>
+    <svg viewBox="0 0 1920 1080">{% for p in t1_parts %}<path class="t1l" pathLength="1" stroke-dasharray="1" d="M{{ p.lx }} {{ p.ly }} C{{ p.cx }} {{ p.ly }} {{ p.cx }} 713 {{ p.hx }} 713"/>{% endfor %}</svg>
+    {% for p in t1_parts %}<span class="part t1p" style="{{ p.style }}">{{ p.name }}</span>{% endfor %}
+    <i class="ping" id="t1-ping"></i>
+    <span class="mask hub" id="t1-hub"></span>
+  </section>
+
+  <section class="scene" id="s-t2">
+    <p class="cap abs centre truth-line tl">{{ film.truths[1].line }}</p>
+    <table class="mt2" id="mt2"><thead id="mt2h"><tr><th>Account</th><th>Region</th><th>Owner</th><th>Contact</th></tr></thead><tbody>
+      {% for r in mask_rows %}<tr class="mr"><td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td class="m"><span class="v">{{ r[3] }}</span><i></i></td></tr>{% endfor %}
+    </tbody></table>
+    <i class="scan" id="scan"></i>
+    <p class="credit badge" id="badge">{{ film.truths[1].note }}</p>
+  </section>
+
+  <section class="scene" id="s-t3">
+    <p class="cap abs centre truth-line tl">{{ film.truths[2].line }}</p>
+    <div class="t3row">
+      <div class="t3"><svg viewBox="0 0 24 24"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8l-4-5Zm0 0v5h4M9 13h6M9 17h4"/></svg><span>{{ film.truths[2].parts[0] }}</span><span class="prog"><i id="t3-prog"></i></span></div>
+      <div class="t3"><svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/><path id="t3-hand" d="M12 12V6.5"/><path d="M12 12l4 2"/></svg><span>{{ film.truths[2].parts[1] }}</span></div>
+      <div class="t3"><svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 11v4m-4 0h8"/><path class="t3-bar" d="M7 12V10"/><path class="t3-bar" d="M10 12V8"/><path class="t3-bar" d="M13 12V9"/><path class="t3-bar" d="M16 12V7"/></svg><span>{{ film.truths[2].parts[2] }}</span></div>
     </div>
-    <svg class="ret" viewBox="0 0 1600 120" id="ret"><path id="ret-path" pathLength="1" d="M{{ (1600 * (loop|length - 1) / loop|length)|round|int + 6 }} 0 V70 Q{{ (1600 * (loop|length - 1) / loop|length)|round|int + 6 }} 100 {{ (1600 * (loop|length - 1) / loop|length)|round|int - 24 }} 100 H36 Q6 100 6 70 V14"/><path id="ret-head" d="M-4 26 6 12 16 26"/></svg>
-    <p class="loop-note" id="loop-note">{{ loop_note }}</p>
   </section>
 
-  <section class="scene" id="s4">
-    <h2 class="head sh">What it does</h2>
-    <div class="caps">{% for c in caps %}<div class="cap"><b>{{ c.name }}</b><span>{{ c.line }}</span></div>{% endfor %}</div>
+  <section class="scene" id="s-t4">
+    <p class="cap abs centre truth-line tl">{{ film.truths[3].line }}</p>
+    <svg class="net" viewBox="0 0 1920 1080">{% for l in net_links %}<line class="nl" x1="{{ l[0] }}" y1="{{ l[1] }}" x2="{{ l[2] }}" y2="{{ l[3] }}" pathLength="1"/>{% endfor %}{% for n in net_nodes %}<circle class="nn{% if n[3] %} c{% endif %}" data-order="{{ n[4] }}" cx="{{ n[0] }}" cy="{{ n[1] }}" r="{{ n[2] }}"/>{% endfor %}</svg>
+    <p class="say abs centre tnote" id="t4-note">{{ film.truths[3].note }}</p>
   </section>
 
-  {% for sid, title, items in [("s5", "Adoption", film.adoption), ("s6", "Running cost and footprint", film.lean), ("s8", "Scale", film.scale)] %}
-  <section class="scene" id="{{ sid }}">
-    <h2 class="head sh">{{ title }}</h2>
-    <div class="lines">{% for l in items %}<p class="ln-{{ sid }}"><b>{% if l.count %}<span class="cnt" data-to="{{ l.count }}" data-comma="{{ 1 if l.comma else 0 }}">{{ l.num }}</span>{{ l.rest }}{% else %}{{ l.lead }}{% endif %}</b> {{ l.text }}</p>{% endfor %}</div>
-    {% if sid == "s6" %}<div class="inst" id="inst">{% for i in range(30) %}<i></i>{% endfor %}</div>{% endif %}
+  {% for a in adoption %}
+  <section class="scene sn" id="s-n{{ loop.index0 }}">
+    <p class="giant abs centre num"><span class="cnt" data-to="{{ a.count }}" data-comma="{{ 1 if a.comma else 0 }}">{{ a.lead }}</span></p>
+    <p class="say abs centre num-say" style="font-size:46px">{{ a.text }}</p>
   </section>
   {% endfor %}
 
-  <section class="scene" id="s7">
-    <h2 class="head sh">The platform</h2>
-    <p class="sub sh">{{ platform.line }}</p>
-    <div class="yr">
-      <div class="num">{% for e in eras %}<span class="y-num">{{ e.year }}</span>{% endfor %}</div>
-      <div class="era">{% for e in eras %}<span class="y-era">{{ e.name }}</span>{% endfor %}</div>
-      <div class="eline">{% for e in eras %}<span class="y-line">{{ e.line }}</span>{% endfor %}</div>
+  <section class="scene" id="s-stack">
+    <p class="cap abs centre bridge" id="br0">{{ film.bridge[0] }}</p>
+    <p class="cap abs centre bridge" id="br1" style="opacity:0">{{ film.bridge[0] }} <span style="color:var(--accent)">{{ film.bridge[1] }}</span></p>
+    <div class="stack3d" id="stack3d" data-base="perspective(3000px) rotateX(58deg) rotateZ(-40deg)" style="transform:perspective(3000px) rotateX(58deg) rotateZ(-40deg)">
+      {% for s in film.stack|reverse %}<div class="slab{% if loop.last %} top{% endif %}">
+        {% if loop.last %}<span class="mask mk"></span>{% elif loop.index0 == 1 %}<span class="g" style="grid-template-columns:repeat(6,1fr)">{% for i in range(36) %}<i></i>{% endfor %}</span>{% elif loop.index0 == 2 %}<span class="g" style="grid-template-columns:repeat(3,1fr)">{% for i in range(9) %}<i style="border-radius:50%"></i>{% endfor %}</span>{% else %}<span class="g" style="grid-template-columns:repeat(2,1fr)">{% for i in range(4) %}<i></i>{% endfor %}</span>{% endif %}
+      </div>{% endfor %}
     </div>
-    <div class="meas">
-      {% for m in measures %}<div class="row"><span class="lb">{{ m.name }}</span><span class="vals">{% for lab in m.labels %}<span class="v v{{ loop.index0 }}{% if m.values[loop.index0] is none %} none{% endif %}">{{ lab }}</span>{% endfor %}</span><span class="track"><i class="bar-{{ loop.index0 }}" data-shares="{{ m.shares|join(',') }}"></i></span></div>{% endfor %}
-    </div>
+    {% for s in film.stack %}<p class="slabel" data-i="{{ loop.index0 }}" style="top:{{ stack_label_y[loop.index0] }}px">{{ s }}</p>{% endfor %}
   </section>
 
-  <section class="scene" id="s9">
-    <h2 class="head sh">Savings</h2>
+  <section class="scene" id="s-plat">
+    <p class="abs centre" id="pl-word" style="top:150px;font-size:330px;font-weight:620;letter-spacing:-0.06em;line-height:1">Platform</p>
+    <canvas class="obj" id="pl-obj" data-slug="enterprise-data-platform-migration" width="900" height="900" style="left:510px;top:160px"></canvas>
+    <p class="say abs centre" id="pl-say" style="top:930px">{{ film.platform_line }}</p>
+  </section>
+
+  <section class="scene" id="s-runs">
+    <p class="cap ptitle sh">{{ film.runs.title }}</p>
+    <p class="credit yr"><span class="y0">{{ film.runs.from_year }}</span><span class="y1">{{ film.runs.to_year }}</span></p>
+    <p class="giant morph"><span class="m0">{{ film.runs.from }}</span><span class="m1">{{ film.runs.to }}</span></p>
+    <div class="grid100">{% for i in range(100) %}<i class="g1{% if i in run_fails %} f{% endif %}">{% if i in run_fails %}<b></b>{% endif %}</i>{% endfor %}</div>
+  </section>
+
+  <section class="scene" id="s-code">
+    <p class="cap ptitle sh">{{ film.code.title }}</p>
+    <p class="credit yr"><span class="y0">{{ film.code.from_year }} · {{ film.code.from_label }}</span><span class="y1">{{ film.code.to_year }}</span></p>
+    <div class="blocks">{% for b in code_blocks %}<i data-x0="{{ b[0] }}" data-y0="{{ b[1] }}" data-r0="{{ b[2] }}" data-x1="{{ b[3] }}" data-y1="{{ b[4] }}"></i>{% endfor %}</div>
+    <p class="say pnote" id="code-note">{{ film.code.note }}</p>
+  </section>
+
+  <section class="scene" id="s-review">
+    <p class="cap ptitle sh">{{ film.review.title }}</p>
+    <p class="credit yr"><span class="y0">{{ film.review.from_year }}</span><span class="y1">{{ film.review.to_year }}</span></p>
+    <p class="giant morph" style="font-size:220px"><span class="m0">{{ film.review.from }}</span><span class="m1">{{ film.review.to }}</span></p>
+    <div class="git"><i class="rail" id="git-rail"></i>{% for c in commits %}<span class="c gc" style="left:{{ c.x }}px"><b class="{{ 'late' if not c.ok else 'ok' }}"><svg viewBox="0 0 24 24" fill="none" stroke="#0c0c0e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b></span>{% endfor %}</div>
+  </section>
+
+  <section class="scene" id="s-books">
+    <p class="giant big-left sh">{{ film.books.lead }}</p>
+    <p class="say say-left sh" style="top:470px">{{ film.books.text }}</p>
+    <div class="spines">{% for h in spines %}<i style="height:{{ h }}%"></i>{% endfor %}</div>
+  </section>
+
+  <section class="scene" id="s-ticker">
+    <p class="giant big-left" style="top:300px"><span class="cnt" id="tick" data-to="{{ ticker_count }}" data-comma="1">{{ film.ticker.lead }}</span></p>
+    <p class="say say-left" id="tick-say" style="top:640px">{{ film.ticker.text }}</p>
+    <div class="pulse"><i class="pr"></i><i class="pr"></i><i class="pr"></i><b id="pb"></b></div>
+  </section>
+
+  <section class="scene" id="s-people">
+    <p class="giant big-left" style="top:300px"><span class="cnt" id="ppl" data-from="{{ film.people.from }}" data-to="{{ film.people.to }}">{{ film.people.to }}</span></p>
+    <p class="say say-left" id="ppl-say" style="top:640px;width:760px">{{ film.people.text }}</p>
+    <div class="dots160">{% for i in range(film.people.to) %}<i class="{% if i < film.people.from %}d0{% else %}d1{% endif %}"></i>{% endfor %}</div>
+    <p class="credit plabel"><span class="y0">{{ film.people.from_label }}</span><span class="y1">{{ film.people.to_label }}</span></p>
+  </section>
+
+  <section class="scene" id="s-save">
+    <p class="cap ptitle sh">{{ film.savings }}</p>
     <div class="money">{% for m in money %}<div class="row mrow"><span class="stop">{{ m.stopped }}<i class="strike"></i></span><svg class="arrow" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span class="inst2">{{ m.instead }}<span class="amt">{{ m.amount }}</span></span></div>{% endfor %}</div>
-    <p class="close" id="close">{{ film.close }}</p>
+  </section>
+  <section class="scene" id="s-close">
+    <p class="cap abs centre" id="close" style="top:470px">{{ film.close }}</p>
   </section>
 
-  <section class="scene" id="s10">
-    <h2 class="head sh">How it fits together</h2>
+  <section class="scene" id="s-fits">
+    <p class="cap ptitle sh" style="font-size:72px">How it fits together.</p>
     <div class="dia" id="dia">{{ diagram|safe }}</div>
   </section>
 
-  <section class="scene s-end" id="s11">
-    <h2 id="e-h">{{ name }}<i class="u" id="e-u"></i></h2>
-    <p class="role" id="e-role">{{ role }}</p>
-    <p class="url" id="e-url">saahil.co.uk</p>
+  <section class="scene" id="s-end">
+    <canvas class="obj" id="e-o1" data-slug="orca" width="900" height="900" style="left:330px;top:60px;width:560px;height:560px"></canvas>
+    <canvas class="obj" id="e-o2" data-slug="enterprise-data-platform-migration" width="900" height="900" style="left:1030px;top:60px;width:560px;height:560px"></canvas>
+    <p class="credit objlab" id="e-l1" style="left:310px">Orca</p>
+    <p class="credit objlab" id="e-l2" style="left:1010px">The data platform</p>
+    <p class="mega abs centre endname" id="e-name">{{ name }}</p>
+    <p class="say abs centre endrole" id="e-role">{{ role }}</p>
+    <p class="say abs centre endurl" id="e-url" style="color:var(--ink)">saahil.co.uk</p>
   </section>
 
-  <div class="foot"><span class="credit" id="who">Saahil Mehta</span><span class="tags">{% for s in scenes %}<span class="credit tag" id="tag-{{ s.id }}">{{ s.tag }}</span>{% endfor %}</span></div>
+  <div class="foot"><span class="credit" id="who">{{ name }}</span><span class="tags">{% for act in acts %}<span class="credit tag act" data-a="{{ act.a }}" data-b="{{ act.b }}">{{ act.tag }}</span>{% endfor %}</span></div>
 </div>
 
+<script src="stage.js"></script>
 <script>
 const DURATION = {{ duration }};
 const SCENES = {{ scenes_json|safe }};
-const DIAGRAM_AT = {{ diagram_at }};
+const S = Object.fromEntries(SCENES.map((s) => [s.id, s]));
 // ---- a small deterministic timeline: tweens keyed by element and property, evaluated at t
 const tracks = new Map();
 const E = {
   out: (t) => 1 - Math.pow(1 - t, 4),
+  out2: (t) => 1 - Math.pow(1 - t, 2),
   inout: (t) => (t < 0.5 ? 8 * t ** 4 : 1 - Math.pow(-2 * t + 2, 4) / 2),
+  soft: (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2),
   lin: (t) => t,
-  step: (t) => (t < 1 ? 0 : 1),
+  back: (t) => 1 + 2.2 * Math.pow(t - 1, 3) + 1.2 * Math.pow(t - 1, 2),
 };
 function at(sel, start, dur, props, opt = {}) {
   const pick = (x) => (typeof x === "string" ? [...document.querySelectorAll(x)] : [x]);
   const els = (Array.isArray(sel) ? sel.flatMap(pick) : pick(sel)).filter(Boolean);
   els.forEach((el, i) => {
-    const s = start + i * (opt.stagger || 0);
+    const s = start + (typeof opt.stagger === "function" ? opt.stagger(i, el) : i * (opt.stagger || 0));
     let tr = tracks.get(el);
     if (!tr) tracks.set(el, (tr = {}));
     for (const [k, v] of Object.entries(props)) (tr[k] ||= []).push({ s, d: Math.max(dur, 0.0001), a: v[0], b: v[1], e: E[opt.ease || "out"] });
@@ -248,18 +345,22 @@ function value(list, t) {
   if (!cur) return list.reduce((m, x) => (x.s < m.s ? x : m)).a;
   return lerp(cur.a, cur.b, cur.e(Math.min(1, (t - cur.s) / cur.d)));
 }
+let STAGE = null;
 function render(t) {
+  const spins = [];
   for (const [el, tr] of tracks) {
     const v = {};
     for (const k in tr) v[k] = value(tr[k], t);
     if ("o" in v) el.style.opacity = v.o;
     const tf = [];
-    if ("x" in v || "y" in v) tf.push(`translate(${v.x || 0}px, ${v.y || 0}px)`);
+    if ("x" in v || "y" in v || "z" in v) tf.push(`translate3d(${v.x || 0}px, ${v.y || 0}px, ${v.z || 0}px)`);
     if ("rx" in v) tf.push(`rotateX(${v.rx}deg)`);
+    if ("ry" in v) tf.push(`rotateY(${v.ry}deg)`);
     if ("r" in v) tf.push(`rotate(${v.r}deg)`);
     if ("s" in v) tf.push(`scale(${v.s})`);
     if ("sx" in v) tf.push(`scaleX(${v.sx})`);
-    if (tf.length) el.style.transform = tf.join(" ");
+    if ("sy" in v) tf.push(`scaleY(${v.sy})`);
+    if (tf.length) el.style.transform = `${el.dataset.pre || ""} ${tf.join(" ")} ${el.dataset.base || ""}`;
     if ("blur" in v) el.style.filter = v.blur > 0.05 ? `blur(${v.blur}px)` : "none";
     if ("clip" in v) el.style.clipPath = `inset(${v.clip.map((c) => c + "%").join(" ")})`;
     if ("draw" in v) el.style.strokeDashoffset = v.draw;
@@ -268,148 +369,238 @@ function render(t) {
       const n = Math.round(v.count);
       el.textContent = el.dataset.comma === "1" ? n.toLocaleString("en-GB") : String(n);
     }
+    if ("spin" in v) spins.push([el, v.spin]);
   }
+  // Objects draw last, and only while their scene is on screen.
+  for (const [el, angle] of spins) if (STAGE && Number(el.closest(".scene").style.opacity) > 0) STAGE(el.dataset.slug, angle, el);
   document.getAnimations().forEach((a) => {
     a.pause();
-    a.currentTime = Math.max(0, t - DIAGRAM_AT) * 1000;
+    a.currentTime = Math.max(0, t - S["s-fits"].a - 0.4) * 1000;
   });
 }
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
+const RISE = { o: [0, 1], y: [40, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] };
+// Swap a "from" layer for a "to" layer: the old value lifts and blurs away, the new one settles.
+function swap(sc, show, change) {
+  const a = S[sc].a, root = `#${sc}`;
+  at(`${root} .y0, ${root} .m0`, a + show, 0.6, { o: [0, 1], y: [20, 0] });
+  at(`${root} .y0, ${root} .m0`, a + change, 0.4, { o: [1, 0], y: [0, -40], blur: [0, 10] }, { ease: "soft" });
+  at(`${root} .y1, ${root} .m1`, a + change + 0.15, 0.7, { o: [0, 1], y: [40, 0], blur: [10, 0] });
+}
 
-// ---- chrome
+// ---- chrome: scenes cut in and fade out; the hairline fills across the film
 at("#bar", 0, DURATION, { sx: [0, 1] }, { ease: "lin" });
 for (const sc of SCENES) {
   at(`#${sc.id}`, sc.a, 0.01, { o: [0, 1] }, { ease: "lin" });
-  at(`#${sc.id}`, sc.b - 0.5, 0.5, { o: [1, 0] }, { ease: "inout" });
-  at(`#${sc.id} .sh`, sc.a + 0.15, 0.8, { o: [0, 1], y: [26, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] }, { stagger: 0.12 });
-  at(`#${sc.id} .sh`, sc.b - 0.5, 0.5, { y: [0, -24] }, { ease: "inout" });
-  at(`#tag-${sc.id}`, sc.a + 0.3, 0.6, { o: [0, 1], y: [10, 0] });
-  at(`#tag-${sc.id}`, sc.b - 0.4, 0.4, { o: [1, 0] }, { ease: "inout" });
+  if (sc.id !== "s-end") at(`#${sc.id}`, sc.b - 0.4, 0.4, { o: [1, 0] }, { ease: "soft" });
+  at(`#${sc.id} .sh`, sc.a + 0.15, 0.9, RISE, { stagger: 0.12 });
 }
-at("#who", SCENES[2].a + 0.3, 0.8, { o: [0, 1] });
-at("#who", DURATION - 6.4, 0.5, { o: [1, 0] });
+$$(".act").forEach((el) => {
+  at(el, +el.dataset.a + 0.3, 0.6, { o: [0, 1] });
+  at(el, +el.dataset.b - 0.4, 0.4, { o: [1, 0] }, { ease: "soft" });
+});
+at("#who", S["s-orca"].a + 0.4, 0.8, { o: [0, 1] });
+at("#who", S["s-end"].a, 0.5, { o: [1, 0] });
 
-// ---- 1 title
-at("#t-mark", 0.3, 1.2, { o: [0, 1], s: [0.82, 1], blur: [14, 0] });
-at(".t-ch", 0.75, 0.9, { o: [0, 1], y: [70, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] }, { stagger: 0.07 });
-at("#t-u", 1.55, 1.0, { sx: [0, 1] });
-at("#t-line", 2.0, 0.9, { o: [0, 1], y: [20, 0] });
-at("#t-credit", 2.6, 0.9, { o: [0, 1], y: [14, 0] });
-at(["#t-mark", "#t-h1", "#t-line", "#t-credit"], 5.4, 0.7, { y: [0, -40], blur: [0, 8] }, { ease: "inout", stagger: 0.04 });
-const S = Object.fromEntries(SCENES.map((s) => [s.id, s]));
-
-// ---- 2 product
+// ---- open
 {
-  const a = S.s2.a;
-  at("#win", a, 1.4, { o: [0, 1], y: [90, 0], rx: [14, 0], s: [0.93, 1] });
-  at("#note", a + 0.9, 0.8, { o: [0, 1] });
-  at("#q", a + 1.2, 1.6, { type: [0, 1] }, { ease: "lin" });
-  at("#q", a + 1.0, 0.3, { o: [0, 1] });
+  const a = S["s-open"].a, b = S["s-open"].b;
+  at("#o-cred", a + 0.3, 0.9, { o: [0, 1], y: [10, 0] });
+  at(".ow", a + 0.7, 0.9, RISE, { stagger: 0.09 });
+  at("#o-line", a + 1.8, 1.1, { sx: [0, 1] }, { ease: "inout" });
+  at(["#o-cred", "#o-h", "#o-line"], b - 0.7, 0.7, { y: [0, -50], blur: [0, 10] }, { ease: "soft", stagger: 0.04 });
+}
+
+// ---- hero shots: the word rises, the object turns in front of it
+for (const [sc, word, obj, say, from, to] of [["s-orca", "#or-word", "#or-obj", "#or-say", -1.2, 1.3], ["s-plat", "#pl-word", "#pl-obj", "#pl-say", 1.0, -1.2]]) {
+  const a = S[sc].a, b = S[sc].b;
+  at(word, a + 0.1, 1.2, { o: [0, 1], y: [120, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] });
+  at(word, a + 1.3, b - a - 1.3, { s: [1, 1.06] }, { ease: "lin" });
+  at(obj, a + 0.5, 1.4, { o: [0, 1], y: [160, 0] });
+  at(obj, a, b - a, { spin: [from, to] }, { ease: "lin" });
+  at(say, a + 1.6, 0.9, { o: [0, 1], y: [16, 0] });
+}
+
+// ---- ask: captions on the left, the window turning toward us
+{
+  const a = S["s-ask"].a, caps = $$(".ac"), beats = [0.2, 3.0, 6.0, 8.8];
+  caps.forEach((c, i) => {
+    at(c, a + beats[i], 0.8, RISE);
+    if (i < caps.length - 1) at(c, a + beats[i + 1] - 0.35, 0.4, { o: [1, 0], y: [0, -30], blur: [0, 8] }, { ease: "soft" });
+  });
+  at("#win", a, 1.6, { o: [0, 1], x: [160, 0], y: [0, 0], ry: [-30, -20], rx: [8, 6], s: [0.94, 1] });
+  at("#win", a + 1.6, 7.2, { ry: [-20, -12], rx: [6, 4] }, { ease: "soft" });
+  at("#win", a + 8.8, 2.4, { ry: [-12, 0], rx: [4, 0], s: [1, 1.12], x: [0, -30], y: [0, -40] }, { ease: "inout" });
+  at("#ask-note", a + 1.0, 0.8, { o: [0, 1] });
+  at("#q", a + 0.3, 0.3, { o: [0, 1] });
+  at("#q", a + 0.6, 1.6, { type: [0, 1] }, { ease: "lin" });
   $$(".st").forEach((li, i) => {
-    const s = a + 3.1 + i * 0.75;
-    at(li, s, 0.45, { o: [0, 1], y: [10, 0] });
-    at(li.querySelector(".ring"), s, 0.65, { r: [0, 340], o: [1, 1] }, { ease: "lin" });
-    at(li.querySelector(".ring"), s + 0.65, 0.01, { o: [1, 0] }, { ease: "lin" });
-    at(li.querySelector(".fill"), s + 0.62, 0.25, { o: [0, 1], s: [0.6, 1] });
+    const s = a + 3.2 + i * 0.6;
+    at(li, s, 0.4, { o: [0, 1], y: [10, 0] });
+    at(li.querySelector(".ring"), s, 0.55, { r: [0, 330], o: [1, 1] }, { ease: "lin" });
+    at(li.querySelector(".ring"), s + 0.55, 0.01, { o: [1, 0] }, { ease: "lin" });
+    at(li.querySelector(".fill"), s + 0.52, 0.25, { o: [0, 1], s: [0.6, 1] });
   });
-  const r = a + 3.1 + $$(".st").length * 0.75 + 0.2;
-  at("#ans", r, 1.0, { o: [1, 1], clip: [[0, 100, 0, 0], [0, -2, 0, 0]] }, { ease: "inout" });
-  at("#tbl", r + 0.5, 0.6, { o: [0, 1], y: [12, 0] });
-  at(".tr", r + 0.7, 0.5, { o: [0, 1], y: [10, 0] }, { stagger: 0.16 });
-  at("#art", r + 1.4, 0.7, { o: [0, 1], y: [14, 0] });
-  at("#stamp", r + 1.8, 0.6, { o: [0, 1] });
-  at("#hot", r + 2.6, 0.5, { o: [0, 1], s: [1.2, 1] });
-  at("#win", r + 2.4, 2.2, { s: [1, 1.16], y: [0, -200] }, { ease: "inout" });
-  at("#win", S.s2.b - 0.7, 0.7, { x: [0, -260], blur: [0, 10] }, { ease: "inout" });
-  at("#note", S.s2.b - 0.7, 0.4, { o: [1, 0] });
+  at("#ans", a + 6.2, 1.0, { o: [1, 1], clip: [[0, 100, 0, 0], [0, -2, 0, 0]] }, { ease: "inout" });
+  at("#tbl", a + 6.6, 0.6, { o: [0, 1], y: [12, 0] });
+  at(".tr", a + 6.8, 0.5, { o: [0, 1], y: [10, 0] }, { stagger: 0.16 });
+  at("#art", a + 9.0, 0.7, { o: [0, 1], y: [14, 0], s: [0.96, 1] });
+  at("#stamp", a + 9.4, 0.6, { o: [0, 1] });
+  at("#hot", a + 10.6, 0.5, { o: [0, 1], s: [1.25, 1] });
 }
 
-// ---- 3 loop
+// ---- truths
 {
-  const a = S.s3.a, n = $$("#loop .step").length;
-  at("#rail", a + 0.5, 1.2, { sx: [0, 1] }, { ease: "inout" });
-  at("#loop .step", a + 0.7, 0.7, { o: [0.0, 0.3], y: [16, 0] }, { stagger: 0.12 });
-  at("#pulse", a + 1.6, 3.0, { x: [0, (1600 * (n - 1)) / n] }, { ease: "inout" });
-  at("#pulse", a + 1.4, 0.3, { o: [0, 1], s: [0.4, 1] });
-  at("#loop .step", a + 1.6, 0.4, { o: [0.3, 1] }, { stagger: 3.0 / (n - 1) });
-  at("#ret-path", a + 4.7, 1.2, { draw: [1, 0] }, { ease: "inout" });
-  at("#ret-path", a + 4.7, 0.01, { o: [0, 1] });
-  at("#ret-head", a + 5.8, 0.3, { o: [0, 1] });
-  at("#pulse", a + 4.7, 1.2, { o: [1, 0] });
-  at("#loop-note", a + 5.6, 0.8, { o: [0, 1], y: [16, 0] });
-}
-
-// ---- 4 capabilities
-at(".cap", S.s4.a + 0.7, 0.8, { o: [0, 1], y: [30, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] }, { stagger: 0.22 });
-
-// ---- 5, 6, 8 sentences with counts
-for (const id of ["s5", "s6", "s8"]) {
-  const a = S[id].a, lines = $$(`.ln-${id}`);
-  lines.forEach((p, i) => {
-    const s = a + 0.8 + i * 1.15;
-    at(p, s, 0.8, { o: [0, 1], y: [24, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] });
-    const c = p.querySelector(".cnt");
-    if (c) at(c, s, 1.3, { count: [0, Number(c.dataset.to)] });
+  for (const id of ["s-t1", "s-t2", "s-t3", "s-t4"]) at(`#${id} .tl`, S[id].a + 0.1, 0.9, RISE);
+  const a1 = S["s-t1"].a;
+  at(".t1p", a1 + 0.5, 0.8, { o: [0, 1], s: [0.9, 1] }, { stagger: 0.12 });
+  at(".t1l", a1 + 0.9, 1.0, { draw: [1, 0] }, { stagger: 0.12, ease: "inout" });
+  at("#t1-hub", a1 + 0.3, 0.9, { o: [0, 1], s: [0.7, 1] });
+  at("#t1-hub", a1 + 2.0, 0.4, { s: [1, 1.14] }, { ease: "out2" });
+  at("#t1-hub", a1 + 2.4, 0.5, { s: [1.14, 1] }, { ease: "soft" });
+  at("#t1-ping", a1, 0.01, { o: [0, 0] }, { ease: "lin" });
+  at("#t1-ping", a1 + 2.0, 1.0, { o: [1, 0], s: [0.5, 1.7] }, { ease: "out2" });
+  const a2 = S["s-t2"].a;
+  at("#mt2h", a2 + 0.4, 0.5, { o: [0, 1] });
+  at(".mr", a2 + 0.5, 0.5, { o: [0, 1], y: [12, 0] }, { stagger: 0.09 });
+  at("#scan", a2, 0.01, { o: [0, 0] }, { ease: "lin" });
+  at("#scan", a2 + 1.2, 0.01, { o: [0, 1] }, { ease: "lin" });
+  at("#scan", a2 + 1.2, 1.0, { y: [0, 330] }, { ease: "soft" });
+  at("#scan", a2 + 2.2, 0.3, { o: [1, 0] });
+  $$(".mr").forEach((row, i) => {
+    const s = a2 + 1.3 + i * 0.18;
+    at(row.querySelector("td.m i"), s, 0.35, { sx: [0, 1] });
+    at(row.querySelector("td.m .v"), s, 0.2, { o: [1, 0] });
   });
-}
-{
-  const a = S.s6.a, sq = $$("#inst i");
-  at("#inst", a + 0.6, 0.01, { o: [0, 1] }, { ease: "lin" });
-  sq.forEach((q, i) => at(q, a + 3.2 + i * 0.03, 0.2, { o: [i === 0 ? 1 : 0.12, 1] }));
-  sq.forEach((q, i) => i > 0 && at(q, a + 4.6 + (sq.length - i) * 0.025, 0.2, { o: [1, 0.12] }));
-  at(sq[0], a, 0.01, { o: [1, 1] });
+  at("#badge", a2 + 2.2, 0.6, { o: [0, 1], y: [10, 0] });
+  const a3 = S["s-t3"].a;
+  at(".t3", a3 + 0.5, 0.8, { o: [0, 1], y: [40, 0] }, { stagger: 0.18 });
+  at("#t3-prog", a3 + 1.0, 1.8, { sx: [0, 1] }, { ease: "soft" });
+  at("#t3-hand", a3 + 0.9, 2.0, { r: [0, 360] }, { ease: "inout" });
+  at(".t3-bar", a3 + 1.2, 0.5, { sy: [0, 1] }, { stagger: 0.12 });
+  const a4 = S["s-t4"].a;
+  at(".nl", a4 + 0.4, 0.9, { draw: [1, 0], o: [0.35, 0.35] }, { stagger: 0.02, ease: "soft" });
+  at(".nn", a4 + 0.4, 0.4, { o: [0, 0.25], s: [0.4, 1] }, { stagger: 0.015 });
+  at(".nn", a4 + 1.2, 0.35, { o: [0.25, 1] }, { stagger: (i, el) => Number(el.dataset.order) * 0.045 });
+  at("#t4-note", a4 + 1.6, 0.8, { o: [0, 1], y: [12, 0] });
 }
 
-// ---- 7 platform, year by year
+// ---- adoption: one figure at a time
+$$(".sn").forEach((sec) => {
+  const sc = S[sec.id], g = sec.querySelector(".giant"), c = sec.querySelector(".cnt");
+  at(g, sc.a + 0.05, 0.9, { o: [0, 1], s: [0.9, 1], blur: [16, 0] });
+  if (Number(c.dataset.to)) at(c, sc.a + 0.05, 1.2, { count: [0, Number(c.dataset.to)] }, { ease: "out2" });
+  at(sec.querySelector(".say"), sc.a + 0.6, 0.7, { o: [0, 1], y: [14, 0] });
+  at(g, sc.b - 0.45, 0.45, { s: [1, 1.04] }, { ease: "soft" });
+});
+
+// ---- stack: the layers under every answer, pulled apart
 {
-  const a = S.s7.a, step = 1.75, first = a + 1.1;
-  const years = $$(".y-num"), eras = $$(".y-era"), lines = $$(".y-line");
-  years.forEach((_, i) => {
-    const s = first + i * step;
-    for (const set of [years, eras, lines]) {
-      at(set[i], s, 0.55, { o: [0, 1], y: [30, 0] });
-      if (i < years.length - 1) at(set[i], s + step - 0.25, 0.3, { o: [1, 0], y: [0, -24] }, { ease: "inout" });
-    }
-    $$(".meas .row").forEach((row) => {
-      const vals = row.querySelectorAll(".v");
-      at(vals[i], s + 0.1, 0.4, { o: [0, 1], y: [10, 0] });
-      if (i < vals.length - 1) at(vals[i], s + step - 0.2, 0.25, { o: [1, 0] }, { ease: "inout" });
-      const bar = row.querySelector(".track i"), sh = bar.dataset.shares.split(",").map(Number);
-      at(bar, s, 0.9, { sx: [i ? sh[i - 1] : 0, sh[i]] }, { ease: "inout" });
-    });
+  const a = S["s-stack"].a, slabs = $$(".slab");
+  at("#br0", a + 0.1, 0.9, RISE);
+  at("#br0", a + 2.2, 0.01, { o: [1, 0] }, { ease: "lin" });
+  at("#br1", a + 2.2, 0.01, { o: [0, 1] }, { ease: "lin" });
+  slabs.forEach((sl, i) => {
+    at(sl, a + 0.3 + i * 0.12, 0.8, { o: [0, 1], z: [0, 0] });
+    at(sl, a + 1.3, 1.7, { z: [0, i * 120] }, { ease: "inout" });
   });
+  at(".slabel", a + 2.6, 0.7, { o: [0, 1], x: [-20, 0] }, { stagger: 0.12 });
+  at("#stack3d", a + 4.6, 1.4, { s: [1, 1.5], y: [0, -120] }, { ease: "inout" });
+  at(".slabel", a + 4.7, 0.5, { o: [1, 0] }, { ease: "soft" });
 }
 
-// ---- 9 savings
+// ---- runs: a hundred runs, the failures filling in
 {
-  const a = S.s9.a;
+  const a = S["s-runs"].a;
+  swap("s-runs", 0.4, 2.3);
+  at(".grid100 i.g1", a + 0.3, 0.5, { o: [0, 1], s: [0.5, 1] }, { stagger: (i) => ((i % 10) + Math.floor(i / 10)) * 0.025 });
+  at(".grid100 i.f b", a, 0.01, { s: [0, 0] }, { ease: "lin" });
+  at(".grid100 i.f b", a + 2.4, 0.45, { s: [0, 1] }, { stagger: (i) => i * 0.018, ease: "back" });
+}
+
+// ---- code: hand-made pieces snap into one grid
+{
+  const a = S["s-code"].a;
+  swap("s-code", 0.4, 2.0);
+  $$(".blocks i").forEach((el, i) => {
+    const d = el.dataset;
+    at(el, a + 0.2 + (i % 17) * 0.012, 0.5, { o: [0, 1], x: [+d.x0, +d.x0], y: [+d.y0, +d.y0], r: [+d.r0, +d.r0] });
+    at(el, a + 1.9 + (i % 23) * 0.022, 0.9, { x: [+d.x0, +d.x1], y: [+d.y0, +d.y1], r: [+d.r0, 0] }, { ease: "inout" });
+  });
+  at("#code-note", a + 2.9, 0.8, { o: [0, 1], y: [14, 0] });
+}
+
+// ---- review: every commit on the line gets its check
+{
+  const a = S["s-review"].a;
+  swap("s-review", 0.4, 2.2);
+  at("#git-rail", a + 0.3, 1.0, { sx: [0, 1] }, { ease: "inout" });
+  at(".gc", a + 0.5, 0.4, { o: [0, 1], s: [0.5, 1] }, { stagger: 0.04 });
+  at(".gc b.ok", a + 0.9, 0.3, { s: [0, 1] }, { stagger: 0.04, ease: "back" });
+  at(".gc b.late", a, 0.01, { s: [0, 0] }, { ease: "lin" });
+  at(".gc b.late", a + 2.4, 0.35, { s: [0, 1] }, { stagger: 0.06, ease: "back" });
+}
+
+// ---- scale
+{
+  const a = S["s-books"].a;
+  at(".spines i", a + 0.4, 0.6, { sy: [0, 1] }, { stagger: (i) => i * 0.008, ease: "out2" });
+  const t = S["s-ticker"].a;
+  at("#tick", t + 0.05, 2.2, { count: [0, Number($("#tick").dataset.to)] }, { ease: "out2" });
+  at("#tick-say", t + 0.5, 0.7, { o: [0, 1], y: [14, 0] });
+  $$(".pr").forEach((ring, i) => at(ring, t + 0.3 + i * 1.0, 1.4, { o: [1, 0], s: [0.3, 1.3] }, { ease: "out2" }));
+  at(".pr", t, 0.01, { o: [0, 0] }, { ease: "lin" });
+  at("#pb", t + 0.2, 0.4, { s: [0, 1] }, { ease: "back" });
+  const p = S["s-people"].a, from = +$("#ppl").dataset.from, to = +$("#ppl").dataset.to;
+  at("#ppl", p, 0.6, { count: [from, from] }, { ease: "lin" });
+  at("#ppl", p + 1.5, 1.4, { count: [from, to] }, { ease: "soft" });
+  at("#ppl-say", p + 0.4, 0.7, { o: [0, 1], y: [14, 0] });
+  at(".dots160 i", p + 0.2, 0.4, { o: [0, 0.14] }, { stagger: (i) => i * 0.003 });
+  at(".dots160 i.d0", p + 0.6, 0.3, { o: [0.14, 1] }, { stagger: (i) => i * 0.02 });
+  at(".dots160 i.d1", p + 1.5, 0.25, { o: [0.14, 1] }, { stagger: (i) => i * 0.009 });
+  swap("s-people", 0.4, 1.5);
+}
+
+// ---- savings, then the sum
+{
+  const a = S["s-save"].a;
   $$(".mrow").forEach((row, i) => {
-    const s = a + 0.8 + i * 0.75;
-    at(row, s, 0.6, { o: [0, 1], y: [16, 0] });
-    at(row.querySelector(".strike"), s + 0.45, 0.5, { sx: [0, 1] }, { ease: "inout" });
-    at(row.querySelector(".stop"), s + 0.6, 0.4, { o: [1, 0.55] });
-    at([row.querySelector(".arrow"), row.querySelector(".inst2")], s + 0.75, 0.6, { o: [0, 1], x: [-24, 0] }, { stagger: 0.08 });
+    const s = a + 0.7 + i * 0.6;
+    at(row, s, 0.5, { o: [0, 1], y: [16, 0] });
+    at(row.querySelector(".strike"), s + 0.35, 0.45, { sx: [0, 1] }, { ease: "inout" });
+    at(row.querySelector(".stop"), s + 0.5, 0.4, { o: [1, 0.5] });
+    at([row.querySelector(".arrow"), row.querySelector(".inst2")], s + 0.6, 0.5, { o: [0, 1], x: [-24, 0] }, { stagger: 0.08 });
   });
-  at("#close", a + 0.8 + $$(".mrow").length * 0.75 + 0.3, 0.9, { o: [0, 1], y: [20, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] });
+  at("#close", S["s-close"].a + 0.1, 1.0, { o: [0, 1], s: [0.92, 1], blur: [12, 0] });
 }
 
-// ---- 10 diagram
-at("#dia", S.s10.a, S.s10.b - S.s10.a, { s: [0.97, 1.03] }, { ease: "lin" });
+// ---- the whole drawing
+at("#dia", S["s-fits"].a, S["s-fits"].b - S["s-fits"].a, { s: [0.96, 1.04] }, { ease: "lin" });
 
-// ---- 11 end
+// ---- end: both objects, the name
 {
-  const a = S.s11.a;
-  at("#e-h", a + 0.2, 1.0, { o: [0, 1], y: [50, 0], clip: [[0, 0, 100, 0], [-20, -20, -20, -20]] });
-  at("#e-u", a + 1.0, 1.0, { sx: [0, 1] });
-  at("#e-role", a + 1.4, 0.8, { o: [0, 1], y: [16, 0] });
-  at("#e-url", a + 1.9, 0.8, { o: [0, 1], y: [16, 0] });
+  const a = S["s-end"].a;
+  at(["#e-o1", "#e-o2"], a + 0.1, 1.2, { o: [0, 1], y: [80, 0] }, { stagger: 0.15 });
+  at("#e-o1", a, DURATION - a, { spin: [-0.8, 0.6] }, { ease: "lin" });
+  at("#e-o2", a, DURATION - a, { spin: [0.8, -0.6] }, { ease: "lin" });
+  at(["#e-l1", "#e-l2"], a + 0.9, 0.6, { o: [0, 1] }, { stagger: 0.1 });
+  at("#e-name", a + 1.2, 1.0, RISE);
+  at("#e-role", a + 1.7, 0.8, { o: [0, 1], y: [14, 0] });
+  at("#e-url", a + 2.1, 0.8, { o: [0, 1], y: [14, 0] });
 }
-// the last scene holds to the end rather than fading
-for (const k of Object.keys(tracks.get($("#s11")) || {})) tracks.get($("#s11"))[k] = tracks.get($("#s11"))[k].filter((tw) => tw.b !== 0);
+
 window.render = render;
 window.DURATION = DURATION;
-render(0);
+window.ready = (async () => {
+  await document.fonts.ready;
+  try {
+    STAGE = await window.stageObjects(900);
+  } catch (e) {
+    console.error("objects unavailable", e);
+  }
+  render(0);
+})();
 </script>
 </body>
 </html>

@@ -9,6 +9,7 @@ import OrcaDemo from "../components/OrcaDemo.astro";
 import ReelStory from "../components/ReelStory.astro";
 import Diagram from "../components/Diagram.astro";
 import EndCard from "../components/EndCard.astro";
+import ActHead from "../components/ActHead.astro";
 import Icon from "../components/Icon.astro";
 import { profile } from "../lib/profile";
 import { fmtDay } from "../lib/dates";
@@ -19,15 +20,24 @@ const reel = site.showreel;
 const meta = site.pages.showreel;
 if (!reel || !meta) throw new Error("site.showreel and site.pages.showreel are both needed for /showreel");
 const { orca, platform, film } = reel;
+const project = (name: string) => {
+  const p = profile.projects.find((x) => x.name === name);
+  if (!p) throw new Error(`showreel needs the project ${name}`);
+  return p;
+};
+const orcaProject = project("Orca");
+const platformProject = project("Enterprise Data Platform Migration");
 
 const chapters = [
+  { id: "top", label: "Showreel" },
   { id: "orca", label: "Orca" },
   { id: "product", label: "The product" },
   { id: "how", label: "How it works" },
   { id: "does", label: "What it does" },
   { id: "adoption", label: "Adoption" },
   { id: "lean", label: "Running cost" },
-  { id: "platform", label: "The platform" },
+  { id: "platform", label: "The data platform" },
+  { id: "story", label: "2023 to 2026" },
   { id: "scale", label: "Scale" },
   { id: "savings", label: "Savings" },
   { id: "fits", label: "How it fits together" },
@@ -35,17 +45,18 @@ const chapters = [
 ---
 
 <Base title={pageTitle(meta.title)} description={meta.description} path="/showreel" jsonLd={[breadcrumbJsonLd(meta.title, "/showreel")]}>
-  <section class="reel-open wrap" id="orca" aria-labelledby="orca-title">
+  <section class="reel-open wrap" id="top" aria-labelledby="top-title">
     <div class="reel-open-copy" data-arrive>
-      <span class="logo orca-mark big" style="--i:0;--logo:url(/logos/orca.png);--ar:1.049" role="img" aria-label="The Orca mark"></span>
-      <h1 class="title" id="orca-title" style="--i:1">Orca</h1>
-      <p class="lede" style="--i:2">{orca.line}</p>
-      <p class="reel-meta" style="--i:3">{reel.lede} Figures as of {fmtDay(reel.as_of)}.</p>
+      <h1 class="title" id="top-title" style="--i:0">{meta.title}</h1>
+      <div class="reel-open-lede" style="--i:1">
+        <p class="lede">{reel.lede}</p>
+        <p class="reel-meta">Figures as of {fmtDay(reel.as_of)}.</p>
+      </div>
     </div>
     {
       film && (
         <figure class="reel-film" data-film>
-          <video src={film.file} poster={film.poster} width="1920" height="1080" controls muted playsinline preload="none" aria-label={`The Orca showreel as a film. ${film.credit}.`}></video>
+          <video src={film.file} poster={film.poster} width="1920" height="1080" controls muted playsinline preload="none" aria-label={`The showreel as a film: ${film.open}`}></video>
           <figcaption>
             <span class="demo-note">The film. Every figure in it is on this page.</span>
             <a class="draw demo-note" href={film.file} download>Download</a>
@@ -54,6 +65,8 @@ const chapters = [
       )
     }
   </section>
+
+  <ActHead id="orca" title="Orca" line={orca.line} project={orcaProject} />
 
   <section class="beat wrap" id="product" aria-labelledby="product-title">
     <div class="beat-head" data-arrive>
@@ -113,7 +126,9 @@ const chapters = [
     </ul>
   </Beat>
 
-  <Beat id="platform" title="The platform" lede={platform.line}>
+  <ActHead id="platform" title="The data platform" line={platform.line} project={platformProject} />
+
+  <Beat id="story" title="2023 to 2026">
     <ReelStory />
   </Beat>
 

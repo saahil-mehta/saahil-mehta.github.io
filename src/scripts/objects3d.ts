@@ -470,3 +470,48 @@ export async function initObjects(): Promise<void> {
   });
   kick();
 }
+
+/**
+ * The film's product shots (scripts/make_film.py). Builds one renderer at `size` in the dark scheme
+ * and returns a function that draws a system's object, turned to `angle` radians, into a canvas.
+ * The angle is the only input, so a frame seeked twice draws the same picture.
+ */
+export async function stageObjects(size: number): Promise<(slug: string, angle: number, target: HTMLCanvasElement) => void> {
+  THREE ??= await import("three");
+  const T = THREE;
+  const box = await rounded(T);
+  scheme = "dark";
+  buildMaterials(T, scheme);
+  const r = new T.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+  r.setPixelRatio(1);
+  r.setSize(size, size, false);
+  r.setClearColor(0x000000, 0);
+  r.shadowMap.enabled = true;
+  r.shadowMap.type = T.PCFShadowMap;
+  r.toneMapping = T.ACESFilmicToneMapping;
+  r.toneMappingExposure = 1.0;
+  r.outputColorSpace = T.SRGBColorSpace;
+  renderer = r;
+  setupScene(T);
+  const built = new Map<string, { pivot: THREE_NS.Group; base: number }>();
+  return (slug, angle, target) => {
+    let b = built.get(slug);
+    if (!b) {
+      const model = MODELS[slug](T, box);
+      const height = normalise(T, model, FILL[slug] ?? 1);
+      const pivot = new T.Group();
+      pivot.add(model);
+      b = { pivot, base: 0.86 - height / 2 };
+      pivot.position.y = b.base;
+      built.set(slug, b);
+    }
+    b.pivot.rotation.y = angle;
+    if (floor) floor.position.y = b.base;
+    scene!.add(b.pivot);
+    r.render(scene!, camera!);
+    scene!.remove(b.pivot);
+    const ctx = target.getContext("2d")!;
+    ctx.clearRect(0, 0, target.width, target.height);
+    ctx.drawImage(r.domElement, 0, 0, target.width, target.height);
+  };
+}

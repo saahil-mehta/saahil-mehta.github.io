@@ -578,7 +578,7 @@ site:
       - {from: plan, to: core, label: sets the roadmap for everything below}
   showreel:
     as_of: "2026-10-26"
-    lede: "Orca and the data platform under it: what I built at South Pole, how it works and what it changed."
+    lede: "Two systems I built at South Pole: Orca, the company's AI assistant, and the governed data platform every answer runs on."
     orca:
       line: "South Pole's enterprise AI assistant. I designed and built it, and it opened to the whole company in June 2026."
       demo:
@@ -624,7 +624,7 @@ site:
         - "Offering Orca to every employee costs about 12 EUR a person a month, hosting and models together."
         - "Its hosting emitted about 1.5 kg CO₂e in September, roughly a 9 km drive in a petrol car."
     platform:
-      line: "The governed platform under Orca. My team and I rebuilt it while it stayed in daily use."
+      line: "The governed data platform every team and Orca read from. My team and I rebuilt it from 2023 to 2026 while it stayed in daily use."
       eras:
         - {year: "2023", name: Inherited, line: "Infrastructure changed by hand, half of pipeline changes skipped review, and nothing tracked whether runs succeeded."}
         - {year: "2024", name: Stabilised, line: "We wrote the standards for marts, pull requests and review, and repaired the failing runs."}
@@ -652,24 +652,30 @@ site:
         - {stopped: BI copilot and automation tools, instead: Orca, amount: "About 20k EUR a year", state: Avoided}
       money_note: "About 150k EUR a year banked or avoided. GCP logging and monitoring cost about 710 EUR over the last twelve months."
     film:
-      file: /showreel/orca-showreel.mp4
-      poster: /showreel/orca-showreel.webp
-      credit: Designed and built by Saahil Mehta
+      file: /showreel/showreel.mp4
+      poster: /showreel/showreel.webp
+      open: "An AI assistant, and the platform under it."
+      orca_line: "South Pole's AI assistant, open to the whole company since June 2026."
+      ask: ["Ask a question.", "It plans the work.", "It reads the data as you.", "And hands you the deck."]
+      truths:
+        - {line: "It knows South Pole.", parts: [Live data, Documents, Mail, Business definitions]}
+        - {line: "It answers as you.", note: "Your access, your masking. Every query logged."}
+        - {line: "It researches, schedules and drafts.", parts: [Deep research, Scheduled runs, Decks and documents]}
+        - {line: "It gets smarter with every definition.", note: "Owners certify what the business means, and every answer reads it."}
       adoption:
-        - {lead: "335 people", text: "signed up since June"}
-        - {lead: "188", text: "used Orca in the last 30 days"}
-        - {lead: "15,227 queries", text: "run as the person asking"}
-        - {lead: "1,648 artefacts", text: "produced, from decks to sheets"}
-      lean:
-        - {lead: "79%", text: "carbon-free energy where it runs"}
-        - {lead: "Two thirds", text: "of what it reads comes from cache"}
-        - {lead: "1 to 30 instances", text: "under load, and back to one"}
-        - {lead: "About 12 EUR", text: "a person a month, hosting and models"}
-      scale:
-        - {lead: "17.7 TiB", text: "of analytics-ready data"}
-        - {lead: "800,000 queries", text: "a month, one every three seconds"}
-        - {lead: "25 to 160 people", text: "querying the marts, May to October"}
-        - {lead: "2,939 resources", text: "defined in code, from 69 patterns"}
+        - {lead: "335", text: "people signed up since June."}
+        - {lead: "15,227", text: "governed queries, each run as the person asking."}
+        - {lead: "1,648", text: "artefacts made, from decks to sheets."}
+      bridge: ["Under every answer,", "a platform."]
+      stack: [Orca, Orca Semantics, Data marts, Data platform]
+      platform_line: "Rebuilt from 2023 to 2026, while in daily use."
+      runs: {title: "Runs that succeed.", from: "47.7%", to: "99.8%", from_year: "2024", to_year: "2026"}
+      code: {title: "Infrastructure in code.", from_label: "By hand", note: "2,939 resources from 69 reusable patterns.", from_year: "2023", to_year: "2026"}
+      review: {title: "Every change reviewed.", from: "48%", to: "Required", from_year: "2023", to_year: "2026"}
+      books: {lead: "17.7 TiB", text: "of analytics-ready data. The text of 19 million books."}
+      ticker: {lead: "800,000", text: "queries a month. One every three seconds."}
+      people: {from: 25, to: 160, from_label: May, to_label: October, text: "people a month querying the marts."}
+      savings: "Less to pay for."
       close: "About 150k EUR a year banked or avoided."
   pages:
     experience:
@@ -689,7 +695,7 @@ site:
       description: "Live GitHub contribution calendar for saahil-mehta over the last twelve months."
     showreel:
       title: Showreel
-      description: "Orca, South Pole's enterprise AI assistant, and the data platform under it: the product, how it works, adoption, cost, the 2023 to 2026 story and the savings."
+      description: "A showreel of two systems built at South Pole: Orca, an enterprise AI assistant, and the governed data platform it runs on, as a film and in detail."
     resume:
       title: Resume
       description: "Saahil Mehta's resume as a PDF, with download and a link to book a 30-minute call."

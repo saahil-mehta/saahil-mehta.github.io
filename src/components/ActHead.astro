@@ -1,0 +1,30 @@
+---
+// The opening of one act of the showreel: the system's still (which turns as a 3D object where
+// motion is allowed), its name in the title voice and one line. Both acts open the same way, so
+// neither system reads as a footnote to the other.
+import type { Project } from "../lib/profile";
+import { slug, stillFor, stillLightFor } from "../lib/profile";
+
+interface Props {
+  id: string;
+  title: string;
+  line: string;
+  project: Project;
+}
+const { id, title, line, project } = Astro.props;
+---
+
+<section class="act wrap" id={id} aria-labelledby={`${id}-title`}>
+  <div class="still-row act-row" data-arrive>
+    <figure class="still" data-motion="float" data-object={slug(project.name)} style="--i:0">
+      <picture>
+        <source media="(prefers-color-scheme: light)" srcset={stillLightFor(project)} data-still-light />
+        <img src={stillFor(project)} width="1024" height="1024" alt="" loading="lazy" decoding="async" />
+      </picture>
+    </figure>
+    <div class="act-copy">
+      <h2 class="title" id={`${id}-title`} style="--i:1">{title}</h2>
+      <p class="lede" style="--i:2">{line}</p>
+    </div>
+  </div>
+</section>

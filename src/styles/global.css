@@ -1576,25 +1576,22 @@ html:has(.reel-bar) section[id] {
 .orca-mark {
   color: var(--ink);
 }
-.orca-mark.big {
-  height: clamp(2.75rem, 2rem + 2vw, 3.75rem);
-  width: calc(clamp(2.75rem, 2rem + 2vw, 3.75rem) * var(--ar, 1));
-  margin-bottom: 0.5rem;
-}
-
-/* The opening: the name and the product side by side, the product playing. */
+/* The opening: the title and its line on one row, the film beneath at the width of the page. */
 .reel-open {
-  min-height: calc(100svh - var(--topline) - 3rem);
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  padding-block: clamp(2.5rem, 7vh, 5rem);
+  gap: clamp(1.5rem, 4vh, 2.5rem);
+  padding-block: clamp(2rem, 6vh, 4rem) clamp(1rem, 3vh, 2rem);
 }
 .reel-open-copy {
   display: grid;
-  gap: 1rem;
-  justify-items: start;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 1rem clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+.reel-open-lede {
+  display: grid;
+  gap: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 .reel-open .title {
   font-size: clamp(3.5rem, 2rem + 6vw, 6rem);
@@ -1614,10 +1611,29 @@ html:has(.reel-bar) section[id] {
 
 /* The film beside the title. */
 .reel-film {
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   gap: 0.875rem;
   min-width: 0;
+  width: 100%;
+  max-width: max(32rem, calc((100svh - var(--topline) - 17rem) * 16 / 9));
+}
+
+/* An act: the system's still and its name, opening each half of the showreel. */
+.act {
+  padding-top: clamp(4.5rem, 12vh, 8rem);
+}
+.act-row {
+  padding-top: clamp(2.5rem, 6vh, 4rem);
+  border-top: 1px solid var(--line-2);
+}
+.act-copy {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+}
+.act-copy .lede {
+  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
 }
 .reel-film video {
   display: block;
@@ -2236,9 +2252,8 @@ html.js .reel-ticks a[aria-current]::before {
   transform: scaleY(2);
 }
 @media (max-width: 1000px) {
-  .reel-open {
+  .reel-open-copy {
     grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
   }
   .reel-caps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
