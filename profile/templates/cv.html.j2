@@ -71,7 +71,7 @@
 <section>
   <h2>Projects</h2>
   <ul class="projects">
-    {% for p in projects if p.status in ["live", "in_progress"] %}<li><b>{{ p.name }}</b> <span class="meta">({{ p.period }} · {{ p.category }}{% if p.link %} · <a href="{{ p.link }}">{{ p.link.replace('https://', '') }}</a>{% endif %})</span> {{ p.cv_line }}</li>
+    {% for p in projects if p.status in ["live", "in_progress"] and p.get("cv", true) %}<li><b>{{ p.name }}</b> <span class="meta">({{ p.period }} · {{ p.category }}{% if p.link %} · <a href="{{ p.link }}">{{ p.link.replace('https://', '') }}</a>{% endif %})</span> {{ p.cv_line }}</li>
     {% endfor %}
   </ul>
 </section>

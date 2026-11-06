@@ -393,6 +393,27 @@ projects:
       day one.
     site_detail: null
 
+  - name: Oriel
+    org: Personal Project
+    venue: Animated Storytelling Channel · Personal Project
+    period: 2026 - Present
+    status: live
+    category: Side project
+    since: "2026-10"
+    until: null
+    metric: {value: "Live", label: "on YouTube, Instagram and TikTok"}
+    tags: [Animation, Storytelling, Philosophy, Psychology]
+    icon: assets/system-regular-14-article-hover-article.json
+    link: https://oriel-stories.co.uk
+    cv: false  # on the site only, not the CV (Saahil, 2026-11-06)
+    cv_line: "Independent animated storytelling channel that brings philosophy and psychology into everyday life."
+    site_summary: >-
+      I created Oriel, an independent animated storytelling channel that brings philosophy
+      and psychology into everyday life. Its films explore the human experience, drawing on
+      enduring ideas and modern research to help viewers make sense of themselves and the
+      world around them.
+    site_detail: null
+
   - name: Knowsee
     org: Personal Project
     venue: Private AI System for Teams · Personal Project · Paused

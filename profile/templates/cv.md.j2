@@ -19,7 +19,7 @@
 {% endfor %}
 ## Projects
 
-{% for p in projects if p.status in ["live", "in_progress"] %}
+{% for p in projects if p.status in ["live", "in_progress"] and p.get("cv", true) %}
 - **{{ p.name }}** ({{ p.period }}): {{ p.cv_line }}
 {% endfor %}
 

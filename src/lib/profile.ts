@@ -35,6 +35,7 @@ const Project = z.object({
   tags: z.array(z.string()),
   icon: z.string(),
   link: z.string().url().nullable(),
+  cv: z.boolean().optional(), // false keeps a project off the CV (site only)
   cv_line: z.string(),
   site_summary: z.string(),
   site_detail: z.string().nullable(),
