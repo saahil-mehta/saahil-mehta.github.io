@@ -6,6 +6,7 @@ import StillRow from "../components/StillRow.astro";
 import CreditRow from "../components/CreditRow.astro";
 import CommitField from "../components/CommitField.astro";
 import EndCard from "../components/EndCard.astro";
+import OrielWindow from "../components/OrielWindow.astro";
 import Diagram from "../components/Diagram.astro";
 import { profile, featuredProjects, opening } from "../lib/profile";
 import { fmtMonth } from "../lib/dates";
@@ -14,7 +15,8 @@ import { pageTitle, profilePageJsonLd } from "../lib/seo";
 const { site, roles, projects, volunteering, education } = profile;
 const n = site.narrative;
 const featured = new Set(featuredProjects.map((p) => p.name));
-const others = projects.filter((p) => !featured.has(p.name) && p.status !== "paused" && p.status !== "archived");
+// Oriel has its own window further down, so it is not listed again under Work
+const others = projects.filter((p) => !featured.has(p.name) && p.name !== site.oriel?.project && p.status !== "paused" && p.status !== "archived");
 const recentRoles = roles.slice(0, 3);
 const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "present" ? "present" : fmtMonth(end)}`;
 ---
@@ -67,6 +69,8 @@ const when = (start: string, end: string) => `${fmtMonth(start)} to ${end === "p
       {education.slice(0, 1).map((e) => <CreditRow when={e.years ?? ""} title={e.degree} org={`${e.org} · ${e.grade}`} href="/education" />)}
     </ul>
   </Beat>
+
+  <OrielWindow />
 
   <EndCard />
 </Base>

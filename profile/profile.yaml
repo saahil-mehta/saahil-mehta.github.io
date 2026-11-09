@@ -540,6 +540,14 @@ site:
     - {value: 150, prefix: "~", suffix: "k EUR/yr", label: "banked or avoided in the data plan"}
     - {value: 6, prefix: "", suffix: "", label: "direct reports"}
   featured_projects: [Orca, Orca Semantics, Orca Visuals, Data Marts Core]
+  # The Oriel window on the home page: Oriel's own world inside this one (Saahil, 2026-11-09). Its sentence is the
+  # project's site_summary; the links are the channel's public profiles.
+  oriel:
+    project: Oriel
+    links:
+      - {label: YouTube, href: "https://www.youtube.com/@orielstories"}
+      - {label: Instagram, href: "https://www.instagram.com/orielstories"}
+      - {label: TikTok, href: "https://www.tiktok.com/@oriel.stories"}
   narrative:
     statement: "I lead data and AI at South Pole, and I still ship the systems myself."
     statement_key: "still ship the systems myself"

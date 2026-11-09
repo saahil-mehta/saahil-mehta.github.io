@@ -1,0 +1,222 @@
+---
+// The Oriel window: Oriel's own world set into this one (Saahil, 2026-11-09). A full-bleed band in Oriel's palette and
+// painting (Afterglow, rendered for this band by the channel's own script, scripts/wallpaper_fb.py --band in the oriel repo, with the sun at 64% of the width), the lockup in the sky, Saahil's sentence
+// and the links on the water. The one surface on the site that takes another world's colours; the face stays Mona Sans
+// because the sentence is Saahil's own voice. Data: site.oriel and the project it names (profile.yaml).
+import Icon from "./Icon.astro";
+import { profile, orielProject } from "../lib/profile";
+
+const o = profile.site.oriel;
+const p = orielProject;
+---
+
+{
+  o && p && (
+    <section class="oriel" id="oriel" aria-labelledby="oriel-title">
+      {/* loaded with the page, at low priority: Chrome does not start a lazy load behind the window's clip */}
+      <div class="oriel-sky" data-arrive="window" aria-hidden="true">
+        <picture>
+          <source
+            media="(max-width: 759px)"
+            srcset="/oriel/afterglow-tall-640.webp 640w, /oriel/afterglow-tall-960.webp 960w, /oriel/afterglow-tall-1290.webp 1290w"
+            sizes="100vw"
+            width="1290"
+            height="2796"
+          />
+          <img
+            src="/oriel/afterglow-wide-1920.webp"
+            srcset="/oriel/afterglow-wide-1280.webp 1280w, /oriel/afterglow-wide-1920.webp 1920w, /oriel/afterglow-wide-2560.webp 2560w, /oriel/afterglow-wide-3840.webp 3840w, /oriel/afterglow-wide-5120.webp 5120w"
+            sizes="100vw"
+            width="2560"
+            height="1080"
+            alt=""
+            decoding="async"
+            fetchpriority="low"
+          />
+        </picture>
+      </div>
+      <div class="oriel-copy wrap">
+        <div class="oriel-head" data-arrive>
+          <h2 id="oriel-title" style="--i:0">
+            <img class="oriel-lockup" src="/oriel/lockup.svg" alt="Oriel" width="2771" height="1359" loading="lazy" decoding="async" />
+          </h2>
+        </div>
+        <div class="oriel-body" data-arrive>
+          <p class="oriel-line" style="--i:0">{p.site_summary}</p>
+          <div class="oriel-links" style="--i:1">
+            {p.link && (
+              <a class="btn fill oriel-visit" href={p.link} target="_blank" rel="noopener">
+                Visit Oriel <Icon name="arrow-right" size={16} class="arrow" />
+              </a>
+            )}
+            <ul class="oriel-channels" aria-label="Oriel on">
+              {o.links.map((l) => (
+                <li>
+                  <a href={l.href} target="_blank" rel="noopener">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  /* Oriel's palette (brand C) on the channel's own ground: the sea at the foot of the painting continues as the band's
+     background, so the copy can run on past the picture without a seam. The site's tokens are re-pointed inside the
+     band so buttons, links and the focus ring take Oriel's colours in either scheme. */
+  .oriel {
+    --paper: #f3ebdd;
+    --sun: #df9c37;
+    --ink: var(--paper);
+    --ink-2: #ddd2c1;
+    --ink-3: #b9ae9d;
+    --accent: var(--sun);
+    --on-accent: #2b1c12;
+    --hz: 60%; /* the horizon in the painting, as a share of its height */
+    --pic-h: calc(100vw * 1080 / 2560);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: var(--ink);
+    background: rgb(11 22 25);
+    color-scheme: dark;
+  }
+  .oriel-sky {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: -1;
+  }
+  /* a block, so the window's clip measures the painting and not an empty inline box */
+  .oriel-sky picture {
+    display: block;
+  }
+  /* the painting dissolves into the ground at its foot, so the water has no ruled edge where the band runs on */
+  .oriel-sky img {
+    display: block;
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent);
+    mask-image: linear-gradient(to bottom, #000 82%, transparent);
+  }
+
+  /* The lockup sits in the sky; the sentence and links start just under the horizon, on the dark water. */
+  .oriel-copy {
+    display: grid;
+    grid-template-rows: calc(var(--pic-h) * 0.6 + clamp(1.5rem, 3vw, 3.5rem)) auto;
+    padding-bottom: clamp(4.5rem, 8vw, 8rem);
+  }
+  .oriel-head {
+    padding-top: clamp(2.5rem, 5vw, 6rem);
+  }
+  .oriel-head h2 {
+    margin: 0;
+  }
+  .oriel-lockup {
+    display: block;
+    width: clamp(12rem, 24vw, 36rem);
+    height: auto;
+  }
+  .oriel-body {
+    max-width: 32rem;
+  }
+  /* Up to 1279px the sentence would reach the sun's path (the band's sun sits at 64% of the width), so it starts
+     where the water has gone dark. */
+  @media (min-width: 760px) and (max-width: 1279px) {
+    .oriel-copy {
+      grid-template-rows: calc(var(--pic-h) * 0.96) auto;
+    }
+  }
+  .oriel-line {
+    margin: 0;
+    font-size: clamp(1.125rem, 0.95rem + 0.55vw, 1.375rem);
+    font-weight: 430;
+    line-height: 1.55;
+    letter-spacing: -0.008em;
+    text-wrap: pretty;
+  }
+  .oriel-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin-top: clamp(1.5rem, 2.5vw, 2.25rem);
+  }
+  .oriel-visit:hover {
+    background: #f8c77a;
+  }
+  .oriel-channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .oriel-channels a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--ink);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: rgb(243 235 221 / 0.4);
+    transition: color var(--fast), text-decoration-color var(--fast);
+  }
+  .oriel-channels a:hover {
+    color: var(--sun);
+    text-decoration-color: currentColor;
+  }
+  .oriel ::selection {
+    background: var(--sun);
+    color: var(--on-accent);
+  }
+
+  /* Phones: the painting made for a tall screen, horizon lower, the lockup larger in a tall sky. */
+  @media (max-width: 759px) {
+    .oriel {
+      --hz: 66%;
+      --pic-h: calc(100vw * 2796 / 1290);
+      background: rgb(10 21 24); /* the foot of the tall painting */
+    }
+    /* the sun's path runs the full width of a phone, so the sentence starts where the water has gone dark */
+    .oriel-copy {
+      grid-template-rows: calc(var(--pic-h) * 0.9) auto;
+    }
+    .oriel-head {
+      padding-top: 14vw;
+    }
+    .oriel-lockup {
+      width: 62vw;
+    }
+  }
+
+  /* The authored moment: the window opens from a slit at the horizon, as an eye or a shutter does. Settled without
+     script and under reduced motion. */
+  :global(html.js) .oriel [data-arrive="window"] > * {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(calc(var(--hz) - 1.5%) 0 calc(100% - var(--hz) - 1.5%) 0);
+  }
+  :global(html.js) .oriel [data-arrive="window"].in > * {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 1600ms var(--ease-out);
+  }
+  /* the lockup and the sentence come once the window has begun to open, never before it */
+  :global(html.js) .oriel .oriel-head.in > *,
+  :global(html.js) .oriel .oriel-body.in > * {
+    transition-delay: calc(650ms + var(--i, 0) * 70ms);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.js) .oriel [data-arrive="window"] > *,
+    :global(html.js) .oriel [data-arrive="window"].in > * {
+      clip-path: none;
+      transition: none;
+    }
+  }
+</style>

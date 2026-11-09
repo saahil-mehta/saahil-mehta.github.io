@@ -112,6 +112,12 @@ const Profile = z.object({
     og_image: z.string(),
     stats: z.array(z.object({ value: z.number(), prefix: z.string(), suffix: z.string(), label: z.string() })).length(4),
     featured_projects: z.array(z.string()).min(1),
+    oriel: z
+      .object({
+        project: z.string(),
+        links: z.array(z.object({ label: z.string(), href: z.string().url() })).min(1),
+      })
+      .optional(),
     narrative: z.object({
       statement: z.string(),
       statement_key: z.string(),
@@ -251,6 +257,10 @@ export function isoMonth(value: string): string | undefined {
 export const featuredProjects = profile.site.featured_projects
   .map((name) => profile.projects.find((p) => p.name === name))
   .filter((p): p is Project => Boolean(p));
+
+/** The project the Oriel window presents, if the YAML names one. */
+export const orielProject = profile.site.oriel ? profile.projects.find((p) => p.name === profile.site.oriel?.project) : undefined;
+if (profile.site.oriel && !orielProject) throw new Error("site.oriel.project names a project that does not exist");
 
 if (featuredProjects.length !== profile.site.featured_projects.length) {
   throw new Error("site.featured_projects names a project that does not exist");
